@@ -66,7 +66,7 @@ p{margin:0 0 1rem}
 .hamburger{display:none; border:none; background:transparent; color:var(--nav-text); cursor:pointer; width:2.4rem; height:2.4rem; border-radius:8px; font-size:1.6rem; line-height:1}
 @media (max-width:860px){
   .hamburger{display:inline-grid; place-items:center}
-  .nav-links{display:none; position:absolute; left:0; right:0; top:100%; flex-direction:column; align-items:stretch; gap:0; background:var(--nav-bg); box-shadow:var(--nav-shadow); padding:.4rem .6rem .8rem}
+  .nav-links{display:none; position:absolute; left:0; right:0; top:100%; flex-direction:column; align-items:stretch; gap:0; background:var(--bg); border-top:1px solid var(--rule); box-shadow:var(--nav-shadow); padding:.4rem .6rem .8rem}
   .nav-links.open{display:flex}
   .nav-links a{display:block; padding:.75rem .8rem; font-size:1.1rem}
   .nav-links a[aria-current="page"]{border-bottom:none; border-left:3px solid var(--accent); border-radius:8px}
