@@ -2249,7 +2249,12 @@
        "Car je vais encore me casser la gueule."
       ]
      ],
-     "src": "pf"
+     "src": "pf",
+     "music": {
+      "kind": "ia",
+      "yt": "https://www.youtube.com/watch?v=EJr4KC2jq6E",
+      "label": "Maquette chantée"
+     }
     },
     {
      "title": "Du Diable à l’Homme",
@@ -2834,7 +2839,12 @@
        "Sur la fondation des plus solides empires."
       ]
      ],
-     "src": "pf"
+     "src": "pf",
+     "music": {
+      "kind": "ia",
+      "yt": "https://www.youtube.com/watch?v=U1Ou6cdE1Zc",
+      "label": "Maquette « Méditations » (les trois méditations)"
+     }
     },
     {
      "title": "Méditation 2 sur l’Idéal",
@@ -2874,7 +2884,12 @@
        "Et, nettoyé, tu trouveras ton sublime endormi."
       ]
      ],
-     "src": "pf-1"
+     "src": "pf-1",
+     "music": {
+      "kind": "ia",
+      "yt": "https://www.youtube.com/watch?v=U1Ou6cdE1Zc",
+      "label": "Maquette « Méditations » (les trois méditations)"
+     }
     },
     {
      "title": "Méditation 3 sur le Principe de Réalité",
@@ -2951,7 +2966,12 @@
        "La première sagesse commence là."
       ]
      ],
-     "src": "aligné"
+     "src": "aligné",
+     "music": {
+      "kind": "ia",
+      "yt": "https://www.youtube.com/watch?v=U1Ou6cdE1Zc",
+      "label": "Maquette « Méditations » (les trois méditations)"
+     }
     },
     {
      "title": "Le Temps",
@@ -3434,7 +3454,8 @@
      "src": "aligné",
      "music": {
       "kind": "ia",
-      "label": "Maquette chantée, musique générée par IA (lien à venir)"
+      "yt": "https://www.youtube.com/watch?v=W0gOmmTVj7o",
+      "label": "Maquette chantée"
      }
     },
     {

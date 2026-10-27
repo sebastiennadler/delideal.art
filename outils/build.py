@@ -273,14 +273,22 @@ de la poudre de brique issue de mon mal.</p>
 <li><a href="https://www.youtube.com/watch?v=a-SMOUOUEdY" rel="noopener">Re-Pas-Sage</a> · <a href="https://www.youtube.com/watch?v=oufArkLT7kM" rel="noopener">version acoustique</a> · <a href="poemes/re-pas-sage.html">le poème</a></li>
 <li><a href="https://www.youtube.com/watch?v=zSsJ_OX-HS8" rel="noopener">Éclaire mes nuits</a> · <a href="poemes/eclaire-mes-nuits.html">le poème</a></li>
 <li><a href="https://www.youtube.com/watch?v=fShhj3QWdk8" rel="noopener">Noir et Blanc</a> · <a href="poemes/noir-et-blanc.html">le poème</a></li>
-<li><a href="https://www.youtube.com/watch?v=ymVq2wLCgnw" rel="noopener">Chanson de mes démons</a></li>
-<li><a href="https://www.youtube.com/watch?v=jWdzEa7Qd-0" rel="noopener">Si ton tableau est noir</a></li>
-<li><a href="https://www.youtube.com/watch?v=QFCULzpDsJk" rel="noopener">Rage and Hopes</a></li>
+<li><a href="https://www.youtube.com/watch?v=ymVq2wLCgnw" rel="noopener">Chanson de mes démons</a> · <a href="https://www.poeme-france.com/auteur/delideal/texte-162480" rel="noopener">le texte sur poeme-france</a></li>
+<li><a href="https://www.youtube.com/watch?v=jWdzEa7Qd-0" rel="noopener">Si ton tableau est noir</a> <span class="annee">texte inédit</span></li>
+</ul>
+<h2>Autre improvisation</h2>
+<ul class="liens">
+<li><a href="https://www.youtube.com/watch?v=QFCULzpDsJk" rel="noopener">Rage and Hopes</a> — une improvisation au piano, brouillonne et sincère, douze minutes sans intelligence artificielle.</li>
 </ul>
 
 <h2>Maquettes</h2>
 <p>D’autres textes ont été mis en musique avec des outils d’intelligence artificielle : ce sont des <strong>maquettes</strong>, une façon d’entendre ce que ces poèmes pourraient devenir en chanson. Elles sont une porte ouverte : si vous êtes musicienne ou musicien et qu’un de ces textes vous parle, <a href="soutenir.html">écrivez-moi</a>. L’idée est qu’un jour ces chansons soient jouées et chantées par des humains.</p>
-<p class="note">À venir : « Ma muse onirique », « Âme rebelle », « Méditations ».</p>
+<ul class="liens">
+<li><a href="https://www.youtube.com/watch?v=EJr4KC2jq6E" rel="noopener">Marcher sur un fil</a> <span class="etiquette">musique IA</span> · <a href="poemes/marcher-sur-un-fil.html">le poème</a></li>
+<li><a href="https://www.youtube.com/watch?v=W0gOmmTVj7o" rel="noopener">Ma muse onirique</a> <span class="etiquette">musique IA</span> · <a href="poemes/ma-muse-onirique.html">le poème</a></li>
+<li><a href="https://www.youtube.com/watch?v=U1Ou6cdE1Zc" rel="noopener">Méditations</a> <span class="etiquette">musique IA</span> · <a href="poemes/meditation-1-sur-le-silence.html">les trois méditations</a></li>
+<li><a href="https://www.youtube.com/watch?v=F2ozEp0zgEU" rel="noopener">Délirusion</a> <span class="etiquette">musique IA</span></li>
+</ul>
 """),
 "soutenir.html": dict(
   title="Soutenir — Delideal",
