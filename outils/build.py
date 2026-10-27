@@ -12,7 +12,7 @@ from pathlib import Path
 from datetime import date
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261028c"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261028d"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir"), ("a-propos.html", "À propos")]
@@ -101,7 +101,7 @@ De la poudre de brique issue de mon mal.</p>
 <ul class="liens">
 <li><a href="poemes.html">Les poèmes</a></li>
 <li><a href="le-livre.html">Le livre</a></li>
-<li><a href="musique.html">Mises en musique</a></li>
+<li><a href="musique.html">Musique</a></li>
 <li><a href="soutenir.html">Soutenir</a></li>
 </ul>
 """),
@@ -124,15 +124,23 @@ De la poudre de brique issue de mon mal.</p>
 <p class="note">Page en préparation.</p>
 """),
 "musique.html": dict(
-  title="Mises en musique — Delideal",
-  description="Les poèmes de Delideal mis en musique. Textes de l’auteur ; musique et voix générées par intelligence artificielle.",
+  title="Musique — Delideal",
+  description="Une improvisation au piano de l’auteur, et des maquettes de chansons sur ses poèmes.",
   body="""
-<h1 class="titre-fil">Mises en musique</h1>
+<h1 class="titre-fil">Musique</h1>
 <div class="fil" aria-hidden="true"></div>
+
+<section class="panel">
+<h2>Concerto pour hall de gare</h2>
+<p>Une improvisation au piano, jouée et enregistrée par moi-même. Pas d’intelligence artificielle ici : juste un piano et un moment.</p>
+<audio controls preload="none" src="audio/concerto-pour-hall-de-gare.mp3" style="width:100%">Votre navigateur ne lit pas l’audio : <a href="audio/concerto-pour-hall-de-gare.mp3">télécharger le mp3</a>.</audio>
+<p class="source"><a href="audio/concerto-pour-hall-de-gare.mp3" download>Télécharger le mp3</a> (5 min 34, 4,5 Mo) · <a href="https://www.youtube.com/watch?v=gunECfrHhX0" rel="noopener">Voir sur YouTube</a> · à partager librement en me citant.</p>
+</section>
+
+<h2>Maquettes de chansons</h2>
 <p>Les textes sont les miens, écrits bien avant. La musique et la voix de ces enregistrements ont été produites avec des outils d’intelligence artificielle : ce sont des <strong>maquettes</strong>, une façon d’entendre ce que ces poèmes pourraient devenir en chanson.</p>
 <p>Elles sont une porte ouverte : si vous êtes musicienne ou musicien et qu’un de ces textes vous parle, <a href="soutenir.html">écrivez-moi</a>. L’idée est qu’un jour ces chansons soient jouées et chantées par des humains.</p>
 <ul class="liens">
-<li><a href="https://www.youtube.com/watch?v=gunECfrHhX0" rel="noopener">Concerto pour hall de gare</a> <span class="etiquette">musique IA</span></li>
 <li><a href="https://www.youtube.com/watch?v=0cXd1CGXFjQ" rel="noopener">Le cœur assoiffé</a> <span class="etiquette">musique IA</span></li>
 <li><a href="https://youtu.be/a-SMOUOUEdY" rel="noopener">Re-pas-sage</a> <span class="etiquette">musique IA</span></li>
 </ul>
