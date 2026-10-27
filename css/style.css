@@ -81,7 +81,7 @@ main{max-width:var(--mesure); margin:0 auto; padding:2.2rem 1rem 0}
 .panel{background:var(--panel); border:1px solid var(--panel-border); border-radius:18px; padding:1.3rem 1.5rem; margin:1.6rem 0}
 .panel h2{margin-top:0}
 .poeme{margin:0; padding:0; font-style:italic; font-size:1.18rem; line-height:1.55}
-.poeme p{white-space:pre-line; margin:0 0 1rem}
+.poeme p{margin:0 0 1rem}
 .source{font-size:.92rem; color:var(--muted)}
 .liens{list-style:none; padding:0; margin:0}
 .liens li{padding:.35rem 0; border-bottom:1px solid var(--rule)}
@@ -94,3 +94,42 @@ footer{max-width:var(--mesure); margin:4rem auto 0; padding:1.2rem 1rem 2.4rem; 
 footer p{margin:.2rem 0}
 
 @media (max-width:600px){ html{font-size:17.5px} h1{font-size:2.05rem} .panel{padding:1.1rem 1.1rem; border-radius:14px} }
+
+/* ---- Poèmes ---- */
+.partie-label{margin:0 0 .2rem; color:var(--muted); font-size:.95rem}
+.partie-label a{color:var(--muted)}
+.poeme .strophe{margin:0 0 1.35rem; line-height:1.55; font-size:1.12rem}
+.prose p{margin:0 0 1rem}
+.dedicace{font-style:italic}
+.theatre h2{font-size:1.25rem; margin-top:2rem}
+.theatre h3{font-size:1.08rem; margin:1.4rem 0 .5rem; font-style:italic}
+.theatre .didascalie{color:var(--muted); font-style:italic; font-size:.98rem; margin:.6rem 0}
+.theatre .personnage{margin:1rem 0 .1rem; font-weight:500}
+.theatre .replique{margin:0 0 .35rem; padding-left:1.2rem}
+.note-auteur{color:var(--muted); font-size:.95rem; border-left:2px solid var(--rule); padding-left:.9rem; margin:1.5rem 0}
+.source{font-size:.92rem; color:var(--muted)}
+.panel.musique{margin-top:2rem}
+.poeme-nav{display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); font-size:.98rem}
+.poeme-nav .prec,.poeme-nav .suiv{flex:1; min-width:0}
+.poeme-nav .suiv{text-align:right}
+.poeme-nav .sommaire{color:var(--muted); white-space:nowrap}
+@media (max-width:600px){ .poeme-nav{flex-wrap:wrap} .poeme-nav .sommaire{order:3; width:100%; text-align:center; margin-top:.6rem} .poeme-nav .prec,.poeme-nav .suiv{flex-basis:45%} }
+
+/* ---- Sommaire ---- */
+.partie{margin-top:2.6rem}
+.partie h2{margin-top:0}
+.chapeau{color:var(--muted); font-style:italic; margin-bottom:1rem}
+.liste-poemes{list-style:none; padding:0; margin:0; counter-reset:p}
+.liste-poemes li{padding:.4rem 0; border-bottom:1px solid var(--rule); display:flex; align-items:baseline; gap:.6rem}
+.liste-poemes li:last-child{border-bottom:none}
+.liste-poemes li a:first-child{flex:1}
+.liste-poemes .annee{color:var(--muted); font-size:.9rem; white-space:nowrap}
+.liste-poemes.parties li{padding:.5rem 0}
+
+/* ---- Le livre ---- */
+.preface{line-height:1.7}
+.preface .acro{display:block}
+.preface .acro strong{font-weight:500; color:var(--accent)}
+.signature{text-align:right; font-style:italic; color:var(--muted)}
+.citation{font-style:italic}
+.citation + .citation{color:var(--muted); font-style:normal; text-align:right}

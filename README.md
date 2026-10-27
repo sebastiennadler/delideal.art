@@ -17,16 +17,18 @@ Ce README est la **source de vérité** des choix du site. Si une nouvelle instr
 5. La préface d'Isabelle Jespersen (acrostiche BIPOLAIRE) est conservée telle quelle.
 6. Les créations mises en musique par IA (« Ma muse onirique », « Marcher sur un fil », « Méditations »…) sont présentées à part, clairement étiquetées, en second plan par rapport aux textes.
 
-## Structure prévue
+## Structure
 ```
-index.html             accueil
-poemes/                un dossier par thème, une page par poème (date + lien poeme-france)
-le-livre.html          le recueil « Marcher sur un fil » (préface d'Isabelle)
-musique.html           mises en musique (YouTube) — étiquetées IA
-soutenir.html          contributions (Tipeee / Ko-fi…) et contact éditeurs / musiciens
-a-propos.html          l'auteur
+index.html             accueil : entrer dans l'univers, preuves d'antériorité, invitation à soutenir
+poemes.html            sommaire : 6 parties (titres choisis par l'auteur dans ses vers, chapeaux validés)
+poemes/<slug>.html     une page par texte (54) : texte à l'identique, date + lien poeme-france, musique si elle existe
+le-livre.html          dédicace, préface d'Isabelle (acrostiche), ouverture, les six parties
+musique.html           Concerto (piano, mp3), chansons de l'auteur (YouTube @delideal), maquettes IA
+soutenir.html          Tipeee (lien à venir), éditeurs, musiciens, contact
+a-propos.html          à écrire par l'auteur
 mentions-legales.html
-css/style.css  js/theme.js  CNAME  .nojekyll  robots.txt  sitemap.xml
+outils/build.py        GÉNÈRE toutes les pages ; outils/recueil.json = les textes et leur ordre
+css/style.css  js/site.js  audio/  CNAME  .nojekyll  robots.txt  sitemap.xml
 ```
 
 ## Règles de travail (comme pour le site d'Ana)
@@ -37,4 +39,5 @@ css/style.css  js/theme.js  CNAME  .nojekyll  robots.txt  sitemap.xml
 5. Le push vers GitHub se fait avec l'accord explicite de Sébastien.
 
 ## Journal
-- 2026-10-28 : zone DNS OVH reconstituée (4 A + CNAME www), dépôt créé, page d'accueil provisoire.
+- 2026-10-28 : zone DNS OVH reconstituée (4 A + CNAME www), dépôt créé, page d'accueil provisoire ; site en ligne en HTTPS.
+- 2026-10-29 : recueil complet en ligne (54 textes, 6 parties). Titres de parties choisis par l'auteur : Un jour commence / Éclaire mes nuits / Marcher sur un fil / Enfer, mais dans une poésie / Un chemin / Un espace pour aimer et respirer. Sous-titre : « Fragments de sensibilité bipolaire ». Chapeaux validés. Retirés du site : Conclusion, Postface, 4e de couverture, Note au lecteur. « Ma dernière hospitalisation » conservé, une phrase modifiée à la demande de l'auteur (« Le tout dans un secteur sensible. »). Strophes : découpe de poeme-france.com, alignée sur la version du manuscrit.

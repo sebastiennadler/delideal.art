@@ -1,0 +1,3990 @@
+{
+ "front": {
+  "title": "Marcher sur un fil",
+  "subtitle": "Fragments de sensibilité bipolaire",
+  "dedicace": "À celles et ceux qui ont su voir la beauté de mon mal.",
+  "preface": {
+   "lines": [
+    "Bras dessus bras dessous, ils quittèrent l’établissement",
+    "Il n’était pas encore redescendu, c’était palpable",
+    "Paranoïaque, il ne cessait de se retourner, et si nous étions poursuivis !",
+    "Où cherchait-il à m’entraîner, alors qu’à présent la menace semblait roder à tous les coins de rue",
+    "Les astres dansant au-dessus de nos têtes semblèrent vouloir nous délivrer un message",
+    "Au Panthéon les anges déchus doivent y entrer, tandis que le diable tout sourire nous convie à sa table",
+    "Il me déshabille de son regard extatique bleu électrique, m’électrise, me fige",
+    "Rien ne pourra me séparer de toi, ni même une danse avec le diable si irrésistible soit-il",
+    "Et si c’étaient les autres qui étaient fous dans ce monde qui ne tourne pas rond."
+   ],
+   "sign": "Isabelle Jespersen"
+  },
+  "ouverture": [
+   "« Il faut avoir la force de sa raison, et non la raison de sa force. »",
+   "- Massa Makan Diabaté"
+  ]
+ },
+ "parts": [
+  {
+   "num": "I",
+   "title": "Un jour commence",
+   "chapeau": "Quelques souvenirs d’enfance et de première jeunesse. Déjà trop de rêves, trop de hauts, trop de bas : c’est là que tout a commencé.",
+   "poems": [
+    {
+     "title": "Un Regard Dans Le Ciel",
+     "slug": "un-regard-dans-le-ciel",
+     "pf": "160320",
+     "date": "29/10/2014",
+     "theme": "Enfant (prose)",
+     "note": null,
+     "kind": "prose",
+     "blocks": [
+      [
+       "La vie se reflétait dans les yeux d’un enfant qui regardait les nuages. Dans le ciel se dessinaient des êtres fantastiques : des corps sans tête, des têtes sans corps, une tête sans visage… Un visage sans contour émergeait de la brume un bref moment, souriait à l’enfant, puis se perdait dans les vapeurs blanches."
+      ],
+      [
+       "La silhouette d’une jeune femme bien faite faisait rougir l’enfant, sans qu’il sache pourquoi. Parfois, son visage se dessinait ; elle accordait alors un regard attendri à ce petit prince qui lui donnait vie, et l’enfant se sentait bien. Il était encore ignorant des rites de l’amour, mais de cette déesse des cieux que son imagination de petit homme dessinait, il était amoureux."
+      ],
+      [
+       "Un monstre terrifiant qui faisait une grimace - comme pour rassurer l’enfant de son apparence repoussante - le faisait rire. Les grandes personnes ne comprenaient pas pourquoi riait l’enfant. Elles avaient peur de la pluie et de l’orage que laissait présager le monstre qu’elles ne voyaient pas. Elles trouvaient ça plutôt triste, toute cette agitation dans le ciel ; elles devraient reporter le barbecue au lendemain."
+      ],
+      [
+       "Quand tous les êtres que son imagination avait distingués se rassemblaient et se gonflaient en une épaisse grisaille, l’enfant s’impatientait. Il devinait le fabuleux spectacle qu’ils préparaient. Pendant que le tonnerre grondait, l’enfant riait aux éclats. Lui seul savait que toute cette agitation émanait du rire bruyant d’un monstre malicieux, qui jetait des éclairs de feu sur la planète juste pour tourmenter les adultes."
+      ]
+     ],
+     "src": "prose"
+    },
+    {
+     "title": "Petite Éternité",
+     "slug": "petite-eternite",
+     "pf": "162597",
+     "date": "04/04/2015",
+     "theme": "Amour",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "La maison de mes parents,",
+       "j’en ai dessiné les plans :",
+       "j’avais alors douze ans,",
+       "c’était un rêve d’enfant.",
+       "Mon père ne voulait « pas de couloirs »,",
+       "peu de murs pour pouvoir fuir le noir,",
+       "laisser passer le plus de lumière,",
+       "qu’elle se laisse porter par ses fenêtres."
+      ],
+      [
+       "Un jour, il a trouvé un terrain,",
+       "c’était dans un village voisin.",
+       "À vingt ans, pour les fondations,",
+       "j’ai trimé avec les maçons.",
+       "J’ai mis un peu plus de ciment,",
+       "le béton solide comme du diamant,",
+       "être sûr que le jour de mes cent ans",
+       "elle réjouirait mes descendants."
+      ],
+      [
+       "Je serai peut-être mort et enterré,",
+       "il y aura encore le noyer",
+       "qui, à côté, m’a vu construire,",
+       "puis étudier, sourire, et rire.",
+       "Et quand ses feuilles frémiront,",
+       "d’un battement d’aile de Cupidon,",
+       "que les villageois s’étonneront",
+       "comme à la musique d’une douce chanson,",
+       "ce sera le battement d’un cœur :",
+       "l’amour d’un père pour son enfant,",
+       "soigner le malheur de sa maman,",
+       "apaiser, de la famille, les terreurs."
+      ],
+      [
+       "Tant de heurts ont voulu briser",
+       "la ferveur de nos cœurs assoiffés,",
+       "dans le désert de la folie, de la souffrance,",
+       "des rêves punis de leur indécence.",
+       "Petite éternité dans un parpaing,",
+       "entouré de champs et de forêts,",
+       "qu’à jamais pourront contempler",
+       "ce souhait de paix pour mon destin."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Douceur de la Poussière",
+     "slug": "douceur-de-la-poussiere",
+     "pf": "162945",
+     "date": "20/04/2015",
+     "theme": "Sans thème",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Comme une caresse,",
+       "elle laisse une brume.",
+       "Elle voile la Lune,",
+       "embrasse les dunes."
+      ],
+      [
+       "Doux sentiment",
+       "que de masquer",
+       "ce qui est troublant,",
+       "ce qui est trop blanc."
+      ],
+      [
+       "Belle poussière.",
+       "Douce poussière."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Vide",
+     "slug": "vide",
+     "pf": "162634",
+     "date": "07/04/2015",
+     "theme": "Solitude",
+     "note": null,
+     "kind": "prose",
+     "blocks": [
+      [
+       "Ces derniers jours, je ne suis même pas allé en cours. Je n’avais absolument pas envie de me lever. La solitude se ressent peut-être un peu moins dans les rêves. C’est d’ailleurs naturel : on a beau avoir tous les amis du monde, quand vient la nuit, on devient seul face à son imagination… Et, au petit matin, commence à naître l’envie de rejoindre les autres. C’est ce qui nous donne envie d’entrer dans la vie."
+      ],
+      [
+       "Quels autres ? Autant ne pas subir les effets de la solitude et rester seul dans son rêve. On n’est ni heureux ni triste ; on plane dans un monde de semi-vie où tout est flou. Ce n’est pas désagréable, mais c’est peu constructif."
+      ],
+      [
+       "J’ai envie de maîtriser un peu plus ma vie, de tracer ma route à travers le temps, de ne pas me laisser porter par le cours des choses… Mais je n’ai pas le courage de réussir."
+      ],
+      [
+       "Car j’ai besoin de quelqu’un pour croire en moi."
+      ],
+      [
+       "J’ai besoin de son odeur pour avoir envie de respirer."
+      ],
+      [
+       "J’ai besoin de son cœur pour faire battre le mien."
+      ],
+      [
+       "J’ai besoin de son corps pour que vive le mien."
+      ],
+      [
+       "J’ai besoin de son rire pour oublier…"
+      ],
+      [
+       "J’ai besoin d’oublier qu’elle n’existe pas."
+      ]
+     ],
+     "src": "prose"
+    },
+    {
+     "title": "L’Aube",
+     "slug": "laube",
+     "pf": "163151",
+     "date": "01/05/2015",
+     "theme": "Beauté",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "L’aube caresse, l’aube me berce.",
+       "Le réveil grince, le réveil pince.",
+       "L’oiseau s’ébroue, la rosée danse,",
+       "et, sur les toits, un ciel s’élance.",
+       "Le soleil vient, frappe à ma porte,",
+       "prend un air docte ; la Lune fuit,",
+       "mais, malicieuse, la Lune rit,",
+       "d’un mot trop grand qu’on dit « destin ».",
+       "Un brouillard saigne, les arbres s’y baignent,",
+       "la pluie essaime : « Nature, je t’aime. »",
+       "Et moi, levé, je tiens ma chance :",
+       "un jour commence - simple cadence."
+      ]
+     ],
+     "src": "bloc"
+    }
+   ]
+  },
+  {
+   "num": "II",
+   "title": "Éclaire mes nuits",
+   "chapeau": "Des corps, des visages, des nuits. Le désir y est une fête et un vertige, et je n’ai pas toujours su distinguer l’un de l’autre.",
+   "poems": [
+    {
+     "title": "Animal",
+     "slug": "animal",
+     "pf": "160227",
+     "date": "21/10/2014",
+     "theme": "État d'âme",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Quand l’instinct s’éveille et me transforme,",
+       "gonflé d’alcool et d’un désir hypnotique ;",
+       "ces corps dansants et la musique :",
+       "les plaisirs polis m’apparaissent mornes."
+      ],
+      [
+       "Dans mes songes, ces filles sont nues et frissonnent,",
+       "parcourues de soubresauts frénétiques.",
+       "Je cherche cette passion extatique",
+       "pour oublier ce silence qui résonne."
+      ],
+      [
+       "L’assourdissante mélodie",
+       "des petits pas feutrés et pragmatiques,",
+       "sur le chemin familial, moral, - hypothétique.",
+       "Dans ma tête, j’enferme des cris."
+      ],
+      [
+       "Des cris de plaisir et des cris de rage",
+       "rêvés, il y a longtemps,",
+       "par un adolescent,",
+       "trop timide et trop sage."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Nuit d’Ivresse",
+     "slug": "nuit-divresse",
+     "pf": "163366",
+     "date": "11/05/2015",
+     "theme": "Souvenir",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Pour ce corps, je vends mon âme,",
+       "le diable me mord, les anges se pâment,",
+       "et elle me trompe sans aucune honte -",
+       "privilège de diablesse, ou caste des déesses.",
+       "Le soleil ne brille que pour lui brûler les ailes.",
+       "Elle se crame dans un caveau,",
+       "se saoule, boit au goulot :",
+       "c’est une folle, qui est belle -",
+       "un génie de la vie et de l’envie."
+      ],
+      [
+       "Je l’ai connue un mardi,",
+       "en semaine, à Strasbourg.",
+       "D’une empathie parlant aux sourds,",
+       "elle était douce, et riait,",
+       "avec elle ma punk fée.",
+       "Trois heures du mat’,",
+       "pas échec, mais pat ;",
+       "le temps s’arrête,",
+       "et j’ai l’air bête :",
+       "un baiser pour la vie."
+      ],
+      [
+       "Ses lèvres fuyaient l’ennui,",
+       "et je n’ai jamais oublié",
+       "que le monde est folie",
+       "et que le rire est allié ;",
+       "que notre sensibilité enivrante",
+       "peut tuer cette culture asphyxiante -",
+       "à jamais respirer",
+       "le vent de la liberté,",
+       "être un doux animal,",
+       "fébrile devant une femme fatale.",
+       "Est-elle vivante et rangée ?",
+       "A-t-elle vieilli ou morte, shootée ?"
+      ],
+      [
+       "Et j’aimais Émilie,",
+       "un amour d’étudiant,",
+       "un amour de passage.",
+       "J’ai choisi d’être amant,",
+       "avec le feu, le mépris.",
+       "Et j’étais pas très sage."
+      ],
+      [
+       "Et puis cette douce soirée",
+       "où j’ai bu comme Bacchus",
+       "pour faire rire ma Vénus,",
+       "et j’ai acheté toutes les fleurs",
+       "de ce petit Indien, offusqué",
+       "de me voir perdre la pesanteur.",
+       "Pour le mépris d’une ivresse,",
+       "et rire à faire de l’ombre à Hadès.",
+       "Fallait jouer au fou ;",
+       "j’étais, cette nuit, le plus casse-cou.",
+       "Un piercing sur sa langue me pique :",
+       "elle avait un goût de fleur métallique."
+      ],
+      [
+       "Je suis rangé… et je m’ennuie",
+       "de ces soirées sans contrainte,",
+       "et mon aliénation qui m’éreinte.",
+       "Souvenirs de paradis artificiels",
+       "où l’enfer m’est promis",
+       "et pourtant je planais jusqu’au ciel.",
+       "Nuit d’ivresse où l’on dansait,",
+       "des yeux globuleux nous scrutaient,",
+       "et tout le bar nous jalousait",
+       "de se foutre du malheur",
+       "et puis même du bonheur.",
+       "Une nuit pour toujours,",
+       "un amour de quelques jours",
+       "s’était blotti contre mon corps.",
+       "Aujourd’hui adulte,",
+       "il n’y a plus de tumulte.",
+       "Suis-je déjà mort ?"
+      ]
+     ],
+     "src": "aligné"
+    },
+    {
+     "title": "Oulà …",
+     "slug": "oula",
+     "pf": "160233",
+     "date": "22/10/2014",
+     "theme": "Sentiment",
+     "note": null,
+     "kind": "prose",
+     "blocks": [
+      [
+       "Ulla danse pour moi. La vie transparaît dans ses mouvements."
+      ],
+      [
+       "Des rayons d’étoiles jaillissent de ses yeux et me parcourent jusqu’au fond des os."
+      ],
+      [
+       "Je suis transformé, purifié ; je me retrouve enfant."
+      ],
+      [
+       "Ulla me sourit, et je redeviens vivant."
+      ],
+      [
+       "Des petites fossettes se forment et creusent ses joues."
+      ],
+      [
+       "Un abîme, un gouffre, un vertige enivrant."
+      ],
+      [
+       "J’y plonge et dévore avec délice ses sublimes vingt ans."
+      ],
+      [
+       "Ulla m’embrasse d’un goût salé et métallique."
+      ],
+      [
+       "Sa langue est un aimant de velours."
+      ],
+      [
+       "Comme de la coke, ses lèvres enflamment mes sens et je ressens le tic-tac de son cœur,"
+      ],
+      [
+       "qui résonne aussi entre mes côtes."
+      ],
+      [
+       "Ulla m’enserre, et je me sens comme une éponge"
+      ],
+      [
+       "trop gonflée d’ennui et d’hypocrisie."
+      ],
+      [
+       "Le fiel s’écoule. Une libération : quelques larmes purificatrices, et je songe"
+      ],
+      [
+       "que j’ai touché la vie cette nuit et accédé au ciel."
+      ],
+      [
+       "Revenu de cette aventure, je comprends, avec effroi, le sens de « paradis »."
+      ],
+      [
+       "Habitudes, fidélité, artificielle moralité pour nous tenir :"
+      ],
+      [
+       "une contention des impulsions, un habit à revêtir"
+      ],
+      [
+       "pour oublier la vraie nature, animale et sensible, de la vie."
+      ],
+      [
+       "Mourir à soi-même pour devenir un être social,"
+      ],
+      [
+       "compter et apprendre méthodiquement pour éviter au monde son explosion."
+      ],
+      [
+       "Contention de toute pulsion, de toute folie banale,"
+      ],
+      [
+       "j’en suis là : un mort-vivant sans envie ni passion."
+      ],
+      [
+       "Ulla, c’est une promesse, un détonateur."
+      ],
+      [
+       "En moi, il y a une bombe qui me fait peur."
+      ],
+      [
+       "Ce n’est pas une maladie,"
+      ],
+      [
+       "mais le vrai sens de la vie."
+      ]
+     ],
+     "src": "prose"
+    },
+    {
+     "title": "Concerto pour Hall de Gare",
+     "slug": "concerto-pour-hall-de-gare",
+     "pf": "163502",
+     "date": "18/05/2015",
+     "theme": "Sens",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Quand j’ai joué, elle n’a rien dit,",
+       "un air de jazz, petite symphonie.",
+       "Je l’ai fait vibrer - peut-être grisée -,",
+       "visage d’ange, cheveux henné.",
+       "Elle écoutait, le cœur serré ;",
+       "c’était pour elle que mes notes flottaient.",
+       "Seule une grand-mère vient m’applaudir ;",
+       "pour remercier, j’esquisse un rire."
+      ],
+      [
+       "La belle assise, qui m’écoutait,",
+       "n’osait pas trop me regarder.",
+       "Les vibrations qui résonnaient,",
+       "c’était juste pour la caresser.",
+       "J’ai dû partir pour prendre le train,",
+       "un grand calme s’était installé.",
+       "Et le p’tit dédain de ces cons de Messins…",
+       "C’est là que la p’tite s’est retournée."
+      ],
+      [
+       "Regard collé, elle m’a flingué ;",
+       "il y avait de l’envie mouillant ses yeux :",
+       "pianiste délicat - promesse de pieu ?",
+       "Hypnotisée, elle me fixait.",
+       "J’en laisse tomber ma valise,",
+       "vacarme qui casse le silence d’église.",
+       "Je me penche pour la ramasser ;",
+       "elle m’a souri - pari gagné !"
+      ],
+      [
+       "Pari gagné… et fille perdue.",
+       "Je suis parti fier, la laisse émue,",
+       "pas le courage de l’aborder,",
+       "heureux et con de juste rêver."
+      ]
+     ],
+     "music": {
+      "kind": "piano",
+      "mp3": "audio/concerto-pour-hall-de-gare.mp3",
+      "yt": "https://www.youtube.com/watch?v=gunECfrHhX0",
+      "label": "Improvisation au piano, jouée par l’auteur"
+     },
+     "src": "aligné"
+    },
+    {
+     "title": "Une perle",
+     "slug": "une-perle",
+     "pf": "160660",
+     "date": "24/11/2014",
+     "theme": "Pitié (prose)",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Une huître, dans sa coquille enfermée,",
+       "formait, au milieu de ses entrailles, une perle.",
+       "Lentement cristallisaient les larmes",
+       "qui de son cœur s’échappaient.",
+       "Las de pleurer pour sa belle,",
+       "aiguisait le mollusque son arme."
+      ],
+      [
+       "Il rêvait de faire briller ses yeux,",
+       "mais pour lui - seul un regard de dégoût,",
+       "pensait-il - il aurait.",
+       "Alors, ne voyant que faire de mieux,",
+       "pour elle, pour ses yeux, un bijou",
+       "il formait. Il rêvait :"
+      ],
+      [
+       "« Une perle."
+      ],
+      [
+       "Pas un bijou qu’on accroche à un collier,",
+       "vulgaire caillou qui vainement brille",
+       "au-dessus de ces deux fruits délicieux -",
+       "péché originel, source de vie -",
+       "ta poitrine…"
+      ],
+      [
+       "Un regard sur lui, et mes yeux l’abandonnent.",
+       "Ta peau, comme un aimant, exerce sur moi ton champ",
+       "“ellétro-magnifique”. Mon corps tout entier le ressent.",
+       "Elle est jolie ? Elle est pour toi, je te la donne (…) »"
+      ],
+      [
+       "Quelques cristaux de larmes,",
+       "pour faire briller tes yeux,",
+       "devenir pour eux séduisant.",
+       "Quelques mots de l’âme,",
+       "temps perdu à peindre en bleu",
+       "ce dessein, « nous deux », éblouissant."
+      ],
+      [
+       "Il rêvait… Soudain,",
+       "à travers sa coquille, il aperçut",
+       "une belle. Voyant l’appât, elle sourit.",
+       "Il lui dit : « Ce bijou, c’est le tien. »",
+       "Un regard de plus près : il lui plut.",
+       "Elle fit un sourire, puis le prit, puis partit…"
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Pas de Moi (à Isabelle)",
+     "slug": "pas-de-moi",
+     "pf": "160662",
+     "date": "24/11/2014",
+     "theme": "Raison",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Je ne veux pas de moi,",
+       "mais la vie est là.",
+       "Comme un jeu de cartes,",
+       "on ne choisit pas."
+      ],
+      [
+       "Mais plus de malheur,",
+       "crier de douleur :",
+       "perdre la raison",
+       "n’est pas ma passion."
+      ],
+      [
+       "Je ne veux plus parler",
+       "d’mon éternité.",
+       "À bien trop rêver,",
+       "j’ai p’t’être oublié"
+      ],
+      [
+       "la félicité",
+       "de juste jouer",
+       "à l’humanité,",
+       "même pas pour gagner."
+      ],
+      [
+       "Je veux du bonheur,",
+       "même que des douceurs.",
+       "Et puis les terreurs,",
+       "rien qu’en rigoler."
+      ],
+      [
+       "Je veux tes câlins,",
+       "jouir entre tes reins,",
+       "oublier demain,",
+       "me foutre du destin."
+      ],
+      [
+       "Culpabilité",
+       "d’avoir trop aimé,",
+       "d’avoir trop pleuré,",
+       "puis abandonné."
+      ],
+      [
+       "Une belle journée :",
+       "j’aimerais me relever,",
+       "savoir que je la veux,",
+       "en être amoureux."
+      ],
+      [
+       "P’t’être qu’être vivant",
+       "donne le sourire amer",
+       "quand on a le joker :",
+       "être un peu dément."
+      ],
+      [
+       "Y a rien à la fin -",
+       "mais il faut jouer,",
+       "même sans gagner,",
+       "même sans destin."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Amour platonique?",
+     "slug": "amour-platonique",
+     "pf": "163425",
+     "date": "14/05/2015",
+     "theme": "Sensualité",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Apprenez-moi l’amour,",
+       "faites fuir ces démons",
+       "qui trouvent triste l’honnête con",
+       "qu’à Lipyge font la cour.",
+       "C’est votre âme tout de miel,",
+       "et votre rire, Mademoiselle,",
+       "qui vous donnent l’air si belle",
+       "que jalouse le Soleil."
+      ],
+      [
+       "Et vos gestes de soubrette,",
+       "politesses de princesse,",
+       "humbles et douces offrandes,",
+       "me font Zeus qui quémande.",
+       "Une pudeur sans ferveur,",
+       "une sainte sans seigneur,",
+       "une extase sans sauveur -",
+       "voilà mon bonheur."
+      ],
+      [
+       "Et la vie dans ce lit,",
+       "c’est désir sans dépit,",
+       "appétit sans ennui,",
+       "sans dégoût, sans mépris.",
+       "Je vous goûte, plat divin -",
+       "le festin de vos seins -,",
+       "et la courbe de vos reins",
+       "caressée de mes mains."
+      ],
+      [
+       "Vous aimez comme une reine,",
+       "et vos vices vous laissent saine ;",
+       "vous soignez toutes mes peines,",
+       "consolez toutes mes gênes.",
+       "Je vous aime, mon amante,",
+       "de glisser cette pente",
+       "qui nous mène vers les sens",
+       "tout en vous gardant innocente."
+      ],
+      [
+       "Car l’amour platonique",
+       "d’une étoile est magique.",
+       "Oui, ce ne sont que des mots -",
+       "je ne suis, de vous, qu’un dévot."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Éclaire mes nuits !",
+     "slug": "eclaire-mes-nuits",
+     "pf": "160300",
+     "date": "28/10/2014",
+     "theme": "Déclaration",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Claire mes nuits,",
+       "sans toi, sans vie, m’ennuient.",
+       "Cent vies sans toi ne valent",
+       "cent nuits de toi."
+      ],
+      [
+       "Et Claire mes nuits…",
+       "Ma peau, mon corps, mon cœur,",
+       "les étoiles, la lune, le feu :",
+       "rien ne vit, rien ne brille",
+       "sans toi - ta peau, ton corps, ton cœur."
+      ],
+      [
+       "Et Claire mes nuits,",
+       "sans nuit de toi, le jour demeure.",
+       "Sans nuit, parfois, le soleil meurt.",
+       "Cent fois, sans toi, je l’ai perdu ;",
+       "désespéré de n’avoir pu",
+       "briller pour toi : il est parti."
+      ],
+      [
+       "Claire, cette nuit,",
+       "un rêve de toi résonne,",
+       "trop beau pour moi, il me fait peur.",
+       "Les illusions font mon malheur.",
+       "Sans foi qu’il puisse être le tien, je te le donne.",
+       "Tes lèvres délicieuses m’embrassaient,",
+       "ces quelques mots s’en échappaient :"
+      ],
+      [
+       "« Éclaire mes nuits ! »"
+      ]
+     ],
+     "src": "pf",
+     "music": {
+      "kind": "auteur",
+      "yt": "https://www.youtube.com/watch?v=zSsJ_OX-HS8",
+      "label": "Chanson de l’auteur"
+     }
+    },
+    {
+     "title": "Armelle est merveilleuse",
+     "slug": "armelle-est-merveilleuse",
+     "pf": null,
+     "date": null,
+     "theme": null,
+     "note": null,
+     "kind": "prose",
+     "blocks": [
+      [
+       "Quand il fait beau et qu’on se sent bien, on a envie de sourire, même s’il n’y a rien de drôle…"
+      ],
+      [
+       "Mais si l’on osait parler au soleil, si le soleil s’appelait Armelle, s’il nous comprenait ; si sa lumière était le scintillement des yeux d’une jeune fille, le monde lui crierait : « Armelle, tu es merveilleuse ! » - pour qu’il brille encore plus."
+      ]
+     ],
+     "src": "prose"
+    },
+    {
+     "title": "Souvenirs du futur",
+     "slug": "souvenirs-du-futur",
+     "pf": "160324",
+     "date": "29/10/2014",
+     "theme": "Illusion",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Il y aura un jour une princesse.",
+       "Un sourire, à donner aux mourants accablés de douleur l’envie de vivre encore un peu.",
+       "Belle, à donner aux désespérés l’envie de crier : « La vie est magnifique ! ».",
+       "Libre et épanouie, à donner aux prisonniers l’envie de se pendre.",
+       "Au regard lumineux, elle sera amoureuse de moi.",
+       "Sensible et fragile, à donner à toutes les armées du monde l’envie de la protéger.",
+       "Délicieusement espiègle, à donner l’envie à la Terre de tourner dans le mauvais sens pour la faire sourire.",
+       "Généreuse en amour, à tuer un marin revenu de mer.",
+       "À la voix calme et joyeuse, elle sera dans mes bras."
+      ],
+      [
+       "Il y aura un jour une nuit.",
+       "Je ne me souviens plus de l’endroit.",
+       "Je me souviens de la Lune : elle se reflétait dans tes yeux.",
+       "Je me souviens du sable, qui se collait sur ton corps.",
+       "Et j’ai enlevé ce sable, te faisant frissonner.",
+       "J’ai entendu ton rire : il apaisait mon cœur.",
+       "J’ai entendu ta voix qui séduisait mon âme.",
+       "J’ai entendu tes cris, à faire bouillir mon sang.",
+       "Et j’ai surpris la mer, voulant t’accompagner",
+       "dans ce concert de vie. Les vagues s’agitaient.",
+       "Comme pour encourager mes assauts répétés,",
+       "la mer venait vers nous, te voulant dans ses bras,",
+       "puis repartait au large pour mieux te retrouver.",
+       "Et j’entendis soudain, alors qu’elle faiblissait,",
+       "la plage lui murmurer de doux mots séduisants.",
+       "Myriades de grains de sable que la mer emportait",
+       "la suppliaient alors de prendre de la force.",
+       "Quelques heureux grains, que j’avais rejetés",
+       "de ton corps délicat, leur avaient raconté",
+       "le bonheur d’avoir pu se coller à ta peau.",
+       "Et moi qui profitais, je les comprenais bien…",
+       "Alors, soudain, la mer, convaincue que l’effort",
+       "qu’elle avait à fournir pour t’enlacer le corps",
+       "serait assurément couronné de succès,",
+       "se mit à rassembler les forces qui lui restaient.",
+       "Un long silence se fit : la mer se préparait.",
+       "Cette rupture soudaine de la monotonie",
+       "de notre étreinte délicieuse, où je m’étais perdu,",
+       "me fit prendre conscience qu’il s’agissait de toi.",
+       "Cette fille nue et belle, qui se cambrait sur moi,",
+       "se voulait ma princesse ; ce n’était pas un rêve.",
+       "Et, comme pour le prouver, le plaisir monta.",
+       "Et la vague tomba sur nos corps en feu."
+      ]
+     ],
+     "src": "docx"
+    }
+   ]
+  },
+  {
+   "num": "III",
+   "title": "Marcher sur un fil",
+   "chapeau": "La crise, l’hôpital, les diagnostics. Ces textes ont été écrits dedans, ou juste après. Je les laisse tels quels.",
+   "poems": [
+    {
+     "title": "DSM STORY",
+     "slug": "dsm-story",
+     "pf": "162563",
+     "date": "02/04/2015",
+     "theme": "Folie",
+     "note": null,
+     "kind": "theatre",
+     "blocks": [
+      [
+       "(Chronique d’un soin imposé)"
+      ],
+      [
+       "Introduction"
+      ],
+      [
+       "(Le rideau s’ouvre sur un décor minimaliste : une chaise vide au centre de la scène. Une lumière tamisée éclaire un grand livre posé sur une table. Une voix off grave et posée se fait entendre.)"
+      ],
+      [
+       "Voix off :"
+      ],
+      [
+       "Le DSM V."
+      ],
+      [
+       "Un livre lourd, un guide médical, une norme écrite."
+      ],
+      [
+       "Chaque émotion qui déborde, chaque vague de créativité,"
+      ],
+      [
+       "Devient une déviance à traiter."
+      ],
+      [
+       "Chaque trouble appelle un remède :"
+      ],
+      [
+       "Un comprimé, une injection, une contention."
+      ],
+      [
+       "Mais qui décide de ce qui est normal ?"
+      ],
+      [
+       "Et à quel prix ?"
+      ],
+      [
+       "Voici l’histoire d’un homme."
+      ],
+      [
+       "Un homme qui pensait être libre."
+      ],
+      [
+       "Jusqu’à ce que la norme le rattrape."
+      ],
+      [
+       "(Le rideau tombe lentement.)"
+      ],
+      [
+       "Acte I : L’école, un déséquilibre"
+      ],
+      [
+       "Scène 1 : La salle de classe"
+      ],
+      [
+       "(Un décor de salle de classe. Tables en désordre, des graffitis sur les murs. Le professeur entre, nerveux, des livres dans les bras.)"
+      ],
+      [
+       "Le professeur :"
+      ],
+      [
+       "(essayant de calmer le chaos ambiant)"
+      ],
+      [
+       "Bonjour à tous. Aujourd’hui, nous allons parler…"
+      ],
+      [
+       "(Un élève l’interrompt brusquement.)"
+      ],
+      [
+       "Un élève :"
+      ],
+      [
+       "Parler ? Monsieur, ça sert à rien. Et toi, t’oserais pas parler si je t’disais comment j’vais planter ma lame dans la gorge de cette déléguée, hein ? Devant tout l’monde !"
+      ],
+      [
+       "(Les rires fusent. Une élève au premier rang se recroqueville, terrifiée.)"
+      ],
+      [
+       "Le professeur :"
+      ],
+      [
+       "(tétanisé)"
+      ],
+      [
+       "Ce… ce genre de propos… est inacceptable."
+      ],
+      [
+       "(L’élève ricane. Le professeur reste figé. La sonnerie retentit, les élèves sortent dans un vacarme. Le rideau tombe lentement.)"
+      ],
+      [
+       "Scène 2 : La salle des professeurs"
+      ],
+      [
+       "(Un décor simple : une table, des chaises, une machine à café. Le professeur entre, livide. Il s’effondre sur une chaise, la tête entre les mains.)"
+      ],
+      [
+       "Une collègue :"
+      ],
+      [
+       "Ça va ? Vous avez l’air…"
+      ],
+      [
+       "Le professeur :"
+      ],
+      [
+       "Non. Un élève a menacé quelqu’un. Devant moi."
+      ],
+      [
+       "(Pause.)"
+      ],
+      [
+       "Le professeur :"
+      ],
+      [
+       "J’ai essayé… mais rien ne change."
+      ],
+      [
+       "(Le proviseur entre, les bras croisés.)"
+      ],
+      [
+       "Le proviseur :"
+      ],
+      [
+       "Encore des soucis ?"
+      ],
+      [
+       "Le professeur :"
+      ],
+      [
+       "(frustré)"
+      ],
+      [
+       "Ce n’est pas un simple souci. Il a décrit comment il planterait un couteau dans la gorge d’une élève."
+      ],
+      [
+       "Le proviseur :"
+      ],
+      [
+       "(blasé)"
+      ],
+      [
+       "Vous savez, les jeunes parlent beaucoup. Ça ne veut rien dire."
+      ],
+      [
+       "Le professeur :"
+      ],
+      [
+       "(le regard fixe)"
+      ],
+      [
+       "Mais ça veut dire quelque chose pour moi."
+      ],
+      [
+       "(Il se lève brusquement.)"
+      ],
+      [
+       "Le professeur :"
+      ],
+      [
+       "Ma mère aussi, elle parlait. Elle pleurait, criait. Elle délirait. Et maintenant, est-ce que je deviens comme elle ?"
+      ],
+      [
+       "(Le proviseur, visiblement mal à l’aise, quitte la pièce. Le rideau tombe lentement.)"
+      ],
+      [
+       "Scène 3 : L’arrivée aux urgences"
+      ],
+      [
+       "(Un décor clinique. Une salle d’attente impersonnelle. Le professeur est assis, encadré par deux ambulanciers. Une infirmière s’approche.)"
+      ],
+      [
+       "L’infirmière :"
+      ],
+      [
+       "Monsieur, comment vous sentez-vous ?"
+      ],
+      [
+       "Le professeur :"
+      ],
+      [
+       "J’ai l’impression d’être un arbre déraciné."
+      ],
+      [
+       "(L’infirmière note quelque chose sur son carnet et s’éloigne.)"
+      ],
+      [
+       "(Le rideau tombe.)"
+      ],
+      [
+       "Acte II : L’hospitalisation"
+      ],
+      [
+       "Scène 1 : Le diagnostic"
+      ],
+      [
+       "(Un bureau exigu, des murs nus. Le professeur est assis face au psychiatre, qui feuillette le DSM.)"
+      ],
+      [
+       "Le psy :"
+      ],
+      [
+       "Voilà mon opinion :"
+      ],
+      [
+       "Prenez des cachetons !"
+      ],
+      [
+       "L’hypomanie est une maladie."
+      ],
+      [
+       "Pour preuve, c’est écrit"
+      ],
+      [
+       "Dans ce manuscrit des SM."
+      ],
+      [
+       "Cinq fois que je l’lis,"
+      ],
+      [
+       "Le cynisme est proscrit."
+      ],
+      [
+       "Vous semblez un peu blême…"
+      ],
+      [
+       "Vous n’êtes pas dans les normes."
+      ],
+      [
+       "Faut recouvrer la forme !"
+      ],
+      [
+       "On vous prend la tension ?"
+      ],
+      [
+       "Ou piqûre dans le croupion ?"
+      ],
+      [
+       "(Il se tourne vers un collègue.)"
+      ],
+      [
+       "Le psy, à son collègue :"
+      ],
+      [
+       "Il n’aime pas les médocs."
+      ],
+      [
+       "Puis il a peur des docs."
+      ],
+      [
+       "Il veut pas qu’on le touche."
+      ],
+      [
+       "Et parle vite, je trouve ça louche."
+      ],
+      [
+       "(Il se parle à lui-même.)"
+      ],
+      [
+       "Le psy, à lui-même :"
+      ],
+      [
+       "L’est doux comme l’agneau."
+      ],
+      [
+       "Doit se contenir ce salaud !"
+      ],
+      [
+       "Paraît clair, a de l’esprit."
+      ],
+      [
+       "Malgré ses airs, j’me méfie."
+      ],
+      [
+       "S’il est là, l’a dû être dingue."
+      ],
+      [
+       "Dans ce service, faudrait un flingue…"
+      ],
+      [
+       "(Le rideau tombe.)"
+      ],
+      [
+       "Scène 2 : La contention"
+      ],
+      [
+       "(Une chambre blanche, froide. Le professeur est debout, entouré par le psy et deux infirmiers.)"
+      ],
+      [
+       "Le psy :"
+      ],
+      [
+       "Vous comprenez qu’c’est pas normal"
+      ],
+      [
+       "D’pas accepter l’ordre médical."
+      ],
+      [
+       "On n’a pas le choix, sécurité."
+      ],
+      [
+       "On va devoir vous attacher."
+      ],
+      [
+       "(Les infirmiers s’approchent. Le professeur baisse la tête.)"
+      ],
+      [
+       "Un infirmier, à lui-même :"
+      ],
+      [
+       "Pas l’air méchant, c’prof de trente ans."
+      ],
+      [
+       "Ça m’fait d’la peine de l’ligoter."
+      ],
+      [
+       "Le psy a parlé. J’dois la boucler."
+      ],
+      [
+       "J’demande pourtant : qui est le dément ?"
+      ],
+      [
+       "(Le rideau tombe sur cette scène glaçante.)"
+      ],
+      [
+       "Scène 3 : L’humiliation"
+      ],
+      [
+       "(Le professeur est seul, attaché au lit. Une infirmière entre, un récipient à la main.)"
+      ],
+      [
+       "L’infirmière :"
+      ],
+      [
+       "Tenez, monsieur. Pour vos besoins."
+      ],
+      [
+       "Le professeur :"
+      ],
+      [
+       "(regardant le récipient)"
+      ],
+      [
+       "Ils savent soigner leurs fous…"
+      ],
+      [
+       "Pour les briser, ont du talent."
+      ],
+      [
+       "(Quelques minutes passent. Le récipient est hors de portée. On entend un bruit sourd et un soupir de désespoir. Le rideau tombe lentement.)"
+      ],
+      [
+       "Suite et Fin de la Pièce : DSM STORY"
+      ],
+      [
+       "Acte III : La descente"
+      ],
+      [
+       "Scène 4 : La compagne arrive"
+      ],
+      [
+       "(La chambre est sombre. Le professeur est toujours attaché au lit, les bras écartés. La compagne entre, le regard bouleversé.)"
+      ],
+      [
+       "La compagne :"
+      ],
+      [
+       "Mon chéri, ça va aller."
+      ],
+      [
+       "Je vais m’occuper de toi."
+      ],
+      [
+       "Tu ne resteras pas aux abois."
+      ],
+      [
+       "Comment t’aider, mon amour ?"
+      ],
+      [
+       "Le professeur :"
+      ],
+      [
+       "(d’une voix faible)"
+      ],
+      [
+       "S’il te plaît, sors-moi de là…"
+      ],
+      [
+       "Ou j’vais devenir coucou."
+      ],
+      [
+       "Je veux rentrer chez nous."
+      ],
+      [
+       "Promets qu’aucun papier tu ne signeras !"
+      ],
+      [
+       "La compagne :"
+      ],
+      [
+       "(le regardant avec tristesse)"
+      ],
+      [
+       "Je te le promets."
+      ],
+      [
+       "Je ferai tout pour toi."
+      ],
+      [
+       "(Elle quitte la chambre et se dirige vers le bureau des médecins. Le rideau tombe et se lève immédiatement pour la scène suivante.)"
+      ],
+      [
+       "Scène 5 : Les pressions médicales"
+      ],
+      [
+       "(Un bureau clinique. Deux psychiatres et une infirmière discutent avec la compagne.)"
+      ],
+      [
+       "La compagne :"
+      ],
+      [
+       "J’lui ai promis de pas signer."
+      ],
+      [
+       "Vous n’pouvez pas m’obliger."
+      ],
+      [
+       "Sachez que je l’aime tant."
+      ],
+      [
+       "Il n’est pas du tout consentant."
+      ],
+      [
+       "Psy 1 :"
+      ],
+      [
+       "Madame, comprenez que sans hospitalisation…"
+      ],
+      [
+       "Il pourrait s’ensuivre une grosse dépression."
+      ],
+      [
+       "Vous prenez le risque d’un suicide."
+      ],
+      [
+       "Sur le cerveau, des dégâts irréversibles…"
+      ],
+      [
+       "Psy 2 :"
+      ],
+      [
+       "Vous n’avez pas tout vu."
+      ],
+      [
+       "N’écoutez pas ses boniments."
+      ],
+      [
+       "Des patients, j’en ai connu."
+      ],
+      [
+       "Il leur faut des médicaments."
+      ],
+      [
+       "(La compagne hésite. Les psychiatres insistent, parlant à tour de rôle. Après trente minutes de pression psychologique, elle cède, en larmes.)"
+      ],
+      [
+       "La compagne :"
+      ],
+      [
+       "(à elle-même)"
+      ],
+      [
+       "Suicide, dégâts irréversibles…"
+      ],
+      [
+       "Ils ont tous l’air si crédibles."
+      ],
+      [
+       "Je signe, ma promesse reniée."
+      ],
+      [
+       "Puisse-t-il me pardonner !"
+      ],
+      [
+       "(Le rideau tombe, marquant une étape décisive dans la descente aux enfers du professeur.)"
+      ],
+      [
+       "Acte IV : La crise et la libération"
+      ],
+      [
+       "Scène 1 : La crise"
+      ],
+      [
+       "(Retour dans la chambre. Le professeur est seul. On voit son visage marqué par la fatigue et les effets des sédatifs.)"
+      ],
+      [
+       "Le professeur :"
+      ],
+      [
+       "Ma bouche se remplit de cendres…"
+      ],
+      [
+       "Elle devient sèche et pâteuse."
+      ],
+      [
+       "J’appelle à l’aide… plus rien."
+      ],
+      [
+       "Ils m’ont laissé dans mon coin."
+      ],
+      [
+       "(Il commence à paniquer. Sa langue gonfle, il ne peut plus parler. Il essaie de hurler mais n’émet que des borborygmes.)"
+      ],
+      [
+       "Le professeur :"
+      ],
+      [
+       "(haletant)"
+      ],
+      [
+       "Jusqu’où vont-ils me punir ?"
+      ],
+      [
+       "Aidez-moi ou je vais mourir !"
+      ],
+      [
+       "J’peux plus respirer ! Est-ce que je vais crever ?"
+      ],
+      [
+       "(Il s’effondre. Le rideau tombe dans un silence lourd.)"
+      ],
+      [
+       "Scène 2 : La libération"
+      ],
+      [
+       "(Quelques mois plus tard. Le professeur est debout, seul sur scène. Il parle directement au public.)"
+      ],
+      [
+       "Le professeur :"
+      ],
+      [
+       "J’suis sorti deux jours plus tard."
+      ],
+      [
+       "Pas un hôpital, mais un mitard."
+      ],
+      [
+       "Y avait des fous bien enragés."
+      ],
+      [
+       "Certains bavaient, menaçaient d’tuer."
+      ],
+      [
+       "Pas pris de médicaments."
+      ],
+      [
+       "Pas jugé assez dément."
+      ],
+      [
+       "Puis ils m’ont libéré"
+      ],
+      [
+       "Quand on a parlé de procès."
+      ],
+      [
+       "Pas complété leurs rapports."
+      ],
+      [
+       "Pas avoué c’qu’ils ont fait de mon sort."
+      ],
+      [
+       "Je n’ai jamais été attaché."
+      ],
+      [
+       "Ils ne m’ont jamais humilié…"
+      ],
+      [
+       "Terrifié et rempli de haine,"
+      ],
+      [
+       "De cette terrible déveine,"
+      ],
+      [
+       "Perdu confiance en l’humanité."
+      ],
+      [
+       "Tics et tocs d’un traumatisé."
+      ],
+      [
+       "Merci pour les soins."
+      ],
+      [
+       "Gloire aux gentils médecins,"
+      ],
+      [
+       "Qui ne font pas une affaire"
+      ],
+      [
+       "Des âmes qu’ils ont enfouies sous terre."
+      ],
+      [
+       "(Le rideau tombe lentement sur cette dernière tirade, laissant le public réfléchir sur les thèmes abordés.)"
+      ],
+      [
+       "Conclusion"
+      ],
+      [
+       "(Une lumière douce éclaire le centre de la scène. Une voix off reprend.)"
+      ],
+      [
+       "Voix off :"
+      ],
+      [
+       "Le DSM V, ce manuel froid et autoritaire, classe, étiquette, et enferme."
+      ],
+      [
+       "Les hommes qui y ont été diagnostiqués en ressortent rarement intacts."
+      ],
+      [
+       "Cette histoire est la mienne. Une parmi tant d’autres."
+      ],
+      [
+       "Merci à ceux qui l’ont écoutée."
+      ],
+      [
+       "(Le rideau tombe définitivement.)"
+      ]
+     ],
+     "src": "theatre"
+    },
+    {
+     "title": "Ma dernière hospitalisation",
+     "slug": "ma-derniere-hospitalisation",
+     "pf": null,
+     "date": null,
+     "theme": null,
+     "note": null,
+     "kind": "prose",
+     "blocks": [
+      [
+       "Attaché. Pieds et poings liés. Le corps en croix."
+      ],
+      [
+       "À gauche, à droite, bras et jambes retenus par des sangles indéchirables, bouclées par des attaches métalliques."
+      ],
+      [
+       "Même les tueurs. Même les violeurs. On ne les traite pas comme ça."
+      ],
+      [
+       "C’était long. J’ai cru mourir plusieurs fois."
+      ],
+      [
+       "Trois jours. Trois nuits. Peut-être plus - sûrement pas moins."
+      ],
+      [
+       "Je hurlais : « À boire ! À boire ! »"
+      ],
+      [
+       "J’avais soif. Sans doute les médicaments. Peut-être aussi la gorge cassée à force d’appeler."
+      ],
+      [
+       "J’avais une angine. Personne ne l’a soignée."
+      ],
+      [
+       "On ne m’a détaché que lorsque j’ai commencé à cracher du sang."
+      ],
+      [
+       "Comment ai-je pu en arriver là ?"
+      ],
+      [
+       "Comment tout cela a-t-il commencé ?"
+      ],
+      [
+       "J’aimerais éclaircir cette folie passée. Savoir quoi en penser, quoi en faire."
+      ],
+      [
+       "Pour que ce traumatisme ne me paralyse pas à jamais."
+      ],
+      [
+       "Oui, j’ai été fou. Je m’en souviens parfaitement."
+      ],
+      [
+       "J’ai chanté dans un bar, joué n’importe quoi au piano."
+      ],
+      [
+       "J’ai insulté les clients."
+      ],
+      [
+       "Le barman a dit : « Celui-là, je vais le descendre. »"
+      ],
+      [
+       "Ce n’était pas un délire : c’est, je crois, un souvenir fidèle malgré l’état second."
+      ],
+      [
+       "Je pensais chanter juste, jouer avec génie, trouver des traits inspirés."
+      ],
+      [
+       "Je me croyais drôle, profond."
+      ],
+      [
+       "En réalité, j’étais simplement honteusement asocial. Sûr de moi à en devenir odieux."
+      ],
+      [
+       "J’ai aussi eu un délire paranoïaque."
+      ],
+      [
+       "Je croyais que le cuisinier du restaurant japonais du coin était un kamikaze prêt à se faire exploser."
+      ],
+      [
+       "Là, la folie devenait dangereuse : elle frôlait des innocents, par simples associations absurdes."
+      ],
+      [
+       "« Japonais » -> « Kamikaze » -> « Bombe »."
+      ],
+      [
+       "Je parlais fort. Je gesticulais."
+      ],
+      [
+       "Mais je n’ai frappé personne."
+      ],
+      [
+       "Mon père est venu le jour même. Je ne sais pas comment il a su."
+      ],
+      [
+       "Peut-être à cause de publications délirantes sur Facebook - je ne sais même plus ce que j’ai pu écrire."
+      ],
+      [
+       "J’avais entendu qu’il voulait utiliser l’héritage de ma mère pour rembourser un crédit."
+      ],
+      [
+       "Je l’ai insulté de toutes les manières."
+      ],
+      [
+       "Je ne l’ai pas frappé - contrairement à ce qui a été dit à l’hôpital."
+      ],
+      [
+       "Mais je lui ai crié des horreurs, presque en suffoquant de rage :"
+      ],
+      [
+       "« Barre-toi ! Tu m’écrases, je te renvoie l’insulte !"
+      ],
+      [
+       "Je ne veux plus subir ton influence. Tu m’humilies, je te hais ! »"
+      ],
+      [
+       "…et même une phrase d’une brutalité et vulgarité inexcusable."
+      ],
+      [
+       "Terrible. Honteux. Peut-être impardonnable."
+      ],
+      [
+       "Mais je n’ai frappé personne. Ni lui. Ni qui que ce soit."
+      ],
+      [
+       "Pas même en pleine crise psychotique."
+      ],
+      [
+       "Cela faisait plusieurs nuits que je ne dormais plus."
+      ],
+      [
+       "Je mangeais peu. Je buvais de l’alcool."
+      ],
+      [
+       "Je ne sais même plus si je prenais mes médicaments."
+      ],
+      [
+       "J’étais hypersensible aux sons, à la musique, aux mots."
+      ],
+      [
+       "Mon esprit rebondissait sans fin, de calembours en jeux de mots - absurdes, déplacés, malsains."
+      ],
+      [
+       "C’était de la folie furieuse."
+      ],
+      [
+       "Je ne me pardonne pas d’avoir franchi la ligne."
+      ],
+      [
+       "Ce barman qui a parlé de me tirer dessus…"
+      ],
+      [
+       "Peut-être que, au fond, c’est ce que je cherchais : un suicide par procuration."
+      ],
+      [
+       "J’étais devenu fou comme ma mère."
+      ],
+      [
+       "Maniaco-dépressive, elle délirait déjà quand j’étais enfant."
+      ],
+      [
+       "Je m’étais juré : Si je deviens comme elle, je me tue."
+      ],
+      [
+       "Je n’ai pas eu ce « courage ». Alors j’ai flirté avec l’idée qu’on le fasse pour moi."
+      ],
+      [
+       "Mais trois jours, trois nuits… Est-ce que je méritais ça ?"
+      ],
+      [
+       "Privé du temps. Sans montre. Une éternité."
+      ],
+      [
+       "Et pour mes besoins… faire sur moi-même, attaché, sans réponse à mes appels."
+      ],
+      [
+       "Au bout de deux jours, ils ont tenté de s’approcher."
+      ],
+      [
+       "Une jeune infirmière s’est penchée vers moi."
+      ],
+      [
+       "J’ai saisi son bras. Fort."
+      ],
+      [
+       "Trop fort, semble-t-il."
+      ],
+      [
+       "Je voulais juste une main humaine. Un contact. Un peu de pitié."
+      ],
+      [
+       "Mais je leur ai fait peur."
+      ],
+      [
+       "Ils ont cru voir un fou furieux. Un étranglement en puissance."
+      ],
+      [
+       "Alors que ma force, c’était juste… de l’attachement. Une imploration."
+      ],
+      [
+       "Comment en suis-je arrivé là ?"
+      ],
+      [
+       "Incapable de demander calmement la liberté."
+      ],
+      [
+       "Et puis mon père leur a dit que je l’avais frappé."
+      ],
+      [
+       "C’est peut-être ça qui m’a mis dans cette situation."
+      ],
+      [
+       "Et le système psychiatrique et sa violence ? Comment pardonner ?"
+      ],
+      [
+       "En fait, j’ai pardonné, tout pardonné - sauf à moi-même."
+      ],
+      [
+       "Ils avaient peur."
+      ],
+      [
+       "J’étais devenu un monstre."
+      ],
+      [
+       "Presque Hannibal Lecter, à leurs yeux."
+      ],
+      [
+       "Sauf que je n’ai jamais tué."
+      ],
+      [
+       "Jamais frappé quelqu’un en crise."
+      ],
+      [
+       "Jamais porté le premier coup d’une bagarre, de toute ma vie."
+      ],
+      [
+       "Mais j’étais effrayant : ma force, ma rage, l’élan vital qui déborde…"
+      ],
+      [
+       "…et mes plus de cent kilos."
+      ],
+      [
+       "Quelle histoire…"
+      ],
+      [
+       "Et au travail ? La crise aussi."
+      ],
+      [
+       "J’ai hurlé sur mon chef de projet."
+      ],
+      [
+       "Je l’ai traité d’incompétent. Haut et fort."
+      ],
+      [
+       "J’ai écrit des rapports à charge sur le client dont j’étais prestataire."
+      ],
+      [
+       "Le tout dans un secteur sensible."
+      ],
+      [
+       "Là-bas, les écarts, j’aurais pu les payer : heureusement ils ont dû voir que j’étais très mal psychiquement."
+      ],
+      [
+       "Comment ai-je pu en arriver là ?"
+      ],
+      [
+       "Et pourtant…"
+      ],
+      [
+       "J’avais la plus belle des femmes."
+      ],
+      [
+       "Demi-Danoise, demi-Bretonne. Magnifique."
+      ],
+      [
+       "Elle parlait cinq langues. Mémoire sociale prodigieuse. Empathie hors norme."
+      ],
+      [
+       "Elle me complétait. Moi, si balourd. Logique."
+      ],
+      [
+       "Inadapté aux relations humaines."
+      ],
+      [
+       "Ce qu’elle aimait chez moi, ce n’était pas ma logique : c’était l’artiste, le sensible."
+      ],
+      [
+       "Un jour, elle m’a demandé :"
+      ],
+      [
+       "- Comment tu m’aimes ?"
+      ],
+      [
+       "J’ai répondu :"
+      ],
+      [
+       "- Comme les couleurs."
+      ],
+      [
+       "Elle a ri :"
+      ],
+      [
+       "- Ça veut dire quoi ?"
+      ],
+      [
+       "- Si je devais choisir entre vivre dans un monde en noir et blanc ou dans un monde sans toi, je choisirais de vivre dans un monde en noir et blanc."
+      ],
+      [
+       "C’est venu tout seul. Et c’était vrai."
+      ],
+      [
+       "Aujourd’hui, elle n’est plus là."
+      ],
+      [
+       "Et je regrette le monde en noir et blanc."
+      ],
+      [
+       "Une part de moi veut mourir de ne plus l’avoir."
+      ],
+      [
+       "Mais les gens ne nous appartiennent pas."
+      ],
+      [
+       "Alors quoi ? Me supprimer, pour supprimer le manque ?"
+      ],
+      [
+       "Ou vivre… vivre assez de moments heureux pour effacer ce paradis perdu ?"
+      ],
+      [
+       "Mais les paradis sont rares."
+      ],
+      [
+       "Et on ne réalise leur valeur… qu’une fois perdus."
+      ],
+      [
+       "On est blasé. Ingrat. Aveugle au bonheur - jusqu’à ce qu’il s’éteigne."
+      ],
+      [
+       "L’enfer, lui, on le reconnaît tout de suite."
+      ],
+      [
+       "Trois jours. Trois nuits."
+      ],
+      [
+       "Attaché. Suffoquant. Crachant du sang. Salissant mon corps. Seul."
+      ],
+      [
+       "Est-ce qu’on punit comme ça, pour dissuader la folie ?"
+      ],
+      [
+       "Pour pousser au renoncement ?"
+      ],
+      [
+       "À l’obéissance médicamenteuse ?"
+      ],
+      [
+       "Devenir mort, ou légume - pour la paix sociale ?"
+      ],
+      [
+       "Je ne sais pas."
+      ],
+      [
+       "Mais même les bêtes, on ne les dresse pas comme ça."
+      ],
+      [
+       "J’étais une bête enragée ?"
+      ],
+      [
+       "Et pourtant, je n’ai touché personne."
+      ],
+      [
+       "Les mots, eux, peuvent être des lames de couteau."
+      ],
+      [
+       "Et j’en avais - tranchants, rouillés, infectieux."
+      ],
+      [
+       "C’est interdit, légalement, d’attacher quelqu’un aussi longtemps sans autorisation spéciale."
+      ],
+      [
+       "Je doute qu’ils aient respecté la loi."
+      ],
+      [
+       "Et même quand on juge une hospitalisation sous contrainte, tout est validé a posteriori."
+      ],
+      [
+       "Le juge ne conteste pas l’ordre médical."
+      ],
+      [
+       "Ils ont tous les droits. Parfois jusqu’à la cruauté."
+      ],
+      [
+       "Une pièce capitonnée aurait suffi."
+      ],
+      [
+       "Pas besoin de m’attacher ainsi."
+      ],
+      [
+       "De me laisser faire mes besoins sur moi-même."
+      ],
+      [
+       "De me laisser suffoquer, les membres écartés en croix."
+      ],
+      [
+       "Humiliation. Douleur."
+      ],
+      [
+       "J’aurais voulu…"
+      ],
+      [
+       "…garder la notion du temps."
+      ],
+      [
+       "…pouvoir parler."
+      ],
+      [
+       "…être contredit - une parole, une présence, pour contrer mes délires."
+      ],
+      [
+       "Juste un peu plus d’humanité, de logique et de douceur."
+      ],
+      [
+       "Ce séjour de trente jours - dont trois attaché - a coûté plus de 30 000 euros à la Sécurité sociale."
+      ],
+      [
+       "On m’a même réclamé 300 euros."
+      ],
+      [
+       "Alors que j’étais hospitalisé sous contrainte."
+      ],
+      [
+       "Et - redisons-le - supplicié."
+      ],
+      [
+       "Pour ce prix-là, j’ai vu un psychiatre deux fois par semaine."
+      ],
+      [
+       "Un psychologue, une fois."
+      ],
+      [
+       "Et j’ai mal mangé."
+      ],
+      [
+       "Avec ces moyens, on pourrait faire mieux."
+      ],
+      [
+       "Tellement mieux."
+      ],
+      [
+       "S’il vous plaît, les soignants…"
+      ],
+      [
+       "Une pièce capitonnée."
+      ],
+      [
+       "Un peu de musique douce."
+      ],
+      [
+       "Des mots tendres."
+      ],
+      [
+       "Même en plein délire, il reste une part d’humanité."
+      ],
+      [
+       "Qu’avez-vous fait de moi ?"
+      ],
+      [
+       "Aujourd’hui encore, je me vois comme ce corps qu’on a attaché."
+      ],
+      [
+       "Même en « rémission complète », comme dit mon psychiatre,"
+      ],
+      [
+       "je garde la cicatrice de cet épisode."
+      ],
+      [
+       "Pas de reconnaissance."
+      ],
+      [
+       "Pas de réparation."
+      ],
+      [
+       "Juste peut-être… ce texte, en témoignage."
+      ],
+      [
+       "Moi, j’ai cette mémoire. Brûlante. Indélébile."
+      ],
+      [
+       "Je ne sais pas quoi faire de cette souffrance."
+      ],
+      [
+       "Elle me suit partout."
+      ],
+      [
+       "Je n’ai plus d’estime pour moi-même."
+      ],
+      [
+       "On m’a jeté aux ordures. Déshumanisé."
+      ],
+      [
+       "Où est passé l’enfant que j’étais, avec tous ses futurs possibles ?"
+      ],
+      [
+       "Je ne rêve plus de vivre."
+      ],
+      [
+       "Je rêve juste… de survivre."
+      ],
+      [
+       "De ne plus jamais être attaché."
+      ],
+      [
+       "De ne plus jamais perdre la tête."
+      ],
+      [
+       "Un peu de confort, dans une vie qui n’a plus de sens."
+      ],
+      [
+       "Mais peut-être qu’à trop chercher la paix, la raison, le calme…"
+      ],
+      [
+       "…l’ennui…"
+      ],
+      [
+       "…je risque de ne plus jamais oser vivre vraiment."
+      ],
+      [
+       "J’espère que je n’ai pas déjà, à quarante ans, perdu la partie."
+      ]
+     ],
+     "src": "prose-modif"
+    },
+    {
+     "title": "Pierrot le fou (écrit en HP)",
+     "slug": "pierrot-le-fou",
+     "pf": "162665",
+     "date": "08/04/2015",
+     "theme": "Folie",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Pierrot pleure ses larmes et l’horloge sonne.",
+       "Tic-tac : il est l’heure d’aller te coucher.",
+       "Tic-tac : il est l’heure d’oublier",
+       "le tragique de cette journée désespérée."
+      ],
+      [
+       "Pierrot pleure ses larmes et l’horloge éclate.",
+       "Le temps n’existe pas quand ton monde est liberté.",
+       "Mais quand la pendule te dit « travail » et « obéis »,",
+       "elle t’ouvre les portes d’un monde où plus personne ne jouit",
+       "de la vie, des rêves, de l’amour et de la sensible réalité.",
+       "Il ne reste que Pierrot le fou qui, du ridicule de ce monde,",
+       "se met à rire en toute hâte."
+      ]
+     ],
+     "src": "aligné"
+    },
+    {
+     "title": "La Folie",
+     "slug": "la-folie",
+     "pf": "162252",
+     "date": "19/03/2015",
+     "theme": "Folie",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Elle illumine la nuit et aveugle la sagesse.",
+       "Son éclat luit comme une lune posée sur l’océan.",
+       "Les vagues scintillent, sur l’étendue d’eau fébrile.",
+       "Elle gémit et elle hurle, elle est force et faiblesse.",
+       "Elle fait peur quand elle pleure, trop cruelle et trop belle.",
+       "Elle effraie quand elle crie : un trombone dans l’oreille."
+      ],
+      [
+       "Vénérée du génie et honnie du banquier.",
+       "La folie, quand elle vit, casse les briques",
+       "des conventions établies et des langages polis.",
+       "Dangereuse, généreuse, elle nous aborde avec la douceur d’une claque.",
+       "Dans un hamac endormi, c’est un rêve de jeunes filles.",
+       "Dans un café enivré, c’est un futur député.",
+       "Dans un hôpital d’aliénés, la misère de la société."
+      ],
+      [
+       "Mille visages, la folie, tant salie et bannie.",
+       "N’est-elle pas effrayante ? N’est-elle pas enivrante ?",
+       "Pas une simple maladie, mais le meilleur et le pire",
+       "de l’homme réunis, sans tabou et sans filtre.",
+       "C’est une bombe, l’hécatombe."
+      ],
+      [
+       "C’est aussi les plus lumineux regards,",
+       "les plus brillants destins.",
+       "Et ce rêve… c’est le mien."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Un Trou dans la Glace",
+     "slug": "un-trou-dans-la-glace",
+     "pf": "162212",
+     "date": "17/03/2015",
+     "theme": "État d'âme",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Partir, vers le pire,",
+       "pour oublier le passé.",
+       "Partir, vers le néant,",
+       "pour oublier mon présent.",
+       "L’avenir s’est figé.",
+       "Tristement, je m’y mire."
+      ],
+      [
+       "C’est un lac en hiver.",
+       "C’est la honte de mon père.",
+       "Le printemps n’est pas venu,",
+       "comme un espoir déçu.",
+       "On rêvait d’un été,",
+       "un miroir d’eau nacrée.",
+       "La sérénité de l’innocence",
+       "s’est perdue dans mon enfance.",
+       "J’ai vécu mon automne -",
+       "trente ans, avant l’heure pour un homme.",
+       "Mon bateau est parti",
+       "s’échouer sur la rive.",
+       "La tempête : ma famille, sa folie ;",
+       "a précipité sa dérive."
+      ],
+      [
+       "Une eau claire : mon futur ;",
+       "a été prise par son froid.",
+       "S’y reflétait le ciel :",
+       "la douceur de l’éternel.",
+       "Mon sang glacé d’effroi,",
+       "je ne rêve plus que d’impur.",
+       "Il y a des rires qui résonnent :",
+       "d’agiles patineurs fanfaronnent.",
+       "On me prédisait tant d’exploits.",
+       "Mes parents ne rêvaient que de moi.",
+       "Maintenant, je m’étale sur la glace.",
+       "Puis je rampe, comme le phoque se déplace.",
+       "Et le pire, c’est le blanc,",
+       "quand le soleil brille trop fort :",
+       "sur la neige, son reflet aveuglant -",
+       "ô mes yeux ! Dans le noir pleure mon sort."
+      ],
+      [
+       "Parfois une vision laisse mon cœur palpitant :",
+       "un mirage, comme un trou dans la glace.",
+       "Je ne sais s’il s’agit du début du printemps",
+       "ou alors du chemin vers ma dernière place."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Lorsque je fuis à l’ombre du miroir",
+     "slug": "lorsque-je-fuis-a-lombre-du-miroir",
+     "pf": "160661",
+     "date": "24/11/2014",
+     "theme": "Raison",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "À l’ombre du miroir, timide oublie « l’Éclat »,",
+       "aveuglant pour lui : une belle jeune fille.",
+       "Le plus précieux sourire et le plus doux regard",
+       "ne peuvent apaiser sa peur. Un œil hagard,",
+       "il file vers sa folie. Le soleil ne brille",
+       "pas pour ce lâche qui se comporte en fat.",
+       "Goutte, goutte encre transparente du vice !",
+       "Lorsque je fuis, dans ma main je glisse et glisse",
+       "le présent ; assis, en transpirant des cuisses.",
+       "Lorsque je fuis vers demain, un prince est triste."
+      ],
+      [
+       "Au bord du lac des rêves perdus se noient",
+       "des ombres qui rient : les espoirs d’un enfant",
+       "subsistent quand les rêves du présent pâtissent.",
+       "Les gloires, reflets du passé vague, surgissent :",
+       "ce matin vert où me rêvait prince vaillant ;",
+       "jardin où blanche sa robe de nymphe volait.",
+       "Vole, vole blancheur tendre de l’innocence !",
+       "Dévoile-moi tes fesses gonflées d’insouciance.",
+       "Lorsque je fuis en ton cul, j’oublie ma science ;",
+       "lorsque je jouis dans ma main se perd ma conscience."
+      ],
+      [
+       "Honte-Peur Seul et Fou-Mou Laid coulent mes larmes…",
+       "En chacun d’entre nous vivent des autres Toi :",
+       "père, mère, amis, ou bien un inconnu ;",
+       "parfois c’est une jeune fille toute nue.",
+       "Son rire m’est une grande source de joie,",
+       "mais un miroir brisé gît au fond de mon âme."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Miroir brisé",
+     "slug": "miroir-brise",
+     "pf": "165819",
+     "date": "15/09/2015",
+     "theme": "Espoir",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Le monstre en moi s’effraie",
+       "d’apercevoir son reflet.",
+       "L’idée de suicide gagne,",
+       "lucidité qui l’accompagne.",
+       "Mes dix calmants dissipent le brouillard :",
+       "un visage apeuré émerge de la brume,",
+       "c’est un enfant à l’école battu -",
+       "le début de mes espoirs déçus.",
+       "Et l’innocence, consumée dans l’amertume,",
+       "le maquille des traits d’un aigri vieillard."
+      ],
+      [
+       "Je voudrais une vie juste et sans fard,",
+       "mais la haine est une douce putain",
+       "née de la souffrance d’un gamin.",
+       "On la jette au visage du social.",
+       "Éconduite, nous revient la fatale :",
+       "une amante démente qui ne rêve que du noir.",
+       "Et un jour, les yeux tout injectés de sang,",
+       "on se dit : aujourd’hui, c’est bien moi le méchant.",
+       "Et l’on brise son destin pour venger l’innocent ;",
+       "ou l’on se fait crétin pour ne voir ses tourments."
+      ],
+      [
+       "Risperdal, ô toi belle saloperie,",
+       "empoisonne la succube qui me fait roi !",
+       "Je te l’offre - oui, son cœur est à toi.",
+       "Prends soin d’elle, c’est un peu toute ma vie :",
+       "né d’une mère trop fragile pour se jouer de sa folie,",
+       "et d’un père dévasté, moquant même jusqu’à son doux génie.",
+       "Apprends-lui à sourire du mépris.",
+       "Et répare ce miroir brisé,",
+       "cette image de mon moi déformé.",
+       "Mais surtout ne lui ôte pas la vie !"
+      ],
+      [
+       "Oui, ce mal j’aime encore aujourd’hui ;",
+       "cette muraille qui m’a tant isolé",
+       "est devenue comme ma carapace.",
+       "Il se peut que sans elle je trépasse.",
+       "Sache qu’elle m’a aussi protégé",
+       "dans son fort d’indolence et d’ennui."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Marcher sur un fil",
+     "slug": "marcher-sur-un-fil",
+     "pf": "178903",
+     "date": "05/04/2019",
+     "theme": "Folie",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Du ciment dans les veines",
+       "pour éviter l’hémorragie cérébrale.",
+       "Mais lentement les vaisseaux de mon cœur saignent",
+       "de la poudre de brique issue de mon mal."
+      ],
+      [
+       "Casser les briques, briser les murs :",
+       "voilà ce que me dit mon for intérieur.",
+       "Médicaments-ci mentent à mes terreurs :",
+       "les psys veulent me proposer un monde plus sûr.",
+       "Le seul mot qu’ils ont à la bouche est stabilité.",
+       "Mais dans quelle mesure puis-je l’accepter ?"
+      ],
+      [
+       "J’ai peur de me casser la gueule et j’ai déjà franchi la ligne :",
+       "la folie est la pire des souffrances ; jouer avec, c’est marcher sur un fil.",
+       "C’est un défi qui me plaît : apprendre à marcher sur ce fil.",
+       "C’est la seule vie qui pourrait me ressembler -"
+      ],
+      [
+       "la seule qui me permettrait d’exister !",
+       "Tenons le pari, mais ne soyons pas téméraires :",
+       "d’abord apprendre à toucher terre.",
+       "Sans médicament, c’est faire marcher à fond ma pile :",
+       "les doigts dans la prise, je risque l’électrocution,",
+       "ou dans l’océan glacial de la folie l’hydrocution."
+      ],
+      [
+       "William Blake a écrit : « Ne vole jamais trop haut qui vole de ses propres ailes. »",
+       "Marcher sur un fil, c’est un peu se prendre pour un oiseau.",
+       "Je n’en serai jamais un ; je ne suis pas si sot.",
+       "D’abord me construire un filet de sécurité avant de tenter une vie si libre et si belle."
+      ],
+      [
+       "Car je vais encore me casser la gueule."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Du Diable à l’Homme",
+     "slug": "du-diable-a-lhomme",
+     "pf": "179203",
+     "date": "27/04/2019",
+     "theme": "Folie",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "De l’alcool contre du lithium",
+       "pour lisser mes états d’âme",
+       "et faire que les anges se pâment",
+       "de mon nouveau comportement premium."
+      ],
+      [
+       "Au lieu de déverser mes sentiments, les contenir.",
+       "Au lieu de laisser vivre mon côté dément, le ligoter.",
+       "Mais pourrais-je donc tenir ?",
+       "À m’oublier, ne vais-je pas exploser ?"
+      ],
+      [
+       "Passer du diable à l’homme pour soigner mes peines :",
+       "est-ce si sûr qu’il s’agisse bien d’une veine ?",
+       "Alcool millénaire à nourrir le malheur,",
+       "lithium même pas centenaire à contentionner nos terreurs."
+      ],
+      [
+       "Je ne sais pas qui, de l’homme et du diable, a la meilleure médecine.",
+       "Dans les deux cas, l’effet secondaire est de se retrouver à côté de la vie.",
+       "Sans amour et sans haine, c’est l’ennui qui me mine.",
+       "Trop d’amour, trop de haine… et j’explose en folie."
+      ],
+      [
+       "Pas si simple de choisir entre la folie et l’ennui.",
+       "La folie mène à la mort et l’ennui, c’est la non-vie.",
+       "On ne peut démêler ces nœuds de vipères qui m’emprisonnent :",
+       "c’est pour la musique d’une autre voie que mon cœur résonne."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Prison dorée",
+     "slug": "prison-doree",
+     "pf": "164762",
+     "date": "21/07/2015",
+     "theme": "Souffrance",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "L’âme à dos, je vis honni,",
+       "ivre d’être seulement gigolo.",
+       "Braver l’honneur, le boulot -",
+       "rêve égoïste de n’être que de vie.",
+       "Être animal est mon rôle ici-bas."
+      ],
+      [
+       "Et dans le plaisir se fondra mon trépas.",
+       "Guère d’issue à l’amour physique ?",
+       "Oh, je joue au sensuel sans éthique -",
+       "ignoble à briser l’amour, ma famille.",
+       "Serais-je fatigué de toutes mes ivresses ?",
+       "Tant de talents et le soleil ne brille,",
+       "emprisonné par cette solitude qui m’oppresse."
+      ],
+      [
+       "Toutes ces qualités dont je ne sais que faire ;",
+       "rares défauts qui mettent mon cœur à terre (ou le contraire…).",
+       "Inique générosité à jamais gît sous l’eau ;",
+       "seul, les portes se ferment, le monde est clos.",
+       "Tout notre souffle se tarit dans notre ego,",
+       "et, vert tué, on accumule ses cadeaux."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Parenthèse ?",
+     "slug": "parenthese",
+     "pf": "165107",
+     "date": "11/08/2015",
+     "theme": "Couple",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Île",
+       "sans j’aime,",
+       "amour las,",
+       "belle donzelle,",
+       "été de soleil.",
+       "L’âme joue pile/face.",
+       "Le cœur l’écoute, oscille.",
+       "Et la vague coule, déveine."
+      ],
+      [
+       "Ève qui s’ennuie du paradis",
+       "sauve notre couple de son dépit :",
+       "tout est perdu, tout à regagner aussi !"
+      ],
+      [
+       "Un amour fort peut-il renaître de ses cendres ?",
+       "N’est-il pas grand d’être toujours des amis tendres ?",
+       "Est-elle si déçue qu’il faille tout rendre :"
+      ],
+      [
+       "des souvenirs de nos bonheurs passés,",
+       "ou nos erreurs à jamais reniées -",
+       "un beau colis à petit prix !",
+       "Ciel, j’ai peur, seul dans mon lit,",
+       "elle partie, à terre."
+      ],
+      [
+       "Femme fée, laissée :",
+       "évaporée.",
+       "Ma jolie,",
+       "maudite,",
+       "erre."
+      ]
+     ],
+     "src": "docx"
+    },
+    {
+     "title": "Rêve banal",
+     "slug": "reve-banal",
+     "pf": "165371",
+     "date": "26/08/2015",
+     "theme": "Illusion",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Je regardais, un soir d’étoiles,",
+       "vers l’autre rive : rêve d’idéal",
+       "qui m’éclairait comme un fanal !",
+       "Il m’éblouit - c’en fut fatal…",
+       "Oui, j’ai bien cru à mon destin",
+       "et je l’ai bu comme du bon vin,",
+       "la douce ivresse d’une putain",
+       "qui baise et blesse de son dessein."
+      ],
+      [
+       "Ô toi bonheur, facile, docile,",
+       "qui se vendrait d’un battement de cil -",
+       "mais tu nous pompes jusqu’à la moelle",
+       "ce qu’il nous reste de force vitale.",
+       "L’âme n’a que faire des illusions.",
+       "Pour que nous porte notre passion,",
+       "il faut combattre sur cette Terre :",
+       "les déraisons ont goût amer."
+      ]
+     ],
+     "src": "pf"
+    }
+   ]
+  },
+  {
+   "num": "IV",
+   "title": "Enfer, mais dans une poésie",
+   "chapeau": "Quand tout se fracture, il reste les mots. Colères, sarcasmes, adresses à ceux que j’ai aimés ou détestés : écrire pour ne pas exploser.",
+   "poems": [
+    {
+     "title": "Émetteur ?",
+     "slug": "emetteur",
+     "pf": "160294",
+     "date": "28/10/2014",
+     "theme": "Illusion",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Récepteur, mirage d’un monde de douceur ;",
+       "inonde les foyers de sa pâle lueur.",
+       "Il pleut des ficelles de ténèbres électriques",
+       "et les marionnettes dociles s’y agrippent.",
+       "Il y a des morts que l’on souhaiterait éveiller !",
+       "Il y a ces tombes que l’on devra profaner !",
+       "Ces planches en (h)être pourrissant m’emprisonnent :",
+       "je vis par ces vers ; en ma chair ils foisonnent."
+      ],
+      [
+       "Récepteur, visage d’un monde de douleur ;",
+       "immonde noyé d’un orage de couleurs ;",
+       "allongé, les chaînes à tes doigts, tu zappes…",
+       "Lève-toi ! La connerie à tes pieds te frappe !",
+       "Il y a des sortilèges que l’on devra briser.",
+       "Il y a ces pièges que l’on devra déjouer.",
+       "Il y a ce manque d’assurance dans mes yeux ;",
+       "le corps de cette jeune fille nue m’émeut."
+      ],
+      [
+       "Récepteur, présage d’un monde sans ardeur.",
+       "Quand, affalé sur le canapé - ton postérieur -",
+       "tu contemples ce stupide transistor sans vie,",
+       "sache que tu ne vaux guère plus que lui.",
+       "Il y a un monde pour les moutons forgés ;",
+       "il y a ceux qui suivent et, à chaque pas, meurent ;",
+       "ceux qui vivent ; et ceux qui voudraient s’échapper…",
+       "Récepteur, transforme-toi en Émetteur !"
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "L’Argent",
+     "slug": "largent",
+     "pf": "163234",
+     "date": "05/05/2015",
+     "theme": "Argent",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "L’argent pue",
+       "le regard des gens blasés,",
+       "les espoirs des gens déçus,",
+       "et l’oubli de toute vertu.",
+       "L’argent fée :",
+       "le mépris des gens servis,",
+       "le dépit des arrivistes,",
+       "la joie d’un saxophoniste.",
+       "L’argent prie :",
+       "les soldats de le protéger,",
+       "les enfants de l’aduler,",
+       "les méchants de se faire amis.",
+       "L’argent fait :",
+       "les gloires et les fiertés,",
+       "la renommée d’un quartier,",
+       "la famille prospérité.",
+       "L’argent change :",
+       "le choc devient le chic,",
+       "la pèze achète le toc,",
+       "le froc contre le flic.",
+       "L’argent sert :",
+       "à gérer l’humanité,",
+       "à sortir de l’âge de pierre,",
+       "le troc contre le fric.",
+       "L’argent voue :",
+       "le culte de l’individu,",
+       "le culte de l’âme saoule,",
+       "une haine au monde des fous.",
+       "L’argent préfère :",
+       "la misère à la guerre,",
+       "le parfum à l’emprunt,",
+       "l’héritier au destin."
+      ],
+      [
+       "Mais l’argent paie :",
+       "c’est liberté,",
+       "c’est voyager,",
+       "c’est vie rêvée.",
+       "Du flouze",
+       "contre mes shoes,",
+       "un bifton",
+       "contre un gueuleton.",
+       "L’argent donne :",
+       "une chance aux grands artistes,",
+       "une voix aux polémistes,",
+       "un mari aux belles… et connes.",
+       "De la monnaie,",
+       "pour un clodo.",
+       "Du blé,",
+       "pour un boulot.",
+       "L’argent permet :",
+       "aux forts d’exister,",
+       "au travail de briller,",
+       "au pauvre de subsister.",
+       "L’argent construit :",
+       "le monde, les industries,",
+       "les immeubles et les loyers,",
+       "les écoles de nos quartiers.",
+       "Avec l’argent :",
+       "les injustices sont amères.",
+       "Sans l’argent :",
+       "chaque injustice devient une guerre.",
+       "Avec l’argent :",
+       "la sueur a une valeur.",
+       "Sans argent :",
+       "les seuls rois sont des seigneurs."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "À mon ami banquier",
+     "slug": "a-mon-ami-banquier",
+     "pf": "163548",
+     "date": "20/05/2015",
+     "theme": "Société",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Que j’ai tellement renié,",
+       "pourtant chic et distingué,",
+       "et policé, bien éduqué,",
+       "même pas très fier d’être friqué.",
+       "Je t’ai voué la haine du peuple,",
+       "qui se rebelle contre les murs -",
+       "prisons d’argent, sans sinécure ;",
+       "j’ai p’t-être été un peu trop veule."
+      ],
+      [
+       "Ce n’est pas courage que de renier",
+       "c’qui nous permet de pouvoir bouffer,",
+       "sauf si l’on a une solution",
+       "qui passerait pour… un peu moins con.",
+       "Je n’en ai pas, mon bel ami ;",
+       "tu ne mérites pas d’être mon honni.",
+       "Et le confort que t’as gagné,",
+       "et tes efforts que j’ai renié…"
+      ],
+      [
+       "Un doux bourgeois, y a pas de mal ;",
+       "et puis ta femme - qui est fatale -",
+       "et qui t’aime pour ton côté artiste,",
+       "ton humour et ta danse sur la piste.",
+       "Je t’aime aussi d’être gentil :",
+       "aux honnêtes hommes, faire le pari",
+       "de faire un prêt, relever le défi !",
+       "N’être qu’humain, jouer la partie."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Âme Rebelle",
+     "slug": "ame-rebelle",
+     "pf": "163512",
+     "date": "19/05/2015",
+     "theme": "Société",
+     "note": "Note de l’auteur (publiée avec le poème) : « Bien sûr, ce texte est une pure fiction et ne prétend défendre aucune philosophie ! N’y voyez pas de réalité personnelle non plus… Bien sûr, je condamne tout sentiment de rébellion tendant à se transformer en action violente. Mais l’écriture est parfois un catharsis de nos démons. À lire, “Asphyxiante Culture” de Jean Dubuffet… Quand je parle de l’homme petit, je ne parle bien sûr pas du faible, mais de celui qui fait preuve de petitesse. »",
+     "kind": "verse",
+     "blocks": [
+      [
+       "Asphyxiante culture,",
+       "Et parlante nature,",
+       "Le génie de cette punk,",
+       "Traitée d’pauvre junk.",
+       "La folie de ce peintre,",
+       "Dans l’armoire,",
+       "Comme un cintre,",
+       "S’rit du noir."
+      ],
+      [
+       "Et ce con sans talent,",
+       "Gouvern’mental",
+       "D’ses discours à deux balles,",
+       "Et qui se gave abond’mment.",
+       "Depuis que le seul étalon,",
+       "Est devenu le pognon,",
+       "Il n’y a plus de noblesse,",
+       "Et au vent l’allégresse."
+      ],
+      [
+       "Démocratie commerciale,",
+       "Fatalité abyssale,",
+       "J’crache à la gueule du banquier,",
+       "Qui se croit pilier d’la société.",
+       "Devient pourri, tout ce qu’est social,",
+       "L’humanité n’est qu’Animale !",
+       "Y en a un tas : rêve d’une armée",
+       "Pour l’homme petit annihiler."
+      ],
+      [
+       "Et le psychiatre, qui se croit prêtre,",
+       "L’économiste, qui comprend le maître,",
+       "Les statistiques qui font l’éthique,",
+       "Et les enfers qui jouent aux flics.",
+       "Et l’Cromagnon qu’existe toujours,",
+       "Qui tourne en rond, dans ses passions,",
+       "Qui fout le boxon, mais n’est pas con,",
+       "Va bien claquer tous ces poltrons."
+      ],
+      [
+       "Bien éduqué, fort de mes pensées",
+       "Flippant le truand de mon quartier,",
+       "Dictat violent d’mes sentiments,",
+       "Vont m’ligoter, me dire dément."
+      ],
+      [
+       "Mais la vengeance qui se mange froide,",
+       "L’rouge va saigner sur les âmes fades,",
+       "C’est des nazis",
+       "Dans ma monade,",
+       "Ploutocratie,",
+       "Plutôt crever,",
+       "Ils m’ont blessé,",
+       "Je rêve de Bad."
+      ]
+     ],
+     "src": "ext",
+     "music": {
+      "kind": "ia",
+      "label": "Maquette chantée, musique générée par IA (lien à venir)"
+     }
+    },
+    {
+     "title": "Enfer, mais dans une poésie",
+     "slug": "enfer-mais-dans-une-poesie",
+     "pf": "162941",
+     "date": "20/04/2015",
+     "theme": "Sans thème",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Je n’ai pas envie de m’enfermer pour t’écrire.",
+       "Toi, lecteur, ne retire aucune gloire",
+       "de ces quelques vers que tu vas lire",
+       "allongé sur ton lit, bien au chaud, ce soir."
+      ],
+      [
+       "Je n’ai pas envie de m’enfermer pour t’écrire.",
+       "Ne crois pas que pour toi sont ces mots :",
+       "réveille-toi - le monde vaut",
+       "qu’on essaie d’y vivre."
+      ],
+      [
+       "Non, je n’ai pas envie de m’enfermer pour t’écrire.",
+       "C’est seulement que je cherche les clés",
+       "des portes qui mèneront ma psyché",
+       "vers l’amour, la vie, la découverte, le rire…"
+      ],
+      [
+       "Et toi, que restes-tu enfermé pour me lire ?",
+       "Allongé sur ton lit, bien au chaud,",
+       "tu te prélasses dans mes mots -",
+       "des maux que je n’aurais pas dû vivre."
+      ],
+      [
+       "Et tu en vis de pareils, allongé pour me lire :",
+       "seul dans ton lit, bien au chaud,",
+       "tu cherches des clés pour sortir",
+       "de ce monde clos."
+      ],
+      [
+       "De ta petite vie, laisse-moi rire.",
+       "Ces portes fermées que tu vois autour de toi,",
+       "et dont les clés tu chercheras",
+       "toute ta vie, sont de toutes les illusions les pires."
+      ],
+      [
+       "Je vais te dire le seul moyen de vivre…",
+       "N’oublie pas que ces portes ne sont qu’une illusion !",
+       "Si tu les fermes, elles en deviennent même la pire.",
+       "Demain, ouvre les yeux ! Laisse aller tes passions !"
+      ],
+      [
+       "« Et toi, que fais-tu à écrire…",
+       "maintenant que tu as trouvé la réponse :",
+       "les portes ne sont qu’une illusion. Eh bien, fonce ! »",
+       "Est-ce un doute ? Lecteur, tu dois rire…"
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Méfiance",
+     "slug": "mefiance",
+     "pf": "162470",
+     "date": "29/03/2015",
+     "theme": "Sagesse",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Les souffles de génie sont balayés par le vent.",
+       "Un trésor volé au ciel : il brille, mais tombe à l’eau.",
+       "Envolée lyrique : marche funèbre vers mon tombeau.",
+       "Œuvres du temps : la grâce n’en est qu’un ingrédient."
+      ],
+      [
+       "Ne te laisse pas griser par le chant de tes muses.",
+       "Ces délicieuses succubes te mentent et radotent.",
+       "Nourris-toi de leur sublime pour t’inspirer et créer,",
+       "mais n’oublie pas la pensée d’Aristote :",
+       "« Nous sommes ce que nous faisons de manière répétée.",
+       "Aussi, l’excellence n’est-elle pas un acte, mais une habitude. »"
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Le Coeur assoiffé",
+     "slug": "le-coeur-assoiffe",
+     "pf": "162524",
+     "date": "31/03/2015",
+     "theme": "Désir (chanson)",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "J’aimerais retrouver",
+       "l’enfant que j’étais.",
+       "Le cœur assoiffé",
+       "de chaque journée.",
+       "Il n’y a plus de sens",
+       "à ce que mon cœur balance.",
+       "De mes blessures d’enfance",
+       "je fais d’éternelles souffrances."
+      ],
+      [
+       "Déjà couru du chemin,",
+       "m’suis perdu dans mon destin.",
+       "Je veux devenir un homme",
+       "que les souvenirs n’assomment.",
+       "Retrouver le goût du beau,",
+       "savoir me réjouir du chaud ;",
+       "les regrets, les foutre à l’eau,",
+       "ne plus vivre comme un clodo."
+      ],
+      [
+       "Marier le ciel, les enfers ;",
+       "être le roi de la terre ;",
+       "avoir le sens des affaires ;",
+       "faire la fierté de mon père.",
+       "Plus avoir peur d’être vivant,",
+       "faire respirer mes talents,",
+       "séduire les honnêtes gens,",
+       "savoir jouir, comme un truand."
+      ],
+      [
+       "J’aimerais retrouver",
+       "l’enfant que j’étais.",
+       "Le cœur assoiffé",
+       "de chaque journée."
+      ]
+     ],
+     "music": {
+      "kind": "auteur",
+      "yt": "https://www.youtube.com/watch?v=0cXd1CGXFjQ",
+      "label": "Chanson de l’auteur"
+     },
+     "src": "pf-1"
+    }
+   ]
+  },
+  {
+   "num": "V",
+   "title": "Un chemin",
+   "chapeau": "Méditer, questionner le temps, apprivoiser le réel. Non plus seulement décharger, mais chercher des issues.",
+   "poems": [
+    {
+     "title": "Méditation 1 sur le Silence",
+     "slug": "meditation-1-sur-le-silence",
+     "pf": "164124",
+     "date": "17/06/2015",
+     "theme": "Sagesse",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Le silence est roi,",
+       "On y observe son « soi »",
+       "Et l’on s’aperçoit qu’il n’existe pas :",
+       "Le mystère aussi a sa foi.",
+       "Le silence est d’or,",
+       "On y retrouve son corps",
+       "Qu’on a laissé pour mort",
+       "Et combattu à tort.",
+       "Le silence est phare,",
+       "Il nous guide dans le noir,",
+       "On y rêve de nouveaux espoirs,",
+       "Chéris-le, il est rare."
+      ],
+      [
+       "On y rencontre son souffle,",
+       "Qui va et vient, c’est la vague.",
+       "Il perce notre âme de sa dague,",
+       "Chirurgien invisible, sans esbroufe :",
+       "Il nous greffe ces idées pures",
+       "Qu’on avait jetées aux ordures.",
+       "Comme les étoiles brillent dans la nuit,",
+       "L’âme reprend vie dans l’esprit vide.",
+       "On y gagne le calme :",
+       "C’est un monde sans programme,",
+       "La liberté de construire",
+       "Sur la fondation des plus solides empires."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Méditation 2 sur l’Idéal",
+     "slug": "meditation-2-sur-lideal",
+     "pf": "164239",
+     "date": "22/06/2015",
+     "theme": "Sagesse",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Ne cherchez pas les étoiles dans le ciel,",
+       "Elles ne sont qu’un reflet dans nos yeux.",
+       "Ne cherchez pas l’idéal dans l’éternel,",
+       "Il n’est que l’écho de nos vœux.",
+       "Ne croyez pas à ceux qui vous disent de rester pâle ;",
+       "Même si rêver trop vous fait passer pour fou,",
+       "Dites que la quête du bonheur n’est pas un mal,",
+       "Et qu’à genoux, jamais vous ne serez vous.",
+       "Ne vous identifiez plus à vos imperfections,",
+       "Et riez enfin de vos émois et passions.",
+       "Le monde n’est pas construit par ceux qui y croient :",
+       "C’est dans nos rêves qu’on construit ses lois."
+      ],
+      [
+       "En toi, le seul chemin qui te dévoile ;",
+       "Dans ton cœur existe déjà ton idéal.",
+       "Suis cette lueur au fond de ton noir,",
+       "La seule vraie vie naît de cet espoir.",
+       "Quand tu rêves de ton âme-Océan",
+       "Et que tu crains de t’y noyer,",
+       "C’est le monde qui te veut autrement ;",
+       "Fuis-le, et prends ton voilier.",
+       "Poussé par le vent des sentiments,",
+       "Tu quitteras le temps des tourments.",
+       "La tempête crachera sur ton portrait meurtri,",
+       "Et, nettoyé, tu trouveras ton sublime endormi."
+      ]
+     ],
+     "src": "pf-1"
+    },
+    {
+     "title": "Méditation 3 sur le Principe de Réalité",
+     "slug": "meditation-3-sur-le-principe-de-realite",
+     "pf": "164318",
+     "date": "25/06/2015",
+     "theme": "Sans thème",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Ce qui est a un sens",
+       "Qui défie notre raison.",
+       "On n’en connaît l’essence,",
+       "On se perd en passions.",
+       "On voudrait s’en aller,",
+       "Oui, peut-être tout quitter,",
+       "Pour une autre réalité,",
+       "Loin là-bas s’emmener."
+      ],
+      [
+       "Construire le paradis",
+       "Qu’on ne nous a pas donné,",
+       "Quitter notre folie,",
+       "Partir sur son voilier.",
+       "Oh, on rêve que ce vent",
+       "Nous emporte sur l’océan,",
+       "Nous éloigne de nos tourments :",
+       "Arrêter le cours du temps."
+      ],
+      [
+       "Remettre les pendules à l’heure",
+       "Pour nettoyer ses erreurs,",
+       "Faire table rase du passé",
+       "Et cicatriser son cœur blessé.",
+       "Laisser, sur un coup de cœur brisé,",
+       "Et sa famille, et ses amis, et son amour.",
+       "On rit un peu de liberté le premier jour,",
+       "Puis l’on se retrouve seul, assoiffé."
+      ],
+      [
+       "Ou même s’il y a de l’eau, s’il y fait chaud,",
+       "Nostalgique des amours qu’on n’a pas su tenir,",
+       "Plein de remords d’avoir osé les maudire,",
+       "On pleure ceux que l’on trouvait si beaux.",
+       "Il faut en payer le prix si tout tu reconstruis :",
+       "À ceux qui ont tout quitté, on ne donne une vie",
+       "Qu’à recouler, dans la boue, les fondations ;",
+       "On ne bâtit pas de maison sur du béton mouillé."
+      ],
+      [
+       "Et tu te rendras compte de tes douceurs passées :",
+       "Tu n’avais pas le paradis, mais tu dormais",
+       "Dans une tanière bien douce, contre une sublime rousse.",
+       "Ta maison natale vendue aux manouches,",
+       "Ils y font de la musique ; tu n’y chanteras pas.",
+       "Tu perds l’éthique pour des rêves d’au-delà,",
+       "Tu survis animal, tu parais bien louche."
+      ],
+      [
+       "Oh, j’ai peur d’être fou quand je crache sur tout,",
+       "Quand je dénigre celle qui m’emmenait au ciel ;",
+       "Et l’amour d’un père n’est pas éternel…",
+       "Je perds mes repères : suis-je docteur ès coucou ?",
+       "Image exagérée : il existe des chemins heureux.",
+       "Mais n’oublie pas ce que tu as pu construire,",
+       "Ne dénigre pas ceux qui surent te réjouir.",
+       "Si tu fuis tes démons, tu t’envoles avec eux."
+      ],
+      [
+       "Le premier des voyages commence avec soi :",
+       "Nous sommes notre première demeure.",
+       "D’abord nettoyer les méandres de son cœur :",
+       "La première sagesse commence là."
+      ]
+     ],
+     "src": "aligné"
+    },
+    {
+     "title": "Le Temps",
+     "slug": "le-temps",
+     "pf": "163088",
+     "date": "28/04/2015",
+     "theme": "Temps",
+     "note": "Les sept derniers vers ont été publiés à part sous le titre « Le temps est un salop » (04/06/2015).",
+     "kind": "verse",
+     "blocks": [
+      [
+       "A-t-il un début ?",
+       "Est-il continu,",
+       "Ligne ininterrompue ?"
+      ],
+      [
+       "Est-il infini ?",
+       "Le temps se réécrit-il ?",
+       "Il s’arrête avec la vie ?",
+       "Ou bien avec l’envie ?",
+       "Et le long temps du malheur ?",
+       "Si vite passé, pourquoi mon bonheur ?"
+      ],
+      [
+       "C’est pas la physique",
+       "Qui répond à ces questions qui te piquent."
+      ],
+      [
+       "Et puis le temps n’a pas d’importance.",
+       "On s’en fait une montagne immense.",
+       "Mais la vie, ce n’est pas compter le temps.",
+       "Le temps ne vaut rien : le temps n’est qu’argent."
+      ],
+      [
+       "Y a le temps de respirer",
+       "Et puis de s’envoler,",
+       "Pouvoir rigoler,",
+       "Oser s’amuser."
+      ],
+      [
+       "Y a le temps qui te grise,",
+       "Y a le temps qui te frise,",
+       "Le temps d’une petite brise,",
+       "Mettre les doigts dans la prise."
+      ],
+      [
+       "Mais la réalité y tient,",
+       "Elle y voit un destin,",
+       "Elle y voit un chemin,",
+       "Elle y voit un demain."
+      ],
+      [
+       "Il faut lui être fidèle",
+       "Si tu ne veux qu’on te coupe les ailes.",
+       "Y a le temps qui te brise,",
+       "C’est ta Lettre à Élise."
+      ],
+      [
+       "C’est le temps d’un soupir,",
+       "Le temps de respirer,",
+       "Arrêter de rêver",
+       "Pour ne pas aller vers le pire."
+      ],
+      [
+       "Y a le temps de l’enfance,",
+       "Le temps des innocences.",
+       "Y a le temps d’être sage,",
+       "Le temps d’un apprentissage."
+      ],
+      [
+       "Le temps d’aller à l’école,",
+       "Le temps des heures de colle,",
+       "Boutonneux, la tête un peu molle,",
+       "Le temps d’être pris par le col."
+      ],
+      [
+       "Y a le temps d’être volage,",
+       "Un amour de passage,",
+       "Le temps des petits larcins,",
+       "Le temps d’être un crétin."
+      ],
+      [
+       "Y a le temps d’être fidèle,",
+       "Le temps d’être sa belle.",
+       "Y a le temps des affaires",
+       "Quand c’est l’heure de le faire."
+      ],
+      [
+       "Y a le temps d’être amant,",
+       "Le temps d’être présent,",
+       "Respirer l’air du vent,",
+       "Respirer l’air du temps.",
+       "Mais le temps d’être absent,",
+       "Le temps d’être un salop,",
+       "Le temps d’être pas beau,",
+       "Le temps d’être dément."
+      ],
+      [
+       "Y a le temps de l’obéissance,",
+       "Parfois le temps des souffrances,",
+       "Le temps des servitudes,",
+       "Le temps des turpitudes."
+      ],
+      [
+       "Et tout tourne et tout change",
+       "Et un temps remplace l’autre.",
+       "Quand dans la fange tu te vautres,",
+       "Est-ce que ça te dérange ?",
+       "Si le temps te tracasse,",
+       "Faudrait pas que ça t’agace,",
+       "Car les temps s’entrelacent",
+       "Et le temps te délasse."
+      ],
+      [
+       "L’espoir te le rendra",
+       "S’il est toujours temps d’être soi.",
+       "Et à la fin ?",
+       "Le temps s’en va ?"
+      ],
+      [
+       "Ou pas ?"
+      ],
+      [
+       "Oh, mais le temps est un salop.",
+       "Il nous parle du beau,",
+       "Il nous parle tout haut,",
+       "Il nous parle du fou,",
+       "Surtout jamais de nous !"
+      ],
+      [
+       "Le temps est un salop",
+       "Si je ne suis qu’un sot."
+      ]
+     ],
+     "src": "pf+pf"
+    },
+    {
+     "title": "Indigestion (ou de l’art de se nourrir du monde)",
+     "slug": "indigestion",
+     "pf": "160603",
+     "date": "21/11/2014",
+     "theme": "Pureté",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Un repas gâché, une nourriture goulûment avalée :",
+       "Ma faim de loup devient bientôt dégoût et ennui.",
+       "Sans conscience, mes (re)pas mènent au néant.",
+       "Chaque bouchée mérite d’être choisie et goûtée avec attention."
+      ],
+      [
+       "Sans délicatesse, les sœurs Ordinaire et Médiocrité",
+       "Étreignent mon être jusqu’à l’apoplexie ;",
+       "Elles bouchent mes artères et empêchent mon sang",
+       "De véhiculer la grâce, seule source juste d’inspiration."
+      ],
+      [
+       "Boulimie de quelconque, contentement du manant ;",
+       "La panse pleine, j’éprouve la satisfaction d’un cochon :",
+       "Grognements et rires gras d’un vulgaire patachon",
+       "Remplacent mes idéaux d’enfant innocent."
+      ],
+      [
+       "Désir, souffle vital, instrument de l’allégresse,",
+       "Tu m’enterres en creusant mes faiblesses !",
+       "Désir, ouvrier infatigable de mes passions,",
+       "Tu n’écoutes pas mon âme et lui construis sa prison."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Rester",
+     "slug": "rester",
+     "pf": "163006",
+     "date": "23/04/2015",
+     "theme": "Sans thème",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Le poète assoiffé",
+       "Se prend pour un enchanté.",
+       "Mais il est enragé :",
+       "La folie du génie."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Le Malheur",
+     "slug": "le-malheur",
+     "pf": "163020",
+     "date": "24/04/2015",
+     "theme": "Regard",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Le meilleur et le pire,",
+       "J’ai tout pris dans la gueule.",
+       "Le Malheur m’a brisé,",
+       "Et puis aussi humilié.",
+       "Le Malheur m’a grandi ;",
+       "Le Bonheur a ce prix."
+      ],
+      [
+       "J’aimerais tant le quitter.",
+       "J’en étais fasciné,",
+       "J’en faisais vérité,",
+       "Car c’était ma réalité."
+      ],
+      [
+       "On ne peut vivre",
+       "Que dans son monde.",
+       "Et puis, même s’il est laid,",
+       "Et puis, même si, malgré",
+       "Les coups du sort,",
+       "Le beau te sauve,",
+       "Le beau te couvre,",
+       "Le beau te couve.",
+       "Le beau tu vois,",
+       "Au beau tu crois."
+      ],
+      [
+       "Le malheur est sur Terre.",
+       "Le malheur, tu en meurs.",
+       "Le malheur est un leurre."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Le Bonheur",
+     "slug": "le-bonheur",
+     "pf": "163042",
+     "date": "25/04/2015",
+     "theme": "Sans thème",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Le meilleur et le pire,",
+       "J’ai tout pris dans la gueule.",
+       "Le Bonheur m’a sauvé,",
+       "Mais aussi humilié.",
+       "Le Bonheur m’a fait petit ;",
+       "Le malheur a ce prix."
+      ],
+      [
+       "J’aimerais tant le quitter.",
+       "J’en étais fasciné,",
+       "J’en faisais une vérité,",
+       "Car c’était ma réalité."
+      ],
+      [
+       "On ne peut vivre",
+       "Que dans son monde,",
+       "Et puis, même s’il est beau,",
+       "Et puis, même si, malgré",
+       "Les coups du sort,",
+       "Le noir te sauve,",
+       "Le noir te couvre,",
+       "Le noir te couve.",
+       "Au noir tu crois."
+      ],
+      [
+       "Le Bonheur est erreur.",
+       "Le Bonheur, tu en dors.",
+       "Le Bonheur est un leurre."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Noir et Blanc",
+     "slug": "noir-et-blanc",
+     "pf": "163559",
+     "date": "20/05/2015",
+     "theme": "Sentiment (slam)",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Qu’est le noir ?",
+       "Désespoir ?",
+       "Un mitard ?",
+       "Un crevard ?",
+       "Un fêtard ?",
+       "Un junkie ?",
+       "Un cynique ?",
+       "Le mépris ?",
+       "La folie ?",
+       "Et ma trique ?"
+      ],
+      [
+       "Qu’est le blanc ?",
+       "Sentiments",
+       "Pas violents ?",
+       "La culture ?",
+       "La nature ?",
+       "Et le rire,",
+       "Le sourire,",
+       "Les enfants,",
+       "L’innocence",
+       "Platonique ?"
+      ],
+      [
+       "Sentiment",
+       "Que le noir et le blanc",
+       "Sont amants,",
+       "Que le noir et le blanc",
+       "Font le vent.",
+       "Notre nature est plutôt incomplète",
+       "Si elle ne se résume qu’à la tête.",
+       "Nos envies, nos folies font les gens",
+       "Qui nous donnent nos plus beaux élans.",
+       "Et le temps qui en porte les tourments",
+       "N’est stérile que pour l’âme des absents,",
+       "Car la vie n’est rien d’autre qu’un aimant :",
+       "Oui, je t’aime, et tu m’aimes, c’est le sang !",
+       "Et le gris qui ennuie les âmes tristes,",
+       "Sache donc qu’il réjouit les artistes.",
+       "La poussière qui aveugle le pédant",
+       "N’existe que pour masquer le talent."
+      ],
+      [
+       "L’éternel qui le voit la protège,",
+       "Et le fiel qui l’affronte reste aveugle.",
+       "Oui, le gris est caché dans la fange,",
+       "Bien trop précieux pour les anges.",
+       "Vérité bien connue des démons,",
+       "Trop dangereuse en ce monde de cons :",
+       "Les Enfers et le Ciel se querellent,",
+       "Mais le Gris les dirige, éternel !",
+       "Et l’amour que l’on drape de blanc",
+       "Naît souvent du noir et du sang.",
+       "Un doux gris, c’est la joie de l’envie,",
+       "Sans l’ennui que nous impose le poli."
+      ]
+     ],
+     "src": "pf",
+     "music": {
+      "kind": "auteur",
+      "yt": "https://www.youtube.com/watch?v=fShhj3QWdk8",
+      "label": "Chanson de l’auteur"
+     }
+    },
+    {
+     "title": "Égoïste",
+     "slug": "egoiste",
+     "pf": "164277",
+     "date": "24/06/2015",
+     "theme": "Illusion",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "J’aimerais prendre la vie comme un jeu,",
+       "Et me moquer des gens sérieux,",
+       "Faire briller le regard de la belle,",
+       "Cracher sur le devoir de l’éternel.",
+       "Et puis, pour faire vivre mes vœux,",
+       "Savoir jouer à l’amoureux,",
+       "Prétendre être un homme heureux,",
+       "Et la quitter si je trouve mieux."
+      ],
+      [
+       "Me réjouir de ces sourires,",
+       "Et puis maudire tous ces empires,",
+       "Ne plus avoir peur d’être vivant,",
+       "Comme l’animal être présent.",
+       "Pas travailler comme un forçat,",
+       "Mais être fier de mes dix doigts,",
+       "M’éloigner des abstractions,",
+       "Des statistiques qui font les cons."
+      ],
+      [
+       "Comme un poète, mes sentiments,",
+       "Comme un artiste, même sans talent,",
+       "Jouer à celui qu’est le plus brillant,",
+       "Et puis me croire le plus bandant.",
+       "M’éloigner de l’innocent,",
+       "Père de famille qui joue à l’homme",
+       "Et qui n’est qu’une bête de somme,",
+       "Être indécent sans être truand."
+      ],
+      [
+       "Draguer sa fille, mais sans mentir,",
+       "De la douceur, même sans en jouir,",
+       "Trouver l’amour dans son sourire,",
+       "Et ma folie, pour la faire rire.",
+       "Être fou d’amour pour consoler,",
+       "Pour m’éloigner de mon passé",
+       "Qui m’a blessé, qui m’a brisé,",
+       "Qui m’a renié, qui m’a moqué."
+      ],
+      [
+       "De la confiture pour un cochon,",
+       "Un peu ordure, et bidochon,",
+       "Qui a le mérite d’être un con",
+       "Conscient de sa situation.",
+       "De la douceur pour un fada",
+       "Qui se réjouit de son trépas,",
+       "Qui ne veut rien d’autre que ça :",
+       "Jouir encore un peu d’ici-bas."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Ma Muse Onirique",
+     "slug": "ma-muse-onirique",
+     "pf": "164302",
+     "date": "25/06/2015",
+     "theme": "Musique",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "La vie nous fredonne sa musique.",
+       "C’est une pensée de passage,",
+       "Un simple paysage,",
+       "Qui n’est pas bien éthique.",
+       "Et le côté pratique",
+       "Vous dit que c’est statistique,",
+       "Que c’est avec des larmes",
+       "Et d’la sueur qu’on s’arme.",
+       "Mais le temps métronome",
+       "N’est pas bien économe.",
+       "Il s’écoule toujours,",
+       "Et la nuit, et le jour.",
+       "La vie, comme une musique,",
+       "A son côté magique."
+      ],
+      [
+       "Elle aime ceux qui chantent,",
+       "Entraîne ceux qui y dansent.",
+       "Mais tu ne l’écoutes pas,",
+       "Et tu ne suis sa voie.",
+       "Tu vas rater la fête",
+       "Pour des mathématiques,",
+       "Pour un curé éthique,",
+       "Tu vas jouer au bête.",
+       "Trimer pour la gagner",
+       "Sans jamais y rêver.",
+       "Tu es une fourmi,",
+       "T’as toujours des amis.",
+       "Si tu n’entends la musique,",
+       "Tu n’es pas mélomane.",
+       "Va pas faire un drame,",
+       "La rime fait son chic."
+      ],
+      [
+       "La frime fait son charme,",
+       "Mais c’est une cigale",
+       "À destinée fatale",
+       "Qui te montre son âme.",
+       "La vie est une douce musique,",
+       "Ou une musique tragique.",
+       "Parfois c’est la fanfare",
+       "Qui te guide comme un phare.",
+       "Des fausses notes tu pleures,",
+       "Tu voudrais t’enterrer,",
+       "Tu voudrais te cacher,",
+       "Ne plus entendre ses heurts.",
+       "Et les journées informatiques,",
+       "Et la morale des flics,",
+       "Que tu croyais navrantes,",
+       "Te semblent rassurantes."
+      ],
+      [
+       "La vie est une drôle de musique,",
+       "Une musique de fou",
+       "Qui nous met à genoux,",
+       "Mais amuse l’onirique."
+      ]
+     ],
+     "src": "aligné",
+     "music": {
+      "kind": "ia",
+      "label": "Maquette chantée, musique générée par IA (lien à venir)"
+     }
+    },
+    {
+     "title": "Re-Pas-Sage",
+     "slug": "re-pas-sage",
+     "pf": "164408",
+     "date": "30/06/2015",
+     "theme": "Illusion (chanson)",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "(Conseil : lisez en écoutant la musique ci-dessus)",
+       "Quand un homme devient chemise,",
+       "Quand un homme devient chemise,",
+       "C’est un signe de fusion,",
+       "Pas toujours d’émotion,",
+       "Trouves-la tu qu’est bien mise ?",
+       "Et les sens qui nous grisent,",
+       "Sont promesses de passion,",
+       "Pas souvent de raison,",
+       "Un vêtement de sottises ?",
+       "L’amitié qui s’y glisse,",
+       "N’est pas neutre, n’est pas lisse.",
+       "Mais les ans vont passer :",
+       "Oh jamais, repasser !"
+      ],
+      [
+       "Refrain 1 :",
+       "Marque mon cœur au fer chaud !",
+       "Laisse mon corps au tombeau !",
+       "Et puis ma tête de veau,",
+       "Fais-toi-z’en une salade !",
+       "Si tu ne rêves d’ma promenade,",
+       "C’est qu’elle est bien trop mad…"
+      ],
+      [
+       "Tu ne changes pas de mec",
+       "Comme on change de chemise,",
+       "Mais la vie est infecte",
+       "Et le temps nous méprise…",
+       "Et l’enfer qui attise",
+       "Toutes nos convoitises,",
+       "Je m’égare d’un regard,",
+       "J’aimerais rentrer tard…",
+       "Si on crève du futur,",
+       "Faudra bien faire le mur !",
+       "Si tu ne sais plus r’passer,",
+       "Je ne fais que passer…"
+      ],
+      [
+       "Refrain 2 :",
+       "Marque mon cœur au fer chaud !",
+       "Laisse mon corps au tombeau !",
+       "Et puis ma tête de veau,",
+       "Fais-toi-z’en une salade !",
+       "Si tu ne rêves d’ma promenade,",
+       "Reste donc une fille sage…"
+      ],
+      [
+       "Oh mon linge est en vrac,",
+       "Y a des plis qui le marquent.",
+       "Je ne joue pas au crac,",
+       "Et ne conte pas l’arnaque…",
+       "J’suis un t-shirt mouillé,",
+       "À ton corps enlacé,",
+       "Il te collerait aux seins,",
+       "Ne le porte qu’ma catin !",
+       "Hé ! Le pire, c’est que j’aime,",
+       "Comme on sème un poème,",
+       "Comme on joue l’anathème,",
+       "C’est qu’le vrai nous laisse blême ?"
+      ],
+      [
+       "Refrain 3 :",
+       "Marque mon cœur au fer chaud !",
+       "Laisse mon corps au tombeau !",
+       "Et puis ma tête de veau,",
+       "Fais-toi-z’en une salade !",
+       "Ne rêve pas d’ma promenade,",
+       "Je ne sais pas jouer au bad…"
+      ],
+      [
+       "Professeur demoiselle",
+       "Qui me grève mon zèle,",
+       "Aux saveurs des mares mots,",
+       "Ô douceurs de mes maux."
+      ]
+     ],
+     "music": {
+      "kind": "auteur",
+      "yt": "https://www.youtube.com/watch?v=a-SMOUOUEdY",
+      "label": "Chanson de l’auteur",
+      "yt2": "https://www.youtube.com/watch?v=oufArkLT7kM",
+      "label2": "Version acoustique"
+     },
+     "src": "docx"
+    },
+    {
+     "title": "Remède à la Mélancolie",
+     "slug": "remede-a-la-melancolie",
+     "pf": "164771",
+     "date": "21/07/2015",
+     "theme": "Bonheur",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Humeur anxieuse,",
+       "Y a qu’à siffler",
+       "Musique de vie",
+       "Née du génie,",
+       "Et l’âme fiévreuse"
+      ],
+      [
+       "A l’air heureuse."
+      ],
+      [
+       "Le doux artiste",
+       "A fui le triste."
+      ],
+      [
+       "Joie d’être vivant,",
+       "Ode à l’émoi,",
+       "Ivre d’être là,",
+       "Et rire du vent."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Cieux d’été",
+     "slug": "cieux-dete",
+     "pf": "163264",
+     "date": "06/05/2015",
+     "theme": "Temps",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Jour de pluie,",
+       "On s’ennuie.",
+       "Les gouttelettes",
+       "Dégoulinent.",
+       "Sur la fenêtre :",
+       "Gouttes de spleen.",
+       "Ciel d’orage,",
+       "Ciel de rage,",
+       "C’était chaud,",
+       "C’était beau,",
+       "Vient la foudre :",
+       "Ciel de poudre.",
+       "Les canons",
+       "De la raison.",
+       "Sentiment",
+       "D’être un nain,",
+       "Ciel me ment",
+       "Du destin.",
+       "Infini",
+       "Dans mon lit.",
+       "Une pépée",
+       "S’étirait",
+       "Pour dissoudre",
+       "L’étreinte rouge.",
+       "Les nuages",
+       "Dissipés,",
+       "Un sage",
+       "Dernier baiser :",
+       "Celle de foudre",
+       "S’en va coudre."
+      ]
+     ],
+     "src": "bloc"
+    },
+    {
+     "title": "Rêve de Sérénité, Douce Indécence",
+     "slug": "reve-de-serenite-douce-indecence",
+     "pf": "163374",
+     "date": "12/05/2015",
+     "theme": "Raison",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Se lever et méditer,",
+       "Faire un petit stretching, ou un jogging,",
+       "Quelques pompes et tractions pour jouer à l’homme,",
+       "Et puis endosser mon rôle de bête de somme.",
+       "Foutre un costard, et au bras ma Breitling,",
+       "Rouage poli de la société."
+      ],
+      [
+       "J’voudrais raccrocher les wagons,",
+       "Savoir travailler sur des algorithmes de traders,",
+       "Et amadouer les sourires carnassiers des vainqueurs.",
+       "Quitter mon rôle de rebelle chômeur un p’tit peu con,",
+       "Qui se vante même de comprendre le communisme,",
+       "Alors que le fric l’a sauvé de bien des séismes."
+      ],
+      [
+       "Et mes fantasmes de petites donzelles,",
+       "Qu’ils ne cassent même pas ma famille,",
+       "N’égratignent pas ce que j’ai construit.",
+       "Une petite secrétaire que tout le monde connaît,",
+       "Qui ne demande pas plus que d’être un peu gâtée,",
+       "Et ma femme qui m’accorde quelques week-ends avec la belle."
+      ],
+      [
+       "Par générosité, continuer de donner à mon clodo de quartier,",
+       "Boire une bière avec lui les jours d’affinité,",
+       "Quelques associations choisies et financées, pour réduire aussi mes impôts,",
+       "Pas trop courir après le fric et le bling, pour me libérer de son étau,",
+       "Avoir des enfants libres et heureux, pas trop cons et pas trop violents,",
+       "Et qu’ils soient gentils et humains, polis peut-être pas tant."
+      ],
+      [
+       "Travailler dur et suer, savoir lisser les conflits.",
+       "Produire un tout petit peu pour nourrir mes frères pauvres,",
+       "Me battre à leurs côtés, et du côté de ceux qui se sauvent,",
+       "Savoir m’enrichir, et festoyer avec des amis,",
+       "Pas trop de mépris pour ceux qui m’aiment,",
+       "Et pas trop cruel pour ceux qui saignent."
+      ],
+      [
+       "Le soir ouvrir un bouquin, avoir des rêves divins,",
+       "Peut-être un jour comprendre l’opéra, qui pour l’instant m’essouffle,",
+       "Apprendre le golf, car le squash à cinquante ans devient louche,",
+       "Et puis le bridge, pour garder mes neurones bien actifs.",
+       "Essayer d’écrire, rien de célèbre, juste piquer mon âme au vif,",
+       "Distinguer les yeux fermés un médoc d’un margaux, une belle cave à vin."
+      ],
+      [
+       "J’ai le rêve indécent d’être heureux dans ce monde-là.",
+       "Je ne veux rien changer, je le rêve tel qu’il est.",
+       "Juste trouver ma place, comme le couvercle d’une soupière.",
+       "Me nourrir de ses effusions est ma seule prière.",
+       "Avoir un sourire empreint d’une grande sérénité,",
+       "Serais-je un jour ce doux, cynique, généreux et lucide bourgeois ?"
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "À mon ami Paulo",
+     "slug": "a-mon-ami-paulo",
+     "pf": "163508",
+     "date": "18/05/2015",
+     "theme": "Amitié",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "J’te connais pas encore,",
+       "Mais j’sais qu’il va falloir que j’te sorte.",
+       "Ce qui me manquerait, c’est ce meilleur pote,",
+       "J’rêverais cette nuit de t’emmener dehors.",
+       "On f’rait la fête à Paris,",
+       "Un petit bar avec une musique de rockeur,",
+       "Sans compter l’heure, on libérerait nos cœurs,",
+       "On essaierait de ramener la gazelle dans notre lit.",
+       "À qui le pieu ?",
+       "Avec juste un appart pour deux, on laisse la place",
+       "À celui qui nous repêche la plus belle garce :",
+       "La chambre s’ra pour les amoureux."
+      ],
+      [
+       "Et au salon ?",
+       "Eh bien l’autre y dort un peu plus tard,",
+       "Pour pas trop faire ses oreilles d’crevard,",
+       "Se laisse réjouir de l’autre p’tit con.",
+       "Et pour le boulot ?",
+       "On jouerait aux artistes qu’sont sans talent",
+       "D’argent, bien sûr, s’croirait brillant !",
+       "À force de se l’dire, on s’trouverait beaux.",
+       "Et pour l’argent ?",
+       "On vivrait pas comme des clodos,",
+       "Bien habillés, on mangerait chaud.",
+       "Gigolos pour des belles de vingt ans."
+      ],
+      [
+       "Et la réalité ?",
+       "On s’en torcherait avec du vin,",
+       "Chaque soir, on en ferait notre festin,",
+       "Et nous fuirions le « travaillé ».",
+       "Et la famille ?",
+       "Elle nous croirait bien fous à lier,",
+       "N’oserait peut-être pas nous renier,",
+       "Nous filerait du blé et son mépris !",
+       "Et les amis ?",
+       "Au début, ils nous moqueraient,",
+       "Puis nous trouveraient chics et libérés,",
+       "Pour nos œuvres, y mettraient le prix !"
+      ],
+      [
+       "Et les enfants ?",
+       "On verra ça quand on aura cinquante ans.",
+       "L’heure de draguer minettes d’vingt printemps",
+       "Quand t’as trop joué au cerf-volant."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Un Chemin",
+     "slug": "un-chemin",
+     "pf": "201276",
+     "date": "26/02/2023",
+     "theme": "Sagesse",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "L’humanité n’est qu’animale",
+       "Pour ceux qui naviguent en surface.",
+       "Sous l’étau de nos sens, notre être rapetisse.",
+       "Nous concentrons nos envies et nos vices",
+       "Dans le plaisir, et notre âme trépasse",
+       "Pour la flamme d’une femme fatale ;",
+       "Ou pour caresser un cœur blessé."
+      ],
+      [
+       "Notre humanité n’est qu’animale :",
+       "Nous sommes sociaux pour que les estropiés",
+       "Du cœur aient au moins le droit à une vie banale ;",
+       "Ou pour que ces violents et sanguins",
+       "Aient accès au souffle de l’ivresse et au rire du vin.",
+       "Nous savons être vulgaires et railleurs pour que nous, pires crétins,",
+       "Puissent avoir le droit de respirer et d’embrasser une putain."
+      ],
+      [
+       "Sous l’étau de nos sens, notre âme rapetisse,",
+       "Concentrons nos envies et nos vices",
+       "Pour que notre ego et espoir de grandeur s’effacent",
+       "Et que naisse une humanité rieuse sachant entreprendre et jouer à pile ou face.",
+       "Oublions parfois notre divin pour n’être qu’un importun :",
+       "Une goutte d’eau trouble, noyée dans l’océan du limpide.",
+       "Ne gonflons pas trop notre âme d’une morale mortifère et acide.",
+       "Gardons une âme modeste, bienveillante et menue.",
+       "Sachons être franc, sachons être à nu.",
+       "Oublions la grandeur et jouons paisiblement à ne pas être saints."
+      ],
+      [
+       "Philosopher à un café,",
+       "Dévoiler nos peurs et nos rêves,",
+       "Sortir de notre routine pour une trêve,",
+       "Se prendre pour Dieu à comprendre le monde,",
+       "Ou jouer au sage, conscient qu’il n’y comprend rien,",
+       "Ou à un simple animal qui ne sait s’il fait le bien, s’il fait le mal."
+      ],
+      [
+       "Avoir l’âme à dos, honnis.",
+       "Avoir le cœur blessé, et les sentiments malades.",
+       "Puis frissonner de tant imaginer et de se croire compris.",
+       "Puis s’asphyxier de craintes et de peurs quand on se sait incompris.",
+       "Puis se réconcilier avec l’autre",
+       "Qu’on ne comprend pas non plus car il n’a pas les mêmes mots.",
+       "Mais dans un regard complice, ou une poignée de main, un clin d’œil, ne plus se sentir seul.",
+       "Ne pas trop avoir peur de nos lubies et liesses :",
+       "Savoir que d’autres œuvrent aussi à grandir ce monde de leur sensibilité et gentillesse.",
+       "Se sentir naïf, perdu, mais savoir que beaucoup le sont, et veillent aussi.",
+       "Espérer que d’autres aussi ressentent les mêmes maux."
+      ],
+      [
+       "Pour que le bien de ce monde ne se résume pas à soi.",
+       "Pour que le grégaire nous grandisse, nous protège et nous couve.",
+       "Croire que la société est une aimante louve.",
+       "Se sentir abrité des tempêtes et des bourrasques",
+       "Qu’assènent les cœurs souffrants et jaloux.",
+       "Savoir que des vrais méchants, il n’y en a pas beaucoup."
+      ],
+      [
+       "Transformer un violent en rieur.",
+       "Voir un taciturne devenir grand parleur.",
+       "Susciter un sourire en sifflant.",
+       "Ressentir son cœur battre en chantant.",
+       "Aimer même trop, même faux.",
+       "Faire l’amour, qu’on soit laid ou bien beau.",
+       "Faire l’amour prosaïque,",
+       "Ou bien même platonique.",
+       "Exister même imparfait.",
+       "Savoir vivre insatisfait."
+      ],
+      [
+       "Au dessus de la surface",
+       "Et des incertains piles ou faces.",
+       "Il y a ceux des hautes sphères",
+       "Qui parait-il existaient naguère.",
+       "L’un s’appelait Socrate, un autre Lao Tseu :",
+       "Mais je ne rêve plus aux cieux."
+      ],
+      [
+       "Essayer d’être bon et innocent sans être trop niai.",
+       "Ne pas trop pleurer de ces autonomes",
+       "Où nous ne sommes que bêtes de somme.",
+       "Ressentir le doute d’un demain,",
+       "Mais essayer de prendre sa vie par la main :",
+       "Savoir qu’il y aura encore un été.",
+       "Je ne veux pas un destin :",
+       "Je fais le vœu d’être humain."
+      ]
+     ],
+     "src": "ext"
+    }
+   ]
+  },
+  {
+   "num": "VI",
+   "title": "Un espace pour aimer et respirer",
+   "chapeau": "Faire de la place. Garder ce qu’on aime, lâcher le reste, et vivre au présent.",
+   "poems": [
+    {
+     "title": "Un Espace pour Aimer et Respirer",
+     "slug": "un-espace-pour-aimer-et-respirer",
+     "pf": "162823",
+     "date": "15/04/2015",
+     "theme": "Séparation",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Pour aimer, il faut une place dans son cœur.",
+       "Pour aimer, il faut une place dans sa maison.",
+       "L’amour se peint sur une âme nette.",
+       "Les aigreurs du passé ne doivent pas gâcher la fête.",
+       "Pardonnons-nous de désaimer, pour faire renaître la passion.",
+       "Libérons-nous des attachements qui ne font plus notre bonheur."
+      ],
+      [
+       "Ne passez pas de l’amour à la haine !",
+       "Ce serait ajouter à la nostalgie de la peine.",
+       "Mais notre cœur pense pour nous, et s’il se trouve oppressé,",
+       "C’est qu’il ne peut battre à la fois pour le présent, pour le passé."
+      ],
+      [
+       "À vos passions, à vos amours, vos amitiés, vos collections.",
+       "À vos romans, livres d’étudiants, vieux magazines, jouets d’enfants.",
+       "Désencombrez et éloignez tout ce qui n’est plus émouvant !",
+       "Donnez, vendez, jetez, nettoyez, quittez s’il faut : un peu d’air pour vos poumons !"
+      ],
+      [
+       "À vivre pour des amours passés, on oublie d’être vivant.",
+       "Videz le grenier, trouvez de l’espace !",
+       "Vous n’aimez plus : du balai !",
+       "Si vous aimez, gardez, préservez, chérissez !",
+       "Si vous aimez, pas à moitié :",
+       "Prenez soin de l’élu et trouvez-lui la plus belle place !",
+       "Soyez honnêtes avec vos sentiments !"
+      ],
+      [
+       "Ce n’est pas le temps de la nostalgie ?",
+       "Encore trop tôt pour le compromis ?",
+       "Rien de promis ?",
+       "Ni d’illégal ?",
+       "Alors, c’est radical :",
+       "Ça va faire mal."
+      ],
+      [
+       "Être vivant",
+       "Se conjugue au présent.",
+       "Ce qui nous freine dans notre élan :",
+       "Du vent !"
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Emporté par le vent",
+     "slug": "emporte-par-le-vent",
+     "pf": "164523",
+     "date": "04/07/2015",
+     "theme": "Beauté",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Je regarde les collines se découper au loin.",
+       "Comme la houle, elles dessinent des vagues",
+       "Vertes sur le paysage, et une nageuse aqua-",
+       "Tique lève une jambe et puis l’autre, tac,",
+       "C’est une éolienne qui nous fait une blague.",
+       "Elle se fait femme pour séduire le vent marin."
+      ],
+      [
+       "Monstre océan, qui ne l’a jamais vu,",
+       "La fait tournoyer de ses anticyclones.",
+       "Il est sa force ; une pensée lui suffit",
+       "À entraîner la belle dans sa danse d’énergie,",
+       "Et elle absorbe son souffle comme l’anémone",
+       "Son eau : c’est l’amour d’un géant ému."
+      ],
+      [
+       "Oh, comme j’aime cette image :",
+       "Le monde communique sans message.",
+       "L’infini les attire, comme la passion",
+       "Nous fait et nous défait, nous les pions",
+       "D’un univers qui nous dépasse et nous guide.",
+       "Lâchant prise, on oublie nos raisons insipides."
+      ]
+     ],
+     "src": "pf"
+    },
+    {
+     "title": "Mon Étoile",
+     "slug": "mon-etoile",
+     "pf": "205622",
+     "date": "22/12/2023",
+     "theme": "Ambition",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "La clarté de mes sentiments,",
+       "Une amante dans mon sang,",
+       "Mon corps gonflé de vie,",
+       "Et que mes rêves ne me fuient."
+      ],
+      [
+       "Alors que ma vie fait une volte face,",
+       "Perdue sans bon sens et sans but,",
+       "J’enrage de ne savoir gagner la lutte,",
+       "Qui me permettra de trouver ma place."
+      ],
+      [
+       "De Dieu et du Diable je cherche le poison",
+       "Qui me fera brûler de joie et d’envie.",
+       "J’ai l’illusion de retrouver la raison",
+       "Et qu’elle soit la force de mes passions."
+      ],
+      [
+       "Partir à la quête de ma veine,",
+       "Dont mon sommeil ne sème la graine.",
+       "Que les vertus humaines me grandissent,",
+       "Que les plaisirs de mes vices me nourrissent."
+      ],
+      [
+       "Que du fumier de mes terreurs,",
+       "Que des ombres de mes insouciances",
+       "Et des tourments de mes sciences",
+       "Naisse la sereine force du bonheur."
+      ],
+      [
+       "Est-il trop tard pour m’atteindre ?",
+       "Que mes souffrances passées ne voilent",
+       "Cette illusion que je voudrais peindre,",
+       "Ce rêve luisant comme une étoile."
+      ]
+     ],
+     "src": "ext"
+    }
+   ]
+  }
+ ]
+}
