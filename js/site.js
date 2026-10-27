@@ -30,6 +30,9 @@
     document.querySelectorAll(".nav-links a").forEach(function(a){
       var t=a.getAttribute("href").split("/").pop()||"index.html";
       if(t===here) a.setAttribute("aria-current","page"); });
+    // Adresse de contact assemblée côté navigateur (protection contre les robots collecteurs)
+    document.querySelectorAll("a.courriel[data-u][data-d]").forEach(function(a){
+      var m=a.getAttribute("data-u")+"@"+a.getAttribute("data-d"); a.href="mailto:"+m; a.textContent=m; });
     setNavOffset(); window.addEventListener("resize",setNavOffset);
   });
 })();

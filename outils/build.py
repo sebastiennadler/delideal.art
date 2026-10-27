@@ -148,7 +148,7 @@ De la poudre de brique issue de mon mal.</p>
 <p>Ce site est gratuit et sans publicité. Si ces textes vous ont touché, vous pouvez soutenir leur publication par un don, ponctuel ou mensuel, sur Tipeee, plateforme française dédiée aux créateurs.</p>
 <p class="note">Le lien Tipeee sera ajouté dès l’ouverture de la page.</p>
 <h2>Éditeurs, musiciens</h2>
-<p>Je cherche une maison d’édition pour le recueil <em>Marcher sur un fil</em>, et des musiciennes et musiciens pour mettre certains poèmes en chanson : les maquettes de la page <a href="musique.html">Musique</a> montrent la direction. Écrivez-moi : <span class="note">adresse à venir</span>.</p>
+<p>Je cherche une maison d’édition pour le recueil <em>Marcher sur un fil</em>, et des musiciennes et musiciens pour mettre certains poèmes en chanson : les maquettes de la page <a href="musique.html">Musique</a> montrent la direction. Écrivez-moi : <a class="courriel" data-u="sebastien.nadler" data-d="gmail.com" href="#">sebastien.nadler [at] gmail.com</a>.</p>
 """),
 "a-propos.html": dict(
   title="À propos — Delideal",
@@ -165,7 +165,7 @@ De la poudre de brique issue de mon mal.</p>
 <h1 class="titre-fil">Mentions légales</h1>
 <div class="fil" aria-hidden="true"></div>
 <h2>Éditeur</h2>
-<p>Ce site est édité par l’auteur publiant sous le nom de Delideal. Contact : à compléter.</p>
+<p>Ce site est édité par Sébastien Nadler, auteur publiant sous le nom de Delideal. Contact : <a class="courriel" data-u="sebastien.nadler" data-d="gmail.com" href="#">sebastien.nadler [at] gmail.com</a>.</p>
 <h2>Hébergement</h2>
 <p>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
 <h2>Propriété intellectuelle</h2>
