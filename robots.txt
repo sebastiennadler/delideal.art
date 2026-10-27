@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://delideal.art/sitemap.xml

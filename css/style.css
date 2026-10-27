@@ -1,0 +1,96 @@
+/* ============================================================
+   delideal.art — feuille de style unique.
+   Gabarit inspiré du site d'Ana (navbar fixe translucide, thème
+   clair/sombre, menu hamburger), adapté à un site de poésie :
+   texte brut, une seule famille (EB Garamond), aucune image.
+   ============================================================ */
+
+:root{
+  --bg:#fbf7ef;            /* crème (comme chez Ana) */
+  --text:#1a1712;
+  --muted:#5b554b;
+  --heading:#15120e;
+  --rule:rgba(26,23,18,.14);
+  --nav-bg:rgba(251,247,239,.92);
+  --nav-shadow:0 8px 28px rgba(20,18,16,.10);
+  --nav-text:#1a1712;
+  --nav-hover:rgba(26,23,18,.06);
+  --accent:#9a6f0a;        /* ocre doré, hérité du PDF v5 */
+  --accent-hover:#6f4f05;
+  --panel:rgba(26,23,18,.03);
+  --panel-border:rgba(26,23,18,.10);
+  --focus:0 0 0 4px rgba(154,111,10,.25);
+  --mesure:40rem;
+}
+html[data-theme="dark"]{
+  --bg:#151516; --text:#e9ecef; --muted:#b2b4bb; --heading:#f4efe9;
+  --rule:rgba(255,255,255,.12);
+  --nav-bg:rgba(28,28,31,.78); --nav-shadow:0 8px 28px rgba(0,0,0,.28);
+  --nav-text:#e9ecef; --nav-hover:rgba(200,195,175,.08);
+  --accent:#d9b24a; --accent-hover:#efcc70;
+  --panel:rgba(38,37,41,.14); --panel-border:rgba(255,255,255,.06);
+  --focus:0 0 0 4px rgba(217,178,74,.28);
+}
+
+*{box-sizing:border-box}
+html{font-size:19px; scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"EB Garamond", Garamond, Georgia, "Times New Roman", serif;
+  line-height:1.62; -webkit-font-smoothing:antialiased;
+  padding-top:var(--site-nav-offset, 4.2rem);
+}
+a{color:var(--accent); text-decoration:none}
+a:hover{color:var(--accent-hover); text-decoration:underline; text-underline-offset:.15em}
+a:focus-visible, button:focus-visible{outline:none; box-shadow:var(--focus); border-radius:4px}
+h1,h2,h3{color:var(--heading); font-weight:400; line-height:1.15; margin:0 0 .6rem}
+h1{font-size:2.5rem; letter-spacing:-.005em}
+h2{font-size:1.5rem; margin-top:2.4rem}
+p{margin:0 0 1rem}
+.skip-link{position:absolute; left:-999px; top:0; z-index:5000; padding:.6rem 1rem; background:var(--bg); color:var(--text); border:1px solid var(--panel-border)}
+.skip-link:focus{left:0}
+
+/* ---- Barre de navigation (même structure que chez Ana) ---- */
+.navbar{position:fixed; top:0; left:0; width:100%; z-index:3000; background:var(--nav-bg); box-shadow:var(--nav-shadow); backdrop-filter:saturate(1.2) blur(8px); -webkit-backdrop-filter:saturate(1.2) blur(8px)}
+.navbar-container{max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:1rem; padding:.55rem 1rem}
+.site-brand{color:var(--nav-text); font-size:1.25rem; letter-spacing:.01em; white-space:nowrap; cursor:default}
+.site-brand small{color:var(--muted); font-size:.78em; margin-left:.45rem; font-style:italic}
+.nav-links{display:flex; align-items:center; gap:.2rem; margin:0 0 0 auto; padding:0; list-style:none}
+.nav-links a{display:inline-block; padding:.5rem .7rem; color:var(--nav-text); border-radius:8px; line-height:1.15; white-space:nowrap; font-size:1.02rem}
+.nav-links a:hover{background:var(--nav-hover); text-decoration:none}
+.nav-links a[aria-current="page"]{color:var(--accent); border-bottom:2px solid var(--accent); border-radius:8px 8px 0 0}
+.nav-actions{display:flex; align-items:center; gap:.3rem}
+.theme-toggle{border:none; background:transparent; color:var(--nav-text); cursor:pointer; display:inline-grid; place-items:center; width:2.4rem; height:2.4rem; border-radius:50%; font:inherit; font-size:1.25rem}
+.theme-toggle:hover{background:var(--nav-hover)}
+.hamburger{display:none; border:none; background:transparent; color:var(--nav-text); cursor:pointer; width:2.4rem; height:2.4rem; border-radius:8px; font-size:1.6rem; line-height:1}
+@media (max-width:860px){
+  .hamburger{display:inline-grid; place-items:center}
+  .nav-links{display:none; position:absolute; left:0; right:0; top:100%; flex-direction:column; align-items:stretch; gap:0; background:var(--nav-bg); box-shadow:var(--nav-shadow); padding:.4rem .6rem .8rem}
+  .nav-links.open{display:flex}
+  .nav-links a{display:block; padding:.75rem .8rem; font-size:1.1rem}
+  .nav-links a[aria-current="page"]{border-bottom:none; border-left:3px solid var(--accent); border-radius:8px}
+}
+
+/* ---- Contenu ---- */
+main{max-width:var(--mesure); margin:0 auto; padding:2.2rem 1rem 0}
+.titre-fil{margin-top:2.2rem}
+.fil{position:relative; height:1px; background:var(--rule); margin:.8rem 0 1.6rem}
+.fil::after{content:""; position:absolute; left:0; top:-3px; width:7px; height:7px; border-radius:50%; background:var(--accent)}
+.sous-titre{color:var(--muted); font-style:italic; font-size:1.15rem; margin-top:-.4rem}
+.panel{background:var(--panel); border:1px solid var(--panel-border); border-radius:18px; padding:1.3rem 1.5rem; margin:1.6rem 0}
+.panel h2{margin-top:0}
+.poeme{margin:0; padding:0; font-style:italic; font-size:1.18rem; line-height:1.55}
+.poeme p{white-space:pre-line; margin:0 0 1rem}
+.source{font-size:.92rem; color:var(--muted)}
+.liens{list-style:none; padding:0; margin:0}
+.liens li{padding:.35rem 0; border-bottom:1px solid var(--rule)}
+.liens li:last-child{border-bottom:none}
+.note{color:var(--muted); font-style:italic}
+.etiquette{display:inline-block; font-size:.82rem; color:var(--muted); border:1px solid var(--panel-border); border-radius:999px; padding:.05rem .6rem; margin-left:.4rem; vertical-align:middle; font-style:normal}
+
+/* ---- Pied de page ---- */
+footer{max-width:var(--mesure); margin:4rem auto 0; padding:1.2rem 1rem 2.4rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.92rem}
+footer p{margin:.2rem 0}
+
+@media (max-width:600px){ html{font-size:17.5px} h1{font-size:2.05rem} .panel{padding:1.1rem 1.1rem; border-radius:14px} }
