@@ -287,7 +287,6 @@ de la poudre de brique issue de mon mal.</p>
 <li><a href="https://www.youtube.com/watch?v=EJr4KC2jq6E" rel="noopener">Marcher sur un fil</a> <span class="etiquette">musique IA</span> · <a href="poemes/marcher-sur-un-fil.html">le poème</a></li>
 <li><a href="https://www.youtube.com/watch?v=W0gOmmTVj7o" rel="noopener">Ma muse onirique</a> <span class="etiquette">musique IA</span> · <a href="poemes/ma-muse-onirique.html">le poème</a></li>
 <li><a href="https://www.youtube.com/watch?v=U1Ou6cdE1Zc" rel="noopener">Méditations</a> <span class="etiquette">musique IA</span> · <a href="poemes/meditation-1-sur-le-silence.html">les trois méditations</a></li>
-<li><a href="https://www.youtube.com/watch?v=F2ozEp0zgEU" rel="noopener">Délirusion</a> <span class="etiquette">musique IA</span></li>
 </ul>
 """),
 "soutenir.html": dict(
