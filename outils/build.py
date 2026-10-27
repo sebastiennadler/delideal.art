@@ -96,7 +96,7 @@ De la poudre de brique issue de mon mal.</p>
 <h2>Des textes écrits avant l’intelligence artificielle</h2>
 <p>Tous les poèmes de ce site ont été publiés sur <a href="https://www.poeme-france.com/auteur/delideal/" rel="noopener">poeme-france.com</a> entre 2014 et 2023, sous le nom Delideal. Chaque texte y porte sa date et son heure de mise en ligne, fixées par le site et non modifiables par l’auteur : le plus ancien date de novembre 2014, le plus récent de décembre 2023.</p>
 <p>Une copie indépendante de cette page, conservée par Internet Archive, est consultable <a href="https://web.archive.org/web/20250914075727/https://www.poeme-france.com/auteur/delideal/" rel="noopener">ici</a>. Sur ce site, chaque poème renvoie à sa page d’origine.</p>
-<p>Aucun texte n’a été écrit, réécrit ou retouché par une intelligence artificielle. Ce site lui-même ne contient aucune image.</p>
+<p>Aucun texte n’a été écrit par une intelligence artificielle. Ce site lui-même ne contient aucune image.</p>
 </section>
 <ul class="liens">
 <li><a href="poemes.html">Les poèmes</a></li>
