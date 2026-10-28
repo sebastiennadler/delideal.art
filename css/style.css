@@ -203,7 +203,8 @@ main p a.bouton{color:var(--accent); text-decoration:none}
 main p a.bouton:hover{color:var(--bg)}
 .intro-site{margin-top:2.8rem; text-align:center; color:var(--muted); font-style:italic}
 .chapeau.vers{line-height:1.6; max-width:34rem}
-.partage{margin-top:1.6rem; color:var(--muted); font-size:.95rem}
+.partage{margin-top:1.6rem; color:var(--muted); font-size:.95rem; line-height:1.6}
+.partage-mot{display:block; font-style:italic; color:var(--text); margin-bottom:.15rem}
 .partage-label{font-style:italic}
 .partage a{color:var(--accent); text-decoration:none}
 .partage a:hover{text-decoration:underline}
