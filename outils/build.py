@@ -16,12 +16,13 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261029f"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261029g"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir")]
 # ("a-propos.html", "À propos") : page retirée du menu le 29/10/2026 à la demande de l'auteur, à réécrire par lui.
 PF_AUTEUR = "https://www.poeme-france.com/auteur/delideal/"
+TIPEEE = "https://fr.tipeee.com/delidealart"
 ARCHIVE = "https://web.archive.org/web/20250914075727/https://www.poeme-france.com/auteur/delideal/"
 
 HEAD = """<!DOCTYPE html>
@@ -70,7 +71,7 @@ HEAD = """<!DOCTYPE html>
 FOOT = """</main>
 <footer>
 <p>© {year} Delideal — textes écrits depuis 2000, publiés depuis 2014. Tous droits réservés.</p>
-<p><a href="{rel}credits.html">Crédits</a> · <a href="{rel}soutenir.html">Soutenir</a> · <a href="{rel}mentions-legales.html">Mentions légales</a></p>
+<p><a href="{rel}credits.html">Crédits</a> · <a href="{rel}soutenir.html">Soutenir</a> · <a href="{TIPEEE}" rel="noopener">Tipeee</a> · <a href="{rel}mentions-legales.html">Mentions légales</a></p>
 </footer>
 </body>
 </html>
@@ -87,7 +88,7 @@ def page(name, title, description, body, rel="", robots="index,follow", ogtype="
     return (HEAD.format(title=esc(title), description=esc(description), robots=robots, ogtype=ogtype,
                         canonical=canonical, rel=rel, v=VERSION, nav=nav_html(rel))
             + body.strip("\n") + "\n"
-            + FOOT.format(year=date.today().year, rel=rel, pf=PF_AUTEUR))
+            + FOOT.format(year=date.today().year, rel=rel, pf=PF_AUTEUR, TIPEEE=TIPEEE))
 
 # ---------------------------------------------------------------- recueil
 R = json.loads((ROOT / "outils" / "recueil.json").read_text(encoding="utf-8"))
@@ -241,10 +242,12 @@ def pages_pdf(path):
         return None
 
 def telecharger_html(rel=""):
-    pdf, epub = "livre/marcher-sur-un-fil.pdf", "livre/marcher-sur-un-fil.epub"
+    pdf, imp, epub = "livre/marcher-sur-un-fil.pdf", "livre/marcher-sur-un-fil-impression.pdf", "livre/marcher-sur-un-fil.epub"
     n = pages_pdf(pdf)
-    return (f'<p>Le recueil complet, tel qu’il se lit ici : <a href="{rel}{pdf}">PDF</a> (format A5, {n} pages, prêt à imprimer, {taille(pdf)}) · '
-            f'<a href="{rel}{epub}">EPUB</a> (liseuses et téléphones, {taille(epub)}).</p>')
+    return (f'<p>Le recueil complet, tel qu’il se lit ici :</p><ul class="liens">'
+            f'<li><a href="{rel}{pdf}">PDF à lire sur écran</a> — {n} pages, liens actifs vers les chansons, les musiques et les sources ({taille(pdf)})</li>'
+            f'<li><a href="{rel}{imp}">PDF à imprimer</a> — format A5, recto-verso, prêt pour l’impression ({taille(imp)})</li>'
+            f'<li><a href="{rel}{epub}">EPUB</a> — pour liseuses et téléphones ({taille(epub)})</li></ul>')
 
 def livre_page():
     pref = "\n".join(f'<span class="acro"><strong>{esc(l[0])}</strong>{esc(l[1:])}</span>' for l in FRONT["preface"]["lines"])
@@ -279,7 +282,7 @@ PAGES = {
 <div class="mot">
 <p>Mon nom d’artiste est Delideal. Je suis ingénieur, je joue du piano, et je vis avec une sensibilité bipolaire : des cimes, des gouffres, quelques séjours à l’hôpital. J’écris depuis l’an 2000 pour tenir debout entre les deux. Du ciment dans les veines, des briques à casser : ces mots sont les miens, et jouer avec la folie, c’est <a href="poemes/marcher-sur-un-fil.html">marcher sur un fil</a>.</p>
 <p>De 2014 à 2023, j’ai publié chaque poème sur <a href="credits.html">un site qui en garde la date</a>. Les voici en <a href="poemes.html">six parties</a> : l’enfance, le désir, la crise, la colère, puis un chemin, et de la place pour aimer et respirer.</p>
-<p>Lecture libre, sans image et sans une ligne d’intelligence artificielle ; le recueil se télécharge aussi en <a href="livre/marcher-sur-un-fil.pdf">PDF</a> et en <a href="livre/marcher-sur-un-fil.epub">EPUB</a>. Si quelques textes vous touchent, vous pouvez m’aider d’un <a href="soutenir.html">don sur Tipeee</a>, <a href="musique.html">les mettre en musique</a>, ou, si vous éditez des livres, <a href="soutenir.html">me dire si celui-ci est prêt</a>.</p>
+<p>Lecture libre, sans image et sans une ligne d’intelligence artificielle ; le recueil se télécharge aussi en <a href="livre/marcher-sur-un-fil.pdf">PDF</a> et en <a href="livre/marcher-sur-un-fil.epub">EPUB</a>. Si quelques textes vous touchent, vous pouvez m’aider d’un <a href="{TIPEEE}" rel="noopener">don sur Tipeee</a>, <a href="musique.html">les mettre en musique</a>, ou, si vous éditez des livres, <a href="soutenir.html">me dire si celui-ci est prêt</a>.</p>
 </div>
 
 <h2>Entrer</h2>
@@ -292,7 +295,7 @@ PAGES = {
 {telecharger_html()}
 
 <h2>Continuer</h2>
-<p>Ce site est gratuit et le restera. Un don, ponctuel ou mensuel, sur Tipeee ; une maison d’édition pour faire du recueil un vrai livre ; des musiciennes et musiciens pour transformer les maquettes en chansons : <a href="soutenir.html">tout est expliqué ici</a>.</p>
+<p>Ce site est gratuit et le restera. Un don, ponctuel ou mensuel, sur <a href="{TIPEEE}" rel="noopener">Tipeee</a> ; une maison d’édition pour faire du recueil un vrai livre ; des musiciennes et musiciens pour transformer les maquettes en chansons : <a href="soutenir.html">tout est expliqué ici</a>.</p>
 """),
 "musique.html": dict(
   title="Musique — Delideal",
@@ -332,13 +335,13 @@ PAGES = {
 "soutenir.html": dict(
   title="Soutenir — Delideal",
   description="Soutenir le travail de Delideal : contributions, éditeurs, musiciens.",
-  body="""
+  body=f"""
 <h1 class="titre-fil">Soutenir</h1>
 <div class="fil" aria-hidden="true"></div>
 <p>Écrire, publier, mettre en musique : tout cela prend du temps et un peu d’argent. Ce site est gratuit et sans publicité, et il le restera. Voici trois façons d’aider.</p>
 <h2>Contribuer</h2>
-<p>Un don, ponctuel ou mensuel, sur Tipeee, plateforme française dédiée aux créateurs. Il sert à faire vivre ce site, à continuer d’écrire, et à réunir les moyens de publier le recueil <em>Marcher sur un fil</em> en vrai livre et en ebook.</p>
-<p class="note">Le lien Tipeee sera ajouté dès l’ouverture de la page.</p>
+<p>Un don, ponctuel ou mensuel, sur Tipeee, plateforme française dédiée aux créateurs. Il sert à faire vivre ce site, à continuer d’écrire, et à réunir les moyens de publier le recueil <em>Marcher sur un fil</em> en vrai livre.</p>
+<p><a class="bouton" href="{TIPEEE}" rel="noopener">Soutenir Delideal sur Tipeee</a></p>
 <h2>Éditer</h2>
 <p>Je cherche une maison d’édition pour le recueil. Le manuscrit est prêt, préfacé, et se lit en entier sur ce site. Écrivez-moi : <a class="courriel" data-u="sebastien.nadler" data-d="gmail.com" href="#">sebastien.nadler [at] gmail.com</a>.</p>
 <h2>Mettre en musique</h2>

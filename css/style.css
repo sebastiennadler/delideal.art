@@ -120,6 +120,10 @@ footer p{margin:.2rem 0}
 .mot p{font-size:1.08rem; line-height:1.65}
 .mot p:last-child{margin-bottom:0}
 
+/* ---- Bouton (lien mis en avant) ---- */
+.bouton{display:inline-block; padding:.55rem 1.1rem; border:1px solid var(--accent); border-radius:999px; color:var(--accent); font-size:1.02rem}
+.bouton:hover{background:var(--accent); color:var(--bg); text-decoration:none}
+
 /* ---- Sommaire ---- */
 .partie{margin-top:2.6rem}
 .partie h2{margin-top:0}

@@ -26,12 +26,12 @@ poemes/<slug>.html     une page par texte (56) : texte à l'identique, musique s
 credits.html           dates, sources (poeme-france) et copies Internet Archive de tous les textes ; préface ; musiques
 le-livre.html          dédicace, préface d'Isabelle (acrostiche), ouverture, les six parties
 musique.html           Concerto (piano, mp3), chansons de l'auteur (YouTube @delideal), maquettes IA
-soutenir.html          Tipeee (lien à venir), éditeurs, musiciens, contact
+soutenir.html          Tipeee (fr.tipeee.com/delidealart), éditeurs, musiciens, contact
 mentions-legales.html
 outils/build.py        GÉNÈRE toutes les pages ; outils/recueil.json = les textes et leur ordre
-outils/livre.py        GÉNÈRE livre/marcher-sur-un-fil.pdf (A5, prêt à imprimer) et .epub à partir des mêmes données
+outils/livre.py        GÉNÈRE livre/marcher-sur-un-fil.pdf (écran, liens actifs), -impression.pdf (A5 recto-verso) et .epub
                        (Chromium/Playwright + pypdf ; polices EB Garamond dans outils/fonts/, licence OFL)
-livre/                 le recueil téléchargeable : PDF et EPUB, régénérés à chaque changement de texte
+livre/                 le recueil téléchargeable : PDF écran, PDF imprimable, EPUB — régénérés à chaque changement de texte
 css/style.css  js/site.js  audio/  CNAME  .nojekyll  robots.txt  sitemap.xml
 ```
 
@@ -49,3 +49,4 @@ css/style.css  js/site.js  audio/  CNAME  .nojekyll  robots.txt  sitemap.xml
 - 2026-10-28 (v14) : mot d'accueil de l'auteur en haut de l'accueil (corrigé par lui) ; recueil téléchargeable en PDF (136 p., A5) et EPUB, générés par outils/livre.py depuis recueil.json — même contenu que le site, aucun texte ajouté ; extrait et paragraphes redondants de l'accueil retirés.
 - 2026-10-28 (v15) : partie II renommée « Le désir » (choix de l'auteur) ; PDF/EPUB régénérés.
 - 2026-10-28 (v16) : six introductions de partie (première personne, faites des vers de l'auteur, validées mot à mot par lui) remplacent les chapeaux sur la page Poèmes et dans le livre ; anciens chapeaux conservés dans recueil.json (chapeau_court). PDF/EPUB régénérés.
+- 2026-10-28 (v17) : deux PDF (écran avec liens actifs vers YouTube, mp3, sources, Tipeee ; imprimable A5 recto-verso) + EPUB avec liens ; page Tipeee ouverte (fr.tipeee.com/delidealart) : lien sur l'accueil, Soutenir (bouton), pied de page et dans le livre.

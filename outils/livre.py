@@ -28,6 +28,9 @@ FONT_FILES = {("400", "normal"): "eb-garamond-latin-400-normal.woff",
               ("500", "normal"): "eb-garamond-latin-500-normal.woff",
               ("500", "italic"): "eb-garamond-latin-500-italic.woff"}
 ANNEE = datetime.date.today().year
+SITE = "https://delideal.art"
+TIPEEE = "https://fr.tipeee.com/delidealart"
+MODE = {"liens": True}          # True : liens actifs (écran, EPUB) ; False : version imprimable
 MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août",
         "septembre", "octobre", "novembre", "décembre"][datetime.date.today().month - 1]
 
@@ -49,11 +52,45 @@ SOURCES_INTRO = ('<p>Tous les textes de ce livre sont de Delideal (Sébastien Na
 SOURCES_FIN = ('<p>La préface du recueil, un acrostiche, est d’Isabelle Jespersen.</p>'
                '<p>Plusieurs de ces textes existent aussi en chanson, et une improvisation au piano accompagne '
                '« Concerto pour hall de gare » : delideal.art/musique.html.</p>')
-FIN = ('<p>Ce livre se lit gratuitement, texte par texte, sur <a href="https://delideal.art">delideal.art</a>. '
-       'Il cherche un éditeur.</p>'
-       '<p>Si quelques textes vous touchent, vous pouvez soutenir l’auteur par un don, ponctuel ou mensuel, sur Tipeee '
-       '(<a href="https://delideal.art/soutenir.html">delideal.art/soutenir.html</a>), lui proposer de mettre un texte '
-       'en musique, ou lui écrire : sebastien.nadler@gmail.com.</p>')
+
+def fin_html():
+    if MODE["liens"]:
+        return (f'<p>Ce livre se lit gratuitement, texte par texte, sur <a href="{SITE}">delideal.art</a>. Il cherche un éditeur.</p>'
+                f'<p>Si quelques textes vous touchent, vous pouvez soutenir l’auteur par un don, ponctuel ou mensuel, sur '
+                f'<a href="{TIPEEE}">Tipeee</a>, lui proposer de mettre un texte en musique, ou lui écrire : '
+                f'<a href="mailto:sebastien.nadler@gmail.com">sebastien.nadler@gmail.com</a>.</p>'
+                f'<p>Les musiques : <a href="{SITE}/musique.html">delideal.art/musique.html</a>. Les dates, sources et copies d’archive : '
+                f'<a href="{SITE}/credits.html">delideal.art/credits.html</a>.</p>')
+    return ('<p>Ce livre se lit gratuitement, texte par texte, sur delideal.art. Il cherche un éditeur.</p>'
+            '<p>Si quelques textes vous touchent, vous pouvez soutenir l’auteur par un don, ponctuel ou mensuel, sur Tipeee '
+            '(fr.tipeee.com/delidealart), lui proposer de mettre un texte en musique, ou lui écrire : sebastien.nadler@gmail.com.</p>'
+            '<p>Les musiques : delideal.art/musique.html. Les dates, sources et copies d’archive : delideal.art/credits.html.</p>')
+
+def music_html(e):
+    """Bloc « En musique » sous un poème : liens actifs en mode écran, mention simple en impression."""
+    m = e.get("music")
+    if not m:
+        return ""
+    if MODE["liens"]:
+        if m["kind"] == "piano":
+            t = (f'{esc(m["label"])} : <a href="{m["yt"]}">écouter sur YouTube</a> · '
+                 f'<a href="{SITE}/{m["mp3"]}">télécharger le mp3</a>.')
+        elif m["kind"] == "auteur":
+            t = f'Ce poème est aussi une chanson, écrite et chantée par l’auteur : <a href="{m["yt"]}">écouter sur YouTube</a>'
+            if m.get("yt2"):
+                t += f' · <a href="{m["yt2"]}">{esc(m["label2"]).lower()}</a>'
+            t += '.'
+        else:
+            t = (f'{esc(m["label"])} : <a href="{m["yt"]}">écouter sur YouTube</a>. '
+                 'Musique et voix générées par intelligence artificielle sur le texte de l’auteur : une maquette, pour donner une idée de ce que ce poème pourrait devenir en chanson.')
+    else:
+        if m["kind"] == "piano":
+            t = f'{esc(m["label"])} — à écouter sur delideal.art/musique.html.'
+        elif m["kind"] == "auteur":
+            t = 'Ce poème est aussi une chanson, écrite et chantée par l’auteur — delideal.art/musique.html.'
+        else:
+            t = f'{esc(m["label"])}, musique et voix générées par intelligence artificielle sur le texte de l’auteur — delideal.art/musique.html.'
+    return f'<p class="musique">♪ {t}</p>'
 
 # ------------------------------------------------------------------ rendu des textes
 def verses_html(e, br):
@@ -98,6 +135,7 @@ def poem_html(e, br):
     h.append(verses_html(e, br))
     if e.get("note"):
         h.append(f'<p class="note-auteur">{esc(e["note"])}</p>')
+    h.append(music_html(e))
     return "".join(h)
 
 def preface_html():
@@ -110,7 +148,11 @@ def sources_table():
         rows.append(f'<tr class="partie-row"><td colspan="3">{P["num"]}. {esc(P["title"])}</td></tr>')
         for e in P["poems"]:
             if e.get("pf"):
-                rows.append(f'<tr><td>{esc(e["title"])}</td><td>{e["date"]}</td><td>{e["pf"]}</td></tr>')
+                if MODE["liens"]:
+                    rows.append(f'<tr><td>{esc(e["title"])}</td><td>{e["date"]}</td><td><a href="{B.pf_url(e)}">{e["pf"]}</a> · '
+                                f'<a href="https://web.archive.org/web/2026/{B.pf_url(e)}">archive</a></td></tr>')
+                else:
+                    rows.append(f'<tr><td>{esc(e["title"])}</td><td>{e["date"]}</td><td>{e["pf"]}</td></tr>')
             else:
                 rows.append(f'<tr><td>{esc(e["title"])}</td><td>—</td><td>inédit</td></tr>')
     return ('<table><thead><tr><th>Texte</th><th>Première publication</th><th>n° poeme-france</th></tr></thead><tbody>'
@@ -125,12 +167,16 @@ PDF_CSS = """
 @page{size:148mm 210mm; margin:17mm 16mm 19mm 20mm;
   @bottom-center{content:counter(page); font-family:"EB Garamond"; font-size:9.5pt; color:#5b554b}}
 @page:left{margin:17mm 20mm 19mm 16mm}
+
 @page vide{ @bottom-center{content:none} }
 html{font-size:11pt}
 body{margin:0; font-family:"EB Garamond",Garamond,Georgia,serif; line-height:1.45; color:#1a1712; font-kerning:normal; font-variant-ligatures:common-ligatures}
 h1,h2,h3,h4{font-weight:400; line-height:1.15; margin:0; color:#15120e}
 p{margin:0 0 .8em; orphans:2; widows:2}
 a{color:inherit; text-decoration:none}
+body.liens a{color:#9a6f0a}
+body.liens .sommaire a,body.liens .titre a{color:inherit}
+.musique{margin-top:7mm; font-size:9.5pt; color:#5b554b; line-height:1.4}
 .page,.poeme-page{break-before:page}
 .titre,.colophon,.dedicace,.ouverture,.partie,.blanche{page:vide}
 .blanche{height:1px}
@@ -198,15 +244,18 @@ a{color:inherit; text-decoration:none}
 
 RECTO = ["dedicace", "preface", "ouverture", "sommaire"] + [f"partie-{P['num']}" for P in PARTS]
 
+ECRAN_CSS = "@page{margin:17mm 18mm 19mm 18mm} @page:left{margin:17mm 18mm 19mm 18mm}"
+
 def book_html(numbers, blanks):
     """numbers : clé -> numéro de page à afficher au sommaire ; blanks : clés précédées d'une page blanche."""
     n = lambda k: numbers.get(k, "")
     def blank(k):
         return '<section class="page blanche"></section>' if k in blanks else ""
     h = ['<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">',
-         f'<title>{esc(FRONT["title"])} — Delideal</title><style>', font_faces(FONTS.as_uri() + "/"), PDF_CSS, '</style></head><body>']
+         f'<title>{esc(FRONT["title"])} — Delideal</title><style>', font_faces(FONTS.as_uri() + "/"), PDF_CSS,
+         ECRAN_CSS if MODE["liens"] else "", '</style></head>', '<body class="liens">' if MODE["liens"] else '<body>']
     h.append(f'<section class="titre"><p class="auteur">Delideal</p><h1>{esc(FRONT["title"])}</h1><div class="fil"></div>'
-             f'<p class="st">{esc(FRONT["subtitle"])}</p><p class="site">delideal.art</p></section>')
+             f'<p class="st">{esc(FRONT["subtitle"])}</p><p class="site">' + (f'<a href="{SITE}">delideal.art</a>' if MODE["liens"] else 'delideal.art') + '</p></section>')
     h.append(f'<section class="page colophon">{COLOPHON}</section>')
     h.append(blank("dedicace") + f'<section class="page dedicace"><p>{esc(FRONT["dedicace"])}</p></section>')
     h.append(blank("preface") + f'<section class="page preface-page"><h1>Préface</h1><div class="fil"></div>{preface_html()}</section>')
@@ -231,7 +280,7 @@ def book_html(numbers, blanks):
         for e in P["poems"]:
             h.append(f'<article class="poeme-page">{poem_html(e, "<br>")}</article>')
     h.append(f'<section class="page sources"><h1>Sources</h1><div class="fil"></div>{SOURCES_INTRO}{sources_table()}{SOURCES_FIN}</section>')
-    h.append(f'<section class="page fin"><h1>Pour continuer</h1><div class="fil"></div>{FIN}</section>')
+    h.append(f'<section class="page fin"><h1>Pour continuer</h1><div class="fil"></div>{fin_html()}</section>')
     h.append('</body></html>')
     return "".join(h)
 
@@ -285,7 +334,9 @@ def measure(pdf_bytes):
         raise RuntimeError("dédicace ou ouverture introuvable dans le texte du PDF")
     return pages, len(r.pages)
 
-def make_pdf(scratch):
+def make_pdf(scratch, liens):
+    MODE["liens"] = liens
+    recto = [] if liens else RECTO          # écran : pas de pages blanches
     order = ["titre", "dedicace", "preface", "ouverture", "sommaire"]
     for P in PARTS:
         order.append(f'partie-{P["num"]}'); order += [e["slug"] for e in P["poems"]]
@@ -298,7 +349,7 @@ def make_pdf(scratch):
         old_before = lambda k: sum(1 for b in blanks if pos[b] <= pos[k])
         base = {k: actual[k] - old_before(k) for k in actual}
         new_blanks = set()
-        for rk in RECTO:
+        for rk in recto:
             if (base[rk] + len(new_blanks)) % 2 == 0:
                 new_blanks.add(rk)
         new_numbers = {k: str(base[k] + sum(1 for b in new_blanks if pos[b] <= pos[k])) for k in actual}
@@ -309,7 +360,7 @@ def make_pdf(scratch):
         numbers, blanks = new_numbers, new_blanks
     else:
         raise RuntimeError("le sommaire ne converge pas")
-    for rk in RECTO:
+    for rk in recto:
         assert actual[rk] % 2 == 1, f"{rk} n’est pas sur une page de droite (p. {actual[rk]})"
     return pdf, npages
 
@@ -351,6 +402,8 @@ a{color:inherit; text-decoration:none}
 .theatre .personnage{margin:.8em 0 .1em; font-weight:500}
 .theatre .replique{margin:0 0 .3em; padding-left:1.2em}
 .note-auteur{color:#5b554b; font-size:.88em; border-left:1.5px solid #bbb; padding-left:.8em; margin-top:2em}
+.musique{margin-top:2em; font-size:.9em; color:#5b554b}
+.musique a,.fin a,.sources a,.colophon a{color:#9a6f0a; text-decoration:underline}
 table{width:100%%; border-collapse:collapse; font-size:.85em; margin-top:1em}
 th,td{text-align:left; padding:.25em .4em .25em 0; border-bottom:1px solid #ddd; vertical-align:top}
 th{font-weight:500}
@@ -393,6 +446,7 @@ def cover_png(scratch):
     return png.read_bytes()
 
 def make_epub(scratch):
+    MODE["liens"] = True
     files = []   # (href, media-type, bytes, properties)
     spine = []   # ids
     nav_items = []  # (href, title, [children])
@@ -424,7 +478,7 @@ def make_epub(scratch):
         nav_items.append((href, f'{P["num"]}. {P["title"]}', kids))
     add("text/sources.xhtml", xhtml("Sources", f'<section class="sources"><h1>Sources</h1><hr class="fil"/>{SOURCES_INTRO}{sources_table()}{SOURCES_FIN}</section>').encode())
     nav_items.append(("text/sources.xhtml", "Sources", []))
-    add("text/fin.xhtml", xhtml("Pour continuer", f'<section class="fin"><h1>Pour continuer</h1><hr class="fil"/>{FIN}</section>').encode())
+    add("text/fin.xhtml", xhtml("Pour continuer", f'<section class="fin"><h1>Pour continuer</h1><hr class="fil"/>{fin_html()}</section>').encode())
     nav_items.append(("text/fin.xhtml", "Pour continuer", []))
     # navigation (EPUB 3) + NCX (anciens lecteurs)
     def ol(items):
@@ -491,10 +545,14 @@ def main():
     import tempfile
     OUT.mkdir(exist_ok=True)
     scratch = Path(tempfile.mkdtemp(prefix="livre-"))
-    print("PDF…")
-    pdf, npages = make_pdf(scratch)
+    print("PDF écran (liens actifs)…")
+    pdf, npages = make_pdf(scratch, liens=True)
     (OUT / "marcher-sur-un-fil.pdf").write_bytes(pdf)
     print(f"  livre/marcher-sur-un-fil.pdf : {npages} pages, {len(pdf) / 1e6:.2f} Mo")
+    print("PDF imprimable (A5 recto-verso)…")
+    pdf, npages = make_pdf(scratch, liens=False)
+    (OUT / "marcher-sur-un-fil-impression.pdf").write_bytes(pdf)
+    print(f"  livre/marcher-sur-un-fil-impression.pdf : {npages} pages, {len(pdf) / 1e6:.2f} Mo")
     print("EPUB…")
     epub, nfiles = make_epub(scratch)
     (OUT / "marcher-sur-un-fil.epub").write_bytes(epub)
