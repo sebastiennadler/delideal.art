@@ -22,7 +22,7 @@ Ce README est la **source de vérité** des choix du site. Si une nouvelle instr
 ```
 index.html             accueil : mot d'accueil de l'auteur (validé mot à mot), les six parties, téléchargements, soutenir
 poemes.html            sommaire : 6 parties (titres choisis par l'auteur dans ses vers, chapeaux validés)
-poemes/<slug>.html     une page par texte (56) : texte à l'identique, musique si elle existe ; rien d'autre
+poemes/<slug>.html     une page par texte (55) : texte à l'identique, musique si elle existe ; rien d'autre
 credits.html           dates, sources (poeme-france) et copies Internet Archive de tous les textes ; préface ; musiques
 le-livre.html          dédicace, préface d'Isabelle (acrostiche), ouverture, les six parties
 musique.html           Concerto (piano, mp3), chansons de l'auteur (YouTube @delideal), maquettes IA
@@ -50,3 +50,4 @@ css/style.css  js/site.js  audio/  CNAME  .nojekyll  robots.txt  sitemap.xml
 - 2026-10-28 (v15) : partie II renommée « Le désir » (choix de l'auteur) ; PDF/EPUB régénérés.
 - 2026-10-28 (v16) : six introductions de partie (première personne, faites des vers de l'auteur, validées mot à mot par lui) remplacent les chapeaux sur la page Poèmes et dans le livre ; anciens chapeaux conservés dans recueil.json (chapeau_court). PDF/EPUB régénérés.
 - 2026-10-28 (v17) : deux PDF (écran avec liens actifs vers YouTube, mp3, sources, Tipeee ; imprimable A5 recto-verso) + EPUB avec liens ; page Tipeee ouverte (fr.tipeee.com/delidealart) : lien sur l'accueil, Soutenir (bouton), pied de page et dans le livre.
+- 2026-10-28 (v18) : « L'Aube » retirée à la demande de l'auteur (55 textes) ; livre régénéré.
