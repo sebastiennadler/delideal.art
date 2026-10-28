@@ -29,6 +29,7 @@ musique.html           Concerto (piano, mp3), chansons de l'auteur (YouTube @del
 soutenir.html          Tipeee (fr.tipeee.com/delidealart), éditeurs, musiciens, contact
 mentions-legales.html
 outils/build.py        GÉNÈRE toutes les pages ; outils/recueil.json = les textes et leur ordre
+partage/carte.png      carte d'aperçu (typographique, 1200×630) pour les partages Facebook/réseaux ; og:image dans chaque page
 outils/livre.py        GÉNÈRE livre/marcher-sur-un-fil.pdf (écran, liens actifs), -impression.pdf (A5 recto-verso) et .epub
                        (Chromium/Playwright + pypdf ; polices EB Garamond dans outils/fonts/, licence OFL)
 livre/                 le recueil téléchargeable : PDF écran, PDF imprimable, EPUB — régénérés à chaque changement de texte
@@ -51,3 +52,4 @@ css/style.css  js/site.js  audio/  CNAME  .nojekyll  robots.txt  sitemap.xml
 - 2026-10-28 (v16) : six introductions de partie (première personne, faites des vers de l'auteur, validées mot à mot par lui) remplacent les chapeaux sur la page Poèmes et dans le livre ; anciens chapeaux conservés dans recueil.json (chapeau_court). PDF/EPUB régénérés.
 - 2026-10-28 (v17) : deux PDF (écran avec liens actifs vers YouTube, mp3, sources, Tipeee ; imprimable A5 recto-verso) + EPUB avec liens ; page Tipeee ouverte (fr.tipeee.com/delidealart) : lien sur l'accueil, Soutenir (bouton), pied de page et dans le livre.
 - 2026-10-28 (v18) : « L'Aube » retirée à la demande de l'auteur (55 textes) ; livre régénéré.
+- 2026-10-28 (v19) : carte d'aperçu typographique pour les partages (og:image), à la demande de l'auteur ; Tipeee active (IBAN + PayPal).
