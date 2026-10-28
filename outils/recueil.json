@@ -4369,5 +4369,116 @@
    "chapeau_court": "Faire de la place. Garder ce qu’on aime, lâcher le reste, et vivre au présent.",
    "chapeau_prose_2026-10-28": "Pour aimer, il faut une place dans son cœur, et une place dans sa maison. Alors je fais de la place : je garde ce que j’aime, je lâche le reste. Il reste les collines qui dessinent des vagues, et une amante dans mon sang."
   }
+ ],
+ "maquettes": [
+  {
+   "slug": "marcher-sur-un-fil",
+   "title": "Marcher sur un fil",
+   "yt": "https://www.youtube.com/watch?v=EJr4KC2jq6E",
+   "sources": [
+    "marcher-sur-un-fil",
+    "du-diable-a-lhomme"
+   ],
+   "paroles": null
+  },
+  {
+   "slug": "ma-muse-onirique",
+   "title": "Ma muse onirique",
+   "yt": "https://www.youtube.com/watch?v=W0gOmmTVj7o",
+   "sources": [
+    "ma-muse-onirique",
+    "emporte-par-le-vent"
+   ],
+   "paroles": [
+    {
+     "label": "Strophe 1",
+     "lines": [
+      "Je regarde les collines se découper au loin.",
+      "Comme la houle, elles dessinent des vagues",
+      "Vertes sur le paysage, et une nageuse aqua-",
+      "Tique, lève une jambe et puis l’autre tac,",
+      "C’est une éolienne qui nous fait une blague.",
+      "Elle se fait femme pour séduire le vent marin."
+     ]
+    },
+    {
+     "label": "Refrain",
+     "lines": [
+      "Oh, comme j’aime cette image :",
+      "Le monde communique sans message,",
+      "L’infini les attire, comme la passion,",
+      "Nous fait et nous défait, nous les pions",
+      "D’un univers qui nous dépasse et nous guide."
+     ]
+    },
+    {
+     "label": "Strophe 2",
+     "lines": [
+      "Monstre océan, qui ne l’a jamais vu,",
+      "La fait tournoyer de ses anticyclones,",
+      "Il est sa force, une pensée lui suffit",
+      "A entraîner la belle dans sa danse d’énergie,",
+      "Et elle absorbe son souffle comme l’anémone",
+      "Son eau : c’est l’amour d’un géant qu’est ému."
+     ]
+    },
+    {
+     "label": "Refrain",
+     "lines": [
+      "Oh, comme j’aime cette image :",
+      "Le monde communique sans message,",
+      "L’infini les attire, comme la passion,",
+      "Nous fait et nous défait, nous les pions",
+      "D’un univers qui nous dépasse et nous guide.",
+      "Lâchant prise, on oublie nos raisons insipides."
+     ]
+    },
+    {
+     "label": "Pont",
+     "lines": [
+      "C’est une pensée de passage,",
+      "Un simple paysage,",
+      "Et le côté pratique,",
+      "Vous dit que c’est d’la physique,",
+      "Que c’est avec des larmes,",
+      "Et d’la sueur qu’on s’arme.",
+      "Que le temps est infâme,",
+      "Que seul le meilleur gagne.",
+      "Mais le temps métronome,",
+      "N’est pas bien économe.",
+      "Il s’écoule toujours,",
+      "Et la nuit et le jour.",
+      "La vie comme une musique,",
+      "A son côté magique.",
+      "",
+      "La vie est une drôle de musique,",
+      "Une musique de fou,",
+      "Qui nous met à genoux,",
+      "Mais amuse l’onirique."
+     ]
+    },
+    {
+     "label": "Refrain",
+     "lines": [
+      "Comme j’aime cette image :",
+      "Le monde communique sans message,",
+      "L’infini les attire, comme la passion,",
+      "Nous fait et nous défait, nous les pions",
+      "D’un univers qui nous dépasse et nous guide."
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "meditations",
+   "title": "Méditations",
+   "yt": "https://www.youtube.com/watch?v=U1Ou6cdE1Zc",
+   "sources": [
+    "meditation-1-sur-le-silence",
+    "meditation-2-sur-lideal",
+    "meditation-3-sur-le-principe-de-realite"
+   ],
+   "paroles": null
+  }
  ]
 }

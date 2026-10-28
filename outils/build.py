@@ -16,7 +16,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261029k"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261029l"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir")]
@@ -166,7 +166,9 @@ def music_block(e, rel=""):
         t += ' (YouTube).'
     else:
         if m.get("yt"):
-            t = (f'{esc(m["label"])} : <a href="{m["yt"]}" rel="noopener">écouter sur YouTube</a>. <span class="etiquette">musique IA</span> '
+            par = next((mq for mq in MAQUETTES if mq.get("paroles") and e["slug"] in mq["sources"]), None)
+            lien_par = f' · <a href="{rel}musique.html#paroles-{par["slug"]}">lire les paroles</a>' if par else ""
+            t = (f'{esc(m["label"])} : <a href="{m["yt"]}" rel="noopener">écouter sur YouTube</a>{lien_par}. <span class="etiquette">musique IA</span> '
                  'Texte de l’auteur ; musique et voix générées par intelligence artificielle, pour donner une idée de ce que ce poème pourrait devenir en chanson.')
         else:
             t = f'{esc(m["label"])}. <span class="etiquette">musique IA</span>'
@@ -257,6 +259,28 @@ def telecharger_html(rel=""):
 
 def chapeau_html(P):
     return "<br>\n".join(esc(l) for l in P.get("chapeau", "").split("\n"))
+
+MAQUETTES = R.get("maquettes", [])
+TITRES = {e["slug"]: e["title"] for _, e in ALL}
+
+def maquettes_html():
+    out = ['<ul class="liens maquettes">']
+    for m in MAQUETTES:
+        srcs = " et ".join(f'<a href="poemes/{sl}.html">{esc(TITRES.get(sl, sl))}</a>' for sl in m["sources"]) if len(m["sources"]) == 2 else \
+               ", ".join(f'<a href="poemes/{sl}.html">{esc(TITRES.get(sl, sl))}</a>' for sl in m["sources"])
+        base = "composée à partir de deux textes : " if len(m["sources"]) == 2 else "composée à partir de trois textes : "
+        li = [f'<li id="maquette-{m["slug"]}"><a href="{m["yt"]}" rel="noopener">{esc(m["title"])}</a> <span class="etiquette">musique IA</span> · {base}{srcs}']
+        if m.get("paroles"):
+            blocs = []
+            for sec in m["paroles"]:
+                lines = "<br>".join(esc(l) if l else "" for l in sec["lines"]).replace("<br><br>", "</p><p>")
+                blocs.append(f'<p class="paroles-label">{esc(sec["label"])}</p><p>{lines}</p>')
+            li.append(f'<details class="paroles" id="paroles-{m["slug"]}"><summary>Paroles de la maquette</summary><div class="paroles-texte">{"".join(blocs)}</div>'
+                      f'<p class="note">Paroles de l’auteur, assemblées à partir de ses poèmes ; musique et voix générées par intelligence artificielle.</p></details>')
+        li.append('</li>')
+        out.append("".join(li))
+    out.append('</ul>')
+    return "".join(out)
 
 def partage_html(url, texte, label="Partager", mot=""):
     """Liens de partage sans script tiers ni traceur : simples adresses de partage des réseaux."""
@@ -361,7 +385,7 @@ PAGES = {
 "musique.html": dict(
   title="Musique — Delideal",
   description="Les musiques de Delideal : improvisation au piano, chansons sur ses poèmes, et maquettes.",
-  body="""
+  body=f"""
 <h1 class="titre-fil">Musique</h1>
 <div class="fil" aria-hidden="true"></div>
 
@@ -387,11 +411,7 @@ PAGES = {
 
 <h2>Maquettes</h2>
 <p>D’autres textes ont été mis en musique avec des outils d’intelligence artificielle : ce sont des <strong>maquettes</strong>, une façon d’entendre ce que ces poèmes pourraient devenir en chanson. Elles sont une porte ouverte : si vous êtes musicienne ou musicien et qu’un de ces textes vous parle, <a href="soutenir.html">écrivez-moi</a>. L’idée est qu’un jour ces chansons soient jouées et chantées par des humains.</p>
-<ul class="liens">
-<li><a href="https://www.youtube.com/watch?v=EJr4KC2jq6E" rel="noopener">Marcher sur un fil</a> <span class="etiquette">musique IA</span> · composée à partir de deux textes : <a href="poemes/marcher-sur-un-fil.html">Marcher sur un fil</a> et <a href="poemes/du-diable-a-lhomme.html">Du diable à l’homme</a></li>
-<li><a href="https://www.youtube.com/watch?v=W0gOmmTVj7o" rel="noopener">Ma muse onirique</a> <span class="etiquette">musique IA</span> · composée à partir de deux textes : <a href="poemes/ma-muse-onirique.html">Ma Muse Onirique</a> et <a href="poemes/emporte-par-le-vent.html">Emporté par le vent</a></li>
-<li><a href="https://www.youtube.com/watch?v=U1Ou6cdE1Zc" rel="noopener">Méditations</a> <span class="etiquette">musique IA</span> · composée à partir des trois méditations : <a href="poemes/meditation-1-sur-le-silence.html">sur le Silence</a>, <a href="poemes/meditation-2-sur-lideal.html">sur l’Idéal</a>, <a href="poemes/meditation-3-sur-le-principe-de-realite.html">sur le Principe de Réalité</a></li>
-</ul>
+{maquettes_html()}
 """),
 "soutenir.html": dict(
   title="Soutenir — Delideal",
