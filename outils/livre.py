@@ -30,7 +30,11 @@ FONT_FILES = {("400", "normal"): "eb-garamond-latin-400-normal.woff",
 ANNEE = datetime.date.today().year
 SITE = "https://delideal.art"
 TIPEEE = "https://fr.tipeee.com/delidealart"
-MODE = {"liens": True}          # True : liens actifs (écran, EPUB) ; False : version imprimable
+MODE = {"liens": True, "amazon": False}   # liens : actifs (écran, EPUB) ou non (imprimable) ; amazon : version vendue 0,99 €
+PRIX_AMAZON = ('<p>Ce livre coûte 0,99 €, le prix d’un café, pour que personne n’ait à choisir entre lire et payer. '
+               'Il se lit aussi gratuitement sur delideal.art. Si vous voulez m’aider davantage, ce n’est pas en l’achetant deux fois : '
+               'sur Tipeee, votre don m’arrive presque entier, là où une librairie en ligne en garde les deux tiers. '
+               'Chacun fait comme il peut. Lire, c’est déjà beaucoup.</p>')
 MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août",
         "septembre", "octobre", "novembre", "décembre"][datetime.date.today().month - 1]
 
@@ -54,6 +58,14 @@ SOURCES_FIN = ('<p>La préface du recueil, un acrostiche, est d’Isabelle Jespe
                '« Concerto pour hall de gare » : delideal.art/musique.html.</p>')
 
 def fin_html():
+    if MODE.get("amazon"):
+        return (PRIX_AMAZON.replace('sur Tipeee', f'sur <a href="{TIPEEE}">Tipeee</a>').replace('sur delideal.art', f'sur <a href="{SITE}">delideal.art</a>')
+                + '<p>Il cherche un éditeur. Vous pouvez aussi lui proposer de mettre un texte en musique, ou lui écrire : '
+                f'<a href="mailto:sebastien.nadler@gmail.com">sebastien.nadler@gmail.com</a>.</p>'
+                f'<p>Toutes les façons d’aider — un don, une maison d’édition, des musiciens, des illustrateurs, des vidéastes — sont réunies sur '
+                f'<a href="{SITE}/soutenir.html">delideal.art/soutenir.html</a>.</p>'
+                f'<p>Les musiques : <a href="{SITE}/musique.html">delideal.art/musique.html</a>. Les dates, sources et copies d’archive : '
+                f'<a href="{SITE}/credits.html">delideal.art/credits.html</a>.</p>')
     if MODE["liens"]:
         return (f'<p>Ce livre se lit gratuitement, texte par texte, sur <a href="{SITE}">delideal.art</a>. Il cherche un éditeur.</p>'
                 f'<p>Si quelques textes vous touchent, vous pouvez soutenir l’auteur par un don, ponctuel ou mensuel, sur '
@@ -449,8 +461,9 @@ def cover_png(scratch):
         pg.screenshot(path=str(png), full_page=False); b.close()
     return png.read_bytes()
 
-def make_epub(scratch):
+def make_epub(scratch, amazon=False):
     MODE["liens"] = True
+    MODE["amazon"] = amazon
     files = []   # (href, media-type, bytes, properties)
     spine = []   # ids
     nav_items = []  # (href, title, [children])
@@ -497,7 +510,7 @@ def make_epub(scratch):
            f'<li><a epub:type="bodymatter" href="text/partie-{PARTS[0]["num"]}.xhtml">Début de la lecture</a></li>'
            '</ol></nav></body></html>')
     add("nav.xhtml", nav.encode(), props="nav", in_spine=False)
-    uid = "https://delideal.art/livre/marcher-sur-un-fil"
+    uid = "https://delideal.art/livre/marcher-sur-un-fil" + ("#amazon" if amazon else "")
     counter = [0]
     def ncx_points(items):
         out = []
@@ -549,6 +562,12 @@ def main():
     import tempfile
     OUT.mkdir(exist_ok=True)
     scratch = Path(tempfile.mkdtemp(prefix="livre-"))
+    if "--amazon" in sys.argv:
+        dest = Path(sys.argv[sys.argv.index("--amazon") + 1]) if len(sys.argv) > sys.argv.index("--amazon") + 1 else Path("/tmp/marcher-sur-un-fil-amazon.epub")
+        epub, nfiles = make_epub(scratch, amazon=True)
+        dest.write_bytes(epub)
+        print(f"  {dest} : {nfiles} fichiers, {len(epub) / 1e6:.2f} Mo (version Amazon, hors dépôt)")
+        return
     print("PDF écran (liens actifs)…")
     pdf, npages = make_pdf(scratch, liens=True)
     (OUT / "marcher-sur-un-fil.pdf").write_bytes(pdf)
