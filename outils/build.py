@@ -16,7 +16,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261029i"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261029j"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir")]
@@ -185,6 +185,7 @@ def poem_page(i):
     if e.get("note"):
         body.append(f'<p class="note-auteur">{esc(e["note"])}</p>')
     body.append(music_block(e, rel))
+    body.append(partage_html(f'{SITE}/poemes/{e["slug"]}.html', f'« {e["title"]} », un poème de Delideal', "Partager ce poème"))
     nav = ['<nav class="poeme-nav" aria-label="Poème précédent et suivant">']
     nav.append(f'<a class="prec" href="{rel}poemes/{prev_[1]["slug"]}.html">← {esc(prev_[1]["title"])}</a>' if prev_ else "<span></span>")
     nav.append(f'<a class="sommaire" href="{rel}poemes.html">Sommaire</a>')
@@ -257,6 +258,17 @@ def telecharger_html(rel=""):
 def chapeau_html(P):
     return "<br>\n".join(esc(l) for l in P.get("chapeau", "").split("\n"))
 
+def partage_html(url, texte, label="Partager"):
+    """Liens de partage sans script tiers ni traceur : simples adresses de partage des réseaux."""
+    from urllib.parse import quote
+    u, t = quote(url, safe=""), quote(texte, safe="")
+    return (f'<p class="partage"><span class="partage-label">{label} :</span> '
+            f'<a href="https://www.facebook.com/sharer/sharer.php?u={u}" rel="noopener" target="_blank">Facebook</a> · '
+            f'<a href="https://wa.me/?text={t}%20{u}" rel="noopener" target="_blank">WhatsApp</a> · '
+            f'<a href="https://twitter.com/intent/tweet?text={t}&url={u}" rel="noopener" target="_blank">X</a> · '
+            f'<a href="mailto:?subject={t}&body={t}%0A{u}">courriel</a> · '
+            f'<a href="#" class="copier" data-url="{esc(url)}">copier le lien</a></p>')
+
 def premiere_phrase(t):
     import re as _re
     m = _re.match(r"(.+?[.!?])(\s|$)", t)
@@ -298,6 +310,7 @@ def livre_page():
         body.append(f'<li><a href="poemes.html#partie-{P["num"]}">{P["num"]}. {esc(P["title"])}</a> <span class="annee">{len(P["poems"])} textes</span></li>')
     body.append('</ol>')
     body.append('<p><a href="poemes.html">Commencer la lecture</a> · <a href="soutenir.html">Soutenir l’édition du livre</a></p>')
+    body.append(partage_html(f'{SITE}/le-livre.html', "Marcher sur un fil, le recueil de Delideal", "Faire connaître le livre"))
     return page("le-livre.html", "Le livre — Marcher sur un fil",
                 "Marcher sur un fil, fragments de sensibilité bipolaire : le recueil de Delideal, préface d’Isabelle Jespersen.", "\n".join(body))
 
@@ -342,6 +355,7 @@ PAGES = {
 <h2>Soutenir</h2>
 <p>Ce site est gratuit et le restera. Si quelques textes vous touchent, vous pouvez aider à en faire un livre, proposer de les mettre en musique ou en images, ou simplement m’écrire.</p>
 <p class="soutien"><a class="bouton" href="{TIPEEE}" rel="noopener">Soutenir sur Tipeee</a> <a href="soutenir.html">Éditeurs, musiciens, illustrateurs, vidéastes, contact</a></p>
+{partage_html(SITE, "Marcher sur un fil, les poèmes de Delideal", "Faire connaître le site")}
 """),
 "musique.html": dict(
   title="Musique — Delideal",
@@ -384,7 +398,7 @@ PAGES = {
   body=f"""
 <h1 class="titre-fil">Soutenir</h1>
 <div class="fil" aria-hidden="true"></div>
-<p>Écrire, publier, mettre en musique : tout cela prend du temps et un peu d’argent. Ce site est gratuit et sans publicité, et il le restera. Voici quatre façons d’aider.</p>
+<p>Écrire, publier, mettre en musique : tout cela prend du temps et un peu d’argent. Ce site est gratuit et sans publicité, et il le restera. Voici cinq façons d’aider.</p>
 <h2>Contribuer</h2>
 <p>Un don, ponctuel ou mensuel, sur Tipeee, plateforme française dédiée aux créateurs. Il sert à faire vivre ce site, à continuer d’écrire, et à réunir les moyens de publier le recueil <em>Marcher sur un fil</em> en vrai livre.</p>
 <p><a class="bouton" href="{TIPEEE}" rel="noopener">Soutenir Delideal sur Tipeee</a></p>
@@ -392,6 +406,9 @@ PAGES = {
 <p>Je cherche une maison d’édition pour le recueil. Le manuscrit est prêt, préfacé, et se lit en entier sur ce site. Écrivez-moi : <a class="courriel" data-u="sebastien.nadler" data-d="gmail.com" href="#">sebastien.nadler [at] gmail.com</a>.</p>
 <h2>Mettre en musique</h2>
 <p>Plusieurs poèmes sont déjà des chansons, d’autres n’existent qu’en maquette : la page <a href="musique.html">Musique</a> montre la direction. Si vous êtes musicienne ou musicien et qu’un texte vous parle, même adresse.</p>
+<h2>Faire connaître</h2>
+<p>Le plus simple, et ce qui compte le plus : faire lire. Un lien envoyé à une personne vaut mieux qu’une publicité.</p>
+{partage_html(SITE, "Marcher sur un fil, les poèmes de Delideal", "Partager le site")}
 <h2>Illustrer, filmer</h2>
 <p>Ce site est volontairement sans image. Le livre, lui, pourrait en avoir : dessin, peinture, gravure, photographie. Et les chansons mériteraient des clips. Si vous illustrez, si vous filmez ou montez des images, et qu’un texte ou une musique vous inspire, écrivez-moi, même adresse — on en parle, sans engagement de part et d’autre.</p>
 """),

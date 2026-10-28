@@ -36,3 +36,15 @@
     setNavOffset(); window.addEventListener("resize",setNavOffset);
   });
 })();
+
+/* Copier le lien (liens de partage) — sans traceur */
+document.addEventListener("DOMContentLoaded",function(){
+  document.querySelectorAll("a.copier[data-url]").forEach(function(a){
+    a.addEventListener("click",function(ev){
+      ev.preventDefault(); var url=a.getAttribute("data-url"), old=a.textContent;
+      function done(){ a.textContent="lien copié"; setTimeout(function(){ a.textContent=old; },2000); }
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done, function(){ window.prompt("Copiez ce lien :", url); }); }
+      else { window.prompt("Copiez ce lien :", url); }
+    });
+  });
+});
