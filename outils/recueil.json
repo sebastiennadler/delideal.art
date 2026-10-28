@@ -4379,7 +4379,110 @@
     "marcher-sur-un-fil",
     "du-diable-a-lhomme"
    ],
-   "paroles": null
+   "paroles": [
+    {
+     "label": "Verse 1",
+     "lines": [
+      "De l’alcool contre du lithium",
+      "Pour lisser mes états d’âmes",
+      "Et faire que les anges se pâment",
+      "De mon nouveau comportement premium",
+      "",
+      "Au lieu de déverser mes sentiments, les contenir",
+      "Au lieu de laisser vivre mon côté dément, le ligoter",
+      "Mais pourrais-je donc tenir ?",
+      "À m’oublier, ne vais-je donc pas exploser ?"
+     ]
+    },
+    {
+     "label": "Verse 2",
+     "lines": [
+      "Du ciment dans les veines",
+      "Pour éviter l’hémorragie cérébrale",
+      "Mais lentement les vaisseaux de mon cœur saignent",
+      "De la poudre de brique issue de mon mal",
+      "",
+      "Casser les briques, briser les murs",
+      "Voilà ce que me dit mon fort intérieur",
+      "Médicaments-ci mentent à mes terreurs",
+      "Les psys veulent me proposer un monde plus sûr",
+      "Le seul mot qu’ils ont à la bouche est stabilité",
+      "Mais dans quelle mesure puis-je l’accepter ?"
+     ]
+    },
+    {
+     "label": "Chorus",
+     "lines": [
+      "William Blake a écrit, ne vole jamais trop haut qui vole de ses propres ailes",
+      "Marcher sur un fil, c’est un peu se prendre pour un oiseau",
+      "Je n’en serai jamais un, je ne suis pas si sotte",
+      "D’abord me construire un filet de sécurité avant de tenter une vie si libre et si belle"
+     ]
+    },
+    {
+     "label": "Verse 3",
+     "lines": [
+      "Passer du diable à l’homme pour soigner mes peines",
+      "Est-ce si sûr qu’il s’agisse bien d’une vaine ?",
+      "Alcool millénaire à nourrir le malheur",
+      "Lithium même pas centenaire à contentionner nos terreurs",
+      "",
+      "Je ne sais pas qui de l’homme et du diable a la meilleure médecine",
+      "Dans les deux cas, l’effet secondaire est de se retrouver à côté de la vie",
+      "Sans amour et sans haine, c’est l’ennui qui me mine",
+      "Trop d’amour, trop de haine et j’explose en folie"
+     ]
+    },
+    {
+     "label": "Bridge",
+     "lines": [
+      "Pas si simple de choisir entre la folie et l’ennui",
+      "La folie mène à la mort et l’ennui c’est la non vie",
+      "On ne peut démêler ces nœuds de vipères qui m’emprisonnent",
+      "C’est pour la musique d’une autre voie que mon cœur résonne"
+     ]
+    },
+    {
+     "label": "Chorus",
+     "lines": [
+      "William Blake a écrit, ne vole jamais trop haut qui vole de ses propres ailes",
+      "Marcher sur un fil, c’est un peu se prendre pour un oiseau",
+      "Je n’en serai jamais un, je ne suis pas si sotte",
+      "D’abord me construire un filet de sécurité avant de tenter une vie si libre et si belle"
+     ]
+    },
+    {
+     "label": "Verse 4",
+     "lines": [
+      "J’ai peur de me casser la gueule et j’ai déjà franchi la ligne",
+      "La folie est la pire des souffrances, jouer avec c’est marcher sur un fil",
+      "C’est un défi qui me plaît, apprendre à marcher sur ce fil",
+      "C’est la seule vie qui pourrait me ressembler",
+      "La seule qui me permettrait d’exister",
+      "",
+      "Tenons le pari, mais ne soyons pas téméraire",
+      "D’abord apprendre à toucher terre",
+      "Sans médicament, c’est faire marcher à fond ma pile",
+      "Les doigts dans la prise, je risque l’électrocution",
+      "Ou dans l’océan glacial de la folie l’hydrocution"
+     ]
+    },
+    {
+     "label": "Chorus",
+     "lines": [
+      "William Blake a écrit, ne vole jamais trop haut qui vole de ses propres ailes",
+      "Marcher sur un fil, c’est un peu se prendre pour un oiseau",
+      "Je n’en serai jamais un, je ne suis pas si sot",
+      "D’abord me construire un filet de sécurité avant de tenter une vie si libre et si belle"
+     ]
+    },
+    {
+     "label": "Outro",
+     "lines": [
+      "Car je vais encore me casser la gueule"
+     ]
+    }
+   ]
   },
   {
    "slug": "ma-muse-onirique",
