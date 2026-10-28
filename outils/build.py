@@ -16,7 +16,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261029n"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261029p"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir")]
@@ -191,8 +191,10 @@ def poem_page(i):
     if e.get("dedicace"):
         body.append(f'<p class="sous-titre">{esc(e["dedicace"])}</p>')
     body.append(render_blocks(e))
+    if e.get("note_avant"):
+        body.append(f'<p class="note-auteur" id="note">{esc(e["note_avant"])}</p>')
     if e.get("note"):
-        body.append(f'<p class="note-auteur">{esc(e["note"])}</p>')
+        body.append(f'<p class="note-auteur" id="note">{esc(e["note"])}</p>')
     body.append(music_block(e, rel))
     body.append(partage_html(f'{SITE}/poemes/{e["slug"]}.html', f'« {e["title"]} », un poème de Delideal', "Partager", "Un poème, ça se donne. Si celui-ci vous a touché, passez-le à quelqu’un."))
     nav = ['<nav class="poeme-nav" aria-label="Poème précédent et suivant">']
@@ -225,7 +227,7 @@ def sommaire_page():
 
 def credits_page():
     body = ['<h1 class="titre-fil">Crédits</h1>', '<div class="fil" aria-hidden="true"></div>',
-            '<p>Tous les textes de ce site sont de Delideal (Sébastien Nadler). Écrits à partir de l’an 2000, ils ont été publiés entre octobre 2014 et décembre 2023 sur <a href="' + PF_AUTEUR + '" rel="noopener">poeme-france.com</a>, un site tiers qui fixe la date et l’heure de mise en ligne de chaque texte et conserve les commentaires des lecteurs de l’époque.</p>',
+            '<p>Tous les textes de ce site sont de Delideal. Écrits à partir de l’an 2000, ils ont été publiés entre octobre 2014 et décembre 2023 sur <a href="' + PF_AUTEUR + '" rel="noopener">poeme-france.com</a>, un site tiers qui fixe la date et l’heure de mise en ligne de chaque texte et conserve les commentaires des lecteurs de l’époque.</p>',
             '<p>Pour chaque texte, le tableau donne la date de première publication, le lien vers la page d’origine et le lien vers sa copie conservée par Internet Archive. Deux textes sont inédits (ils ne figurent que dans le recueil).</p>',
             '<h2>La préface</h2>', '<p>La préface du recueil, un acrostiche, est d’Isabelle Jespersen.</p>',
             '<h2>Les musiques</h2>',
@@ -281,7 +283,8 @@ def maquettes_html():
         else:
             li = [f'<li id="maquette-{m["slug"]}"><strong>{esc(m["title"])}</strong> <span class="etiquette">musique IA</span> · {base}{srcs}'
                   f'<br><audio controls preload="none" src="{m["mp3"]}" style="width:100%; margin-top:.5rem">Votre navigateur ne lit pas l’audio : <a href="{m["mp3"]}">télécharger le mp3</a>.</audio>'
-                  f'<br><span class="source"><a href="{m["mp3"]}" download>Télécharger le mp3</a> ({m.get("duree", "")}, {taille(m["mp3"])}) · {NOTE_IA}</span>']
+                  f'<br><span class="source"><a href="{m["mp3"]}" download>Télécharger le mp3</a> ({m.get("duree", "")}, {taille(m["mp3"])}) · {NOTE_IA}'
+                  + (f' Un cri, pas un programme : <a href="poemes/{m["sources"][0]}.html#note">la note de l’auteur</a>.' if m.get("note") else "") + '</span>']
         if m.get("paroles"):
             blocs = []
             for sec in m["paroles"]:
@@ -456,7 +459,7 @@ PAGES = {
 <h1 class="titre-fil">Mentions légales</h1>
 <div class="fil" aria-hidden="true"></div>
 <h2>Éditeur</h2>
-<p>Ce site est édité par Sébastien Nadler, auteur publiant sous le nom de Delideal. Contact : <a class="courriel" data-u="sebastien.nadler" data-d="gmail.com" href="#">sebastien.nadler [at] gmail.com</a>.</p>
+<p>Ce site est édité à titre non professionnel par son auteur, qui publie sous le nom de Delideal ; comme la loi le permet pour un éditeur non professionnel, son identité est connue de l’hébergeur. Contact : <a class="courriel" data-u="sebastien.nadler" data-d="gmail.com" href="#">sebastien.nadler [at] gmail.com</a>.</p>
 <h2>Hébergement</h2>
 <p>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
 <h2>Propriété intellectuelle</h2>

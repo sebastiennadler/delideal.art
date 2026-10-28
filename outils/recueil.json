@@ -2707,7 +2707,7 @@
      "pf": "163512",
      "date": "19/05/2015",
      "theme": "Société",
-     "note": "Note de l’auteur (publiée avec le poème) : « Bien sûr, ce texte est une pure fiction et ne prétend défendre aucune philosophie ! N’y voyez pas de réalité personnelle non plus… Bien sûr, je condamne tout sentiment de rébellion tendant à se transformer en action violente. Mais l’écriture est parfois un catharsis de nos démons. À lire, “Asphyxiante Culture” de Jean Dubuffet… Quand je parle de l’homme petit, je ne parle bien sûr pas du faible, mais de celui qui fait preuve de petitesse. »",
+     "note": "Note de l’auteur : « Bien sûr, ce texte est une pure fiction : il ne défend aucune philosophie, et n’y voyez aucune réalité personnelle. C’est un cri de rage et d’exaspération — l’écriture est parfois la catharsis de nos démons, et l’on met ses démons en vers pour ne pas les mettre en actes. Bien sûr, je condamne tout sentiment de rébellion qui tendrait à se transformer en action violente : je crois aux changements doux et pacifiques. Quand je parle de l’homme petit, je ne parle pas du faible, mais de celui qui fait preuve de petitesse. À lire, “Asphyxiante Culture” de Jean Dubuffet. »",
      "kind": "verse",
      "blocks": [
       [
@@ -4720,7 +4720,8 @@
    "sources": [
     "ame-rebelle"
    ],
-   "texte_integral": true
+   "texte_integral": true,
+   "note": true
   }
  ]
 }

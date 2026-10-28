@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
 livre.py — fabrique le recueil téléchargeable à partir des mêmes données que le site
-(outils/recueil.json) : un PDF au format A5 prêt à imprimer et un EPUB pour liseuses.
+(outils/recueil.json) : deux PDF (écran, A5 imprimable) et, hors dépôt, l'EPUB vendu sur Amazon.
 
     python3 outils/livre.py            # écrit livre/marcher-sur-un-fil.pdf et .epub
 
 Le PDF est mis en page par Chromium (Playwright) à partir d'un HTML : sommaire paginé
 en deux passes, pages blanches insérées pour que chaque partie commence à droite,
-signets. L'EPUB 3 est assemblé à la main (un fichier par texte, police EB Garamond
-embarquée, sommaire de navigation). Aucun texte n'est ajouté : tout vient de recueil.json
+signets. L'EPUB 3 est assemblé à la main (un fichier par texte, sommaire dans le flux,
+NCX, vers en paragraphes à retrait suspendu, aucune police embarquée : voir make_epub). Aucun texte n'est ajouté : tout vient de recueil.json
 et des phrases déjà publiées sur le site.
 """
 import datetime, io, re, sys, uuid, zipfile
@@ -41,12 +41,12 @@ MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août
 # ------------------------------------------------------------------ textes communs
 # (phrases déjà en ligne sur le site ; rien de nouveau n'est écrit ici)
 COLOPHON = (f'<p>{esc(FRONT["title"])} — {esc(FRONT["subtitle"])}</p>'
-            '<p>Textes de Delideal (Sébastien Nadler), écrits à partir de l’an 2000, publiés entre 2014 et 2023 '
+            '<p>Textes de Delideal, écrits à partir de l’an 2000, publiés entre 2014 et 2023 '
             'sur poeme-france.com. Préface d’Isabelle Jespersen.</p>'
             f'<p>Édition numérique établie par l’auteur à partir du site delideal.art, {MOIS} {ANNEE}. '
             'Caractère : EB Garamond.</p>'
             f'<p>© {ANNEE} Delideal. Tous droits réservés. Lecture libre ; pour soutenir l’auteur : delideal.art/soutenir.html</p>')
-SOURCES_INTRO = ('<p>Tous les textes de ce livre sont de Delideal (Sébastien Nadler). Écrits à partir de l’an 2000, '
+SOURCES_INTRO = ('<p>Tous les textes de ce livre sont de Delideal. Écrits à partir de l’an 2000, '
                  'ils ont été publiés entre octobre 2014 et décembre 2023 sur poeme-france.com, un site tiers qui fixe '
                  'la date et l’heure de mise en ligne de chaque texte et conserve les commentaires des lecteurs de l’époque. '
                  '</p>'
@@ -60,8 +60,8 @@ SOURCES_FIN = ('<p>La préface du recueil, un acrostiche, est d’Isabelle Jespe
 def fin_html():
     if MODE.get("amazon"):
         return (PRIX_AMAZON.replace('sur Tipeee', f'sur <a href="{TIPEEE}">Tipeee</a>').replace('sur delideal.art', f'sur <a href="{SITE}">delideal.art</a>')
-                + '<p>Il cherche un éditeur. Vous pouvez aussi lui proposer de mettre un texte en musique, ou lui écrire : '
-                f'<a href="mailto:sebastien.nadler@gmail.com">sebastien.nadler@gmail.com</a>.</p>'
+                + f'<p>Ce recueil cherche un éditeur. Vous pouvez aussi proposer à l’auteur de mettre un texte en musique, ou lui écrire : '
+                f'l’adresse est sur <a href="{SITE}/soutenir.html">delideal.art/soutenir.html</a>.</p>'
                 f'<p>Toutes les façons d’aider — un don, une maison d’édition, des musiciens, des illustrateurs, des vidéastes — sont réunies sur '
                 f'<a href="{SITE}/soutenir.html">delideal.art/soutenir.html</a>.</p>'
                 f'<p>Les musiques : <a href="{SITE}/musique.html">delideal.art/musique.html</a>. Les dates, sources et copies d’archive : '
@@ -151,6 +151,8 @@ def poem_html(e, br):
     if e.get("dedicace"):
         h.append(f'<p class="sous-titre">{esc(e["dedicace"])}</p>')
     h.append(verses_html(e, br))
+    if e.get("note_avant"):
+        h.append(f'<p class="note-auteur">{esc(e["note_avant"])}</p>')
     if e.get("note"):
         h.append(f'<p class="note-auteur">{esc(e["note"])}</p>')
     h.append(music_html(e))
@@ -384,51 +386,73 @@ def make_pdf(scratch, liens):
     return pdf, npages
 
 # ------------------------------------------------------------------ EPUB
+# ------------------------------------------------------------------ EPUB (Kindle et liseuses)
+# Règles suivies (KDP « Kindle Publishing Guidelines » et aide KDP, octobre 2026) :
+#  - pas de police embarquée (Kindle n'accepte que OTF/TTF et recommande ses propres polices : le lecteur garde le choix) ;
+#  - pas de page de couverture dans le flux (KDP ajoute la couverture envoyée : elle apparaîtrait deux fois) ;
+#  - sommaire HTML en début de livre (dans le flux, donc dans l'extrait gratuit) + NCX + nav ;
+#  - chaque vers est un paragraphe aligné à gauche, avec retrait suspendu : sur téléphone, un vers trop long
+#    se replie sans se confondre avec le suivant, et la justification de Kindle ne l'écartèle pas ;
+#  - marges en em (pas en %), couleur réservée aux ornements (lisible en mode sombre), pas de tableau.
+def description():
+    """Texte de présentation (métadonnées de l'EPUB et fiche Amazon) : l'ouverture, puis la première phrase de chaque partie."""
+    parties = " ".join(f'{P["num"]}. {P["title"]} — « {B.premiere_phrase(P["chapeau"].split(chr(10))[0]) if P.get("chapeau") else ""} »' for P in PARTS)
+    return ("« Du ciment dans les veines / pour éviter l’hémorragie cérébrale. / Mais lentement les vaisseaux de mon cœur saignent / "
+            "de la poudre de brique issue de mon mal. »\n\n"
+            f"Cinquante textes écrits à partir de l’an 2000, rassemblés en six parties. {parties}\n\n"
+            "Des poèmes écrits au plus près de ce qui était vécu — l’émerveillement, le désir, l’hôpital, la colère, puis un chemin — "
+            "et laissés tels quels, avec leurs excès. Préface d’Isabelle Jespersen, en acrostiche.\n\n"
+            "Delideal est le nom d’artiste de l’auteur. Plusieurs de ces poèmes sont devenus des chansons, à écouter sur delideal.art, "
+            "où le recueil se lit aussi librement.")
+MOTS_CLES = ["poésie", "trouble bipolaire", "santé mentale", "recueil de poèmes", "poésie contemporaine française",
+             "folie et création", "hôpital psychiatrique"]
+
 EPUB_CSS = """
-%s
-body{font-family:"EB Garamond",Garamond,Georgia,serif; line-height:1.5; margin:0; padding:0 .2em}
-h1,h2,h3,h4{font-weight:normal; line-height:1.15; margin:0 0 .5em}
-h1{font-size:1.7em} h2{font-size:1.5em; margin-top:1em} p{margin:0 0 .8em}
-a{color:inherit; text-decoration:none}
-.fil{height:1px; background:#9a6f0a; width:3em; margin:.4em 0 1.4em; border:0}
-.titre{text-align:center; margin-top:28%%}
-.titre .auteur{font-size:.9em; letter-spacing:.16em; text-transform:uppercase; color:#5b554b; margin-bottom:2em}
-.titre h1{font-size:2.2em}
-.titre .fil{margin:1em auto}
-.titre .st{font-style:italic; color:#5b554b; font-size:1.1em}
-.titre .site{margin-top:6em; color:#5b554b; font-size:.9em}
-.colophon{font-size:.8em; color:#5b554b; margin-top:50%%}
-.dedicace{text-align:center; font-style:italic; font-size:1.1em; margin-top:35%%}
-.preface .acro{display:block; margin-bottom:.35em; padding-left:1.6em; text-indent:-1.6em}
-.preface .acro strong{font-weight:500; color:#9a6f0a}
-.signature{text-align:right; font-style:italic; color:#5b554b; margin-top:1.4em}
-.ouverture{margin-top:35%%}
-.citation{font-style:italic; font-size:1.1em}
-.citation + .citation{color:#5b554b; font-style:normal; text-align:right; font-size:1em}
-.partie{margin-top:25%%}
-.partie .num{font-size:2.6em; color:#9a6f0a; line-height:1; margin:0 0 .3em}
-.partie h1{font-size:1.9em}
-.partie .chapeau{font-style:italic; color:#5b554b; margin-top:1.2em}
-.sous-titre{font-style:italic; color:#5b554b}
-.poeme .strophe{margin:0 0 1em}
-.poeme .v{display:block; padding-left:1.6em; text-indent:-1.6em}
-.poeme.acrostiche .acro-l{font-weight:500; color:#9a6f0a}
+body{margin:0; padding:0}
+h1,h2,h3,h4{font-weight:normal; margin:0 0 .5em; text-align:left; page-break-after:avoid}
+h1{font-size:1.6em} h2{font-size:1.4em; margin-top:.5em} h3{font-size:1.15em} h4{font-size:1em}
+p{margin:0 0 .8em; text-indent:0}
+a{text-decoration:underline}
+.sommaire a{text-decoration:none; color:inherit}
+hr.fil{border:0; border-top:1px solid #9a6f0a; height:0; width:3em; margin:.5em 0 1.3em 0; text-align:left}
+.titre{text-align:center; margin-top:3em}
+.titre .auteur{font-size:.85em; letter-spacing:.16em; text-transform:uppercase; margin:0 0 2.5em}
+.titre h1{font-size:2.2em; text-align:center; margin:0}
+.titre hr.fil{margin:1em auto; text-align:center}
+.titre .st{font-style:italic; font-size:1.1em; margin:0}
+.titre .site{margin-top:5em; font-size:.9em}
+.dedicace{text-align:center; font-style:italic; font-size:1.1em; margin-top:5em}
+.preface p.acro{margin:0 0 .4em; padding-left:1.5em; text-indent:-1.5em; text-align:left}
+.preface .acro b,.acrostiche .acro-l{font-weight:bold; color:#9a6f0a}
+.signature{text-align:right; font-style:italic; margin-top:1.4em}
+.ouverture{margin-top:4em}
+.citation{font-style:italic; font-size:1.1em; text-align:left; margin:0 0 .4em}
+.citation-source{text-align:right; margin:0}
+.partie{margin-top:3em}
+.partie .num{font-size:2.4em; color:#9a6f0a; margin:0 0 .25em; text-align:left}
+.partie h1{font-size:1.8em}
+.partie .chapeau{margin-top:1.4em; font-style:italic}
+.partie .chapeau p{margin:0; padding-left:1.5em; text-indent:-1.5em; text-align:left}
+.sous-titre{font-style:italic; margin-top:-.4em}
+div.strophe{margin:0 0 1em; page-break-inside:avoid}
+p.v{margin:0; padding-left:1.5em; text-indent:-1.5em; text-align:left}
 .prose p{margin:0; text-indent:1.4em; text-align:justify}
-.prose p:first-child{text-indent:0}
-.theatre h3{font-size:1.2em; margin:1.5em 0 .5em}
-.theatre h4{font-size:1.05em; font-style:italic; margin:1.1em 0 .4em}
-.theatre .didascalie{font-style:italic; color:#5b554b; font-size:.92em; margin:.5em 0}
-.theatre .personnage{margin:.8em 0 .1em; font-weight:500}
-.theatre .replique{margin:0 0 .3em; padding-left:1.2em}
-.note-auteur{color:#5b554b; font-size:.88em; border-left:1.5px solid #bbb; padding-left:.8em; margin-top:2em}
-.musique{margin-top:2em; font-size:.9em; color:#5b554b}
-.musique a,.fin a,.sources a,.colophon a{color:#9a6f0a; text-decoration:underline}
-table{width:100%%; border-collapse:collapse; font-size:.85em; margin-top:1em}
-th,td{text-align:left; padding:.25em .4em .25em 0; border-bottom:1px solid #ddd; vertical-align:top}
-th{font-weight:500}
-tr.partie-row td{padding-top:.9em; font-style:italic; color:#5b554b; border-bottom:none}
-nav ol{list-style:none; padding-left:0} nav ol ol{padding-left:1.2em; font-size:.95em}
-nav li{margin:.25em 0}
+.prose p.premier{text-indent:0}
+.theatre h3{margin:1.5em 0 .5em} .theatre h4{font-style:italic; margin:1.1em 0 .4em}
+.theatre .didascalie{font-style:italic; font-size:.92em; margin:.5em 0}
+.theatre .personnage{margin:.8em 0 .1em; font-weight:bold}
+.theatre .replique{margin:0 0 .3em; padding-left:1.2em; text-indent:-1.2em; text-align:left}
+.note-auteur{font-size:.9em; font-style:italic; margin-top:2em}
+.musique{margin-top:2em; font-size:.9em}
+.sources p.src{margin:0 0 .45em; padding-left:1.5em; text-indent:-1.5em; font-size:.9em; text-align:left}
+.sources p.src-partie{margin:1.2em 0 .4em; font-style:italic}
+.sommaire h1{margin-bottom:.2em}
+.sommaire ol{list-style-type:none; margin:0; padding:0}
+.sommaire ol ol{margin:.3em 0 .8em 0; padding-left:1.4em}
+.sommaire li{margin:.25em 0}
+.sommaire li.p{margin-top:1em}
+.sommaire .num{color:#9a6f0a}
+.credits{font-size:.9em}
 """
 
 def xhtml(title, body, cls=""):
@@ -437,83 +461,160 @@ def xhtml(title, body, cls=""):
             f'<head><meta charset="utf-8"/><title>{esc(title)}</title><link rel="stylesheet" type="text/css" href="../style.css"/></head>'
             f'<body class="{cls}">{body}</body></html>')
 
+def epub_verses(e):
+    """Chaque vers est un paragraphe (retrait suspendu), chaque strophe un bloc insécable."""
+    kind = e.get("kind", "verse")
+    out = []
+    if kind == "verse":
+        acro = bool(e.get("acrostiche"))
+        def vers(l):
+            if acro and l and l[0].isalpha():
+                return '<b class="acro-l">' + esc(l[0]) + '</b>' + esc(l[1:])
+            return esc(l)
+        for blk in e["blocks"]:
+            out.append('<div class="strophe">' + "".join(f'<p class="v">{vers(l)}</p>' for l in blk) + '</div>')
+        return '<div class="poeme' + (' acrostiche' if acro else '') + '">' + "".join(out) + '</div>'
+    if kind == "prose":
+        first = True
+        for blk in e["blocks"]:
+            for l in blk:
+                out.append(('<p class="premier">' if first else '<p>') + esc(l) + '</p>'); first = False
+        return '<div class="prose">' + "".join(out) + '</div>'
+    return to_xhtml_fragment(verses_html(e, "<br/>"))   # théâtre : même rendu que le PDF
+
+def epub_poem(e):
+    h = [f'<h2>{esc(e["title"])}</h2><hr class="fil"/>']
+    if e.get("dedicace"):
+        h.append(f'<p class="sous-titre">{esc(e["dedicace"])}</p>')
+    h.append(epub_verses(e))
+    if e.get("note"):
+        h.append(f'<p class="note-auteur">{esc(e["note"])}</p>')
+    h.append(to_xhtml_fragment(music_html(e)))
+    return "".join(h)
+
+def date_longue(d):
+    j, m, a = d.split("/")
+    return f'{int(j)}{"er" if int(j) == 1 else ""} {["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"][int(m) - 1]} {a}'
+
+def epub_sources():
+    n_ined = sum(1 for P in PARTS for e in P["poems"] if not e.get("pf"))
+    mots = {1: "Un texte est inédit", 2: "Deux textes sont inédits", 3: "Trois textes sont inédits"}
+    out = ['<p>Tous les textes de ce livre sont de Delideal. Écrits à partir de l’an 2000, ils ont été publiés '
+           'entre octobre 2014 et décembre 2023 sur poeme-france.com, un site tiers qui fixe la date et l’heure de mise en ligne '
+           'de chaque texte et conserve les commentaires des lecteurs de l’époque.</p>',
+           f'<p>Pour chaque texte : la date de première publication, sa page sur poeme-france.com et la copie conservée par Internet Archive. '
+           f'{mots.get(n_ined, f"{n_ined} textes sont inédits")}. Les copies d’archive sont aussi réunies sur '
+           f'<a href="{SITE}/credits.html">delideal.art/credits.html</a>.</p>']
+    for P in PARTS:
+        out.append(f'<p class="src-partie">{P["num"]}. {esc(P["title"])}</p>')
+        for e in P["poems"]:
+            if e.get("pf"):
+                out.append(f'<p class="src">{esc(e["title"])} — {date_longue(e["date"])} — <a href="{B.pf_url(e)}">poeme-france n° {e["pf"]}</a> · '
+                           f'<a href="https://web.archive.org/web/2026/{B.pf_url(e)}">copie d’archive</a></p>')
+            else:
+                out.append(f'<p class="src">{esc(e["title"])} — inédit</p>')
+    out.append(to_xhtml_fragment(SOURCES_FIN.replace("delideal.art/musique.html", f'<a href="{SITE}/musique.html">delideal.art/musique.html</a>')))
+    return "".join(out)
+
+def epub_credits():
+    return (f'<h1>Crédits</h1><hr class="fil"/><p>{esc(FRONT["title"])} — {esc(FRONT["subtitle"])}</p>'
+            '<p>Textes de Delideal, écrits à partir de l’an 2000, publiés entre 2014 et 2023 sur poeme-france.com. '
+            'Préface d’Isabelle Jespersen.</p>'
+            f'<p>Édition numérique établie par l’auteur à partir du site <a href="{SITE}">delideal.art</a>, {MOIS} {ANNEE}.</p>'
+            f'<p>© {ANNEE} Delideal. Tous droits réservés.</p>')
+
 def to_xhtml_fragment(s):
     """Nos fragments HTML n'utilisent que des balises fermées, sauf <br> et <hr> ; on les ferme."""
     return s.replace("<br>", "<br/>").replace("<hr>", "<hr/>").replace('<div class="fil"></div>', '<hr class="fil"/>')
 
-def cover_png(scratch):
-    """Couverture typographique (titre, sous-titre, nom) : texte seulement, aucune illustration."""
+def cover_jpg(scratch, bordure=False):
+    """Couverture typographique 1600 × 2560 (format Kindle) : texte seulement, aucune illustration."""
     from playwright.sync_api import sync_playwright
     html = ('<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><style>' + font_faces(FONTS.as_uri() + "/") +
-            'html,body{margin:0;width:1600px;height:2400px;background:#fbf7ef;color:#1a1712;font-family:"EB Garamond"}'
-            '.c{position:absolute;inset:0;text-align:center;padding-top:620px}'
-            '.a{font-size:52px;letter-spacing:.18em;text-transform:uppercase;color:#5b554b;margin:0 0 140px}'
-            'h1{font-weight:400;font-size:150px;margin:0;line-height:1.1}'
-            '.fil{position:relative;height:3px;background:rgba(26,23,18,.25);width:520px;margin:70px auto}'
-            '.fil::after{content:"";position:absolute;left:calc(50% - 14px);top:-13px;width:30px;height:30px;border-radius:50%;background:#9a6f0a}'
-            '.st{font-style:italic;font-size:64px;color:#5b554b;margin:0}'
-            '.site{position:absolute;bottom:160px;left:0;right:0;text-align:center;font-size:44px;color:#5b554b;letter-spacing:.06em}'
+            'html,body{margin:0;width:1600px;height:2560px;background:#fbf7ef;color:#1a1712;font-family:"EB Garamond";position:relative}'
+            '.c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 140px 120px;text-align:center}'
+            '.a{font-size:56px;letter-spacing:.22em;text-transform:uppercase;color:#5b554b;margin:0 0 150px}'
+            'h1{font-weight:400;font-size:172px;margin:0;line-height:1.08;letter-spacing:-.005em}'
+            '.fil{position:relative;height:4px;background:rgba(26,23,18,.25);width:560px;margin:90px auto 70px}'
+            '.fil::after{content:"";position:absolute;left:calc(50% - 16px);top:-15px;width:34px;height:34px;border-radius:50%;background:#9a6f0a}'
+            '.st{font-style:italic;font-size:74px;color:#5b554b;margin:0;line-height:1.25}'
+            '.pre{position:absolute;bottom:260px;left:0;right:0;text-align:center;font-size:40px;color:#5b554b;font-style:italic}'
+            '.site{position:absolute;bottom:150px;left:0;right:0;text-align:center;font-size:40px;color:#5b554b;letter-spacing:.08em}'
+            + ('.cadre{position:absolute;inset:0;border:4px solid #b9b2a6;pointer-events:none}' if bordure else '') +
             '</style></head><body><div class="c"><p class="a">Delideal</p>'
-            f'<h1>{esc(FRONT["title"])}</h1><div class="fil"></div><p class="st">{esc(FRONT["subtitle"])}</p></div>'
-            '<p class="site">delideal.art</p></body></html>')
+            f'<h1>Marcher<br>sur un fil</h1><div class="fil"></div><p class="st">Fragments de<br>sensibilité bipolaire</p></div>'
+            '<p class="pre">Poèmes · Préface d’Isabelle Jespersen</p><p class="site">delideal.art</p>'
+            + ('<div class="cadre"></div>' if bordure else '') + '</body></html>')
     src = scratch / "couverture.html"; src.write_text(html, encoding="utf-8")
-    png = scratch / "couverture.png"
+    jpg = scratch / "couverture.jpg"
     with sync_playwright() as p:
-        b = p.chromium.launch(); pg = b.new_page(viewport={"width": 1600, "height": 2400})
+        b = p.chromium.launch(); pg = b.new_page(viewport={"width": 1600, "height": 2560})
         pg.goto(src.as_uri()); pg.wait_for_load_state("networkidle"); pg.evaluate("document.fonts.ready")
-        pg.screenshot(path=str(png), full_page=False); b.close()
-    return png.read_bytes()
+        pg.screenshot(path=str(jpg), full_page=False, type="jpeg", quality=92); b.close()
+    return jpg.read_bytes()
 
-def make_epub(scratch, amazon=False):
+def make_epub(scratch, amazon=True, bordure=False):
     MODE["liens"] = True
     MODE["amazon"] = amazon
-    files = []   # (href, media-type, bytes, properties)
-    spine = []   # ids
+    files = []   # (id, href, media-type, bytes, properties)
+    spine = []
     nav_items = []  # (href, title, [children])
     def add(href, data, mt="application/xhtml+xml", props=None, in_spine=True):
         fid = re.sub(r"[^a-z0-9]", "-", href.lower())
         files.append((fid, href, mt, data, props))
         if in_spine: spine.append(fid)
         return href
-    add("style.css", (EPUB_CSS % font_faces("fonts/")).encode(), "text/css", in_spine=False)
-    for (w, s), f in FONT_FILES.items():
-        add(f"fonts/{f}", (FONTS / f).read_bytes(), "font/woff", in_spine=False)
-    add("couverture.png", cover_png(scratch), "image/png", props="cover-image", in_spine=False)
-    add("text/couverture.xhtml", xhtml("Couverture", '<div style="text-align:center"><img src="../couverture.png" alt="Marcher sur un fil — Fragments de sensibilité bipolaire — Delideal" style="max-width:100%;max-height:100%"/></div>').encode())
-    add("text/titre.xhtml", xhtml(FRONT["title"], f'<section class="titre"><p class="auteur">Delideal</p><h1>{esc(FRONT["title"])}</h1><hr class="fil"/><p class="st">{esc(FRONT["subtitle"])}</p><p class="site">delideal.art</p></section>').encode())
-    add("text/colophon.xhtml", xhtml("Colophon", f'<section class="colophon">{COLOPHON}</section>').encode())
+    add("style.css", EPUB_CSS.encode(), "text/css", in_spine=False)
+    add("couverture.jpg", cover_jpg(scratch, bordure), "image/jpeg", props="cover-image", in_spine=False)
+    # page de titre, dédicace, sommaire, préface, ouverture
+    add("text/titre.xhtml", xhtml(FRONT["title"], f'<section class="titre"><p class="auteur">Delideal</p><h1>{esc(FRONT["title"])}</h1><hr class="fil"/>'
+                                                 f'<p class="st">{esc(FRONT["subtitle"])}</p><p class="site">delideal.art</p></section>').encode())
     add("text/dedicace.xhtml", xhtml("Dédicace", f'<section class="dedicace"><p>{esc(FRONT["dedicace"])}</p></section>').encode())
     nav_items.append(("text/dedicace.xhtml", "Dédicace", []))
-    add("text/preface.xhtml", xhtml("Préface", f'<section class="preface"><h1>Préface</h1><hr class="fil"/>{preface_html()}</section>').encode())
+    spine.append("nav-xhtml")   # le sommaire, dans le flux, juste après la dédicace
+    pref = "".join(f'<p class="acro"><b>{esc(l[0])}</b>{esc(l[1:])}</p>' for l in FRONT["preface"]["lines"])
+    add("text/preface.xhtml", xhtml("Préface", f'<section class="preface"><h1>Préface</h1><hr class="fil"/>{pref}<p class="signature">{esc(FRONT["preface"]["sign"])}</p></section>').encode())
     nav_items.append(("text/preface.xhtml", "Préface", []))
-    add("text/ouverture.xhtml", xhtml("Ouverture", '<section class="ouverture">' + "".join(f'<p class="citation">{esc(l)}</p>' for l in FRONT["ouverture"]) + '</section>').encode())
+    ouv = FRONT["ouverture"]
+    add("text/ouverture.xhtml", xhtml("Ouverture", '<section class="ouverture">' + f'<p class="citation">{esc(ouv[0])}</p>'
+                                      + "".join(f'<p class="citation-source">{esc(l.lstrip("- ").strip())}</p>' for l in ouv[1:]) + '</section>').encode())
+    nav_items.append(("text/ouverture.xhtml", "Ouverture", []))
     for P in PARTS:
         href = f'text/partie-{P["num"]}.xhtml'
-        add(href, xhtml(P["title"], f'<section class="partie"><p class="num">{P["num"]}</p><h1>{esc(P["title"])}</h1>' + (f'<p class="chapeau">' + "<br/>".join(esc(x) for x in P["chapeau"].split("\n")) + '</p>' if P.get("chapeau") else "") + '</section>').encode())
+        chapeau = ('<div class="chapeau">' + "".join(f'<p>{esc(x)}</p>' for x in P["chapeau"].split("\n")) + '</div>') if P.get("chapeau") else ""
+        add(href, xhtml(f'{P["num"]}. {P["title"]}', f'<section class="partie"><p class="num">{P["num"]}</p><h1>{esc(P["title"])}</h1>{chapeau}</section>').encode())
         kids = []
         for e in P["poems"]:
             ph = f'text/{e["slug"]}.xhtml'
-            add(ph, xhtml(e["title"], f'<article class="poeme-page">{to_xhtml_fragment(poem_html(e, "<br/>"))}</article>').encode())
+            add(ph, xhtml(e["title"], f'<article class="poeme-page">{epub_poem(e)}</article>').encode())
             kids.append((ph, e["title"], []))
         nav_items.append((href, f'{P["num"]}. {P["title"]}', kids))
-    add("text/sources.xhtml", xhtml("Sources", f'<section class="sources"><h1>Sources</h1><hr class="fil"/>{SOURCES_INTRO}{sources_table()}{SOURCES_FIN}</section>').encode())
+    add("text/sources.xhtml", xhtml("Sources", f'<section class="sources"><h1>Sources</h1><hr class="fil"/>{epub_sources()}</section>').encode())
     nav_items.append(("text/sources.xhtml", "Sources", []))
-    add("text/fin.xhtml", xhtml("Pour continuer", f'<section class="fin"><h1>Pour continuer</h1><hr class="fil"/>{fin_html()}</section>').encode())
+    add("text/fin.xhtml", xhtml("Pour continuer", f'<section class="fin"><h1>Pour continuer</h1><hr class="fil"/>{to_xhtml_fragment(fin_html())}</section>').encode())
     nav_items.append(("text/fin.xhtml", "Pour continuer", []))
-    # navigation (EPUB 3) + NCX (anciens lecteurs)
-    def ol(items):
-        return "<ol>" + "".join(f'<li><a href="{h}">{esc(t)}</a>{ol(k) if k else ""}</li>' for h, t, k in items) + "</ol>"
+    add("text/credits.xhtml", xhtml("Crédits", f'<section class="credits">{epub_credits()}</section>').encode())
+    nav_items.append(("text/credits.xhtml", "Crédits", []))
+    # sommaire (nav EPUB 3, dans le flux) + NCX (anciens lecteurs et Kindle)
+    def ol(items, top=False):
+        li = []
+        for h, t, k in items:
+            if top and k:
+                num, titre = t.split(". ", 1)
+                li.append(f'<li class="p"><a href="{h}"><span class="num">{num}</span> {esc(titre)}</a>{ol(k)}</li>')
+            else:
+                li.append(f'<li><a href="{h}">{esc(t)}</a>{ol(k) if k else ""}</li>')
+        return "<ol>" + "".join(li) + "</ol>"
     nav = ('<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n'
            '<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="fr" lang="fr">'
-           '<head><meta charset="utf-8"/><title>Sommaire</title><link rel="stylesheet" type="text/css" href="style.css"/></head><body>'
-           '<nav epub:type="toc" id="toc"><h1>Sommaire</h1>' + ol(nav_items) + '</nav>'
+           '<head><meta charset="utf-8"/><title>Sommaire</title><link rel="stylesheet" type="text/css" href="style.css"/></head><body class="sommaire">'
+           '<h1>Sommaire</h1><hr class="fil"/><nav epub:type="toc" id="toc">' + ol(nav_items, top=True) + '</nav>'
            '<nav epub:type="landmarks" hidden="hidden"><ol>'
-           '<li><a epub:type="cover" href="text/couverture.xhtml">Couverture</a></li>'
            '<li><a epub:type="toc" href="nav.xhtml">Sommaire</a></li>'
-           f'<li><a epub:type="bodymatter" href="text/partie-{PARTS[0]["num"]}.xhtml">Début de la lecture</a></li>'
+           '<li><a epub:type="bodymatter" href="text/preface.xhtml">Début de la lecture</a></li>'
            '</ol></nav></body></html>')
     add("nav.xhtml", nav.encode(), props="nav", in_spine=False)
-    uid = "https://delideal.art/livre/marcher-sur-un-fil" + ("#amazon" if amazon else "")
+    uid = "https://delideal.art/livre/marcher-sur-un-fil"
     counter = [0]
     def ncx_points(items):
         out = []
@@ -521,36 +622,37 @@ def make_epub(scratch, amazon=False):
             counter[0] += 1
             out.append(f'<navPoint id="np{counter[0]}" playOrder="{counter[0]}"><navLabel><text>{esc(t)}</text></navLabel><content src="{h}"/>{ncx_points(k)}</navPoint>')
         return "".join(out)
+    ncx_items = [("nav.xhtml", "Sommaire", [])] + nav_items
     ncx = ('<?xml version="1.0" encoding="utf-8"?>\n<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="fr">'
            f'<head><meta name="dtb:uid" content="{uid}"/><meta name="dtb:depth" content="2"/><meta name="dtb:totalPageCount" content="0"/><meta name="dtb:maxPageNumber" content="0"/></head>'
-           f'<docTitle><text>{esc(FRONT["title"])}</text></docTitle><navMap>{ncx_points(nav_items)}</navMap></ncx>')
+           f'<docTitle><text>{esc(FRONT["title"])}</text></docTitle><navMap>{ncx_points(ncx_items)}</navMap></ncx>')
     add("toc.ncx", ncx.encode(), "application/x-dtbncx+xml", in_spine=False)
     modified = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     manifest = "".join(f'<item id="{fid}" href="{href}" media-type="{mt}"' + (f' properties="{props}"' if props else "") + '/>'
                        for fid, href, mt, _, props in files)
+    subjects = "".join(f'<dc:subject>{esc(s)}</dc:subject>' for s in MOTS_CLES)
     opf = ('<?xml version="1.0" encoding="utf-8"?>\n'
-           '<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="uid" xml:lang="fr">'
+           '<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="uid" xml:lang="fr" prefix="schema: http://schema.org/">'
            '<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">'
            f'<dc:identifier id="uid">{uid}</dc:identifier>'
            f'<dc:title id="t">{esc(FRONT["title"])}</dc:title><meta refines="#t" property="title-type">main</meta>'
            f'<dc:title id="st">{esc(FRONT["subtitle"])}</dc:title><meta refines="#st" property="title-type">subtitle</meta>'
-           '<dc:creator id="a">Delideal</dc:creator><meta refines="#a" property="role" scheme="marc:relators">aut</meta>'
+           '<dc:creator id="a">Delideal</dc:creator><meta refines="#a" property="role" scheme="marc:relators">aut</meta><meta refines="#a" property="file-as">Delideal</meta>'
            '<dc:contributor id="p">Isabelle Jespersen</dc:contributor><meta refines="#p" property="role" scheme="marc:relators">aui</meta>'
            f'<dc:language>fr</dc:language><dc:date>{datetime.date.today().isoformat()}</dc:date>'
            f'<dc:publisher>delideal.art</dc:publisher><dc:rights>© {ANNEE} Delideal. Tous droits réservés.</dc:rights>'
-           f'<dc:description>Recueil de poèmes de Delideal : {esc(FRONT["subtitle"])}. Textes écrits à partir de l’an 2000, publiés entre 2014 et 2023.</dc:description>'
-           f'<meta property="dcterms:modified">{modified}</meta><meta name="cover" content="couverture-png"/>'
+           f'<dc:description>{esc(description())}</dc:description>{subjects}'
+           '<meta property="schema:accessMode">textual</meta><meta property="schema:accessModeSufficient">textual</meta>'
+           '<meta property="schema:accessibilityFeature">tableOfContents</meta><meta property="schema:accessibilityFeature">readingOrder</meta>'
+           '<meta property="schema:accessibilityHazard">none</meta>'
+           '<meta property="schema:accessibilitySummary">Texte seul, sans image hors couverture ; sommaire de navigation ; mise en page reflowable.</meta>'
+           f'<meta property="dcterms:modified">{modified}</meta><meta name="cover" content="couverture-jpg"/>'
            '</metadata>'
            f'<manifest>{manifest}</manifest>'
            '<spine toc="toc-ncx">' + "".join(f'<itemref idref="{i}"/>' for i in spine) + '</spine>'
            '</package>')
     container = ('<?xml version="1.0" encoding="utf-8"?>\n<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">'
                  '<rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>')
-    # vérification : chaque XML est bien formé
-    for fid, href, mt, data, _ in files:
-        if mt in ("application/xhtml+xml", "application/x-dtbncx+xml"):
-            ET.fromstring(data)
-    ET.fromstring(opf.encode()); ET.fromstring(container.encode())
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w") as z:
         z.writestr(zipfile.ZipInfo("mimetype"), b"application/epub+zip", compress_type=zipfile.ZIP_STORED)
@@ -558,7 +660,44 @@ def make_epub(scratch, amazon=False):
         z.writestr("OEBPS/content.opf", opf, compress_type=zipfile.ZIP_DEFLATED)
         for fid, href, mt, data, _ in files:
             z.writestr("OEBPS/" + href, data, compress_type=zipfile.ZIP_DEFLATED)
-    return buf.getvalue(), len(files)
+    data = buf.getvalue()
+    check_epub(data)
+    return data, len(files)
+
+def check_epub(data):
+    """Vérifications structurelles (à défaut d'epubcheck) : conteneur, manifeste, spine, liens internes, XML."""
+    import posixpath
+    z = zipfile.ZipFile(io.BytesIO(data))
+    names = z.namelist()
+    assert names[0] == "mimetype" and z.getinfo("mimetype").compress_type == zipfile.ZIP_STORED, "mimetype"
+    assert z.read("mimetype") == b"application/epub+zip"
+    ET.fromstring(z.read("META-INF/container.xml"))
+    opf = ET.fromstring(z.read("OEBPS/content.opf"))
+    ns = {"o": "http://www.idpf.org/2007/opf", "dc": "http://purl.org/dc/elements/1.1/"}
+    items = {i.get("id"): i for i in opf.find("o:manifest", ns)}
+    hrefs = {i.get("href") for i in items.values()}
+    assert len(items) == len(list(opf.find("o:manifest", ns))), "ids en double"
+    for i in items.values():
+        assert "OEBPS/" + i.get("href") in names, "fichier absent : " + i.get("href")
+    assert sum(1 for i in items.values() if i.get("properties") == "nav") == 1, "nav"
+    assert sum(1 for i in items.values() if i.get("properties") == "cover-image") == 1, "cover-image"
+    for ref in opf.find("o:spine", ns):
+        assert ref.get("idref") in items, "spine : " + ref.get("idref")
+    uid = opf.get("unique-identifier")
+    assert opf.find(f"o:metadata/dc:identifier[@id='{uid}']", ns) is not None, "identifiant"
+    n_links = 0
+    for n in names:
+        if n.endswith(".xhtml") or n.endswith(".ncx"):
+            root = ET.fromstring(z.read(n))
+            base = posixpath.dirname(n[len("OEBPS/"):])
+            for el in root.iter():
+                target = el.get("href") or el.get("src")
+                if not target or target.startswith(("http:", "https:", "mailto:", "#")):
+                    continue
+                path = posixpath.normpath(posixpath.join(base, target.split("#")[0]))
+                assert path in hrefs, f"lien cassé dans {n} : {target}"
+                n_links += 1
+    return n_links
 
 # ------------------------------------------------------------------ principal
 def main():
@@ -567,9 +706,10 @@ def main():
     scratch = Path(tempfile.mkdtemp(prefix="livre-"))
     if "--amazon" in sys.argv:
         dest = Path(sys.argv[sys.argv.index("--amazon") + 1]) if len(sys.argv) > sys.argv.index("--amazon") + 1 else Path("/tmp/marcher-sur-un-fil-amazon.epub")
-        epub, nfiles = make_epub(scratch, amazon=True)
+        epub, nfiles = make_epub(scratch, amazon=True, bordure="--bordure" in sys.argv)
         dest.write_bytes(epub)
-        print(f"  {dest} : {nfiles} fichiers, {len(epub) / 1e6:.2f} Mo (version Amazon, hors dépôt)")
+        (dest.parent / "couverture-kindle.jpg").write_bytes(cover_jpg(scratch, "--bordure" in sys.argv))
+        print(f"  {dest} : {nfiles} fichiers, {len(epub) / 1e6:.2f} Mo (version Amazon, hors dépôt) + couverture-kindle.jpg")
         return
     print("PDF écran (liens actifs)…")
     pdf, npages = make_pdf(scratch, liens=True)
