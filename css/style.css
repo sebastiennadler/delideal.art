@@ -139,3 +139,10 @@ footer p{margin:.2rem 0}
 .reference .source{font-size:.82rem; color:var(--muted); line-height:1.5; margin:0 0 .3rem}
 .reference .source a{color:var(--muted); text-decoration:underline; text-underline-offset:.15em}
 .reference .source a:hover{color:var(--accent)}
+
+/* ---- Crédits ---- */
+table.credits{width:100%; border-collapse:collapse; font-size:.92rem; margin:1rem 0}
+table.credits th{text-align:left; font-weight:500; color:var(--muted); border-bottom:1px solid var(--rule); padding:.4rem .3rem}
+table.credits td{padding:.35rem .3rem; border-bottom:1px solid var(--rule); vertical-align:top}
+table.credits .partie-row td{padding-top:1.1rem; color:var(--muted); font-style:italic; border-bottom:none}
+@media (max-width:600px){ table.credits{font-size:.85rem} table.credits th:nth-child(4),table.credits td:nth-child(4){display:none} }

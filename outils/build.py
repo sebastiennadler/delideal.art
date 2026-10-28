@@ -16,7 +16,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261029c"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261029d"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir")]
@@ -70,7 +70,7 @@ HEAD = """<!DOCTYPE html>
 FOOT = """</main>
 <footer>
 <p>© {year} Delideal — textes écrits et publiés depuis 2014. Tous droits réservés.</p>
-<p><a href="{rel}mentions-legales.html">Mentions légales</a> · <a href="{pf}" rel="noopener">Ma page sur poeme-france.com</a> · <a href="{rel}soutenir.html">Soutenir</a></p>
+<p><a href="{rel}credits.html">Crédits</a> · <a href="{rel}soutenir.html">Soutenir</a> · <a href="{rel}mentions-legales.html">Mentions légales</a></p>
 </footer>
 </body>
 </html>
@@ -174,7 +174,6 @@ def poem_page(i):
     if e.get("note"):
         body.append(f'<p class="note-auteur">{esc(e["note"])}</p>')
     body.append(music_block(e, rel))
-    body.append('<div class="reference">' + source_line(e, rel) + '</div>')
     nav = ['<nav class="poeme-nav" aria-label="Poème précédent et suivant">']
     nav.append(f'<a class="prec" href="{rel}poemes/{prev_[1]["slug"]}.html">← {esc(prev_[1]["title"])}</a>' if prev_ else "<span></span>")
     nav.append(f'<a class="sommaire" href="{rel}poemes.html">Sommaire</a>')
@@ -202,6 +201,28 @@ def sommaire_page():
         body.append("</ol></section>")
     return page("poemes.html", "Les poèmes — Delideal",
                 "Tous les poèmes du recueil Marcher sur un fil, en six parties, avec leur date de première publication.", "\n".join(body))
+
+def credits_page():
+    body = ['<h1 class="titre-fil">Crédits</h1>', '<div class="fil" aria-hidden="true"></div>',
+            '<p>Tous les textes de ce site sont de Delideal (Sébastien Nadler). Ils ont été écrits et publiés entre octobre 2014 et décembre 2023 sur <a href="' + PF_AUTEUR + '" rel="noopener">poeme-france.com</a>, un site tiers qui fixe la date et l’heure de mise en ligne de chaque texte et conserve les commentaires des lecteurs de l’époque. Aucun texte n’a été écrit par une intelligence artificielle.</p>',
+            '<p>Pour chaque texte, le tableau donne la date de première publication, le lien vers la page d’origine et le lien vers sa copie conservée par Internet Archive. Deux textes sont inédits (ils ne figurent que dans le recueil).</p>',
+            '<h2>La préface</h2>', '<p>La préface du recueil, un acrostiche, est d’Isabelle Jespersen.</p>',
+            '<h2>Les musiques</h2>',
+            '<p>« Concerto pour hall de gare » et « Rage and Hopes » sont des improvisations au piano jouées et enregistrées par l’auteur ; « Le cœur assoiffé », « Re-Pas-Sage », « Chanson de mes démons » et « Si ton tableau est noir » sont des chansons écrites, jouées et chantées par lui, mises en ligne sur YouTube à partir de 2015. Les maquettes « Marcher sur un fil », « Ma muse onirique » et « Méditations » (2026) ont été produites avec des outils d’intelligence artificielle sur ses textes : elles sont présentées comme telles.</p>',
+            '<h2>Les textes</h2>',
+            '<table class="credits"><thead><tr><th>Texte</th><th>Première publication</th><th>Source</th><th>Copie</th></tr></thead><tbody>']
+    for P in PARTS:
+        body.append(f'<tr class="partie-row"><td colspan="4">{P["num"]}. {esc(P["title"])}</td></tr>')
+        for e in P["poems"]:
+            t = f'<a href="poemes/{e["slug"]}.html">{esc(e["title"])}</a>'
+            if e.get("pf"):
+                body.append(f'<tr><td>{t}</td><td>{e["date"]}</td><td><a href="{pf_url(e)}" rel="noopener">poeme-france n° {e["pf"]}</a></td><td><a href="https://web.archive.org/web/2026/{pf_url(e)}" rel="noopener">Internet Archive</a></td></tr>')
+            else:
+                body.append(f'<tr><td>{t}</td><td>—</td><td>inédit</td><td>—</td></tr>')
+    body.append('</tbody></table>')
+    body.append(f'<p class="note">La première page de la liste de l’auteur sur poeme-france.com est conservée par Internet Archive depuis <a href="{ARCHIVE}" rel="noopener">septembre 2025</a> ; les pages des textes sont archivées à partir d’octobre 2026.</p>')
+    body.append('<h2>Le site</h2><p>Site statique sans image ni cookie, hébergé sur GitHub Pages. Caractère : EB Garamond. Conçu et tenu par l’auteur.</p>')
+    return page("credits.html", "Crédits — Delideal", "Dates, sources et copies d’archive de tous les textes de Delideal ; crédits de la préface et des musiques.", "\n".join(body))
 
 def livre_page():
     pref = "\n".join(f'<span class="acro"><strong>{esc(l[0])}</strong>{esc(l[1:])}</span>' for l in FRONT["preface"]["lines"])
@@ -250,12 +271,7 @@ de la poudre de brique issue de mon mal.</p>
 </ol>
 <p>Pour entrer par le début : <a href="poemes/{first["slug"]}.html">{esc(first["title"])}</a>. Pour entrer par le cœur : <a href="poemes/marcher-sur-un-fil.html">Marcher sur un fil</a> ou <a href="poemes/dsm-story.html">DSM Story</a>. Pour entrer par la musique : <a href="musique.html">Concerto pour hall de gare</a>, une improvisation au piano.</p>
 
-<section class="panel">
-<h2>Des textes écrits avant l’intelligence artificielle</h2>
-<p>Tous les poèmes de ce site ont été publiés sur <a href="{PF_AUTEUR}" rel="noopener">poeme-france.com</a> entre 2014 et 2023, sous le nom Delideal. Chaque texte y porte sa date et son heure de mise en ligne, fixées par le site et non modifiables par l’auteur : le plus ancien date de novembre 2014, le plus récent de décembre 2023.</p>
-<p>Sur ce site, chaque poème renvoie à sa page d’origine, où l’on peut vérifier la date, et souvent lire des commentaires de lecteurs datés de l’époque. Pour certains textes, la chanson mise en ligne sur YouTube dès 2015 apporte une seconde date indépendante. Enfin, des copies de ces pages sont conservées par Internet Archive (la première page de la liste depuis <a href="{ARCHIVE}" rel="noopener">septembre 2025</a>, chaque page de poème à partir d’octobre 2026) : elles figent ce que le site d’origine affiche, au cas où il disparaîtrait.</p>
-<p>Aucun texte n’a été écrit par une intelligence artificielle. Ce site lui-même ne contient aucune image.</p>
-</section>
+<p class="note">Tous ces textes ont été écrits et publiés entre 2014 et 2023, avant les outils d’écriture par intelligence artificielle ; aucun n’a été écrit par une IA, et ce site ne contient aucune image. Les dates et les sources sont réunies dans les <a href="credits.html">crédits</a>.</p>
 
 <h2>Continuer</h2>
 <p>Ce site est gratuit et le restera. Si ces textes vous ont touché, vous pouvez aider à ce que l’activité continue : un don, ponctuel ou mensuel, sur <a href="soutenir.html">Tipeee</a> ; et pour aller plus loin, une maison d’édition pour faire du recueil un vrai livre, ou des musiciennes et musiciens pour transformer les maquettes en chansons. <a href="soutenir.html">Tout est expliqué ici</a>.</p>
@@ -334,6 +350,7 @@ def build():
         written.append(name)
     (ROOT / "poemes.html").write_text(sommaire_page(), encoding="utf-8"); written.append("poemes.html")
     (ROOT / "le-livre.html").write_text(livre_page(), encoding="utf-8"); written.append("le-livre.html")
+    (ROOT / "credits.html").write_text(credits_page(), encoding="utf-8"); written.append("credits.html")
     (ROOT / "poemes").mkdir(exist_ok=True)
     for i, (P, e) in enumerate(ALL):
         (ROOT / "poemes" / f'{e["slug"]}.html').write_text(poem_page(i), encoding="utf-8")
