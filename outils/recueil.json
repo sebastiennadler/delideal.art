@@ -2255,7 +2255,7 @@
      "music": {
       "kind": "ia",
       "yt": "https://www.youtube.com/watch?v=EJr4KC2jq6E",
-      "label": "Maquette chantée"
+      "label": "Maquette « Marcher sur un fil », inspirée de deux textes : « Marcher sur un fil » et « Du diable à l’homme »"
      }
     },
     {
@@ -2298,7 +2298,12 @@
        "c’est pour la musique d’une autre voie que mon cœur résonne."
       ]
      ],
-     "src": "pf"
+     "src": "pf",
+     "music": {
+      "kind": "ia",
+      "yt": "https://www.youtube.com/watch?v=EJr4KC2jq6E",
+      "label": "Maquette « Marcher sur un fil », inspirée de deux textes : « Marcher sur un fil » et « Du diable à l’homme »"
+     }
     },
     {
      "title": "Prison dorée",

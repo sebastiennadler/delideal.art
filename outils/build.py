@@ -153,7 +153,7 @@ def music_block(e, rel=""):
         parts.append(f'<p>Ce poème est aussi une chanson, écrite et chantée par l’auteur : {links} (YouTube).</p>')
     elif m["kind"] == "ia":
         if m.get("yt"):
-            parts.append(f'<p>Maquette chantée : <a href="{m["yt"]}" rel="noopener">écouter sur YouTube</a>. <span class="etiquette">musique IA</span> Texte de l’auteur ; musique et voix générées par intelligence artificielle, pour donner une idée de ce que ce poème pourrait devenir en chanson.</p>')
+            parts.append(f'<p>{esc(m["label"])} : <a href="{m["yt"]}" rel="noopener">écouter sur YouTube</a>. <span class="etiquette">musique IA</span> Texte de l’auteur ; musique et voix générées par intelligence artificielle, pour donner une idée de ce que ce poème pourrait devenir en chanson.</p>')
         else:
             parts.append(f'<p class="note">{esc(m["label"])}. <span class="etiquette">musique IA</span></p>')
     return '<section class="panel musique"><h2>En musique</h2>\n' + "\n".join(parts) + "\n</section>"
@@ -290,7 +290,7 @@ de la poudre de brique issue de mon mal.</p>
 <h2>Maquettes</h2>
 <p>D’autres textes ont été mis en musique avec des outils d’intelligence artificielle : ce sont des <strong>maquettes</strong>, une façon d’entendre ce que ces poèmes pourraient devenir en chanson. Elles sont une porte ouverte : si vous êtes musicienne ou musicien et qu’un de ces textes vous parle, <a href="soutenir.html">écrivez-moi</a>. L’idée est qu’un jour ces chansons soient jouées et chantées par des humains.</p>
 <ul class="liens">
-<li><a href="https://www.youtube.com/watch?v=EJr4KC2jq6E" rel="noopener">Marcher sur un fil</a> <span class="etiquette">musique IA</span> · <a href="poemes/marcher-sur-un-fil.html">le poème</a></li>
+<li><a href="https://www.youtube.com/watch?v=EJr4KC2jq6E" rel="noopener">Marcher sur un fil</a> <span class="etiquette">musique IA</span> · inspirée de deux textes : <a href="poemes/marcher-sur-un-fil.html">Marcher sur un fil</a> et <a href="poemes/du-diable-a-lhomme.html">Du diable à l’homme</a></li>
 <li><a href="https://www.youtube.com/watch?v=W0gOmmTVj7o" rel="noopener">Ma muse onirique</a> <span class="etiquette">musique IA</span> · <a href="poemes/ma-muse-onirique.html">le poème</a></li>
 <li><a href="https://www.youtube.com/watch?v=U1Ou6cdE1Zc" rel="noopener">Méditations</a> <span class="etiquette">musique IA</span> · <a href="poemes/meditation-1-sur-le-silence.html">les trois méditations</a></li>
 </ul>
