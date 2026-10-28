@@ -41,7 +41,7 @@ COLOPHON = (f'<p>{esc(FRONT["title"])} — {esc(FRONT["subtitle"])}</p>'
             'sur poeme-france.com. Préface d’Isabelle Jespersen.</p>'
             f'<p>Édition numérique établie par l’auteur à partir du site delideal.art, {MOIS} {ANNEE}. '
             'Caractère : EB Garamond.</p>'
-            f'<p>© {ANNEE} Delideal. Tous droits réservés.</p>')
+            f'<p>© {ANNEE} Delideal. Tous droits réservés. Lecture libre ; pour soutenir l’auteur : delideal.art/soutenir.html</p>')
 SOURCES_INTRO = ('<p>Tous les textes de ce livre sont de Delideal (Sébastien Nadler). Écrits à partir de l’an 2000, '
                  'ils ont été publiés entre octobre 2014 et décembre 2023 sur poeme-france.com, un site tiers qui fixe '
                  'la date et l’heure de mise en ligne de chaque texte et conserve les commentaires des lecteurs de l’époque. '
@@ -59,11 +59,14 @@ def fin_html():
                 f'<p>Si quelques textes vous touchent, vous pouvez soutenir l’auteur par un don, ponctuel ou mensuel, sur '
                 f'<a href="{TIPEEE}">Tipeee</a>, lui proposer de mettre un texte en musique, ou lui écrire : '
                 f'<a href="mailto:sebastien.nadler@gmail.com">sebastien.nadler@gmail.com</a>.</p>'
+                f'<p>Toutes les façons d’aider — un don, une maison d’édition, des musiciens, des illustrateurs, des vidéastes — sont réunies sur '
+                f'<a href="{SITE}/soutenir.html">delideal.art/soutenir.html</a>.</p>'
                 f'<p>Les musiques : <a href="{SITE}/musique.html">delideal.art/musique.html</a>. Les dates, sources et copies d’archive : '
                 f'<a href="{SITE}/credits.html">delideal.art/credits.html</a>.</p>')
     return ('<p>Ce livre se lit gratuitement, texte par texte, sur delideal.art. Il cherche un éditeur.</p>'
             '<p>Si quelques textes vous touchent, vous pouvez soutenir l’auteur par un don, ponctuel ou mensuel, sur Tipeee '
             '(fr.tipeee.com/delidealart), lui proposer de mettre un texte en musique, ou lui écrire : sebastien.nadler@gmail.com.</p>'
+            '<p>Toutes les façons d’aider — un don, une maison d’édition, des musiciens, des illustrateurs, des vidéastes — sont réunies sur delideal.art/soutenir.html.</p>'
             '<p>Les musiques : delideal.art/musique.html. Les dates, sources et copies d’archive : delideal.art/credits.html.</p>')
 
 def music_html(e):
