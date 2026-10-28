@@ -16,7 +16,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261029d"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261029e"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir")]
@@ -115,9 +115,14 @@ def render_blocks(e):
     kind = e.get("kind", "verse")
     out = []
     if kind == "verse":
+        acro = bool(e.get("acrostiche"))
+        def vers(l):
+            if acro and l and l[0].isalpha():
+                return '<strong class="acro-l">' + esc(l[0]) + '</strong>' + esc(l[1:])
+            return esc(l)
         for b in e["blocks"]:
-            out.append('<p class="strophe">' + "<br>\n".join(esc(l) for l in b) + "</p>")
-        return '<div class="poeme">\n' + "\n".join(out) + "\n</div>"
+            out.append('<p class="strophe">' + "<br>\n".join(vers(l) for l in b) + "</p>")
+        return '<div class="poeme' + (' acrostiche' if acro else '') + '">\n' + "\n".join(out) + "\n</div>"
     if kind == "prose":
         for b in e["blocks"]:
             for l in b:
