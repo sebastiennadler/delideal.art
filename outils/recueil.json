@@ -4079,7 +4079,7 @@
   {
    "num": "VI",
    "title": "Un espace pour aimer et respirer",
-   "chapeau": "Pour aimer, il faut une place dans son cœur, et une place dans sa maison. Alors je fais de la place : je garde ce que j’aime, je lâche le reste. Il reste la confiance, tombée du ciel comme un élan vital ; les collines qui dessinent des vagues ; une amante dans mon sang. Et à toi, qui ne me connais pas, j’offre un rêve de lendemains.",
+   "chapeau": "Pour aimer, il faut une place dans son cœur, et une place dans sa maison. Alors je fais de la place : je garde ce que j’aime, je lâche le reste. Il reste la confiance, tombée du ciel comme un élan vital ; les collines qui dessinent des vagues ; une amante dans mon sang.",
    "poems": [
     {
      "title": "Confiance",
@@ -4348,7 +4348,8 @@
        "Si tu l’aimes, prends moi la main !"
       ]
      ],
-     "src": "pf-site-2026-10-29"
+     "src": "pf-site-2026-10-29",
+     "retired": "2026-10-28"
     }
    ],
    "chapeau_court": "Faire de la place. Garder ce qu’on aime, lâcher le reste, et vivre au présent."
