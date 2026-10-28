@@ -479,7 +479,8 @@
       "yt": "https://www.youtube.com/watch?v=gunECfrHhX0",
       "label": "Improvisation au piano, jouée par l’auteur"
      },
-     "src": "aligné"
+     "src": "aligné",
+     "corroboration": "La chanson tirée de ce texte a été mise en ligne sur YouTube en 2015 (la date est affichée par YouTube) : une seconde source indépendante pour sa date."
     },
     {
      "title": "Une perle",
@@ -719,7 +720,8 @@
       "kind": "auteur",
       "yt": "https://www.youtube.com/watch?v=zSsJ_OX-HS8",
       "label": "Chanson de l’auteur"
-     }
+     },
+     "corroboration": "La chanson tirée de ce texte a été mise en ligne sur YouTube en 2022 (la date est affichée par YouTube)."
     },
     {
      "title": "Armelle est merveilleuse",
@@ -2792,7 +2794,8 @@
       "yt": "https://www.youtube.com/watch?v=0cXd1CGXFjQ",
       "label": "Chanson de l’auteur"
      },
-     "src": "pf-1"
+     "src": "pf-1",
+     "corroboration": "La chanson tirée de ce texte a été mise en ligne sur YouTube en 2015 (la date est affichée par YouTube) : une seconde source indépendante pour sa date."
     }
    ]
   },
@@ -3552,7 +3555,8 @@
       "yt2": "https://www.youtube.com/watch?v=oufArkLT7kM",
       "label2": "Version acoustique"
      },
-     "src": "docx"
+     "src": "docx",
+     "corroboration": "La chanson tirée de ce texte a été mise en ligne sur YouTube en 2015 (la date est affichée par YouTube) : une seconde source indépendante pour sa date."
     },
     {
      "title": "Remède à la Mélancolie",

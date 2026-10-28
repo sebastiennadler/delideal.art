@@ -98,8 +98,14 @@ def pf_url(e):
 
 def source_line(e, rel=""):
     if e.get("pf"):
-        return (f'<p class="source">Première publication le {e["date"]} sur '
-                f'<a href="{pf_url(e)}" rel="noopener">poeme-france.com</a> (texte n° {e["pf"]}).</p>')
+        wb = f'https://web.archive.org/web/2026/{pf_url(e)}'
+        out = (f'<p class="source">Première publication le {e["date"]} sur '
+               f'<a href="{pf_url(e)}" rel="noopener">poeme-france.com</a> (texte n° {e["pf"]}) : '
+               f'la date et l’heure de mise en ligne, et les commentaires de lecteurs de l’époque, y sont visibles. '
+               f'<a href="{wb}" rel="noopener">Copie Internet Archive</a>.</p>')
+        if e.get("corroboration"):
+            out += f'\n<p class="source">{esc(e["corroboration"])}</p>'
+        return out
     return '<p class="source">Inédit : ce texte ne figure que dans le recueil.</p>'
 
 def render_blocks(e):
@@ -245,7 +251,7 @@ de la poudre de brique issue de mon mal.</p>
 <section class="panel">
 <h2>Des textes écrits avant l’intelligence artificielle</h2>
 <p>Tous les poèmes de ce site ont été publiés sur <a href="{PF_AUTEUR}" rel="noopener">poeme-france.com</a> entre 2014 et 2023, sous le nom Delideal. Chaque texte y porte sa date et son heure de mise en ligne, fixées par le site et non modifiables par l’auteur : le plus ancien date de novembre 2014, le plus récent de décembre 2023.</p>
-<p>Une copie indépendante de cette page, conservée par Internet Archive, est consultable <a href="{ARCHIVE}" rel="noopener">ici</a>. Sur ce site, chaque poème renvoie à sa page d’origine.</p>
+<p>Sur ce site, chaque poème renvoie à sa page d’origine, où l’on peut vérifier la date, et souvent lire des commentaires de lecteurs datés de l’époque. Pour certains textes, la chanson mise en ligne sur YouTube dès 2015 apporte une seconde date indépendante. Enfin, des copies de ces pages sont conservées par Internet Archive (la première page de la liste depuis <a href="{ARCHIVE}" rel="noopener">septembre 2025</a>, chaque page de poème à partir d’octobre 2026) : elles figent ce que le site d’origine affiche, au cas où il disparaîtrait.</p>
 <p>Aucun texte n’a été écrit par une intelligence artificielle. Ce site lui-même ne contient aucune image.</p>
 </section>
 
