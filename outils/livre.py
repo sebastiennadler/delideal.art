@@ -95,6 +95,9 @@ def music_html(e):
             if m.get("yt2"):
                 t += f' · <a href="{m["yt2"]}">{esc(m["label2"]).lower()}</a>'
             t += '.'
+        elif m.get("mp3") and not m.get("yt"):
+            t = (f'{esc(m["label"])} : <a href="{SITE}/musique.html#maquette-{e["slug"]}">écouter sur delideal.art</a>. '
+                 'Musique et voix générées par intelligence artificielle ; le texte, mot pour mot, et les consignes de style sont de l’auteur.')
         else:
             t = (f'{esc(m["label"])} : <a href="{m["yt"]}">écouter sur YouTube</a>. '
                  'Musique et voix générées par intelligence artificielle sur le texte de l’auteur : une maquette, pour donner une idée de ce que ce poème pourrait devenir en chanson.')
@@ -576,10 +579,7 @@ def main():
     pdf, npages = make_pdf(scratch, liens=False)
     (OUT / "marcher-sur-un-fil-impression.pdf").write_bytes(pdf)
     print(f"  livre/marcher-sur-un-fil-impression.pdf : {npages} pages, {len(pdf) / 1e6:.2f} Mo")
-    print("EPUB…")
-    epub, nfiles = make_epub(scratch)
-    (OUT / "marcher-sur-un-fil.epub").write_bytes(epub)
-    print(f"  livre/marcher-sur-un-fil.epub : {nfiles} fichiers, {len(epub) / 1e6:.2f} Mo")
+    # L'EPUB n'est plus publié sur le site (vendu sur Amazon) : voir l'option --amazon.
     print("brouillons :", scratch)
 
 if __name__ == "__main__":

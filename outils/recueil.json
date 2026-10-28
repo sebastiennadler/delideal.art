@@ -2767,7 +2767,12 @@
        "Je rêve de Bad."
       ]
      ],
-     "src": "ext"
+     "src": "ext",
+     "music": {
+      "kind": "ia",
+      "mp3": "audio/ame-rebelle.mp3",
+      "label": "Chanson « Âme rebelle », sur le texte intégral du poème"
+     }
     },
     {
      "title": "Enfer, mais dans une poésie",
@@ -4706,6 +4711,16 @@
      ]
     }
    ]
+  },
+  {
+   "slug": "ame-rebelle",
+   "title": "Âme rebelle",
+   "mp3": "audio/ame-rebelle.mp3",
+   "duree": "2 min 08",
+   "sources": [
+    "ame-rebelle"
+   ],
+   "texte_integral": true
   }
  ]
 }

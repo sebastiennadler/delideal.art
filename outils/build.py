@@ -16,13 +16,14 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261029l"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261029n"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir")]
 # ("a-propos.html", "À propos") : page retirée du menu le 29/10/2026 à la demande de l'auteur, à réécrire par lui.
 PF_AUTEUR = "https://www.poeme-france.com/auteur/delideal/"
 TIPEEE = "https://fr.tipeee.com/delidealart"
+AMAZON = ""   # lien de la page Amazon de l’EPUB (0,99 €), à renseigner dès parution
 ARCHIVE = "https://web.archive.org/web/20250914075727/https://www.poeme-france.com/auteur/delideal/"
 
 HEAD = """<!DOCTYPE html>
@@ -152,6 +153,8 @@ def render_blocks(e):
         return '<div class="theatre">\n' + "\n".join(out) + "\n</div>"
     raise ValueError(kind)
 
+NOTE_IA = "Musique et voix générées par intelligence artificielle (Suno). Le texte est intégralement celui de l’auteur, mot pour mot ; les consignes de style et de musique données à l’outil sont aussi les siennes."
+
 def music_block(e, rel=""):
     m = e.get("music")
     if not m:
@@ -165,7 +168,11 @@ def music_block(e, rel=""):
             t += f' · <a href="{m["yt2"]}" rel="noopener">{esc(m["label2"])}</a>'
         t += ' (YouTube).'
     else:
-        if m.get("yt"):
+        if m.get("mp3") and not m.get("yt"):
+            t = (f'{esc(m["label"])}. <span class="etiquette">musique IA</span> {NOTE_IA} '
+                 f'<a href="{rel}musique.html#maquette-{e["slug"]}">Les autres musiques</a>.'
+                 f'<br><audio controls preload="none" src="{rel}{m["mp3"]}" style="width:100%; margin-top:.6rem">Votre navigateur ne lit pas l’audio.</audio>')
+        elif m.get("yt"):
             par = next((mq for mq in MAQUETTES if mq.get("paroles") and e["slug"] in mq["sources"]), None)
             lien_par = f' · <a href="{rel}musique.html#paroles-{par["slug"]}">lire les paroles</a>' if par else ""
             t = (f'{esc(m["label"])} : <a href="{m["yt"]}" rel="noopener">écouter sur YouTube</a>{lien_par}. <span class="etiquette">musique IA</span> '
@@ -222,7 +229,7 @@ def credits_page():
             '<p>Pour chaque texte, le tableau donne la date de première publication, le lien vers la page d’origine et le lien vers sa copie conservée par Internet Archive. Deux textes sont inédits (ils ne figurent que dans le recueil).</p>',
             '<h2>La préface</h2>', '<p>La préface du recueil, un acrostiche, est d’Isabelle Jespersen.</p>',
             '<h2>Les musiques</h2>',
-            '<p>« Concerto pour hall de gare » et « Rage and Hopes » sont des improvisations au piano jouées et enregistrées par l’auteur ; « Le cœur assoiffé », « Re-Pas-Sage », « Chanson de mes démons » et « Si ton tableau est noir » sont des chansons écrites, jouées et chantées par lui, mises en ligne sur YouTube à partir de 2015. Les maquettes « Marcher sur un fil », « Ma muse onirique » et « Méditations » (2026) ont été produites avec des outils d’intelligence artificielle sur ses textes : elles sont présentées comme telles.</p>',
+            '<p>« Concerto pour hall de gare » et « Rage and Hopes » sont des improvisations au piano jouées et enregistrées par l’auteur ; « Le cœur assoiffé », « Re-Pas-Sage », « Chanson de mes démons » et « Si ton tableau est noir » sont des chansons écrites, jouées et chantées par lui, mises en ligne sur YouTube à partir de 2015. Les maquettes « Marcher sur un fil », « Ma muse onirique », « Méditations » et « Âme rebelle » (2026) ont été produites avec des outils d’intelligence artificielle sur ses textes, mot pour mot, à partir de consignes de style écrites par lui : elles sont présentées comme telles.</p>',
             '<h2>Les textes</h2>',
             '<table class="credits"><thead><tr><th>Texte</th><th>Première publication</th><th>Source</th><th>Copie</th></tr></thead><tbody>']
     for P in PARTS:
@@ -255,7 +262,7 @@ def telecharger_html(rel=""):
     return (f'<p>Le recueil complet, tel qu’il se lit ici :</p><ul class="liens">'
             f'<li><a href="{rel}{pdf}">PDF à lire sur écran</a> — {n} pages, liens actifs vers les chansons, les musiques et les sources ({taille(pdf)})</li>'
             f'<li><a href="{rel}{imp}">PDF à imprimer</a> — format A5, recto-verso, prêt pour l’impression ({taille(imp)})</li>'
-            f'<li><a href="{rel}{epub}">EPUB</a> — pour liseuses et téléphones ({taille(epub)})</li></ul>')
+            f'</ul>')
 
 def chapeau_html(P):
     return "<br>\n".join(esc(l) for l in P.get("chapeau", "").split("\n"))
@@ -268,8 +275,13 @@ def maquettes_html():
     for m in MAQUETTES:
         srcs = " et ".join(f'<a href="poemes/{sl}.html">{esc(TITRES.get(sl, sl))}</a>' for sl in m["sources"]) if len(m["sources"]) == 2 else \
                ", ".join(f'<a href="poemes/{sl}.html">{esc(TITRES.get(sl, sl))}</a>' for sl in m["sources"])
-        base = "composée à partir de deux textes : " if len(m["sources"]) == 2 else "composée à partir de trois textes : "
-        li = [f'<li id="maquette-{m["slug"]}"><a href="{m["yt"]}" rel="noopener">{esc(m["title"])}</a> <span class="etiquette">musique IA</span> · {base}{srcs}']
+        base = {1: "sur le texte intégral du poème ", 2: "composée à partir de deux textes : "}.get(len(m["sources"]), "composée à partir de trois textes : ")
+        if m.get("yt"):
+            li = [f'<li id="maquette-{m["slug"]}"><a href="{m["yt"]}" rel="noopener">{esc(m["title"])}</a> <span class="etiquette">musique IA</span> · {base}{srcs}']
+        else:
+            li = [f'<li id="maquette-{m["slug"]}"><strong>{esc(m["title"])}</strong> <span class="etiquette">musique IA</span> · {base}{srcs}'
+                  f'<br><audio controls preload="none" src="{m["mp3"]}" style="width:100%; margin-top:.5rem">Votre navigateur ne lit pas l’audio : <a href="{m["mp3"]}">télécharger le mp3</a>.</audio>'
+                  f'<br><span class="source"><a href="{m["mp3"]}" download>Télécharger le mp3</a> ({m.get("duree", "")}, {taille(m["mp3"])}) · {NOTE_IA}</span>']
         if m.get("paroles"):
             blocs = []
             for sec in m["paroles"]:
@@ -312,19 +324,22 @@ def sommaire_livre_html(rel=""):
     return "".join(out)
 
 def cartes_html(rel=""):
-    pdf, imp, epub = "livre/marcher-sur-un-fil.pdf", "livre/marcher-sur-un-fil-impression.pdf", "livre/marcher-sur-un-fil.epub"
+    pdf, imp = "livre/marcher-sur-un-fil.pdf", "livre/marcher-sur-un-fil-impression.pdf"
     n = pages_pdf(pdf)
+    if AMAZON:
+        epub = f'<a class="carte" href="{AMAZON}" rel="noopener"><strong>EPUB · 0,99 €</strong><span>Pour Kindle, liseuses et téléphones, sur Amazon</span></a>'
+    else:
+        epub = '<span class="carte carte-attente"><strong>EPUB · 0,99 €</strong><span>Bientôt sur Amazon, pour Kindle, liseuses et téléphones</span></span>'
     return (f'<div class="cartes">'
             f'<a class="carte" href="{rel}{pdf}"><strong>PDF à lire</strong><span>{n} pages, liens vers les chansons, les musiques et les sources · {taille(pdf)}</span></a>'
             f'<a class="carte" href="{rel}{imp}"><strong>PDF à imprimer</strong><span>Format A5, recto-verso, prêt pour l’impression · {taille(imp)}</span></a>'
-            f'<a class="carte" href="{rel}{epub}"><strong>EPUB</strong><span>Pour liseuses et téléphones · {taille(epub)}</span></a>'
-            f'</div>')
+            f'{epub}</div>')
 
 def livre_page():
     pref = preface_html()
     body = [f'<h1 class="titre-fil">{esc(FRONT["title"])}</h1>', '<div class="fil" aria-hidden="true"></div>',
             f'<p class="sous-titre">{esc(FRONT["subtitle"])}</p>',
-            '<p>Des textes écrits depuis l’an 2000, publiés entre 2014 et 2023, rassemblés en six parties. Il cherche un éditeur ; en attendant, il se lit ici en entier et se télécharge.</p>', cartes_html(),
+            '<p>Des textes écrits depuis l’an 2000, publiés entre 2014 et 2023, rassemblés en six parties. Il cherche un éditeur ; en attendant, il se lit ici en entier, se télécharge en PDF, et existe en EPUB pour liseuses à 0,99 €.</p>', cartes_html(),
             '<section class="panel"><h2>Dédicace</h2>', f'<p class="dedicace">{esc(FRONT["dedicace"])}</p>', '</section>',
             '<section class="panel"><h2>Préface</h2>', f'<p class="preface">{pref}</p>', f'<p class="signature">{esc(FRONT["preface"]["sign"])}</p>', '</section>',
             '<section class="panel"><h2>Ouverture</h2>']
