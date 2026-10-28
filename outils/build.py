@@ -16,7 +16,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261029h"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261029i"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir")]
@@ -156,22 +156,21 @@ def music_block(e, rel=""):
     m = e.get("music")
     if not m:
         return ""
-    parts = []
     if m["kind"] == "piano":
-        parts.append(f'<p>{esc(m["label"])}.</p>')
-        parts.append(f'<audio controls preload="none" src="{rel}{m["mp3"]}" style="width:100%">Votre navigateur ne lit pas l’audio : <a href="{rel}{m["mp3"]}">télécharger le mp3</a>.</audio>')
-        parts.append(f'<p class="source"><a href="{rel}{m["mp3"]}" download>Télécharger le mp3</a> · <a href="{m["yt"]}" rel="noopener">Voir sur YouTube</a></p>')
+        t = (f'{esc(m["label"])} : <a href="{m["yt"]}" rel="noopener">écouter sur YouTube</a> · <a href="{rel}{m["mp3"]}" download>télécharger le mp3</a>.'
+             f'<br><audio controls preload="none" src="{rel}{m["mp3"]}" style="width:100%; margin-top:.6rem">Votre navigateur ne lit pas l’audio.</audio>')
     elif m["kind"] == "auteur":
-        links = f'<a href="{m["yt"]}" rel="noopener">{esc(m["label"])}</a>'
+        t = f'Ce poème est aussi une chanson, écrite et chantée par l’auteur : <a href="{m["yt"]}" rel="noopener">{esc(m["label"])}</a>'
         if m.get("yt2"):
-            links += f' · <a href="{m["yt2"]}" rel="noopener">{esc(m["label2"])}</a>'
-        parts.append(f'<p>Ce poème est aussi une chanson, écrite et chantée par l’auteur : {links} (YouTube).</p>')
-    elif m["kind"] == "ia":
+            t += f' · <a href="{m["yt2"]}" rel="noopener">{esc(m["label2"])}</a>'
+        t += ' (YouTube).'
+    else:
         if m.get("yt"):
-            parts.append(f'<p>{esc(m["label"])} : <a href="{m["yt"]}" rel="noopener">écouter sur YouTube</a>. <span class="etiquette">musique IA</span> Texte de l’auteur ; musique et voix générées par intelligence artificielle, pour donner une idée de ce que ce poème pourrait devenir en chanson.</p>')
+            t = (f'{esc(m["label"])} : <a href="{m["yt"]}" rel="noopener">écouter sur YouTube</a>. <span class="etiquette">musique IA</span> '
+                 'Texte de l’auteur ; musique et voix générées par intelligence artificielle, pour donner une idée de ce que ce poème pourrait devenir en chanson.')
         else:
-            parts.append(f'<p class="note">{esc(m["label"])}. <span class="etiquette">musique IA</span></p>')
-    return '<section class="panel musique"><h2>En musique</h2>\n' + "\n".join(parts) + "\n</section>"
+            t = f'{esc(m["label"])}. <span class="etiquette">musique IA</span>'
+    return f'<p class="musique-ligne">♪ {t}</p>'
 
 def poem_page(i):
     P, e = ALL[i]
@@ -198,13 +197,13 @@ def poem_page(i):
 def sommaire_page():
     body = ['<h1 class="titre-fil">Les poèmes</h1>', '<div class="fil" aria-hidden="true"></div>',
             f'<p class="sous-titre">{esc(FRONT["title"])} — {esc(FRONT["subtitle"])}</p>',
-            f'<p>{NOMBRES.get(len(ALL), len(ALL))} textes en six parties, dans l’ordre du recueil.</p>']
+            f'<p class="note">{NOMBRES.get(len(ALL), len(ALL))} textes en six parties, dans l’ordre du recueil.</p>']
     for P in PARTS:
         body.append(f'<section class="partie" id="partie-{P["num"]}">')
-        body.append(f'<h2>{P["num"]}. {esc(P["title"])}</h2>')
+        body.append(f'<p class="num-partie">{P["num"]}</p><h2>{esc(P["title"])}</h2>')
         if P.get("chapeau"):
             body.append(f'<p class="chapeau">{esc(P["chapeau"])}</p>')
-        body.append('<ol class="liste-poemes">')
+        body.append('<ol class="liste-poemes deux">')
         for e in P["poems"]:
             tag = ""
             if e.get("music"):
@@ -255,11 +254,36 @@ def telecharger_html(rel=""):
             f'<li><a href="{rel}{imp}">PDF à imprimer</a> — format A5, recto-verso, prêt pour l’impression ({taille(imp)})</li>'
             f'<li><a href="{rel}{epub}">EPUB</a> — pour liseuses et téléphones ({taille(epub)})</li></ul>')
 
+def premiere_phrase(t):
+    import re as _re
+    m = _re.match(r"(.+?[.!?])(\s|$)", t)
+    return m.group(1) if m else t
+
+def preface_html():
+    return "".join(f'<span class="acro"><strong>{esc(l[0])}</strong>{esc(l[1:])}</span>' for l in FRONT["preface"]["lines"])
+
+def sommaire_livre_html(rel=""):
+    out = ['<ol class="sommaire-livre">']
+    for P in PARTS:
+        out.append(f'<li><span class="num">{P["num"]}</span><span class="titre"><a href="{rel}poemes.html#partie-{P["num"]}">{esc(P["title"])}</a></span>'
+                   f'<span class="teaser">{esc(premiere_phrase(P.get("chapeau", "")))}</span></li>')
+    out.append('</ol>')
+    return "".join(out)
+
+def cartes_html(rel=""):
+    pdf, imp, epub = "livre/marcher-sur-un-fil.pdf", "livre/marcher-sur-un-fil-impression.pdf", "livre/marcher-sur-un-fil.epub"
+    n = pages_pdf(pdf)
+    return (f'<div class="cartes">'
+            f'<a class="carte" href="{rel}{pdf}"><strong>PDF à lire</strong><span>{n} pages, liens vers les chansons, les musiques et les sources · {taille(pdf)}</span></a>'
+            f'<a class="carte" href="{rel}{imp}"><strong>PDF à imprimer</strong><span>Format A5, recto-verso, prêt pour l’impression · {taille(imp)}</span></a>'
+            f'<a class="carte" href="{rel}{epub}"><strong>EPUB</strong><span>Pour liseuses et téléphones · {taille(epub)}</span></a>'
+            f'</div>')
+
 def livre_page():
-    pref = "\n".join(f'<span class="acro"><strong>{esc(l[0])}</strong>{esc(l[1:])}</span>' for l in FRONT["preface"]["lines"])
+    pref = preface_html()
     body = [f'<h1 class="titre-fil">{esc(FRONT["title"])}</h1>', '<div class="fil" aria-hidden="true"></div>',
             f'<p class="sous-titre">{esc(FRONT["subtitle"])}</p>',
-            '<p>Des textes écrits depuis l’an 2000, publiés entre 2014 et 2023, rassemblés en six parties. Il cherche un éditeur ; en attendant, il se lit ici en entier et se télécharge.</p>', telecharger_html(),
+            '<p>Des textes écrits depuis l’an 2000, publiés entre 2014 et 2023, rassemblés en six parties. Il cherche un éditeur ; en attendant, il se lit ici en entier et se télécharge.</p>', cartes_html(),
             '<section class="panel"><h2>Dédicace</h2>', f'<p class="dedicace">{esc(FRONT["dedicace"])}</p>', '</section>',
             '<section class="panel"><h2>Préface</h2>', f'<p class="preface">{pref}</p>', f'<p class="signature">{esc(FRONT["preface"]["sign"])}</p>', '</section>',
             '<section class="panel"><h2>Ouverture</h2>']
@@ -276,32 +300,45 @@ def livre_page():
 
 # ---------------------------------------------------------------- pages fixes
 first = ALL[0][1]
+TITRE = [e for _, e in ALL if e["slug"] == "marcher-sur-un-fil"][0]
 PAGES = {
 "index.html": dict(
   title="Delideal — Marcher sur un fil, poèmes",
-  description="Les poèmes de Delideal, écrits depuis 2000 et publiés depuis 2014. Un recueil en six parties, des chansons, et un livre à faire naître.",
+  description="Marcher sur un fil, fragments de sensibilité bipolaire : les poèmes de Delideal, écrits depuis 2000, en lecture libre, à télécharger en PDF et EPUB.",
   body=f"""
-<h1 class="titre-fil">Marcher sur un fil</h1>
+<header class="couv">
+<p class="marque">Delideal · poèmes</p>
+<h1>Marcher sur un fil</h1>
 <div class="fil" aria-hidden="true"></div>
 <p class="sous-titre">{esc(FRONT["subtitle"])}</p>
+</header>
 
-<div class="mot">
-<p>Mon nom d’artiste est Delideal. Je suis ingénieur, je joue du piano, et je vis avec une sensibilité bipolaire : des cimes, des gouffres, quelques séjours à l’hôpital. J’écris depuis l’an 2000 pour tenir debout entre les deux. Du ciment dans les veines, des briques à casser : ces mots sont les miens, et jouer avec la folie, c’est <a href="poemes/marcher-sur-un-fil.html">marcher sur un fil</a>.</p>
-<p>De 2014 à 2023, j’ai publié chaque poème sur <a href="credits.html">un site qui en garde la date</a>. Les voici en <a href="poemes.html">six parties</a> : l’enfance, le désir, la crise, la colère, puis un chemin, et de la place pour aimer et respirer.</p>
-<p>Lecture libre, sans image ; le recueil se télécharge aussi en <a href="livre/marcher-sur-un-fil.pdf">PDF</a> et en <a href="livre/marcher-sur-un-fil.epub">EPUB</a>. Si quelques textes vous touchent, vous pouvez m’aider d’un <a href="{TIPEEE}" rel="noopener">don sur Tipeee</a>, <a href="musique.html">les mettre en musique</a>, ou, si vous éditez des livres, <a href="soutenir.html">me dire si celui-ci est prêt</a>.</p>
+<section class="ouverture-poeme">
+<p class="etiquette-section">Préface</p>
+<p class="preface">{preface_html()}</p>
+<p class="signature">{esc(FRONT["preface"]["sign"])}, préface</p>
+</section>
+
+<section class="ouverture-poeme">
+<p class="etiquette-section">Ouverture</p>
+<div class="poeme">
+<p class="strophe">{"<br>".join(esc(l) for l in TITRE["blocks"][0])}</p>
 </div>
+<p class="source">Début de « <a href="poemes/marcher-sur-un-fil.html">Marcher sur un fil</a> », le poème qui donne son titre au recueil.</p>
+</section>
 
-<h2>Entrer</h2>
-<ol class="liste-poemes parties">
-{"".join(f'<li><a href="poemes.html#partie-{P["num"]}">{P["num"]}. {esc(P["title"])}</a> <span class="annee">{len(P["poems"])} textes</span></li>' for P in PARTS)}
-</ol>
-<p>Pour entrer par le début : <a href="poemes/{first["slug"]}.html">{esc(first["title"])}</a>. Pour entrer par le cœur : <a href="poemes/marcher-sur-un-fil.html">Marcher sur un fil</a> ou <a href="poemes/dsm-story.html">DSM Story</a>. Pour entrer par la musique : <a href="musique.html">Concerto pour hall de gare</a>, une improvisation au piano.</p>
+<p class="intro-site">Des poèmes écrits à partir de l’an 2000, publiés entre 2014 et 2023, rassemblés en six parties. À lire ici, librement, ou à emporter.</p>
+
+<h2>Les six parties</h2>
+{sommaire_livre_html()}
+<p class="entrees">Pour entrer par le début : <a href="poemes/{first["slug"]}.html">{esc(first["title"])}</a>. Par le cœur : <a href="poemes/marcher-sur-un-fil.html">Marcher sur un fil</a> ou <a href="poemes/dsm-story.html">DSM Story</a>. Par la musique : <a href="musique.html">Concerto pour hall de gare</a>, une improvisation au piano.</p>
 
 <h2>Emporter</h2>
-{telecharger_html()}
+{cartes_html()}
 
-<h2>Continuer</h2>
-<p>Ce site est gratuit et le restera. Un don, ponctuel ou mensuel, sur <a href="{TIPEEE}" rel="noopener">Tipeee</a> ; une maison d’édition pour faire du recueil un vrai livre ; des musiciennes et musiciens pour transformer les maquettes en chansons : <a href="soutenir.html">tout est expliqué ici</a>.</p>
+<h2>Soutenir</h2>
+<p>Ce site est gratuit et le restera. Si quelques textes vous touchent, vous pouvez aider à en faire un livre, proposer de les mettre en musique, ou simplement m’écrire.</p>
+<p class="soutien"><a class="bouton" href="{TIPEEE}" rel="noopener">Soutenir sur Tipeee</a> <a href="soutenir.html">Éditeurs, musiciens, contact</a></p>
 """),
 "musique.html": dict(
   title="Musique — Delideal",

@@ -20,7 +20,7 @@ Ce README est la **source de vérité** des choix du site. Si une nouvelle instr
 
 ## Structure
 ```
-index.html             accueil : mot d'accueil de l'auteur (validé mot à mot), les six parties, téléchargements, soutenir
+index.html             accueil « page de titre » : préface d'Isabelle (acrostiche), ouverture (1re strophe du poème-titre), les six parties avec la 1re phrase de leur introduction, cartes PDF/EPUB, soutenir
 poemes.html            sommaire : 6 parties (titres choisis par l'auteur dans ses vers, chapeaux validés)
 poemes/<slug>.html     une page par texte (55) : texte à l'identique, musique si elle existe ; rien d'autre
 credits.html           dates, sources (poeme-france) et copies Internet Archive de tous les textes ; préface ; musiques
@@ -54,3 +54,4 @@ css/style.css  js/site.js  audio/  CNAME  .nojekyll  robots.txt  sitemap.xml
 - 2026-10-28 (v18) : « L'Aube » retirée à la demande de l'auteur (55 textes) ; livre régénéré.
 - 2026-10-28 (v19) : carte d'aperçu typographique pour les partages (og:image), à la demande de l'auteur ; Tipeee active (IBAN + PayPal).
 - 2026-10-28 (v20) : retrait de toute affirmation « sans IA » (accueil, crédits, livre, carte de partage) à la demande de l'auteur ; les mentions « musique IA » des maquettes restent.
+- 2026-10-28 (v21) : refonte visuelle à la demande de l'auteur (« brouillon, pas séduisant ») : accueil en page de titre centrée, préface d'Isabelle et ouverture par le poème-titre à la place du mot d'accueil (jugé « banal » par l'auteur : le texte reste dans l'historique git), sommaire de livre (chiffres romains or, teaser), cartes de téléchargement, liens discrets dans la prose, mesure 36rem, vers en romain, « En musique » en simple ligne ; sommaire des poèmes sur deux colonnes.
