@@ -2255,7 +2255,7 @@
      "music": {
       "kind": "ia",
       "yt": "https://www.youtube.com/watch?v=EJr4KC2jq6E",
-      "label": "Maquette « Marcher sur un fil », inspirée de deux textes : « Marcher sur un fil » et « Du diable à l’homme »"
+      "label": "Maquette « Marcher sur un fil », composée à partir de deux textes : « Marcher sur un fil » et « Du diable à l’homme »"
      }
     },
     {
@@ -2302,7 +2302,7 @@
      "music": {
       "kind": "ia",
       "yt": "https://www.youtube.com/watch?v=EJr4KC2jq6E",
-      "label": "Maquette « Marcher sur un fil », inspirée de deux textes : « Marcher sur un fil » et « Du diable à l’homme »"
+      "label": "Maquette « Marcher sur un fil », composée à partir de deux textes : « Marcher sur un fil » et « Du diable à l’homme »"
      }
     },
     {
@@ -3007,7 +3007,7 @@
      "music": {
       "kind": "ia",
       "yt": "https://www.youtube.com/watch?v=U1Ou6cdE1Zc",
-      "label": "Maquette « Méditations » (les trois méditations)"
+      "label": "Maquette « Méditations », composée à partir des trois méditations"
      }
     },
     {
@@ -3052,7 +3052,7 @@
      "music": {
       "kind": "ia",
       "yt": "https://www.youtube.com/watch?v=U1Ou6cdE1Zc",
-      "label": "Maquette « Méditations » (les trois méditations)"
+      "label": "Maquette « Méditations », composée à partir des trois méditations"
      }
     },
     {
@@ -3134,7 +3134,7 @@
      "music": {
       "kind": "ia",
       "yt": "https://www.youtube.com/watch?v=U1Ou6cdE1Zc",
-      "label": "Maquette « Méditations » (les trois méditations)"
+      "label": "Maquette « Méditations », composée à partir des trois méditations"
      }
     },
     {
@@ -3616,7 +3616,7 @@
      "music": {
       "kind": "ia",
       "yt": "https://www.youtube.com/watch?v=W0gOmmTVj7o",
-      "label": "Maquette chantée"
+      "label": "Maquette « Ma muse onirique », composée à partir de deux textes : « Ma Muse Onirique » et « Emporté par le vent »"
      }
     },
     {
@@ -4223,7 +4223,12 @@
        "Lâchant prise, on oublie nos raisons insipides."
       ]
      ],
-     "src": "pf"
+     "src": "pf",
+     "music": {
+      "kind": "ia",
+      "yt": "https://www.youtube.com/watch?v=W0gOmmTVj7o",
+      "label": "Maquette « Ma muse onirique », composée à partir de deux textes : « Ma Muse Onirique » et « Emporté par le vent »"
+     }
     },
     {
      "title": "Mon Étoile",
