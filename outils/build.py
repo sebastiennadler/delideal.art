@@ -337,8 +337,8 @@ PAGES = {
 {cartes_html()}
 
 <h2>Soutenir</h2>
-<p>Ce site est gratuit et le restera. Si quelques textes vous touchent, vous pouvez aider à en faire un livre, proposer de les mettre en musique, ou simplement m’écrire.</p>
-<p class="soutien"><a class="bouton" href="{TIPEEE}" rel="noopener">Soutenir sur Tipeee</a> <a href="soutenir.html">Éditeurs, musiciens, contact</a></p>
+<p>Ce site est gratuit et le restera. Si quelques textes vous touchent, vous pouvez aider à en faire un livre, proposer de les mettre en musique ou en images, ou simplement m’écrire.</p>
+<p class="soutien"><a class="bouton" href="{TIPEEE}" rel="noopener">Soutenir sur Tipeee</a> <a href="soutenir.html">Éditeurs, musiciens, illustrateurs, contact</a></p>
 """),
 "musique.html": dict(
   title="Musique — Delideal",
@@ -377,11 +377,11 @@ PAGES = {
 """),
 "soutenir.html": dict(
   title="Soutenir — Delideal",
-  description="Soutenir le travail de Delideal : contributions, éditeurs, musiciens.",
+  description="Soutenir le travail de Delideal : contributions, éditeurs, musiciens, illustrateurs.",
   body=f"""
 <h1 class="titre-fil">Soutenir</h1>
 <div class="fil" aria-hidden="true"></div>
-<p>Écrire, publier, mettre en musique : tout cela prend du temps et un peu d’argent. Ce site est gratuit et sans publicité, et il le restera. Voici trois façons d’aider.</p>
+<p>Écrire, publier, mettre en musique : tout cela prend du temps et un peu d’argent. Ce site est gratuit et sans publicité, et il le restera. Voici quatre façons d’aider.</p>
 <h2>Contribuer</h2>
 <p>Un don, ponctuel ou mensuel, sur Tipeee, plateforme française dédiée aux créateurs. Il sert à faire vivre ce site, à continuer d’écrire, et à réunir les moyens de publier le recueil <em>Marcher sur un fil</em> en vrai livre.</p>
 <p><a class="bouton" href="{TIPEEE}" rel="noopener">Soutenir Delideal sur Tipeee</a></p>
@@ -389,6 +389,8 @@ PAGES = {
 <p>Je cherche une maison d’édition pour le recueil. Le manuscrit est prêt, préfacé, et se lit en entier sur ce site. Écrivez-moi : <a class="courriel" data-u="sebastien.nadler" data-d="gmail.com" href="#">sebastien.nadler [at] gmail.com</a>.</p>
 <h2>Mettre en musique</h2>
 <p>Plusieurs poèmes sont déjà des chansons, d’autres n’existent qu’en maquette : la page <a href="musique.html">Musique</a> montre la direction. Si vous êtes musicienne ou musicien et qu’un texte vous parle, même adresse.</p>
+<h2>Illustrer</h2>
+<p>Ce site est volontairement sans image. Le livre, lui, pourrait en avoir : dessin, peinture, gravure, photographie. Si vous illustrez et qu’un texte vous inspire, écrivez-moi, même adresse — on en parle, sans engagement de part et d’autre.</p>
 """),
 "mentions-legales.html": dict(
   title="Mentions légales — Delideal", robots="noindex,follow",
