@@ -202,7 +202,7 @@ def sommaire_page():
         body.append(f'<section class="partie" id="partie-{P["num"]}">')
         body.append(f'<p class="num-partie">{P["num"]}</p><h2>{esc(P["title"])}</h2>')
         if P.get("chapeau"):
-            body.append(f'<p class="chapeau">{esc(P["chapeau"])}</p>')
+            body.append(f'<p class="chapeau vers">{chapeau_html(P)}</p>')
         body.append('<ol class="liste-poemes deux">')
         for e in P["poems"]:
             tag = ""
@@ -254,6 +254,9 @@ def telecharger_html(rel=""):
             f'<li><a href="{rel}{imp}">PDF à imprimer</a> — format A5, recto-verso, prêt pour l’impression ({taille(imp)})</li>'
             f'<li><a href="{rel}{epub}">EPUB</a> — pour liseuses et téléphones ({taille(epub)})</li></ul>')
 
+def chapeau_html(P):
+    return "<br>\n".join(esc(l) for l in P.get("chapeau", "").split("\n"))
+
 def premiere_phrase(t):
     import re as _re
     m = _re.match(r"(.+?[.!?])(\s|$)", t)
@@ -266,7 +269,7 @@ def sommaire_livre_html(rel=""):
     out = ['<ol class="sommaire-livre">']
     for P in PARTS:
         out.append(f'<li><span class="num">{P["num"]}</span><span class="titre"><a href="{rel}poemes.html#partie-{P["num"]}">{esc(P["title"])}</a></span>'
-                   f'<span class="teaser">{esc(premiere_phrase(P.get("chapeau", "")))}</span></li>')
+                   f'<span class="teaser">{esc(P.get("chapeau", "").split(chr(10))[0])}</span></li>')
     out.append('</ol>')
     return "".join(out)
 

@@ -219,7 +219,7 @@ body.liens .sommaire a,body.liens .titre a{color:inherit}
 .partie{padding-top:48mm}
 .partie .num{font-size:34pt; color:#9a6f0a; line-height:1; margin:0 0 5mm; font-weight:400}
 .partie h1{font-size:23pt}
-.partie .chapeau{font-style:italic; color:#5b554b; margin-top:7mm; max-width:92mm; font-size:11pt}
+.partie .chapeau{font-style:italic; color:#5b554b; margin-top:7mm; max-width:100mm; font-size:10.5pt; line-height:1.5}
 /* poèmes */
 .poeme-page h2{font-size:17pt; break-after:avoid}
 .poeme .strophe{margin:0 0 .95em; break-inside:avoid}
@@ -277,7 +277,7 @@ def book_html(numbers, blanks):
     for P in PARTS:
         k = f'partie-{P["num"]}'
         h.append(blank(k) + f'<section class="page partie" id="{k}"><p class="num">{P["num"]}</p><h1>{esc(P["title"])}</h1>'
-                 + (f'<p class="chapeau">{esc(P["chapeau"])}</p>' if P.get("chapeau") else "") + '</section>')
+                 + (f'<p class="chapeau">' + "<br>".join(esc(x) for x in P["chapeau"].split("\n")) + '</p>' if P.get("chapeau") else "") + '</section>')
         for e in P["poems"]:
             h.append(f'<article class="poeme-page" id="{e["slug"]}">{poem_html(e, "<br>")}</article>')
     h.append(f'<section class="page sources" id="sources"><h1>Sources</h1><div class="fil"></div>{SOURCES_INTRO}{sources_table()}{SOURCES_FIN}</section>')
@@ -470,7 +470,7 @@ def make_epub(scratch):
     add("text/ouverture.xhtml", xhtml("Ouverture", '<section class="ouverture">' + "".join(f'<p class="citation">{esc(l)}</p>' for l in FRONT["ouverture"]) + '</section>').encode())
     for P in PARTS:
         href = f'text/partie-{P["num"]}.xhtml'
-        add(href, xhtml(P["title"], f'<section class="partie"><p class="num">{P["num"]}</p><h1>{esc(P["title"])}</h1>' + (f'<p class="chapeau">{esc(P["chapeau"])}</p>' if P.get("chapeau") else "") + '</section>').encode())
+        add(href, xhtml(P["title"], f'<section class="partie"><p class="num">{P["num"]}</p><h1>{esc(P["title"])}</h1>' + (f'<p class="chapeau">' + "<br/>".join(esc(x) for x in P["chapeau"].split("\n")) + '</p>' if P.get("chapeau") else "") + '</section>').encode())
         kids = []
         for e in P["poems"]:
             ph = f'text/{e["slug"]}.xhtml'

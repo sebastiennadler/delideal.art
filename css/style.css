@@ -202,3 +202,4 @@ table.credits .partie-row td{padding-top:1.1rem; color:var(--muted); font-style:
 main p a.bouton{color:var(--accent); text-decoration:none}
 main p a.bouton:hover{color:var(--bg)}
 .intro-site{margin-top:2.8rem; text-align:center; color:var(--muted); font-style:italic}
+.chapeau.vers{line-height:1.6; max-width:34rem}
