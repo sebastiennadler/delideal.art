@@ -274,7 +274,8 @@ def maquettes_html():
             blocs = []
             for sec in m["paroles"]:
                 lines = "<br>".join(esc(l) if l else "" for l in sec["lines"]).replace("<br><br>", "</p><p>")
-                blocs.append(f'<p class="paroles-label">{esc(sec["label"])}</p><p>{lines}</p>')
+                suno = sec["label"].split()[0].lower() in ("strophe", "refrain", "pont", "couplet", "intro", "outro", "verse", "chorus", "bridge")
+                blocs.append((f'<p class="paroles-label">{esc(sec["label"])}</p>' if not suno else "") + f'<p>{lines}</p>')
             li.append(f'<details class="paroles" id="paroles-{m["slug"]}"><summary>Paroles de la maquette</summary><div class="paroles-texte">{"".join(blocs)}</div>'
                       f'<p class="note">Paroles de l’auteur, assemblées à partir de ses poèmes ; musique et voix générées par intelligence artificielle.</p></details>')
         li.append('</li>')
