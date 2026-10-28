@@ -2349,7 +2349,8 @@
        "Rends moi vivant, soyons amants."
       ]
      ],
-     "src": "pf-site-2026-10-29"
+     "src": "pf-site-2026-10-29",
+     "retired": "2026-10-28"
     },
     {
      "title": "Prison dorée",
@@ -2522,7 +2523,8 @@
        "J’ai si peur."
       ]
      ],
-     "src": "pf-site-2026-10-29"
+     "src": "pf-site-2026-10-29",
+     "retired": "2026-10-28"
     }
    ],
    "chapeau_court": "La crise, l’hôpital, les diagnostics. Ces textes ont été écrits dedans, ou juste après. Je les laisse tels quels."
@@ -2956,7 +2958,8 @@
        "Que de retrouver ses repères."
       ]
      ],
-     "src": "pf-site-2026-10-29"
+     "src": "pf-site-2026-10-29",
+     "retired": "2026-10-28"
     },
     {
      "title": "Méditation 1 sur le Silence",
@@ -3784,8 +3787,7 @@
        "S’en va coudre."
       ]
      ],
-     "src": "bloc",
-     "retired": "2026-10-29"
+     "src": "bloc"
     },
     {
      "title": "Rêve de Sérénité, Douce Indécence",
@@ -4071,7 +4073,8 @@
        "Quitte à accepter de n’être parfois qu’un crétin."
       ]
      ],
-     "src": "pf-site-2026-10-29"
+     "src": "pf-site-2026-10-29",
+     "retired": "2026-10-28"
     }
    ],
    "chapeau_court": "Méditer, questionner le temps, apprivoiser le réel. Non plus seulement décharger, mais chercher des issues."
@@ -4079,7 +4082,7 @@
   {
    "num": "VI",
    "title": "Un espace pour aimer et respirer",
-   "chapeau": "Pour aimer, il faut une place dans son cœur, et une place dans sa maison. Alors je fais de la place : je garde ce que j’aime, je lâche le reste. Il reste la confiance, tombée du ciel comme un élan vital ; les collines qui dessinent des vagues ; une amante dans mon sang.",
+   "chapeau": "Pour aimer, il faut une place dans son cœur, et une place dans sa maison. Alors je fais de la place : je garde ce que j’aime, je lâche le reste. Il reste les collines qui dessinent des vagues, et une amante dans mon sang.",
    "poems": [
     {
      "title": "Confiance",
@@ -4123,7 +4126,8 @@
        "Puisque de notre insignifiance délassent."
       ]
      ],
-     "src": "pf-site-2026-10-29"
+     "src": "pf-site-2026-10-29",
+     "retired": "2026-10-28"
     },
     {
      "title": "Un Espace pour Aimer et Respirer",

@@ -102,7 +102,7 @@ FRONT, PARTS = R["front"], R["parts"]
 for _P in PARTS:                       # les textes marqués "retired" restent dans les données mais ne sont pas publiés
     _P["poems"] = [e for e in _P["poems"] if not e.get("retired")]
 ALL = [(P, e) for P in PARTS for e in P["poems"]]
-NOMBRES = {54: "Cinquante-quatre", 55: "Cinquante-cinq", 56: "Cinquante-six", 57: "Cinquante-sept", 58: "Cinquante-huit"}
+NOMBRES = {49: "Quarante-neuf", 50: "Cinquante", 51: "Cinquante et un", 52: "Cinquante-deux", 53: "Cinquante-trois", 54: "Cinquante-quatre", 55: "Cinquante-cinq", 56: "Cinquante-six", 57: "Cinquante-sept", 58: "Cinquante-huit"}
 
 def pf_url(e):
     return f"https://www.poeme-france.com/auteur/delideal/texte-{e['pf']}" if e.get("pf") else None

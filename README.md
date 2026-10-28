@@ -22,7 +22,7 @@ Ce README est la **source de vérité** des choix du site. Si une nouvelle instr
 ```
 index.html             accueil « page de titre » : préface d'Isabelle (acrostiche), ouverture (1re strophe du poème-titre), les six parties avec la 1re phrase de leur introduction, cartes PDF/EPUB, soutenir
 poemes.html            sommaire : 6 parties (titres choisis par l'auteur dans ses vers, chapeaux validés)
-poemes/<slug>.html     une page par texte (54) : texte à l'identique, musique si elle existe ; rien d'autre
+poemes/<slug>.html     une page par texte (50) : texte à l'identique, musique si elle existe ; rien d'autre
 credits.html           dates, sources (poeme-france) et copies Internet Archive de tous les textes ; préface ; musiques
 le-livre.html          dédicace, préface d'Isabelle (acrostiche), ouverture, les six parties
 musique.html           Concerto (piano, mp3), chansons de l'auteur (YouTube @delideal), maquettes IA
@@ -57,3 +57,4 @@ css/style.css  js/site.js  audio/  CNAME  .nojekyll  robots.txt  sitemap.xml
 - 2026-10-28 (v21) : refonte visuelle à la demande de l'auteur (« brouillon, pas séduisant ») : accueil en page de titre centrée, préface d'Isabelle et ouverture par le poème-titre à la place du mot d'accueil (jugé « banal » par l'auteur : le texte reste dans l'historique git), sommaire de livre (chiffres romains or, teaser), cartes de téléchargement, liens discrets dans la prose, mesure 36rem, vers en romain, « En musique » en simple ligne ; sommaire des poèmes sur deux colonnes.
 - 2026-10-28 (v22) : sommaire des PDF cliquable (liens internes vers chaque texte) ; Soutenir : partenariats illustrations et clips.
 - 2026-10-28 (v23) : « À toi » retiré à la demande de l'auteur (54 textes) ; fin de l'introduction VI ajustée ; livre régénéré. L'auteur veut revoir les 6 textes ajoutés le 29/10 (src pf-site-2026-10-29).
+- 2026-10-28 (v24) : retour au manuscrit : les 5 textes ajoutés par Claude le 29/10 retirés (Savante indolence, Civilisé ?, Garçon perdu, La vérité des masques, Confiance) ; « Cieux d'été » remis (auteur : « j'aime bien »). 50 textes. Introduction VI ajustée. Livre régénéré.
