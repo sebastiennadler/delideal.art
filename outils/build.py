@@ -16,7 +16,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261029a"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261029b"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir"), ("a-propos.html", "À propos")]
@@ -100,9 +100,8 @@ def source_line(e, rel=""):
     if e.get("pf"):
         wb = f'https://web.archive.org/web/2026/{pf_url(e)}'
         out = (f'<p class="source">Première publication le {e["date"]} sur '
-               f'<a href="{pf_url(e)}" rel="noopener">poeme-france.com</a> (texte n° {e["pf"]}) : '
-               f'la date et l’heure de mise en ligne, et les commentaires de lecteurs de l’époque, y sont visibles. '
-               f'<a href="{wb}" rel="noopener">Copie Internet Archive</a>.</p>')
+               f'<a href="{pf_url(e)}" rel="noopener">poeme-france.com</a> (texte n° {e["pf"]}, où la date de mise en ligne et les commentaires de l’époque sont visibles) · '
+               f'<a href="{wb}" rel="noopener">copie Internet Archive</a>.</p>')
         if e.get("corroboration"):
             out += f'\n<p class="source">{esc(e["corroboration"])}</p>'
         return out
@@ -170,8 +169,8 @@ def poem_page(i):
     body.append(render_blocks(e))
     if e.get("note"):
         body.append(f'<p class="note-auteur">{esc(e["note"])}</p>')
-    body.append(source_line(e, rel))
     body.append(music_block(e, rel))
+    body.append('<div class="reference">' + source_line(e, rel) + '</div>')
     nav = ['<nav class="poeme-nav" aria-label="Poème précédent et suivant">']
     nav.append(f'<a class="prec" href="{rel}poemes/{prev_[1]["slug"]}.html">← {esc(prev_[1]["title"])}</a>' if prev_ else "<span></span>")
     nav.append(f'<a class="sommaire" href="{rel}poemes.html">Sommaire</a>')
@@ -184,7 +183,7 @@ def poem_page(i):
 def sommaire_page():
     body = ['<h1 class="titre-fil">Les poèmes</h1>', '<div class="fil" aria-hidden="true"></div>',
             f'<p class="sous-titre">{esc(FRONT["title"])} — {esc(FRONT["subtitle"])}</p>',
-            '<p>Cinquante-quatre textes en six parties, dans l’ordre du recueil. Chaque page indique la date de première publication et renvoie à la page d’origine sur poeme-france.com.</p>']
+            '<p>Cinquante-quatre textes en six parties, dans l’ordre du recueil.</p>']
     for P in PARTS:
         body.append(f'<section class="partie" id="partie-{P["num"]}">')
         body.append(f'<h2>{P["num"]}. {esc(P["title"])}</h2>')
@@ -192,11 +191,10 @@ def sommaire_page():
             body.append(f'<p class="chapeau">{esc(P["chapeau"])}</p>')
         body.append('<ol class="liste-poemes">')
         for e in P["poems"]:
-            meta = e["date"][-4:] if e.get("date") else "inédit"
             tag = ""
             if e.get("music"):
                 tag = ' <span class="etiquette">musique</span>' if e["music"]["kind"] != "ia" else ' <span class="etiquette">musique IA</span>'
-            body.append(f'<li><a href="poemes/{e["slug"]}.html">{esc(e["title"])}</a>{tag} <span class="annee">{meta}</span></li>')
+            body.append(f'<li><a href="poemes/{e["slug"]}.html">{esc(e["title"])}</a>{tag}</li>')
         body.append("</ol></section>")
     return page("poemes.html", "Les poèmes — Delideal",
                 "Tous les poèmes du recueil Marcher sur un fil, en six parties, avec leur date de première publication.", "\n".join(body))

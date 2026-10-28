@@ -133,3 +133,9 @@ footer p{margin:.2rem 0}
 .signature{text-align:right; font-style:italic; color:var(--muted)}
 .citation{font-style:italic}
 .citation + .citation{color:var(--muted); font-style:normal; text-align:right}
+
+/* ---- Référence discrète en fin de poème ---- */
+.reference{margin-top:2.5rem; padding-top:.7rem; border-top:1px solid var(--rule)}
+.reference .source{font-size:.82rem; color:var(--muted); line-height:1.5; margin:0 0 .3rem}
+.reference .source a{color:var(--muted); text-decoration:underline; text-underline-offset:.15em}
+.reference .source a:hover{color:var(--accent)}
