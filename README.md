@@ -20,7 +20,7 @@ Ce README est la **source de vérité** des choix du site. Si une nouvelle instr
 
 ## Structure
 ```
-index.html             accueil : entrer dans l'univers, preuves d'antériorité, invitation à soutenir
+index.html             accueil : mot d'accueil de l'auteur (validé mot à mot), les six parties, téléchargements, soutenir
 poemes.html            sommaire : 6 parties (titres choisis par l'auteur dans ses vers, chapeaux validés)
 poemes/<slug>.html     une page par texte (56) : texte à l'identique, musique si elle existe ; rien d'autre
 credits.html           dates, sources (poeme-france) et copies Internet Archive de tous les textes ; préface ; musiques
@@ -29,6 +29,9 @@ musique.html           Concerto (piano, mp3), chansons de l'auteur (YouTube @del
 soutenir.html          Tipeee (lien à venir), éditeurs, musiciens, contact
 mentions-legales.html
 outils/build.py        GÉNÈRE toutes les pages ; outils/recueil.json = les textes et leur ordre
+outils/livre.py        GÉNÈRE livre/marcher-sur-un-fil.pdf (A5, prêt à imprimer) et .epub à partir des mêmes données
+                       (Chromium/Playwright + pypdf ; polices EB Garamond dans outils/fonts/, licence OFL)
+livre/                 le recueil téléchargeable : PDF et EPUB, régénérés à chaque changement de texte
 css/style.css  js/site.js  audio/  CNAME  .nojekyll  robots.txt  sitemap.xml
 ```
 
@@ -43,3 +46,4 @@ css/style.css  js/site.js  audio/  CNAME  .nojekyll  robots.txt  sitemap.xml
 - 2026-10-28 : zone DNS OVH reconstituée (4 A + CNAME www), dépôt créé, page d'accueil provisoire ; site en ligne en HTTPS.
 - 2026-10-29 : recueil complet en ligne (54 textes, 6 parties). Titres de parties choisis par l'auteur : Un jour commence / Éclaire mes nuits / Marcher sur un fil / Enfer, mais dans une poésie / Un chemin / Un espace pour aimer et respirer. Sous-titre : « Fragments de sensibilité bipolaire ». Chapeaux validés. Retirés du site : Conclusion, Postface, 4e de couverture, Note au lecteur. « Ma dernière hospitalisation » conservé, une phrase modifiée à la demande de l'auteur (« Le tout dans un secteur sensible. »). Strophes : découpe de poeme-france.com, alignée sur la version du manuscrit.
 - 2026-10-29 (soir) : phase 2 (« moins et mieux ») : 56 textes ; page À propos retirée ; références retirées des pages de poèmes au profit d'une page Crédits unique.
+- 2026-10-28 (v14) : mot d'accueil de l'auteur en haut de l'accueil (corrigé par lui) ; recueil téléchargeable en PDF (136 p., A5) et EPUB, générés par outils/livre.py depuis recueil.json — même contenu que le site, aucun texte ajouté ; extrait et paragraphes redondants de l'accueil retirés.

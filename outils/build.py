@@ -16,7 +16,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261029e"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261029f"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir")]
@@ -229,11 +229,28 @@ def credits_page():
     body.append('<h2>Le site</h2><p>Site statique sans image ni cookie, hébergé sur GitHub Pages. Caractère : EB Garamond. Conçu et tenu par l’auteur.</p>')
     return page("credits.html", "Crédits — Delideal", "Dates, sources et copies d’archive de tous les textes de Delideal ; crédits de la préface et des musiques.", "\n".join(body))
 
+def taille(path):
+    f = ROOT / path
+    return (f"{f.stat().st_size / 1e6:.1f} Mo").replace(".", ",") if f.exists() else ""
+
+def pages_pdf(path):
+    try:
+        from pypdf import PdfReader
+        return len(PdfReader(str(ROOT / path)).pages)
+    except Exception:
+        return None
+
+def telecharger_html(rel=""):
+    pdf, epub = "livre/marcher-sur-un-fil.pdf", "livre/marcher-sur-un-fil.epub"
+    n = pages_pdf(pdf)
+    return (f'<p>Le recueil complet, tel qu’il se lit ici : <a href="{rel}{pdf}">PDF</a> (format A5, {n} pages, prêt à imprimer, {taille(pdf)}) · '
+            f'<a href="{rel}{epub}">EPUB</a> (liseuses et téléphones, {taille(epub)}).</p>')
+
 def livre_page():
     pref = "\n".join(f'<span class="acro"><strong>{esc(l[0])}</strong>{esc(l[1:])}</span>' for l in FRONT["preface"]["lines"])
     body = [f'<h1 class="titre-fil">{esc(FRONT["title"])}</h1>', '<div class="fil" aria-hidden="true"></div>',
             f'<p class="sous-titre">{esc(FRONT["subtitle"])}</p>',
-            '<p>Des textes écrits depuis l’an 2000, publiés entre 2014 et 2023, rassemblés en six parties. Il cherche un éditeur ; en attendant, il se lit ici en entier, et il existe en version PDF prête à imprimer.</p>',
+            '<p>Des textes écrits depuis l’an 2000, publiés entre 2014 et 2023, rassemblés en six parties. Il cherche un éditeur ; en attendant, il se lit ici en entier et se télécharge.</p>', telecharger_html(),
             '<section class="panel"><h2>Dédicace</h2>', f'<p class="dedicace">{esc(FRONT["dedicace"])}</p>', '</section>',
             '<section class="panel"><h2>Préface</h2>', f'<p class="preface">{pref}</p>', f'<p class="signature">{esc(FRONT["preface"]["sign"])}</p>', '</section>',
             '<section class="panel"><h2>Ouverture</h2>']
@@ -259,27 +276,23 @@ PAGES = {
 <div class="fil" aria-hidden="true"></div>
 <p class="sous-titre">{esc(FRONT["subtitle"])}</p>
 
-<section class="panel">
-<blockquote class="poeme">
-<p class="strophe">Du ciment dans les veines<br>
-pour éviter l’hémorragie cérébrale.<br>
-Mais lentement les vaisseaux de mon cœur saignent<br>
-de la poudre de brique issue de mon mal.</p>
-</blockquote>
-<p class="source">Extrait de « <a href="poemes/marcher-sur-un-fil.html">Marcher sur un fil</a> », publié le 5 avril 2019 sur <a href="https://www.poeme-france.com/auteur/delideal/texte-178903" rel="noopener">poeme-france.com</a>.</p>
-</section>
+<div class="mot">
+<p>Mon nom d’artiste est Delideal. Je suis ingénieur, je joue du piano, et je vis avec une sensibilité bipolaire : des cimes, des gouffres, quelques séjours à l’hôpital. J’écris depuis l’an 2000 pour tenir debout entre les deux. Du ciment dans les veines, des briques à casser : ces mots sont les miens, et jouer avec la folie, c’est <a href="poemes/marcher-sur-un-fil.html">marcher sur un fil</a>.</p>
+<p>De 2014 à 2023, j’ai publié chaque poème sur <a href="credits.html">un site qui en garde la date</a>. Les voici en <a href="poemes.html">six parties</a> : l’enfance, le désir, la crise, la colère, puis un chemin, et de la place pour aimer et respirer.</p>
+<p>Lecture libre, sans image et sans une ligne d’intelligence artificielle ; le recueil se télécharge aussi en <a href="livre/marcher-sur-un-fil.pdf">PDF</a> et en <a href="livre/marcher-sur-un-fil.epub">EPUB</a>. Si quelques textes vous touchent, vous pouvez m’aider d’un <a href="soutenir.html">don sur Tipeee</a>, <a href="musique.html">les mettre en musique</a>, ou, si vous éditez des livres, <a href="soutenir.html">me dire si celui-ci est prêt</a>.</p>
+</div>
 
 <h2>Entrer</h2>
-<p>Ces poèmes racontent une vie vécue à nu : l’enfance qui s’émerveille, le désir qui déborde, la folie qui blesse et révèle, puis les chemins qu’on se trace pour tenir debout. Ils ont été écrits à partir de l’an 2000, publiés au fur et à mesure entre 2014 et 2023, et rassemblés en un recueil de six parties.</p>
 <ol class="liste-poemes parties">
 {"".join(f'<li><a href="poemes.html#partie-{P["num"]}">{P["num"]}. {esc(P["title"])}</a> <span class="annee">{len(P["poems"])} textes</span></li>' for P in PARTS)}
 </ol>
 <p>Pour entrer par le début : <a href="poemes/{first["slug"]}.html">{esc(first["title"])}</a>. Pour entrer par le cœur : <a href="poemes/marcher-sur-un-fil.html">Marcher sur un fil</a> ou <a href="poemes/dsm-story.html">DSM Story</a>. Pour entrer par la musique : <a href="musique.html">Concerto pour hall de gare</a>, une improvisation au piano.</p>
 
-<p class="note">Tous ces textes ont été écrits à partir de l’an 2000 et publiés entre 2014 et 2023, avant les outils d’écriture par intelligence artificielle ; aucun n’a été écrit par une IA, et ce site ne contient aucune image. Les dates et les sources sont réunies dans les <a href="credits.html">crédits</a>.</p>
+<h2>Emporter</h2>
+{telecharger_html()}
 
 <h2>Continuer</h2>
-<p>Ce site est gratuit et le restera. Si ces textes vous ont touché, vous pouvez aider à ce que l’activité continue : un don, ponctuel ou mensuel, sur <a href="soutenir.html">Tipeee</a> ; et pour aller plus loin, une maison d’édition pour faire du recueil un vrai livre, ou des musiciennes et musiciens pour transformer les maquettes en chansons. <a href="soutenir.html">Tout est expliqué ici</a>.</p>
+<p>Ce site est gratuit et le restera. Un don, ponctuel ou mensuel, sur Tipeee ; une maison d’édition pour faire du recueil un vrai livre ; des musiciennes et musiciens pour transformer les maquettes en chansons : <a href="soutenir.html">tout est expliqué ici</a>.</p>
 """),
 "musique.html": dict(
   title="Musique — Delideal",
