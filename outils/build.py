@@ -91,7 +91,10 @@ def page(name, title, description, body, rel="", robots="index,follow", ogtype="
 # ---------------------------------------------------------------- recueil
 R = json.loads((ROOT / "outils" / "recueil.json").read_text(encoding="utf-8"))
 FRONT, PARTS = R["front"], R["parts"]
+for _P in PARTS:                       # les textes marqués "retired" restent dans les données mais ne sont pas publiés
+    _P["poems"] = [e for e in _P["poems"] if not e.get("retired")]
 ALL = [(P, e) for P in PARTS for e in P["poems"]]
+NOMBRES = {54: "Cinquante-quatre", 55: "Cinquante-cinq", 56: "Cinquante-six", 57: "Cinquante-sept", 58: "Cinquante-huit"}
 
 def pf_url(e):
     return f"https://www.poeme-france.com/auteur/delideal/texte-{e['pf']}" if e.get("pf") else None
@@ -183,7 +186,7 @@ def poem_page(i):
 def sommaire_page():
     body = ['<h1 class="titre-fil">Les poèmes</h1>', '<div class="fil" aria-hidden="true"></div>',
             f'<p class="sous-titre">{esc(FRONT["title"])} — {esc(FRONT["subtitle"])}</p>',
-            '<p>Cinquante-quatre textes en six parties, dans l’ordre du recueil.</p>']
+            f'<p>{NOMBRES.get(len(ALL), len(ALL))} textes en six parties, dans l’ordre du recueil.</p>']
     for P in PARTS:
         body.append(f'<section class="partie" id="partie-{P["num"]}">')
         body.append(f'<h2>{P["num"]}. {esc(P["title"])}</h2>')
@@ -341,6 +344,14 @@ def build():
     (ROOT / "poemes").mkdir(exist_ok=True)
     for i, (P, e) in enumerate(ALL):
         (ROOT / "poemes" / f'{e["slug"]}.html').write_text(poem_page(i), encoding="utf-8")
+    # pages orphelines (textes retirés) : supprimées si possible, sinon signalées
+    keep = {f'{e["slug"]}.html' for _, e in ALL}
+    for f in (ROOT / "poemes").glob("*.html"):
+        if f.name not in keep:
+            try:
+                f.unlink(); print("page retirée :", f.name)
+            except OSError:
+                print("page orpheline à déplacer à la main :", f.name)
     urls = [SITE + "/" + ("" if n == "index.html" else n) for n in written if PAGES.get(n, {}).get("robots", "index").startswith("index")]
     urls += [f'{SITE}/poemes/{e["slug"]}.html' for _, e in ALL]
     sm = ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'

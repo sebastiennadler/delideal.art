@@ -733,7 +733,8 @@
        "Mais si l’on osait parler au soleil, si le soleil s’appelait Armelle, s’il nous comprenait ; si sa lumière était le scintillement des yeux d’une jeune fille, le monde lui crierait : « Armelle, tu es merveilleuse ! » - pour qu’il brille encore plus."
       ]
      ],
-     "src": "prose"
+     "src": "prose",
+     "retired": "2026-10-29"
     },
     {
      "title": "Souvenirs du futur",
@@ -2300,6 +2301,54 @@
      }
     },
     {
+     "title": "Garçon perdu",
+     "slug": "garcon-perdu",
+     "pf": "198531",
+     "date": "16/08/2022",
+     "theme": "Individu",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Aide-moi à tuer Docteur Jekyll,",
+       "Enterrer mon père et ses colères,",
+       "Et fuir la folie de ma mère,",
+       "Ou je vais jamais trouver le fil."
+      ],
+      [
+       "Le fil d’Ariane que je suis,",
+       "C’est le sentiment d’être envie,",
+       "Comme un animal innocent,",
+       "Mon humanité est de sang."
+      ],
+      [
+       "J’ai plus que ça pour me réjouir,",
+       "Je troque l’honneur contre le rire,",
+       "Je troque le malheur contre le fuir,",
+       "Et je me réjouirais même du pire."
+      ],
+      [
+       "Guerre nucléaire me fait pas peur,",
+       "Je survivrai même à l’horreur,",
+       "Juste être heureux d’être vivant,",
+       "Être de folie, être de vent."
+      ],
+      [
+       "Et Mister Hyde fera de son mieux,",
+       "Si un jour je rencontre mon Dieu :",
+       "Il sera nous, ou ne sera rien.",
+       "Mon cœur qui bat le dira mien."
+      ],
+      [
+       "Peut-être se cache-il dans une reine,",
+       "Ou bien juste une douce sirène,",
+       "Je rêve d’être un animal innocent,",
+       "Rends moi vivant, soyons amants."
+      ]
+     ],
+     "src": "pf-site-2026-10-29"
+    },
+    {
      "title": "Prison dorée",
      "slug": "prison-doree",
      "pf": "164762",
@@ -2412,6 +2461,63 @@
       ]
      ],
      "src": "pf"
+    },
+    {
+     "title": "Civilisé ?",
+     "slug": "civilise",
+     "pf": "198064",
+     "date": "10/07/2022",
+     "theme": "Doute",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Les battements de son cœur faisaient écho à mes platitudes,",
+       "Face à l’empire de toutes leurs certitudes.",
+       "Pensant comme si jamais d’autres ne l’avaient fait avant nous ;",
+       "A la terrasse d’un café, nous discutions de ce qui est fou."
+      ],
+      [
+       "Sans repères, sans culture, sans politesse, nous construisions notre tanière.",
+       "Piochant selon nos sentiments, ce qui est bien ou mal pour nos enfants.",
+       "D’aucune religion ni vertu, à peine enclins à respecter la loi, cachés dans notre repère,",
+       "Nous renions et crachions sur les valeurs de tous ces cœurs innocents."
+      ],
+      [
+       "Une oreille curieuse et bienveillante repéra notre manège,",
+       "Effrayée que l’on puisse remettre en cause ses sentiments par des arpèges.",
+       "« Allez-vous bien ? » asséna cette psychologue bien éduquée,",
+       "Interloquée par notre discussion sur la part de notre monstre cachée."
+      ],
+      [
+       "Prenant pour une folle logorrhée notre condamnation de tout ce qui pour elle faisait l’humanité.",
+       "Une terrible nausée lorsque l’on décida de condamner, toutes les valeurs qu’on lui avait inculquées :",
+       "Des manières et des règles pour juger de l’humanité et de la gentillesse,",
+       "Mais des couteaux dans les yeux pour toutes nos folies, nos sourires et nos liesses."
+      ],
+      [
+       "Quand elle nous a vu rire, nous embrasser et chanter,",
+       "Elle trembla et devint effrayée",
+       "Par ces hydres inconscients",
+       "De ces pensées maudites faisant couler leur sang."
+      ],
+      [
+       "Elle s’apaisa en la foi, la morale, qui par une fatalité abyssale,",
+       "Enferment l’humanité dans des règles mortifères :",
+       "Qui à jamais nous empêchent d’être fier,",
+       "De l’univers de notre connerie sidérale."
+      ],
+      [
+       "Mais pourquoi renier tous ces délires",
+       "Qui d’ordinaire restent stériles à part pour quelques éclats de rires ?",
+       "Et si la terreur, ce n’était pas dévoiler nos erreurs,",
+       "Mais trop vouloir nous protéger derrière nos incertaines valeurs."
+      ],
+      [
+       "J’ai si peur."
+      ]
+     ],
+     "src": "pf-site-2026-10-29"
     }
    ]
   },
@@ -2800,6 +2906,52 @@
    "chapeau": "Méditer, questionner le temps, apprivoiser le réel. Non plus seulement décharger, mais chercher des issues.",
    "poems": [
     {
+     "title": "Savante indolence",
+     "slug": "savante-indolence",
+     "pf": "160713",
+     "date": "28/11/2014",
+     "theme": "Science",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Travail technique, complications calculatoires.",
+       "Vains efforts et mon âme finit en sacrifice.",
+       "Illusion de grandir l’océan des sciences :",
+       "Ma pierre apportée à l’édifice",
+       "Coule et c’est moi qui me noie.",
+       "Innocence perdue ou décadence ?"
+      ],
+      [
+       "Vision d’effroi :",
+       "« Un adulte : un robot, un être humain amoindri.",
+       "Un travail contre la promesse du confort :",
+       "Illusion du bonheur, assurance de l’ennui,",
+       "Tu savoures le salaire d’un homme mort.",
+       "Animal humain, prends garde à toi ! »"
+      ],
+      [
+       "Vent de liberté murmuré par mes démons :",
+       "« La vie est un jeu bien trop précieux",
+       "Pour le prendre au sérieux :",
+       "Ris aux éclats, respecte tes instincts et pulsions.",
+       "Famille et responsabilités,",
+       "Troque les contre plaisirs et passions égoïstes.",
+       "Déjoue les pièges de la vie",
+       "Et retrouve le souffle de l’envie !",
+       "Laisse donc respirer cet enfant un peu artiste",
+       "Qui n’a jamais eu la chance d’exister. »"
+      ],
+      [
+       "Un homme ne saurait être complet,",
+       "S’il renie l’enfant qu’il a été.",
+       "Ce n’est pas revenir en arrière",
+       "Que de retrouver ses repères."
+      ]
+     ],
+     "src": "pf-site-2026-10-29"
+    },
+    {
      "title": "Méditation 1 sur le Silence",
      "slug": "meditation-1-sur-le-silence",
      "pf": "164124",
@@ -3158,7 +3310,8 @@
        "La folie du génie."
       ]
      ],
-     "src": "pf"
+     "src": "pf",
+     "retired": "2026-10-29"
     },
     {
      "title": "Le Malheur",
@@ -3374,7 +3527,8 @@
        "Jouir encore un peu d’ici-bas."
       ]
      ],
-     "src": "pf"
+     "src": "pf",
+     "retired": "2026-10-29"
     },
     {
      "title": "Ma Muse Onirique",
@@ -3622,7 +3776,8 @@
        "S’en va coudre."
       ]
      ],
-     "src": "bloc"
+     "src": "bloc",
+     "retired": "2026-10-29"
     },
     {
      "title": "Rêve de Sérénité, Douce Indécence",
@@ -3852,6 +4007,63 @@
       ]
      ],
      "src": "ext"
+    },
+    {
+     "title": "La vérité des masques",
+     "slug": "la-verite-des-masques",
+     "pf": "198607",
+     "date": "21/08/2022",
+     "theme": "Vie",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "C’est un livre que je n’ai pas vraiment lu.",
+       "L’auteur : Oscar Wilde.",
+       "J’ai retenu de lui un aphorisme :",
+       "« Nous sommes condamnés à jouer à ce que l’on est ou à n’être rien ! ».",
+       "Mais qui joue à être soi ?",
+       "Qui joue au timide retranché de peur de pouvoir décevoir ?",
+       "Qui joue à l’hypocrite opportuniste pour ne pas afficher son angoisse de manquer ?"
+      ],
+      [
+       "Qui joue à gagner sa vie au lieu de la faire exister ?",
+       "Qui joue à vivre au lieu de vivre vraiment ?"
+      ],
+      [
+       "À force de jouer, nous ne savons même plus qui l’on est.",
+       "À se faire aimer et détester pour ce que l’on n’est pas,"
+      ],
+      [
+       "N’évoluons-nous pas dans un monde de solitude infinie ?",
+       "Nous perdons la boussole, mais où pointe donc mon aiguille ?",
+       "Et si le Nord nous dépassait, guidé par un ciel qui n’existe pas."
+      ],
+      [
+       "Guidés par des pulsions et gènes venus de temps reculés."
+      ],
+      [
+       "Acceptons cette petite mort pour devenir un être social ;"
+      ],
+      [
+       "Un confort pour les autres, ne pas être trop impatient ;",
+       "Pour ne pas faire exploser ce monde de notre folie abyssale."
+      ],
+      [
+       "Je veux trouver l’équilibre entre vivre et me faire accepter."
+      ],
+      [
+       "Je veux dépasser l’animal que je suis.",
+       "Je veux accepter ce temps qui nous fuit.",
+       "Je veux croire pouvoir devenir un belle personne.",
+       "Quitte à ne pas trop vouloir que les battements de mon coeur résonnent.",
+       "Quitte à revêtir la peau d’un garçon sain.",
+       "Quitte à ne pas renier mon destin.",
+       "Quitte à ne pas crever de vouloir être trop humain.",
+       "Quitte à accepter de n’être parfois qu’un crétin."
+      ]
+     ],
+     "src": "pf-site-2026-10-29"
     }
    ]
   },
@@ -3860,6 +4072,50 @@
    "title": "Un espace pour aimer et respirer",
    "chapeau": "Faire de la place. Garder ce qu’on aime, lâcher le reste, et vivre au présent.",
    "poems": [
+    {
+     "title": "Confiance",
+     "slug": "confiance",
+     "pf": "199209",
+     "date": "07/10/2022",
+     "theme": "Bonheur",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "Tombé du ciel, élan vital.",
+       "Suggestion positive,",
+       "Une musique entraînante,",
+       "Le parfum d’une passante,",
+       "Une bourrasque vive,",
+       "Se sentir bel animal."
+      ],
+      [
+       "Sentiment d’être humain,",
+       "Ne pas se croire trop crétin,",
+       "Être heureux d’être vivant,",
+       "Savoir prendre les devants,",
+       "Croire à son destin,",
+       "Et croire à demain."
+      ],
+      [
+       "Accepter le mensonge",
+       "Pour gagner une vie,",
+       "Combattre un chagrin,",
+       "Pardonner cette catin",
+       "Pour laquelle encore tu pries",
+       "Noyé dans tes songes."
+      ],
+      [
+       "Remercier le temps qui passe,",
+       "Se souvenir de baisers divins,",
+       "Oublier nos égarements,",
+       "Et tous ces serments",
+       "Qui n’ont été vains,",
+       "Puisque de notre insignifiance délassent."
+      ]
+     ],
+     "src": "pf-site-2026-10-29"
+    },
     {
      "title": "Un Espace pour Aimer et Respirer",
      "slug": "un-espace-pour-aimer-et-respirer",
@@ -3998,6 +4254,92 @@
       ]
      ],
      "src": "ext"
+    },
+    {
+     "title": "À toi",
+     "slug": "a-toi",
+     "pf": "198281",
+     "date": "29/07/2022",
+     "theme": "Espoir",
+     "note": null,
+     "kind": "verse",
+     "blocks": [
+      [
+       "À toi, qui ne me connaît pas.",
+       "À toi, que je ne connais pas.",
+       "J’écris ces rêves d’insomnie.",
+       "Et je ne m’endors pas, mais prie"
+      ],
+      [
+       "Dieu le puissant qui n’existe pas.",
+       "Et les anges, qui ont toujours",
+       "Un sexe, volent à petits pas",
+       "Libérés. Leurs folies secourent",
+       "Tout ce triste monde creusant",
+       "Tombes et enfers des enfants."
+      ],
+      [
+       "Je ne veux pas être un héros.",
+       "Mais dans ma frousse de zéro,",
+       "Je prends tel un glaive sanglant",
+       "Ma plume, fleuret de mécréant."
+      ],
+      [
+       "Et d’une noire sur une blanche,",
+       "Une métisse de la nuit",
+       "M’apparait : le rire d’un phare,",
+       "Douceur qu’éclaire dès le soir."
+      ],
+      [
+       "Et la musique au jour levé",
+       "Continuera toujours à bercer",
+       "Mes illusions de mes amours",
+       "Passés. Où gamin à rebours",
+       "Je me promettais de panser,",
+       "Gommer ces stigmates passés."
+      ],
+      [
+       "Je l’aperçois dans le métro,",
+       "Une inconnue que j’ai croisée.",
+       "Je l’aborde, et elle me toise,",
+       "Cette garçonne que j’ai baisée :",
+       "Demandez-moi alors, comment ! ?",
+       "Poète du siècle textos,",
+       "Je lui ai simplement parlé",
+       "D’une manière très courtoise."
+      ],
+      [
+       "« Bonjour, Mademoiselle. Celle",
+       "Qui fera se battre mon cœur,",
+       "Lutter contre toute mes terreurs.",
+       "Je ne peux vous dire que belle. »"
+      ],
+      [
+       "« Une ange d’enfer, maquillée,",
+       "Espiègle, et puis sensible.",
+       "Oh je vous ai rêvée hier,",
+       "Et puis aussi le jour d’avant,",
+       "Quand vous aviez pris les devants !",
+       "Et puis peut-être bien demain…",
+       "Car il faut forcer le destin,",
+       "Pour rejoindre notre bannière",
+       "De cette humanité sans bible :",
+       "Qui n’a point d’ailes pour planer. »"
+      ],
+      [
+       "Sur une si douce musique,",
+       "Et d’une insomnie prosaïque ;",
+       "A toi qui ne me connaît pas,",
+       "A toi que je ne connais pas."
+      ],
+      [
+       "Je t’offre un rêve de lendemains :",
+       "Ma douce agrypnie caféique",
+       "Qui crie ce poème archaïque.",
+       "Si tu l’aimes, prends moi la main !"
+      ]
+     ],
+     "src": "pf-site-2026-10-29"
     }
    ]
   }
