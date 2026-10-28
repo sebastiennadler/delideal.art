@@ -16,10 +16,11 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261029b"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261029c"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
-       ("musique.html", "Musique"), ("soutenir.html", "Soutenir"), ("a-propos.html", "À propos")]
+       ("musique.html", "Musique"), ("soutenir.html", "Soutenir")]
+# ("a-propos.html", "À propos") : page retirée du menu le 29/10/2026 à la demande de l'auteur, à réécrire par lui.
 PF_AUTEUR = "https://www.poeme-france.com/auteur/delideal/"
 ARCHIVE = "https://web.archive.org/web/20250914075727/https://www.poeme-france.com/auteur/delideal/"
 
@@ -308,14 +309,6 @@ de la poudre de brique issue de mon mal.</p>
 <p>Je cherche une maison d’édition pour le recueil. Le manuscrit est prêt, préfacé, et se lit en entier sur ce site. Écrivez-moi : <a class="courriel" data-u="sebastien.nadler" data-d="gmail.com" href="#">sebastien.nadler [at] gmail.com</a>.</p>
 <h2>Mettre en musique</h2>
 <p>Plusieurs poèmes sont déjà des chansons, d’autres n’existent qu’en maquette : la page <a href="musique.html">Musique</a> montre la direction. Si vous êtes musicienne ou musicien et qu’un texte vous parle, même adresse.</p>
-"""),
-"a-propos.html": dict(
-  title="À propos — Delideal",
-  description="Qui est Delideal.",
-  body="""
-<h1 class="titre-fil">À propos</h1>
-<div class="fil" aria-hidden="true"></div>
-<p class="note">Page en préparation : ce texte sera écrit par l’auteur.</p>
 """),
 "mentions-legales.html": dict(
   title="Mentions légales — Delideal", robots="noindex,follow",
