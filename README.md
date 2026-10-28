@@ -12,7 +12,8 @@ Ce README est la **source de vérité** des choix du site. Si une nouvelle instr
 ## Principes éditoriaux
 1. **Texte brut** : aucune illustration, aucune image, aucune transition générée par IA.
 2. Les poèmes sont reproduits **à l'identique** ; jamais réécrits, jamais corrigés sans accord explicite de l'auteur.
-3. Les pages de poèmes ne portent **aucune mention de date ni de source** (le lecteur ne doit pas être interrompu) : dates, liens poeme-france et copies Internet Archive sont réunis sur une seule page **Crédits** (credits.html), liée en pied de page.
+3. Les textes sont **écrits depuis l'an 2000** et **publiés entre 2014 et 2023** sur poeme-france.com : ne jamais écrire « écrits entre 2014 et 2023 ».
+3 bis. Les pages de poèmes ne portent **aucune mention de date ni de source** (le lecteur ne doit pas être interrompu) : dates, liens poeme-france et copies Internet Archive sont réunis sur une seule page **Crédits** (credits.html), liée en pied de page.
 4. Tout texte qui n'est pas un poème (présentations, transitions) est de la main de l'auteur ou validé par lui mot à mot.
 5. La préface d'Isabelle Jespersen (acrostiche BIPOLAIRE) est conservée telle quelle.
 6. Les créations mises en musique par IA (« Ma muse onirique », « Marcher sur un fil », « Méditations »…) sont présentées à part, clairement étiquetées, en second plan par rapport aux textes.

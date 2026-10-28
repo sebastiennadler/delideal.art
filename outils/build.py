@@ -69,7 +69,7 @@ HEAD = """<!DOCTYPE html>
 
 FOOT = """</main>
 <footer>
-<p>© {year} Delideal — textes écrits et publiés depuis 2014. Tous droits réservés.</p>
+<p>© {year} Delideal — textes écrits depuis 2000, publiés depuis 2014. Tous droits réservés.</p>
 <p><a href="{rel}credits.html">Crédits</a> · <a href="{rel}soutenir.html">Soutenir</a> · <a href="{rel}mentions-legales.html">Mentions légales</a></p>
 </footer>
 </body>
@@ -209,7 +209,7 @@ def sommaire_page():
 
 def credits_page():
     body = ['<h1 class="titre-fil">Crédits</h1>', '<div class="fil" aria-hidden="true"></div>',
-            '<p>Tous les textes de ce site sont de Delideal (Sébastien Nadler). Ils ont été écrits et publiés entre octobre 2014 et décembre 2023 sur <a href="' + PF_AUTEUR + '" rel="noopener">poeme-france.com</a>, un site tiers qui fixe la date et l’heure de mise en ligne de chaque texte et conserve les commentaires des lecteurs de l’époque. Aucun texte n’a été écrit par une intelligence artificielle.</p>',
+            '<p>Tous les textes de ce site sont de Delideal (Sébastien Nadler). Écrits à partir de l’an 2000, ils ont été publiés entre octobre 2014 et décembre 2023 sur <a href="' + PF_AUTEUR + '" rel="noopener">poeme-france.com</a>, un site tiers qui fixe la date et l’heure de mise en ligne de chaque texte et conserve les commentaires des lecteurs de l’époque. Aucun texte n’a été écrit par une intelligence artificielle.</p>',
             '<p>Pour chaque texte, le tableau donne la date de première publication, le lien vers la page d’origine et le lien vers sa copie conservée par Internet Archive. Deux textes sont inédits (ils ne figurent que dans le recueil).</p>',
             '<h2>La préface</h2>', '<p>La préface du recueil, un acrostiche, est d’Isabelle Jespersen.</p>',
             '<h2>Les musiques</h2>',
@@ -233,7 +233,7 @@ def livre_page():
     pref = "\n".join(f'<span class="acro"><strong>{esc(l[0])}</strong>{esc(l[1:])}</span>' for l in FRONT["preface"]["lines"])
     body = [f'<h1 class="titre-fil">{esc(FRONT["title"])}</h1>', '<div class="fil" aria-hidden="true"></div>',
             f'<p class="sous-titre">{esc(FRONT["subtitle"])}</p>',
-            '<p>Un recueil écrit entre 2014 et 2023, composé en six parties. Il cherche un éditeur ; en attendant, il se lit ici en entier, et il existe en version PDF prête à imprimer.</p>',
+            '<p>Des textes écrits depuis l’an 2000, publiés entre 2014 et 2023, rassemblés en six parties. Il cherche un éditeur ; en attendant, il se lit ici en entier, et il existe en version PDF prête à imprimer.</p>',
             '<section class="panel"><h2>Dédicace</h2>', f'<p class="dedicace">{esc(FRONT["dedicace"])}</p>', '</section>',
             '<section class="panel"><h2>Préface</h2>', f'<p class="preface">{pref}</p>', f'<p class="signature">{esc(FRONT["preface"]["sign"])}</p>', '</section>',
             '<section class="panel"><h2>Ouverture</h2>']
@@ -253,7 +253,7 @@ first = ALL[0][1]
 PAGES = {
 "index.html": dict(
   title="Delideal — Marcher sur un fil, poèmes",
-  description="Les poèmes de Delideal, écrits et publiés depuis 2014. Un recueil en six parties, des chansons, et un livre à faire naître.",
+  description="Les poèmes de Delideal, écrits depuis 2000 et publiés depuis 2014. Un recueil en six parties, des chansons, et un livre à faire naître.",
   body=f"""
 <h1 class="titre-fil">Marcher sur un fil</h1>
 <div class="fil" aria-hidden="true"></div>
@@ -270,13 +270,13 @@ de la poudre de brique issue de mon mal.</p>
 </section>
 
 <h2>Entrer</h2>
-<p>Ces poèmes racontent une vie vécue à nu : l’enfance qui s’émerveille, le désir qui déborde, la folie qui blesse et révèle, puis les chemins qu’on se trace pour tenir debout. Ils ont été écrits entre 2014 et 2023, publiés au fur et à mesure, et rassemblés en un recueil de six parties.</p>
+<p>Ces poèmes racontent une vie vécue à nu : l’enfance qui s’émerveille, le désir qui déborde, la folie qui blesse et révèle, puis les chemins qu’on se trace pour tenir debout. Ils ont été écrits à partir de l’an 2000, publiés au fur et à mesure entre 2014 et 2023, et rassemblés en un recueil de six parties.</p>
 <ol class="liste-poemes parties">
 {"".join(f'<li><a href="poemes.html#partie-{P["num"]}">{P["num"]}. {esc(P["title"])}</a> <span class="annee">{len(P["poems"])} textes</span></li>' for P in PARTS)}
 </ol>
 <p>Pour entrer par le début : <a href="poemes/{first["slug"]}.html">{esc(first["title"])}</a>. Pour entrer par le cœur : <a href="poemes/marcher-sur-un-fil.html">Marcher sur un fil</a> ou <a href="poemes/dsm-story.html">DSM Story</a>. Pour entrer par la musique : <a href="musique.html">Concerto pour hall de gare</a>, une improvisation au piano.</p>
 
-<p class="note">Tous ces textes ont été écrits et publiés entre 2014 et 2023, avant les outils d’écriture par intelligence artificielle ; aucun n’a été écrit par une IA, et ce site ne contient aucune image. Les dates et les sources sont réunies dans les <a href="credits.html">crédits</a>.</p>
+<p class="note">Tous ces textes ont été écrits à partir de l’an 2000 et publiés entre 2014 et 2023, avant les outils d’écriture par intelligence artificielle ; aucun n’a été écrit par une IA, et ce site ne contient aucune image. Les dates et les sources sont réunies dans les <a href="credits.html">crédits</a>.</p>
 
 <h2>Continuer</h2>
 <p>Ce site est gratuit et le restera. Si ces textes vous ont touché, vous pouvez aider à ce que l’activité continue : un don, ponctuel ou mensuel, sur <a href="soutenir.html">Tipeee</a> ; et pour aller plus loin, une maison d’édition pour faire du recueil un vrai livre, ou des musiciennes et musiciens pour transformer les maquettes en chansons. <a href="soutenir.html">Tout est expliqué ici</a>.</p>
