@@ -10,7 +10,7 @@ Ce README est la **source de vérité** des choix du site. Si une nouvelle instr
 - Thèmes : clair (défaut) et sombre, bouton sur chaque page, mémorisé (`delideal-theme`), appliqué avant le rendu
 
 ## Principes éditoriaux
-1. **Texte brut** : aucune illustration, aucune image, aucune transition générée par IA.
+1. **Texte brut** : aucune illustration, aucune image. Les textes sont de l'auteur ; le site n'affirme PAS « sans IA » (décision de l'auteur du 28/10/2026 : certains textes ont été retouchés, l'affirmation n'était pas tout à fait vraie). Seules les maquettes musicales IA sont étiquetées comme telles.
 2. Les poèmes sont reproduits **à l'identique** ; jamais réécrits, jamais corrigés sans accord explicite de l'auteur.
 3. Les textes sont **écrits depuis l'an 2000** et **publiés entre 2014 et 2023** sur poeme-france.com : ne jamais écrire « écrits entre 2014 et 2023 ».
 3 bis. Les pages de poèmes ne portent **aucune mention de date ni de source** (le lecteur ne doit pas être interrompu) : dates, liens poeme-france et copies Internet Archive sont réunis sur une seule page **Crédits** (credits.html), liée en pied de page.
@@ -53,3 +53,4 @@ css/style.css  js/site.js  audio/  CNAME  .nojekyll  robots.txt  sitemap.xml
 - 2026-10-28 (v17) : deux PDF (écran avec liens actifs vers YouTube, mp3, sources, Tipeee ; imprimable A5 recto-verso) + EPUB avec liens ; page Tipeee ouverte (fr.tipeee.com/delidealart) : lien sur l'accueil, Soutenir (bouton), pied de page et dans le livre.
 - 2026-10-28 (v18) : « L'Aube » retirée à la demande de l'auteur (55 textes) ; livre régénéré.
 - 2026-10-28 (v19) : carte d'aperçu typographique pour les partages (og:image), à la demande de l'auteur ; Tipeee active (IBAN + PayPal).
+- 2026-10-28 (v20) : retrait de toute affirmation « sans IA » (accueil, crédits, livre, carte de partage) à la demande de l'auteur ; les mentions « musique IA » des maquettes restent.

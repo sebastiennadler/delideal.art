@@ -45,7 +45,7 @@ COLOPHON = (f'<p>{esc(FRONT["title"])} — {esc(FRONT["subtitle"])}</p>'
 SOURCES_INTRO = ('<p>Tous les textes de ce livre sont de Delideal (Sébastien Nadler). Écrits à partir de l’an 2000, '
                  'ils ont été publiés entre octobre 2014 et décembre 2023 sur poeme-france.com, un site tiers qui fixe '
                  'la date et l’heure de mise en ligne de chaque texte et conserve les commentaires des lecteurs de l’époque. '
-                 'Aucun texte n’a été écrit par une intelligence artificielle.</p>'
+                 '</p>'
                  '<p>Pour chaque texte, le tableau donne la date de première publication et son numéro sur poeme-france.com '
                  '(adresse : www.poeme-france.com/auteur/delideal/texte-<em>numéro</em>). Deux textes sont inédits. '
                  'Les copies conservées par Internet Archive sont réunies sur delideal.art/credits.html.</p>')

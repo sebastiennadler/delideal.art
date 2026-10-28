@@ -16,7 +16,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261029g"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261029h"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir")]
@@ -216,7 +216,7 @@ def sommaire_page():
 
 def credits_page():
     body = ['<h1 class="titre-fil">Crédits</h1>', '<div class="fil" aria-hidden="true"></div>',
-            '<p>Tous les textes de ce site sont de Delideal (Sébastien Nadler). Écrits à partir de l’an 2000, ils ont été publiés entre octobre 2014 et décembre 2023 sur <a href="' + PF_AUTEUR + '" rel="noopener">poeme-france.com</a>, un site tiers qui fixe la date et l’heure de mise en ligne de chaque texte et conserve les commentaires des lecteurs de l’époque. Aucun texte n’a été écrit par une intelligence artificielle.</p>',
+            '<p>Tous les textes de ce site sont de Delideal (Sébastien Nadler). Écrits à partir de l’an 2000, ils ont été publiés entre octobre 2014 et décembre 2023 sur <a href="' + PF_AUTEUR + '" rel="noopener">poeme-france.com</a>, un site tiers qui fixe la date et l’heure de mise en ligne de chaque texte et conserve les commentaires des lecteurs de l’époque.</p>',
             '<p>Pour chaque texte, le tableau donne la date de première publication, le lien vers la page d’origine et le lien vers sa copie conservée par Internet Archive. Deux textes sont inédits (ils ne figurent que dans le recueil).</p>',
             '<h2>La préface</h2>', '<p>La préface du recueil, un acrostiche, est d’Isabelle Jespersen.</p>',
             '<h2>Les musiques</h2>',
@@ -288,7 +288,7 @@ PAGES = {
 <div class="mot">
 <p>Mon nom d’artiste est Delideal. Je suis ingénieur, je joue du piano, et je vis avec une sensibilité bipolaire : des cimes, des gouffres, quelques séjours à l’hôpital. J’écris depuis l’an 2000 pour tenir debout entre les deux. Du ciment dans les veines, des briques à casser : ces mots sont les miens, et jouer avec la folie, c’est <a href="poemes/marcher-sur-un-fil.html">marcher sur un fil</a>.</p>
 <p>De 2014 à 2023, j’ai publié chaque poème sur <a href="credits.html">un site qui en garde la date</a>. Les voici en <a href="poemes.html">six parties</a> : l’enfance, le désir, la crise, la colère, puis un chemin, et de la place pour aimer et respirer.</p>
-<p>Lecture libre, sans image et sans une ligne d’intelligence artificielle ; le recueil se télécharge aussi en <a href="livre/marcher-sur-un-fil.pdf">PDF</a> et en <a href="livre/marcher-sur-un-fil.epub">EPUB</a>. Si quelques textes vous touchent, vous pouvez m’aider d’un <a href="{TIPEEE}" rel="noopener">don sur Tipeee</a>, <a href="musique.html">les mettre en musique</a>, ou, si vous éditez des livres, <a href="soutenir.html">me dire si celui-ci est prêt</a>.</p>
+<p>Lecture libre, sans image ; le recueil se télécharge aussi en <a href="livre/marcher-sur-un-fil.pdf">PDF</a> et en <a href="livre/marcher-sur-un-fil.epub">EPUB</a>. Si quelques textes vous touchent, vous pouvez m’aider d’un <a href="{TIPEEE}" rel="noopener">don sur Tipeee</a>, <a href="musique.html">les mettre en musique</a>, ou, si vous éditez des livres, <a href="soutenir.html">me dire si celui-ci est prêt</a>.</p>
 </div>
 
 <h2>Entrer</h2>
