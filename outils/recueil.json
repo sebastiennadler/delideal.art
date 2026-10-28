@@ -715,13 +715,7 @@
        "« Éclaire mes nuits ! »"
       ]
      ],
-     "src": "pf",
-     "music": {
-      "kind": "auteur",
-      "yt": "https://www.youtube.com/watch?v=zSsJ_OX-HS8",
-      "label": "Chanson de l’auteur"
-     },
-     "corroboration": "La chanson tirée de ce texte a été mise en ligne sur YouTube en 2022 (la date est affichée par YouTube)."
+     "src": "pf"
     },
     {
      "title": "Armelle est merveilleuse",
@@ -3318,12 +3312,7 @@
        "Sans l’ennui que nous impose le poli."
       ]
      ],
-     "src": "pf",
-     "music": {
-      "kind": "auteur",
-      "yt": "https://www.youtube.com/watch?v=fShhj3QWdk8",
-      "label": "Chanson de l’auteur"
-     }
+     "src": "pf"
     },
     {
      "title": "Égoïste",
