@@ -26,7 +26,7 @@
   {
    "num": "I",
    "title": "Un jour commence",
-   "chapeau": "Quelques souvenirs d’enfance et de première jeunesse. Déjà trop de rêves, trop de hauts, trop de bas : c’est là que tout a commencé.",
+   "chapeau": "Un enfant regarde les nuages, et dans le ciel il voit des corps sans tête et des têtes sans corps. C’est moi. À douze ans, je dessinais les plans de la maison de mes parents. Déjà trop de rêves, déjà des matins où je ne me levais pas. J’ai mis ces premiers textes en tête parce que tout y est : l’émerveillement, la douceur de la poussière, et le vide qui attendait son heure.",
    "poems": [
     {
      "title": "Un Regard Dans Le Ciel",
@@ -201,12 +201,13 @@
      ],
      "src": "bloc"
     }
-   ]
+   ],
+   "chapeau_court": "Quelques souvenirs d’enfance et de première jeunesse. Déjà trop de rêves, trop de hauts, trop de bas : c’est là que tout a commencé."
   },
   {
    "num": "II",
    "title": "Le désir",
-   "chapeau": "Des corps, des visages, des nuits. Le désir y est une fête et un vertige, et je n’ai pas toujours su distinguer l’un de l’autre.",
+   "chapeau": "L’instinct s’éveille, et je me transforme. Des corps qui dansent, de la musique, de l’alcool, une femme qui danse pour moi et me rend enfant. Le désir y est une fête et un vertige, et je n’ai pas toujours su distinguer l’un de l’autre. J’ai vendu mon âme pour un corps, joué du piano dans un hall de gare pour une inconnue, attendu une princesse. Ces nuits-là m’ont éclairé ; elles m’ont aussi fait tomber.",
    "poems": [
     {
      "title": "Animal",
@@ -794,12 +795,13 @@
      ],
      "src": "docx"
     }
-   ]
+   ],
+   "chapeau_court": "Des corps, des visages, des nuits. Le désir y est une fête et un vertige, et je n’ai pas toujours su distinguer l’un de l’autre."
   },
   {
    "num": "III",
    "title": "Marcher sur un fil",
-   "chapeau": "La crise, l’hôpital, les diagnostics. Ces textes ont été écrits dedans, ou juste après. Je les laisse tels quels.",
+   "chapeau": "La crise, l’hôpital, les diagnostics. Attaché sur un lit, un livre de médecine qui me range dans une case, des médicaments pour lisser mes états d’âme. Ces textes ont été écrits dedans, ou juste après ; je les laisse tels quels. La folie est la pire des souffrances. Jouer avec, c’est marcher sur un fil. C’est un défi qui me plaît : apprendre à marcher dessus.",
    "poems": [
     {
      "title": "DSM STORY",
@@ -2521,12 +2523,13 @@
      ],
      "src": "pf-site-2026-10-29"
     }
-   ]
+   ],
+   "chapeau_court": "La crise, l’hôpital, les diagnostics. Ces textes ont été écrits dedans, ou juste après. Je les laisse tels quels."
   },
   {
    "num": "IV",
    "title": "Enfer, mais dans une poésie",
-   "chapeau": "Quand tout se fracture, il reste les mots. Colères, sarcasmes, adresses à ceux que j’ai aimés ou détestés : écrire pour ne pas exploser.",
+   "chapeau": "Quand tout se fracture, il reste les mots. Ici je règle mes comptes : avec l’argent qui pue, avec mon ami banquier, avec la culture qui asphyxie, avec moi-même. Toi, lecteur, ne retire aucune gloire de ces vers : je les ai écrits pour ne pas exploser. Je n’ai rien adouci. Les colères sont restées des colères, mais dans une poésie.",
    "poems": [
     {
      "title": "Émetteur ?",
@@ -2900,12 +2903,13 @@
      "src": "pf-1",
      "corroboration": "La chanson tirée de ce texte a été mise en ligne sur YouTube en 2015 (la date est affichée par YouTube) : une seconde source indépendante pour sa date."
     }
-   ]
+   ],
+   "chapeau_court": "Quand tout se fracture, il reste les mots. Colères, sarcasmes, adresses à ceux que j’ai aimés ou détestés : écrire pour ne pas exploser."
   },
   {
    "num": "V",
    "title": "Un chemin",
-   "chapeau": "Méditer, questionner le temps, apprivoiser le réel. Non plus seulement décharger, mais chercher des issues.",
+   "chapeau": "Le silence est roi ; on y observe son « soi », et l’on s’aperçoit qu’il n’existe pas. Après la catharsis, j’ai cherché des issues : méditer, questionner le temps, apprivoiser le réel, me lever et faire quelques pompes pour jouer à l’homme. Le meilleur et le pire, j’ai tout pris dans la gueule ; le malheur m’a brisé, le bonheur m’a sauvé. Ce n’est pas un chemin droit. C’est le mien.",
    "poems": [
     {
      "title": "Savante indolence",
@@ -4068,12 +4072,13 @@
      ],
      "src": "pf-site-2026-10-29"
     }
-   ]
+   ],
+   "chapeau_court": "Méditer, questionner le temps, apprivoiser le réel. Non plus seulement décharger, mais chercher des issues."
   },
   {
    "num": "VI",
    "title": "Un espace pour aimer et respirer",
-   "chapeau": "Faire de la place. Garder ce qu’on aime, lâcher le reste, et vivre au présent.",
+   "chapeau": "Pour aimer, il faut une place dans son cœur, et une place dans sa maison. Alors je fais de la place : je garde ce que j’aime, je lâche le reste. Il reste la confiance, tombée du ciel comme un élan vital ; les collines qui dessinent des vagues ; une amante dans mon sang. Et à toi, qui ne me connais pas, j’offre un rêve de lendemains.",
    "poems": [
     {
      "title": "Confiance",
@@ -4344,7 +4349,8 @@
      ],
      "src": "pf-site-2026-10-29"
     }
-   ]
+   ],
+   "chapeau_court": "Faire de la place. Garder ce qu’on aime, lâcher le reste, et vivre au présent."
   }
  ]
 }

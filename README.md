@@ -48,3 +48,4 @@ css/style.css  js/site.js  audio/  CNAME  .nojekyll  robots.txt  sitemap.xml
 - 2026-10-29 (soir) : phase 2 (« moins et mieux ») : 56 textes ; page À propos retirée ; références retirées des pages de poèmes au profit d'une page Crédits unique.
 - 2026-10-28 (v14) : mot d'accueil de l'auteur en haut de l'accueil (corrigé par lui) ; recueil téléchargeable en PDF (136 p., A5) et EPUB, générés par outils/livre.py depuis recueil.json — même contenu que le site, aucun texte ajouté ; extrait et paragraphes redondants de l'accueil retirés.
 - 2026-10-28 (v15) : partie II renommée « Le désir » (choix de l'auteur) ; PDF/EPUB régénérés.
+- 2026-10-28 (v16) : six introductions de partie (première personne, faites des vers de l'auteur, validées mot à mot par lui) remplacent les chapeaux sur la page Poèmes et dans le livre ; anciens chapeaux conservés dans recueil.json (chapeau_court). PDF/EPUB régénérés.
