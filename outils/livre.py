@@ -206,7 +206,8 @@ body.liens .sommaire a,body.liens .titre a{color:inherit}
 /* sommaire */
 .sommaire h1,.sources h1,.fin h1,.preface-page h1{font-size:20pt; margin-bottom:0}
 .sommaire ol{list-style:none; padding:0; margin:0}
-.sommaire li{display:flex; align-items:baseline; gap:.35em; break-inside:avoid}
+.sommaire li{break-inside:avoid}
+.sommaire li a{display:flex; align-items:baseline; gap:.35em; color:inherit}
 .sommaire li .t{white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 .sommaire li .pts{flex:1; border-bottom:1px dotted rgba(26,23,18,.5); margin:0 .15em; min-width:1.5em; transform:translateY(-.3em)}
 .sommaire li .n{font-variant-numeric:tabular-nums; color:#5b554b}
@@ -258,29 +259,29 @@ def book_html(numbers, blanks):
              f'<p class="st">{esc(FRONT["subtitle"])}</p><p class="site">' + (f'<a href="{SITE}">delideal.art</a>' if MODE["liens"] else 'delideal.art') + '</p></section>')
     h.append(f'<section class="page colophon">{COLOPHON}</section>')
     h.append(blank("dedicace") + f'<section class="page dedicace"><p>{esc(FRONT["dedicace"])}</p></section>')
-    h.append(blank("preface") + f'<section class="page preface-page"><h1>Préface</h1><div class="fil"></div>{preface_html()}</section>')
+    h.append(blank("preface") + f'<section class="page preface-page" id="preface"><h1>Préface</h1><div class="fil"></div>{preface_html()}</section>')
     h.append(blank("ouverture") + '<section class="page ouverture">' + "".join(f'<p class="citation">{esc(l)}</p>' for l in FRONT["ouverture"]) + '</section>')
     # sommaire
     s = ['<section class="page sommaire"><h1>Sommaire</h1><div class="fil"></div><ol>',
-         f'<li class="autre"><span class="t">Préface</span><span class="pts"></span><span class="n">{n("preface")}</span></li>']
+         f'<li class="autre"><a href="#preface"><span class="t">Préface</span><span class="pts"></span><span class="n">{n("preface")}</span></a></li>']
     for P in PARTS:
         k = f'partie-{P["num"]}'
-        s.append(f'<li class="part"><span class="t">{P["num"]}. {esc(P["title"])}</span><span class="pts"></span><span class="n">{n(k)}</span></li>')
+        s.append(f'<li class="part"><a href="#{k}"><span class="t">{P["num"]}. {esc(P["title"])}</span><span class="pts"></span><span class="n">{n(k)}</span></a></li>')
         for e in P["poems"]:
-            s.append(f'<li class="poem"><span class="t">{esc(e["title"])}</span><span class="pts"></span><span class="n">{n(e["slug"])}</span></li>')
-    s.append(f'<li class="autre"><span class="t">Sources</span><span class="pts"></span><span class="n">{n("sources")}</span></li>')
-    s.append(f'<li class="autre"><span class="t">Pour continuer</span><span class="pts"></span><span class="n">{n("fin")}</span></li>')
+            s.append(f'<li class="poem"><a href="#{e["slug"]}"><span class="t">{esc(e["title"])}</span><span class="pts"></span><span class="n">{n(e["slug"])}</span></a></li>')
+    s.append(f'<li class="autre"><a href="#sources"><span class="t">Sources</span><span class="pts"></span><span class="n">{n("sources")}</span></a></li>')
+    s.append(f'<li class="autre"><a href="#fin"><span class="t">Pour continuer</span><span class="pts"></span><span class="n">{n("fin")}</span></a></li>')
     s.append('</ol></section>')
     h.append(blank("sommaire") + "".join(s))
     # parties et poèmes
     for P in PARTS:
         k = f'partie-{P["num"]}'
-        h.append(blank(k) + f'<section class="page partie"><p class="num">{P["num"]}</p><h1>{esc(P["title"])}</h1>'
+        h.append(blank(k) + f'<section class="page partie" id="{k}"><p class="num">{P["num"]}</p><h1>{esc(P["title"])}</h1>'
                  + (f'<p class="chapeau">{esc(P["chapeau"])}</p>' if P.get("chapeau") else "") + '</section>')
         for e in P["poems"]:
-            h.append(f'<article class="poeme-page">{poem_html(e, "<br>")}</article>')
-    h.append(f'<section class="page sources"><h1>Sources</h1><div class="fil"></div>{SOURCES_INTRO}{sources_table()}{SOURCES_FIN}</section>')
-    h.append(f'<section class="page fin"><h1>Pour continuer</h1><div class="fil"></div>{fin_html()}</section>')
+            h.append(f'<article class="poeme-page" id="{e["slug"]}">{poem_html(e, "<br>")}</article>')
+    h.append(f'<section class="page sources" id="sources"><h1>Sources</h1><div class="fil"></div>{SOURCES_INTRO}{sources_table()}{SOURCES_FIN}</section>')
+    h.append(f'<section class="page fin" id="fin"><h1>Pour continuer</h1><div class="fil"></div>{fin_html()}</section>')
     h.append('</body></html>')
     return "".join(h)
 
