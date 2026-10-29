@@ -16,7 +16,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261029q"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261029r"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir")]
@@ -57,6 +57,7 @@ HEAD = """<!DOCTYPE html>
 <link rel="preload" href="{rel}fonts/eb-garamond-latin-400-normal.woff" as="font" type="font/woff" crossorigin>
 {head_extra}<link rel="stylesheet" href="{rel}css/style.css?v={v}">
 <script defer src="{rel}js/site.js?v={v}"></script>
+<script data-goatcounter="https://delideal.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -488,7 +489,7 @@ PAGES = {
 <h2>Propriété intellectuelle</h2>
 <p>Tous les textes et musiques sont l’œuvre de leur auteur et protégés par le droit d’auteur. Toute reproduction sans accord écrit est interdite, à l’exception de la citation courte avec mention de la source.</p>
 <h2>Données personnelles</h2>
-<p>Ce site ne dépose aucun cookie, ne collecte aucune donnée et ne charge aucune ressource tierce : les polices, les musiques et les images sont servies par le site lui-même. Le choix du thème clair ou sombre est mémorisé dans votre navigateur uniquement. Les liens vers YouTube, Tipeee, Amazon ou les réseaux sociaux mènent vers ces services, qui appliquent leurs propres règles.</p>
+<p>Ce site ne dépose aucun cookie. Les polices, les musiques et les images sont servies par le site lui-même. La seule ressource extérieure est un compteur de fréquentation, <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, qui compte les pages vues sans cookie ni identifiant, sans suivre les visiteurs d’un site à l’autre et sans conserver d’adresse IP : il n’y a donc pas de bandeau de consentement à afficher. Le choix du thème clair ou sombre est mémorisé dans votre navigateur uniquement. Les liens vers YouTube, Tipeee, Amazon ou les réseaux sociaux mènent vers ces services, qui appliquent leurs propres règles.</p>
 """),
 }
 
