@@ -1,3 +1,8 @@
+/* EB Garamond (licence OFL, fonts/LICENSE-OFL.txt), servie par le site : aucune ressource tierce */
+@font-face{font-family:"EB Garamond";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/eb-garamond-latin-400-normal.woff") format("woff")}
+@font-face{font-family:"EB Garamond";font-style:italic;font-weight:400;font-display:swap;src:url("../fonts/eb-garamond-latin-400-italic.woff") format("woff")}
+@font-face{font-family:"EB Garamond";font-style:normal;font-weight:500;font-display:swap;src:url("../fonts/eb-garamond-latin-500-normal.woff") format("woff")}
+@font-face{font-family:"EB Garamond";font-style:italic;font-weight:500;font-display:swap;src:url("../fonts/eb-garamond-latin-500-italic.woff") format("woff")}
 /* ============================================================
    delideal.art — feuille de style unique.
    Gabarit inspiré du site d'Ana (navbar fixe translucide, thème

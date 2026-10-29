@@ -16,7 +16,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261029p"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261029q"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir")]
@@ -51,10 +51,11 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:image:alt" content="Marcher sur un fil — Fragments de sensibilité bipolaire — Delideal, poèmes">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://delideal.art/partage/carte.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{rel}css/style.css?v={v}">
+<link rel="icon" href="{rel}favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{rel}favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="{rel}apple-touch-icon.png">
+<link rel="preload" href="{rel}fonts/eb-garamond-latin-400-normal.woff" as="font" type="font/woff" crossorigin>
+{head_extra}<link rel="stylesheet" href="{rel}css/style.css?v={v}">
 <script defer src="{rel}js/site.js?v={v}"></script>
 </head>
 <body>
@@ -90,10 +91,23 @@ def esc(s):
 def nav_html(rel):
     return "\n".join(f'<li><a href="{rel}{href}">{label}</a></li>' for href, label in NAV)
 
+def jsonld_livre():
+    """Données structurées (schema.org/Book) pour les moteurs de recherche ; l'offre Amazon s'ajoute dès que le lien existe."""
+    import json as _json
+    d = {"@context": "https://schema.org", "@type": "Book", "name": FRONT["title"], "alternateName": f'{FRONT["title"]} — {FRONT["subtitle"]}',
+         "author": {"@type": "Person", "name": "Delideal", "url": SITE + "/"}, "inLanguage": "fr", "genre": "Poésie",
+         "bookFormat": "https://schema.org/EBook", "url": SITE + "/le-livre.html", "image": SITE + "/partage/carte.png",
+         "contributor": {"@type": "Person", "name": "Isabelle Jespersen", "jobTitle": "Préface"},
+         "isAccessibleForFree": True, "numberOfPages": pages_pdf("livre/marcher-sur-un-fil.pdf")}
+    if AMAZON:
+        d["offers"] = {"@type": "Offer", "url": AMAZON, "price": "0.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock"}
+    return '<script type="application/ld+json">' + _json.dumps(d, ensure_ascii=False) + '</script>\n'
+
 def page(name, title, description, body, rel="", robots="index,follow", ogtype="website"):
     canonical = SITE + "/" + ("" if name == "index.html" else name)
+    head_extra = jsonld_livre() if name in ("index.html", "le-livre.html") else ""
     return (HEAD.format(title=esc(title), description=esc(description), robots=robots, ogtype=ogtype,
-                        canonical=canonical, rel=rel, v=VERSION, nav=nav_html(rel))
+                        canonical=canonical, rel=rel, v=VERSION, nav=nav_html(rel), head_extra=head_extra)
             + body.strip("\n") + "\n"
             + FOOT.format(year=date.today().year, rel=rel, pf=PF_AUTEUR, TIPEEE=TIPEEE))
 
@@ -452,6 +466,15 @@ PAGES = {
 <h2>Illustrer, filmer</h2>
 <p>Ce site est volontairement sans image. Le livre, lui, pourrait en avoir : dessin, peinture, gravure, photographie. Et les chansons mériteraient des clips. Si vous illustrez, si vous filmez ou montez des images, et qu’un texte ou une musique vous inspire, écrivez-moi, même adresse — on en parle, sans engagement de part et d’autre.</p>
 """),
+"404.html": dict(
+  title="Page introuvable — Delideal", robots="noindex,nofollow",
+  description="Cette page n’existe pas ou plus.",
+  body="""
+<h1 class="titre-fil">Page introuvable</h1>
+<div class="fil" aria-hidden="true"></div>
+<p>Cette page n’existe pas, ou n’existe plus : quelques textes ont changé de place quand le recueil a retrouvé sa forme.</p>
+<p>Pour retrouver votre chemin : <a href="/">l’accueil</a>, <a href="/poemes.html">le sommaire des poèmes</a>, <a href="/le-livre.html">le livre</a>, <a href="/musique.html">la musique</a>.</p>
+"""),
 "mentions-legales.html": dict(
   title="Mentions légales — Delideal", robots="noindex,follow",
   description="Mentions légales du site delideal.art.",
@@ -465,7 +488,7 @@ PAGES = {
 <h2>Propriété intellectuelle</h2>
 <p>Tous les textes et musiques sont l’œuvre de leur auteur et protégés par le droit d’auteur. Toute reproduction sans accord écrit est interdite, à l’exception de la citation courte avec mention de la source.</p>
 <h2>Données personnelles</h2>
-<p>Ce site ne dépose aucun cookie et ne collecte aucune donnée. Le choix du thème clair ou sombre est mémorisé dans votre navigateur uniquement.</p>
+<p>Ce site ne dépose aucun cookie, ne collecte aucune donnée et ne charge aucune ressource tierce : les polices, les musiques et les images sont servies par le site lui-même. Le choix du thème clair ou sombre est mémorisé dans votre navigateur uniquement. Les liens vers YouTube, Tipeee, Amazon ou les réseaux sociaux mènent vers ces services, qui appliquent leurs propres règles.</p>
 """),
 }
 
