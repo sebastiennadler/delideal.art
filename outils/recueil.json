@@ -20,12 +20,16 @@
   "ouverture": [
    "« Il faut avoir la force de sa raison, et non la raison de sa force. »",
    "- Massa Makan Diabaté"
+  ],
+  "exergue": [
+   "« Il faut avoir la force de sa raison, et non la raison de sa force. »",
+   "- Massa Makan Diabaté"
   ]
  },
  "parts": [
   {
    "num": "I",
-   "title": "Un jour commence",
+   "title": "De l’enfance à la grande adolescence",
    "chapeau": "Un jour commence.\nUn enfant lève les yeux : dans les nuages, des visages sans contour.\nIl dessine la maison de ses parents, il croit qu’elle tiendra.\nLa poussière se pose comme une caresse,\net déjà, certains matins, il ne se lève pas.\nTout est là dès le début : l’émerveillement, et le vide qui attend son heure.",
    "poems": [
     {
@@ -204,7 +208,8 @@
     }
    ],
    "chapeau_court": "Quelques souvenirs d’enfance et de première jeunesse. Déjà trop de rêves, trop de hauts, trop de bas : c’est là que tout a commencé.",
-   "chapeau_prose_2026-10-28": "Un enfant regarde les nuages, et dans le ciel il voit des corps sans tête et des têtes sans corps. C’est moi. À douze ans, je dessinais les plans de la maison de mes parents. Déjà trop de rêves, déjà des matins où je ne me levais pas. J’ai mis ces premiers textes en tête parce que tout y est : l’émerveillement, la douceur de la poussière, et le vide qui attendait son heure."
+   "chapeau_prose_2026-10-28": "Un enfant regarde les nuages, et dans le ciel il voit des corps sans tête et des têtes sans corps. C’est moi. À douze ans, je dessinais les plans de la maison de mes parents. Déjà trop de rêves, déjà des matins où je ne me levais pas. J’ai mis ces premiers textes en tête parce que tout y est : l’émerveillement, la douceur de la poussière, et le vide qui attendait son heure.",
+   "title_site_2026-10": "Un jour commence"
   },
   {
    "num": "II",
@@ -799,11 +804,12 @@
     }
    ],
    "chapeau_court": "Des corps, des visages, des nuits. Le désir y est une fête et un vertige, et je n’ai pas toujours su distinguer l’un de l’autre.",
-   "chapeau_prose_2026-10-28": "L’instinct s’éveille, et je me transforme. Des corps qui dansent, de la musique, de l’alcool, une femme qui danse pour moi et me rend enfant. Le désir y est une fête et un vertige, et je n’ai pas toujours su distinguer l’un de l’autre. J’ai vendu mon âme pour un corps, joué du piano dans un hall de gare pour une inconnue, attendu une princesse. Ces nuits-là m’ont éclairé ; elles m’ont aussi fait tomber."
+   "chapeau_prose_2026-10-28": "L’instinct s’éveille, et je me transforme. Des corps qui dansent, de la musique, de l’alcool, une femme qui danse pour moi et me rend enfant. Le désir y est une fête et un vertige, et je n’ai pas toujours su distinguer l’un de l’autre. J’ai vendu mon âme pour un corps, joué du piano dans un hall de gare pour une inconnue, attendu une princesse. Ces nuits-là m’ont éclairé ; elles m’ont aussi fait tomber.",
+   "title_site_2026-10": "Le désir"
   },
   {
    "num": "III",
-   "title": "Marcher sur un fil",
+   "title": "Folie, dérives et analyses",
    "chapeau": "Un livre de médecine a mis un nom sur ce que j’étais.\nDes sangles, une chambre blanche, un pierrot qui pleure à l’heure dite.\nLa folie illumine la nuit et aveugle la sagesse ;\nelle casse les briques, et c’est moi qui saigne.\nCes textes ont été écrits dedans, ou juste après. Je les laisse tels quels.\nJouer avec la folie, c’est marcher sur un fil.\nC’est un défi qui me plaît : apprendre à marcher sur ce fil.",
    "poems": [
     {
@@ -1979,7 +1985,9 @@
        "texte": "J’avais entendu qu’il voulait utiliser l’héritage de ma mère pour rembourser un crédit.",
        "motif": "retiré à la demande de l’auteur"
       }
-     ]
+     ],
+     "retired": "2026-10-31",
+     "retired_motif": "retiré à la demande de l’auteur (« je trouve le texte mauvais »)"
     },
     {
      "title": "Pierrot le fou (écrit en HP)",
@@ -2535,11 +2543,12 @@
     }
    ],
    "chapeau_court": "La crise, l’hôpital, les diagnostics. Ces textes ont été écrits dedans, ou juste après. Je les laisse tels quels.",
-   "chapeau_prose_2026-10-28": "La crise, l’hôpital, les diagnostics. Attaché sur un lit, un livre de médecine qui me range dans une case, des médicaments pour lisser mes états d’âme. Ces textes ont été écrits dedans, ou juste après ; je les laisse tels quels. La folie est la pire des souffrances. Jouer avec, c’est marcher sur un fil. C’est un défi qui me plaît : apprendre à marcher sur ce fil."
+   "chapeau_prose_2026-10-28": "La crise, l’hôpital, les diagnostics. Attaché sur un lit, un livre de médecine qui me range dans une case, des médicaments pour lisser mes états d’âme. Ces textes ont été écrits dedans, ou juste après ; je les laisse tels quels. La folie est la pire des souffrances. Jouer avec, c’est marcher sur un fil. C’est un défi qui me plaît : apprendre à marcher sur ce fil.",
+   "title_site_2026-10": "Marcher sur un fil"
   },
   {
    "num": "IV",
-   "title": "Enfer, mais dans une poésie",
+   "title": "Créativité cathartique",
    "chapeau": "Quand tout se fracture, il reste les mots.\nL’argent pue, l’écran pleut des ténèbres, mon banquier est bien élevé.\nJe règle mes comptes à voix haute, avec le monde et avec moi.\nLecteur, ne retire aucune gloire de ces vers :\nce sont des colères, et je les ai laissées colères.\nMais dans une poésie.",
    "poems": [
     {
@@ -2921,11 +2930,12 @@
     }
    ],
    "chapeau_court": "Quand tout se fracture, il reste les mots. Colères, sarcasmes, adresses à ceux que j’ai aimés ou détestés : écrire pour ne pas exploser.",
-   "chapeau_prose_2026-10-28": "Quand tout se fracture, il reste les mots. Ici je règle mes comptes : avec l’argent qui pue, avec mon ami banquier, avec la culture qui asphyxie, avec moi-même. Toi, lecteur, ne retire aucune gloire de ces vers : je les ai écrits pour ne pas exploser. Je n’ai rien adouci. Les colères sont restées des colères, mais dans une poésie."
+   "chapeau_prose_2026-10-28": "Quand tout se fracture, il reste les mots. Ici je règle mes comptes : avec l’argent qui pue, avec mon ami banquier, avec la culture qui asphyxie, avec moi-même. Toi, lecteur, ne retire aucune gloire de ces vers : je les ai écrits pour ne pas exploser. Je n’ai rien adouci. Les colères sont restées des colères, mais dans une poésie.",
+   "title_site_2026-10": "Enfer, mais dans une poésie"
   },
   {
    "num": "V",
-   "title": "Un chemin",
+   "title": "Des futurs et solutions possibles",
    "chapeau": "Le silence est roi, et le soi qu’on y cherche n’existe pas.\nAlors j’ai cherché ailleurs : le temps, qui ne vaut rien ;\nle réel, qui défie la raison ; un ciel d’été, une chemise à repasser,\nquelques pompes pour jouer à l’homme.\nLe malheur m’a brisé, le bonheur m’a sauvé : le meilleur et le pire, en pleine gueule.\nCe n’est pas un chemin droit. C’est le mien.",
    "poems": [
     {
@@ -4092,11 +4102,12 @@
     }
    ],
    "chapeau_court": "Méditer, questionner le temps, apprivoiser le réel. Non plus seulement décharger, mais chercher des issues.",
-   "chapeau_prose_2026-10-28": "Le silence est roi ; on y observe son « soi », et l’on s’aperçoit qu’il n’existe pas. Après la catharsis, j’ai cherché des issues : méditer, questionner le temps, apprivoiser le réel, me lever et faire quelques pompes pour jouer à l’homme. Le meilleur et le pire, j’ai tout pris dans la gueule ; le malheur m’a brisé, le bonheur m’a sauvé. Ce n’est pas un chemin droit. C’est le mien."
+   "chapeau_prose_2026-10-28": "Le silence est roi ; on y observe son « soi », et l’on s’aperçoit qu’il n’existe pas. Après la catharsis, j’ai cherché des issues : méditer, questionner le temps, apprivoiser le réel, me lever et faire quelques pompes pour jouer à l’homme. Le meilleur et le pire, j’ai tout pris dans la gueule ; le malheur m’a brisé, le bonheur m’a sauvé. Ce n’est pas un chemin droit. C’est le mien.",
+   "title_site_2026-10": "Un chemin"
   },
   {
    "num": "VI",
-   "title": "Un espace pour aimer et respirer",
+   "title": "Changement et dernière sagesse",
    "chapeau": "Pour aimer, il faut une place dans son cœur et une place dans sa maison.\nAlors je fais de la place.\nJe garde ce que j’aime, je lâche le reste ;\nje regarde les collines dessiner des vagues,\net une amante coule dans mon sang comme une clarté.\nRespirer, enfin. Aimer, au présent.",
    "poems": [
     {
@@ -4377,7 +4388,8 @@
     }
    ],
    "chapeau_court": "Faire de la place. Garder ce qu’on aime, lâcher le reste, et vivre au présent.",
-   "chapeau_prose_2026-10-28": "Pour aimer, il faut une place dans son cœur, et une place dans sa maison. Alors je fais de la place : je garde ce que j’aime, je lâche le reste. Il reste les collines qui dessinent des vagues, et une amante dans mon sang."
+   "chapeau_prose_2026-10-28": "Pour aimer, il faut une place dans son cœur, et une place dans sa maison. Alors je fais de la place : je garde ce que j’aime, je lâche le reste. Il reste les collines qui dessinent des vagues, et une amante dans mon sang.",
+   "title_site_2026-10": "Un espace pour aimer et respirer"
   }
  ],
  "maquettes": [
@@ -4729,14 +4741,54 @@
    "note": true
   }
  ],
- "chansons": [
+ "chansons_retirees_2026-10-31": [
   {
    "slug": "chanson-de-mes-demons",
    "title": "Chanson de mes démons",
    "yt": "https://www.youtube.com/watch?v=ymVq2wLCgnw",
    "pf": "162480",
    "date": "29/03/2015",
-   "paroles": null
+   "paroles": [
+    {
+     "label": "Chanson de mes démons",
+     "lines": [
+      "N’écoute pas ce qu’on t’a appris",
+      "Toutes ces morales atténuant tes passions",
+      "Si tu te sens faux, hypocrisie",
+      "Pas d’autres remèdes qu’écouter tes démons",
+      "La vie est un souffle, la vie est un cri",
+      "Suit ton instinct, construit ton opinion",
+      "",
+      "Y a de vérité que ta réalité",
+      "Et les ptis curés qu’essayent de t’en dissuader",
+      "Ils te prennent ta vie. Ce sont tous des voleurs",
+      "Ils te prennent ton cœur. Ce sont tous des menteurs",
+      "",
+      "Ressens la joie d’être dans le vrai",
+      "Ressens le vrai d’être dans le moi",
+      "Il battra ton cœur si t’es pas un menteur",
+      "Il battra ton cœur si tu oublies tes peurs",
+      "",
+      "T’envoles pas, y a pas de paradis",
+      "Rien n’est promis, la jouissance a un prix",
+      "Tu vas souffrir, y a pas de compromis",
+      "Tu vas mourir, y a pas le choix dans la vie",
+      "",
+      "Pas de regrets si t’as tout essayé",
+      "Si de toutes les douceurs t’as pu te réjouir",
+      "Accroché à tes lèvres, restera un grand sourire",
+      "J’te souhaite d’être fatigué, de pouvoir plus espérer",
+      "Le bonheur de t’endormir en ayant trop vécu",
+      "Et d’pouvoir te dire : « la vie, je l’ai vaincu ! »",
+      "",
+      "L’écho de ces rires pour te bercer",
+      "L’odeur de cette peau que t’oublieras jamais",
+      "Une vision de ce qu’est le bonheur,",
+      "Se défier de l’enfer et lui crier : « Même pas peur ! »"
+     ]
+    }
+   ],
+   "note": "Note de l’auteur (2015) : « C’est amateur, mais au moins, c’est moi. Tout moi, au piano, la voix, le texte. »"
   },
   {
    "slug": "si-ton-tableau-est-noir",

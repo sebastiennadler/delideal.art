@@ -222,3 +222,17 @@ details.paroles .paroles-label{font-size:.78rem; letter-spacing:.14em; text-tran
 .carte-attente{opacity:.75; cursor:default}
 .maquettes audio{display:block; max-width:var(--mesure)}
 .maquettes .source{font-size:.9rem; color:var(--muted)}
+/* page Musique : un bloc par chanson, texte visible */
+.chanson{margin:1.6rem 0 2.2rem; padding-left:1rem; border-left:2px solid var(--rule)}
+.chanson h3{margin:0 0 .25rem; font-size:1.25rem; font-weight:normal}
+.chanson-meta{color:var(--muted); font-size:.95rem; margin:0 0 .5rem}
+.chanson-texte-renvoi{margin:.3rem 0 0}
+.chanson details.paroles{margin:.5rem 0 0; padding-left:0; border-left:0}
+.chanson details.paroles summary{font-size:.92rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+.chanson .paroles-texte{margin-top:.5rem}
+.chanson .paroles-texte .strophe{margin:0 0 1rem}
+.chanson .paroles-poeme{margin-top:.4rem}
+.chansons-accueil .etiquette,.chansons-accueil .annee{font-size:.8rem}
+/* ligne de source sous les poèmes */
+p.source{font-size:.86rem; color:var(--muted); margin:1.6rem 0 0}
+p.source a{color:var(--muted)}

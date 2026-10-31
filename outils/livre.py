@@ -31,9 +31,9 @@ ANNEE = datetime.date.today().year
 SITE = "https://delideal.art"
 TIPEEE = "https://fr.tipeee.com/delidealart"
 MODE = {"liens": True, "amazon": False}   # liens : actifs (écran, EPUB) ou non (imprimable) ; amazon : version vendue 0,99 €
-PRIX_AMAZON = ('<p>Ce livre coûte 0,99 €, le prix d’un café, pour que personne n’ait à choisir entre lire et payer. '
-               'Il se lit aussi gratuitement sur delideal.art. Si vous voulez m’aider davantage, ce n’est pas en l’achetant deux fois : '
-               'sur Tipeee, votre don m’arrive presque entier, là où une librairie en ligne en garde les deux tiers. '
+PRIX_AMAZON = ('<p>Ce livre coûte 0,99 € : le prix d’un café, pour des heures d’écriture, afin que personne n’ait à choisir entre lire et payer. '
+               'Il se lit aussi gratuitement sur delideal.art. Le site, le matériel pour la musique, les heures : tout cela a un coût, et le premier but est de rentrer dans mes frais. '
+               'Si vous voulez aider davantage, ce n’est pas en l’achetant deux fois : sur Tipeee, votre don m’arrive presque entier, là où une librairie en ligne en garde les deux tiers. '
                'Chacun fait comme il peut. Lire, c’est déjà beaucoup.</p>')
 MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août",
         "septembre", "octobre", "novembre", "décembre"][datetime.date.today().month - 1]
@@ -46,16 +46,16 @@ COLOPHON = (f'<p>{esc(FRONT["title"])} — {esc(FRONT["subtitle"])}</p>'
             f'<p>Édition numérique établie par l’auteur à partir du site delideal.art, {MOIS} {ANNEE}. '
             'Caractère : EB Garamond.</p>'
             f'<p>© {ANNEE} Delideal. Tous droits réservés. Lecture libre ; pour soutenir l’auteur : delideal.art/soutenir.html</p>')
-SOURCES_INTRO = ('<p>Tous les textes de ce livre sont de Delideal. Écrits à partir de l’an 2000, '
-                 'ils ont été publiés entre octobre 2014 et décembre 2023 sur poeme-france.com, un site tiers qui fixe '
-                 'la date et l’heure de mise en ligne de chaque texte et conserve les commentaires des lecteurs de l’époque. '
-                 '</p>'
-                 '<p>Pour chaque texte, le tableau donne la date de première publication et son numéro sur poeme-france.com '
-                 '(adresse : www.poeme-france.com/auteur/delideal/texte-<em>numéro</em>). Deux textes sont inédits. '
-                 'Les copies conservées par Internet Archive sont réunies sur delideal.art/credits.html.</p>')
-SOURCES_FIN = ('<p>La préface du recueil, un acrostiche, est d’Isabelle Jespersen.</p>'
-               '<p>Plusieurs de ces textes existent aussi en chanson, et une improvisation au piano accompagne '
-               '« Concerto pour hall de gare » : delideal.art/musique.html.</p>')
+def sources_pdf_html():
+    """Sources (PDF) : trois paragraphes ; le détail est sous chaque poème et sur delideal.art/credits.html."""
+    n_ined = sum(1 for P in PARTS for e in P["poems"] if not e.get("pf"))
+    mots = {0: "", 1: " Un texte est inédit.", 2: " Deux textes sont inédits."}.get(n_ined, f" {n_ined} textes sont inédits.")
+    lien = f'<a href="{SITE}/credits.html">delideal.art/credits.html</a>' if MODE["liens"] else 'delideal.art/credits.html'
+    return ('<p>Tous les textes de ce livre sont de Delideal. Écrits à partir de l’an 2000, ils ont été publiés entre octobre 2014 et décembre 2023 '
+            'sur poeme-france.com, un site tiers qui fixe la date de mise en ligne de chaque texte et conserve les commentaires des lecteurs de l’époque. '
+            f'Sous chaque texte, une ligne donne sa date de première publication, sa page d’origine et sa copie conservée par Internet Archive.{mots}</p>'
+            f'<p>Les mêmes dates et copies d’archive sont réunies sur {lien}.</p>'
+            '<p>La préface du recueil, un acrostiche, est d’Isabelle Jespersen.</p>')
 
 def fin_html():
     if MODE.get("amazon"):
@@ -156,7 +156,17 @@ def poem_html(e, br):
     if e.get("note"):
         h.append(f'<p class="note-auteur">{esc(e["note"])}</p>')
     h.append(music_html(e))
+    h.append(source_html(e))
     return "".join(h)
+
+def source_html(e):
+    """Ligne discrète : date de première publication, page d'origine, copie d'archive (liens actifs en mode écran)."""
+    if not e.get("pf"):
+        return '<p class="source">Inédit : ce texte ne figure que dans le recueil.</p>'
+    d = B.date_longue(e["date"]); u = B.pf_url(e); wb = f'https://web.archive.org/web/2026/{u}'
+    if MODE["liens"]:
+        return f'<p class="source">Publié le {d} sur <a href="{u}">poème-france</a> · <a href="{wb}">copie d’archive</a></p>'
+    return f'<p class="source">Publié le {d} sur poème-france (texte n° {e["pf"]}).</p>'
 
 def preface_html():
     lines = "".join(f'<span class="acro"><strong>{esc(l[0])}</strong>{esc(l[1:])}</span>' for l in FRONT["preface"]["lines"])
@@ -261,9 +271,17 @@ body.liens .sommaire a,body.liens .titre a{color:inherit}
 .sources tr{break-inside:avoid}
 .sources p,.fin p{font-size:10.5pt}
 .fin{padding-top:0}
+.source{font-size:8.5pt; color:#5b554b; margin-top:5mm}
+.musiques h2{font-size:14pt; margin:6mm 0 2mm; break-after:avoid}
+.musiques .mus-item{font-size:10.5pt; margin:3mm 0 1.5mm}
+.musiques .paroles{margin:0 0 4mm 6mm; font-size:10pt}
+.musiques .paroles .strophe{margin:0 0 2.5mm; break-inside:avoid}
+.musiques .paroles .v{display:block; margin:0; padding-left:1.4em; text-indent:-1.4em; line-height:1.4}
+.musiques .paroles-label{font-size:8.5pt; letter-spacing:.08em; text-transform:uppercase; color:#5b554b; margin:3mm 0 1mm}
+.musiques p{font-size:10.5pt}
 """
 
-RECTO = ["dedicace", "preface", "ouverture", "sommaire"] + [f"partie-{P['num']}" for P in PARTS]
+RECTO = ["dedicace", "preface", "ouverture", "sommaire"] + [f"partie-{P['num']}" for P in PARTS] + ["musiques"]
 
 ECRAN_CSS = "@page{margin:17mm 18mm 19mm 18mm} @page:left{margin:17mm 18mm 19mm 18mm}"
 
@@ -289,6 +307,7 @@ def book_html(numbers, blanks):
         s.append(f'<li class="part"><a href="#{k}"><span class="t">{P["num"]}. {esc(P["title"])}</span><span class="pts"></span><span class="n">{n(k)}</span></a></li>')
         for e in P["poems"]:
             s.append(f'<li class="poem"><a href="#{e["slug"]}"><span class="t">{esc(e["title"])}</span><span class="pts"></span><span class="n">{n(e["slug"])}</span></a></li>')
+    s.append(f'<li class="autre"><a href="#musiques"><span class="t">Les musiques</span><span class="pts"></span><span class="n">{n("musiques")}</span></a></li>')
     s.append(f'<li class="autre"><a href="#sources"><span class="t">Sources</span><span class="pts"></span><span class="n">{n("sources")}</span></a></li>')
     s.append(f'<li class="autre"><a href="#fin"><span class="t">Pour continuer</span><span class="pts"></span><span class="n">{n("fin")}</span></a></li>')
     s.append('</ol></section>')
@@ -300,7 +319,8 @@ def book_html(numbers, blanks):
                  + (f'<p class="chapeau">' + "<br>".join(esc(x) for x in P["chapeau"].split("\n")) + '</p>' if P.get("chapeau") else "") + '</section>')
         for e in P["poems"]:
             h.append(f'<article class="poeme-page" id="{e["slug"]}">{poem_html(e, "<br>")}</article>')
-    h.append(f'<section class="page sources" id="sources"><h1>Sources</h1><div class="fil"></div>{SOURCES_INTRO}{sources_table()}{SOURCES_FIN}</section>')
+    h.append(f'<section class="page musiques" id="musiques"><h1>Les musiques</h1><div class="fil"></div>{musiques_html(pdf=True)}</section>')
+    h.append(f'<section class="page sources" id="sources"><h1>Sources</h1><div class="fil"></div>{sources_pdf_html()}</section>')
     h.append(f'<section class="page fin" id="fin"><h1>Pour continuer</h1><div class="fil"></div>{fin_html()}</section>')
     h.append('</body></html>')
     return "".join(h)
@@ -329,7 +349,7 @@ def measure(pdf_bytes):
         expected.append((f'partie-{P["num"]}', P["title"]))
         for e in P["poems"]:
             expected.append((e["slug"], e["title"]))
-    expected += [("sources", "Sources"), ("fin", "Pour continuer")]
+    expected += [("musiques", "Les musiques"), ("sources", "Sources"), ("fin", "Pour continuer")]
     flat = []
     def walk(o):
         for x in o:
@@ -361,7 +381,7 @@ def make_pdf(scratch, liens):
     order = ["titre", "dedicace", "preface", "ouverture", "sommaire"]
     for P in PARTS:
         order.append(f'partie-{P["num"]}'); order += [e["slug"] for e in P["poems"]]
-    order += ["sources", "fin"]
+    order += ["musiques", "sources", "fin"]
     pos = {k: i for i, k in enumerate(order)}
     numbers, blanks = {}, set()
     for it in range(8):
@@ -399,7 +419,7 @@ def description():
     parties = " ".join(f'{P["num"]}. {P["title"]} — « {B.premiere_phrase(P["chapeau"].split(chr(10))[0]) if P.get("chapeau") else ""} »' for P in PARTS)
     return ("« Du ciment dans les veines / pour éviter l’hémorragie cérébrale. / Mais lentement les vaisseaux de mon cœur saignent / "
             "de la poudre de brique issue de mon mal. »\n\n"
-            f"Cinquante textes écrits à partir de l’an 2000, rassemblés en six parties. {parties}\n\n"
+            f"{B.NOMBRES.get(len(B.ALL), len(B.ALL))} textes écrits à partir de l’an 2000, rassemblés en six parties. {parties}\n\n"
             "Des poèmes écrits au plus près de ce qui était vécu — l’émerveillement, le désir, l’hôpital, la colère, puis un chemin — "
             "et laissés tels quels, avec leurs excès. Préface d’Isabelle Jespersen, en acrostiche.\n\n"
             "Delideal est le nom d’artiste de l’auteur. Plusieurs de ces poèmes sont devenus des chansons, à écouter sur delideal.art, "
@@ -443,6 +463,7 @@ p.v{margin:0; padding-left:1.5em; text-indent:-1.5em; text-align:left}
 .theatre .personnage{margin:.8em 0 .1em; font-weight:bold}
 .theatre .replique{margin:0 0 .3em; padding-left:1.2em; text-indent:-1.2em; text-align:left}
 .note-auteur{font-size:.9em; font-style:italic; margin-top:2em}
+.source{font-size:.85em; margin-top:1.6em}
 .musique{margin-top:2em; font-size:.9em}
 .sources p.src{margin:0 0 .45em; padding-left:1.5em; text-indent:-1.5em; font-size:.9em; text-align:left}
 .sources p.src-partie{margin:1.2em 0 .4em; font-style:italic}
@@ -521,17 +542,22 @@ def epub_sources():
             f'Internet Archive sont réunies sur <a href="{SITE}/credits.html">delideal.art/credits.html</a>.</p>'
             '<p>La préface du recueil, un acrostiche, est d’Isabelle Jespersen.</p>')
 
-def epub_musiques():
-    """Page « Les musiques » : toutes les chansons et musiques, avec les paroles complètes quand elles diffèrent du poème."""
+def musiques_html(pdf=False):
+    """Page « Les musiques » (PDF et EPUB) : chaque chanson avec son écoute, son origine et ses paroles complètes ;
+    pour les chansons dont les paroles sont le poème, renvoi au poème (lien interne)."""
     by_slug = {e["slug"]: e for P in PARTS for e in P["poems"]}
     def lien_poeme(slug):
         e = by_slug.get(slug)
-        return f'<a href="{slug}.xhtml">{esc(e["title"])}</a>' if e else esc(slug)
+        if not e: return esc(slug)
+        href = f"#{slug}" if pdf else f"{slug}.xhtml"
+        return f'<a href="{href}">{esc(e["title"])}</a>'
+    def ext(u, label):
+        return f'<a href="{u}">{label}</a>' if MODE["liens"] else f'{label} ({u.replace("https://", "")})'
     def paroles_html(secs):
         out = []
         for sec in secs:
             suno = sec["label"].split()[0].lower() in ("strophe", "refrain", "pont", "couplet", "intro", "outro", "verse", "chorus", "bridge")
-            if not suno:
+            if not suno and len(secs) > 1:
                 out.append(f'<p class="paroles-label">{esc(sec["label"])}</p>')
             strophe = []
             for ln in sec["lines"]:
@@ -541,51 +567,45 @@ def epub_musiques():
                     strophe.append(f'<p class="v">{esc(ln)}</p>')
             if strophe: out.append('<div class="strophe">' + "".join(strophe) + '</div>')
         return "".join(out)
-    h = ['<h1>Les musiques</h1><hr class="fil"/>',
-         '<p>Plusieurs textes de ce recueil existent en chanson. Les voici toutes, avec leurs paroles quand elles diffèrent du poème, '
-         f'et les liens pour les écouter. Elles sont aussi réunies sur <a href="{SITE}/musique.html">delideal.art/musique.html</a>.</p>']
-    # chansons de l'auteur
+    site_mus = ext(f"{SITE}/musique.html", "delideal.art/musique.html")
+    h = ['<p>Plusieurs textes de ce recueil sont devenus des chansons. Les voici toutes, avec leurs paroles quand elles diffèrent du poème, '
+         f'et les liens pour les écouter. Elles sont aussi réunies, avec leurs textes, sur {site_mus}.</p>']
     h.append('<h2>Chansons écrites et chantées par l’auteur</h2>')
     for P in PARTS:
         for e in P["poems"]:
             m = e.get("music")
             if m and m["kind"] == "auteur":
-                liens = f'<a href="{m["yt"]}">écouter sur YouTube</a>' + (f' · <a href="{m["yt2"]}">{esc(m["label2"]).lower()}</a>' if m.get("yt2") else "")
-                h.append(f'<p class="mus-item"><b>{esc(e["title"])}</b> — {liens}. Paroles : le poème, mot pour mot — {lien_poeme(e["slug"])}.</p>')
+                liens = ext(m["yt"], "écouter sur YouTube") + (f' · {ext(m["yt2"], esc(m["label2"]).lower())}' if m.get("yt2") else "")
+                h.append(f'<p class="mus-item"><b>{esc(e["title"])}</b> — {liens}. Les paroles sont le poème, mot pour mot : {lien_poeme(e["slug"])}.</p>')
     for c in B.R.get("chansons", []):
-        liens = f'<a href="{c["yt"]}">écouter sur YouTube</a>'
-        origine = "texte inédit" if c.get("inedit") else f'texte publié sur poeme-france.com le {c.get("date", "")}'
-        h.append(f'<p class="mus-item"><b>{esc(c["title"])}</b> — {liens} · {origine}.</p>')
-        if c.get("paroles"):
-            h.append('<div class="paroles">' + paroles_html(c["paroles"]) + '</div>')
-    # maquettes IA
+        h.append(f'<p class="mus-item"><b>{esc(c["title"])}</b> — {ext(c["yt"], "écouter sur YouTube")}.</p>')
+        if c.get("paroles"): h.append('<div class="paroles">' + paroles_html(c["paroles"]) + '</div>')
     h.append('<h2>Maquettes</h2>'
              '<p>Ces chansons ont été produites avec des outils d’intelligence artificielle : les paroles sont celles de l’auteur, '
              'assemblées à partir de ses poèmes, et les consignes de style sont les siennes ; la musique et la voix sont générées. '
              'Ce sont des maquettes : une façon d’entendre ce que ces textes pourraient devenir en chanson.</p>')
     for mq in B.MAQUETTES:
-        srcs = ", ".join(lien_poeme(s) for s in mq["sources"])
-        if mq.get("yt"):
-            lien = f'<a href="{mq["yt"]}">écouter sur YouTube</a>'
-        else:
-            lien = f'<a href="{SITE}/musique.html#maquette-{mq["slug"]}">écouter sur delideal.art</a>'
-        base = "sur le texte intégral du poème" if len(mq["sources"]) == 1 else "à partir de " + ("deux textes" if len(mq["sources"]) == 2 else "trois textes")
+        n = len(mq["sources"]); srcs = ", ".join(lien_poeme(s) for s in mq["sources"])
+        lien = ext(mq["yt"], "écouter sur YouTube") if mq.get("yt") else ext(f'{SITE}/musique.html#chanson-{mq["slug"]}', "écouter sur delideal.art")
+        base = "sur le texte intégral du poème" if n == 1 else ("à partir de deux textes" if n == 2 else "à partir de trois textes")
         h.append(f'<p class="mus-item"><b>{esc(mq["title"])}</b> — {lien} · {base} : {srcs}.</p>')
         if mq.get("paroles"):
             h.append('<div class="paroles">' + paroles_html(mq["paroles"]) + '</div>')
-        elif len(mq["sources"]) == 1:
-            h.append(f'<p class="note-auteur">Paroles : le poème, mot pour mot.</p>')
-    # piano
+        elif n == 1:
+            h.append('<p class="note-auteur">Les paroles sont le poème, mot pour mot.</p>')
     h.append('<h2>Au piano</h2>')
     for P in PARTS:
         for e in P["poems"]:
             m = e.get("music")
             if m and m["kind"] == "piano":
-                h.append(f'<p class="mus-item"><b>{esc(e["title"])}</b> — {esc(m["label"]).lower()} : <a href="{m["yt"]}">écouter sur YouTube</a> · '
-                         f'<a href="{SITE}/{m["mp3"]}">télécharger le mp3</a>. Le poème : {lien_poeme(e["slug"])}.</p>')
+                h.append(f'<p class="mus-item"><b>{esc(e["title"])}</b> — {esc(m["label"]).lower()} : {ext(m["yt"], "écouter sur YouTube")} · '
+                         f'{ext(f"{SITE}/{m["mp3"]}", "télécharger le mp3")}. Le poème du même nom : {lien_poeme(e["slug"])}.</p>')
     h.append('<p class="mus-item"><b>Rage and Hopes</b> — une improvisation au piano, brouillonne et sincère, douze minutes jouées d’une traite : '
-             '<a href="https://www.youtube.com/watch?v=QFCULzpDsJk">écouter sur YouTube</a>.</p>')
+             + ext("https://www.youtube.com/watch?v=QFCULzpDsJk", "écouter sur YouTube") + '.</p>')
     return "".join(h)
+
+def epub_musiques():
+    return '<h1>Les musiques</h1><hr class="fil"/>' + musiques_html(pdf=False)
 
 def epub_quatrieme():
     """Page de fin, façon quatrième de couverture : l'ouverture et les six seuils (textes de l'auteur)."""
@@ -594,7 +614,7 @@ def epub_quatrieme():
     return (f'<section class="quatrieme"><p class="auteur">Delideal</p><h1>{esc(FRONT["title"])}</h1><hr class="fil"/>'
             f'<p class="st">{esc(FRONT["subtitle"])}</p>'
             f'<div class="strophe ouv">{ouv}</div>'
-            f'<p>Cinquante textes écrits à partir de l’an 2000, rassemblés en six parties.</p>{seuils}'
+            f'<p>{B.NOMBRES.get(len(B.ALL), len(B.ALL))} textes écrits à partir de l’an 2000, rassemblés en six parties.</p>{seuils}'
             '<p>Des poèmes écrits au plus près de ce qui était vécu, et laissés tels quels, avec leurs excès. Préface d’Isabelle Jespersen, en acrostiche.</p>'
             f'<p class="site">delideal.art</p></section>')
 
@@ -658,9 +678,9 @@ def make_epub(scratch, amazon=True, bordure=False):
     add("text/preface.xhtml", xhtml("Préface", f'<section class="preface"><h1>Préface</h1><hr class="fil"/>{pref}<p class="signature">{esc(FRONT["preface"]["sign"])}</p></section>').encode())
     nav_items.append(("text/preface.xhtml", "Préface", []))
     ouv = FRONT["ouverture"]
-    add("text/ouverture.xhtml", xhtml("Ouverture", '<section class="ouverture">' + f'<p class="citation">{esc(ouv[0])}</p>'
+    add("text/ouverture.xhtml", xhtml("Exergue", '<section class="ouverture">' + f'<p class="citation">{esc(ouv[0])}</p>'
                                       + "".join(f'<p class="citation-source">{esc(l.lstrip("- ").strip())}</p>' for l in ouv[1:]) + '</section>').encode())
-    nav_items.append(("text/ouverture.xhtml", "Ouverture", []))
+    nav_items.append(("text/ouverture.xhtml", "Exergue", []))
     for P in PARTS:
         href = f'text/partie-{P["num"]}.xhtml'
         chapeau = ('<div class="chapeau">' + "".join(f'<p>{esc(x)}</p>' for x in P["chapeau"].split("\n")) + '</div>') if P.get("chapeau") else ""

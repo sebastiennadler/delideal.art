@@ -16,7 +16,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261031b"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261031c"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir")]
@@ -123,15 +123,18 @@ NOMBRES = {49: "Quarante-neuf", 50: "Cinquante", 51: "Cinquante et un", 52: "Cin
 def pf_url(e):
     return f"https://www.poeme-france.com/auteur/delideal/texte-{e['pf']}" if e.get("pf") else None
 
+MOIS_FR = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
+
+def date_longue(d):
+    j, m, a = d.split("/")
+    return f'{int(j)}{"er" if int(j) == 1 else ""} {MOIS_FR[int(m) - 1]} {a}'
+
 def source_line(e, rel=""):
+    """Une ligne discrète sous le poème : la date de première publication, la page d'origine, la copie d'archive."""
     if e.get("pf"):
         wb = f'https://web.archive.org/web/2026/{pf_url(e)}'
-        out = (f'<p class="source">Première publication le {e["date"]} sur '
-               f'<a href="{pf_url(e)}" rel="noopener">poeme-france.com</a> (texte n° {e["pf"]}, où la date de mise en ligne et les commentaires de l’époque sont visibles) · '
-               f'<a href="{wb}" rel="noopener">copie Internet Archive</a>.</p>')
-        if e.get("corroboration"):
-            out += f'\n<p class="source">{esc(e["corroboration"])}</p>'
-        return out
+        return (f'<p class="source">Publié le {date_longue(e["date"])} sur <a href="{pf_url(e)}" rel="noopener">poème-france</a> · '
+                f'<a href="{wb}" rel="noopener">copie d’archive</a></p>')
     return '<p class="source">Inédit : ce texte ne figure que dans le recueil.</p>'
 
 def render_blocks(e):
@@ -185,11 +188,11 @@ def music_block(e, rel=""):
     else:
         if m.get("mp3") and not m.get("yt"):
             t = (f'{esc(m["label"])}. <span class="etiquette">musique IA</span> {NOTE_IA} '
-                 f'<a href="{rel}musique.html#maquette-{e["slug"]}">Les autres musiques</a>.'
+                 f'<a href="{rel}musique.html#chanson-{e["slug"]}">Les autres musiques</a>.'
                  f'<br><audio controls preload="none" src="{rel}{m["mp3"]}" style="width:100%; margin-top:.6rem">Votre navigateur ne lit pas l’audio.</audio>')
         elif m.get("yt"):
             par = next((mq for mq in MAQUETTES if mq.get("paroles") and e["slug"] in mq["sources"]), None)
-            lien_par = f' · <a href="{rel}musique.html#paroles-{par["slug"]}">lire les paroles</a>' if par else ""
+            lien_par = f' · <a href="{rel}musique.html#chanson-{par["slug"]}">lire les paroles</a>' if par else ""
             t = (f'{esc(m["label"])} : <a href="{m["yt"]}" rel="noopener">écouter sur YouTube</a>{lien_par}. <span class="etiquette">musique IA</span> '
                  'Texte de l’auteur ; musique et voix générées par intelligence artificielle, pour donner une idée de ce que ce poème pourrait devenir en chanson.')
         else:
@@ -211,6 +214,7 @@ def poem_page(i):
     if e.get("note"):
         body.append(f'<p class="note-auteur" id="note">{esc(e["note"])}</p>')
     body.append(music_block(e, rel))
+    body.append(source_line(e, rel))
     body.append(partage_html(f'{SITE}/poemes/{e["slug"]}.html', f'« {e["title"]} », un poème de Delideal', "Partager", "Un poème, ça se donne. Si celui-ci vous a touché, passez-le à quelqu’un."))
     nav = ['<nav class="poeme-nav" aria-label="Poème précédent et suivant">']
     nav.append(f'<a class="prec" href="{rel}poemes/{prev_[1]["slug"]}.html">← {esc(prev_[1]["title"])}</a>' if prev_ else "<span></span>")
@@ -241,26 +245,23 @@ def sommaire_page():
                 "Tous les poèmes du recueil Marcher sur un fil, en six parties, avec leur date de première publication.", "\n".join(body))
 
 def credits_page():
+    n_ined = sum(1 for _, e in ALL if not e.get("pf"))
+    ined = {0: "", 1: " Un texte est inédit : il ne figure que dans le recueil.", 2: " Deux textes sont inédits : ils ne figurent que dans le recueil."}.get(n_ined, f" {n_ined} textes sont inédits.")
     body = ['<h1 class="titre-fil">Crédits</h1>', '<div class="fil" aria-hidden="true"></div>',
-            '<p>Tous les textes de ce site sont de Delideal. Écrits à partir de l’an 2000, ils ont été publiés entre octobre 2014 et décembre 2023 sur <a href="' + PF_AUTEUR + '" rel="noopener">poeme-france.com</a>, un site tiers qui fixe la date et l’heure de mise en ligne de chaque texte et conserve les commentaires des lecteurs de l’époque.</p>',
-            '<p>Pour chaque texte, le tableau donne la date de première publication, le lien vers la page d’origine et le lien vers sa copie conservée par Internet Archive. Deux textes sont inédits (ils ne figurent que dans le recueil).</p>',
+            '<h2>Les textes</h2>',
+            '<p>Tous les textes de ce site sont de Delideal. Écrits à partir de l’an 2000, ils ont été publiés entre octobre 2014 et décembre 2023 sur '
+            f'<a href="{PF_AUTEUR}" rel="noopener">poeme-france.com</a>, un site tiers qui fixe la date et l’heure de mise en ligne de chaque texte et conserve '
+            f'les commentaires des lecteurs de l’époque. Sous chaque poème, une ligne donne sa date de première publication, le lien vers la page d’origine et le lien '
+            f'vers sa copie conservée par Internet Archive.{ined}</p>',
+            f'<p class="note">La première page de la liste de l’auteur sur poeme-france.com est conservée par Internet Archive depuis <a href="{ARCHIVE}" rel="noopener">septembre 2025</a> ; les pages des textes sont archivées depuis octobre 2026.</p>',
             '<h2>La préface</h2>', '<p>La préface du recueil, un acrostiche, est d’Isabelle Jespersen.</p>',
             '<h2>Les musiques</h2>',
-            '<p>« Concerto pour hall de gare » et « Rage and Hopes » sont des improvisations au piano jouées et enregistrées par l’auteur ; « Le cœur assoiffé », « Re-Pas-Sage », « Chanson de mes démons » et « Si ton tableau est noir » sont des chansons écrites, jouées et chantées par lui, mises en ligne sur YouTube à partir de 2015. Les maquettes « Marcher sur un fil », « Ma muse onirique », « Méditations » et « Âme rebelle » (2026) ont été produites avec des outils d’intelligence artificielle sur ses textes, mot pour mot, à partir de consignes de style écrites par lui : elles sont présentées comme telles.</p>',
-            '<h2>Les textes</h2>',
-            '<table class="credits"><thead><tr><th>Texte</th><th>Première publication</th><th>Source</th><th>Copie</th></tr></thead><tbody>']
-    for P in PARTS:
-        body.append(f'<tr class="partie-row"><td colspan="4">{P["num"]}. {esc(P["title"])}</td></tr>')
-        for e in P["poems"]:
-            t = f'<a href="poemes/{e["slug"]}.html">{esc(e["title"])}</a>'
-            if e.get("pf"):
-                body.append(f'<tr><td>{t}</td><td>{e["date"]}</td><td><a href="{pf_url(e)}" rel="noopener">poeme-france n° {e["pf"]}</a></td><td><a href="https://web.archive.org/web/2026/{pf_url(e)}" rel="noopener">Internet Archive</a></td></tr>')
-            else:
-                body.append(f'<tr><td>{t}</td><td>—</td><td>inédit</td><td>—</td></tr>')
-    body.append('</tbody></table>')
-    body.append(f'<p class="note">La première page de la liste de l’auteur sur poeme-france.com est conservée par Internet Archive depuis <a href="{ARCHIVE}" rel="noopener">septembre 2025</a> ; les pages des textes sont archivées à partir d’octobre 2026.</p>')
-    body.append('<h2>Le site</h2><p>Site statique sans image ni cookie, hébergé sur GitHub Pages. Caractère : EB Garamond. Conçu et tenu par l’auteur.</p>')
-    return page("credits.html", "Crédits — Delideal", "Dates, sources et copies d’archive de tous les textes de Delideal ; crédits de la préface et des musiques.", "\n".join(body))
+            '<p>« Le cœur assoiffé » et « Re-Pas-Sage » sont des chansons écrites, jouées et chantées par l’auteur, mises en ligne sur YouTube à partir de 2015 ; « Concerto pour hall de gare » et « Rage and Hopes » sont des improvisations au piano jouées et enregistrées par lui. '
+            'Les maquettes « Marcher sur un fil », « Ma muse onirique », « Méditations » et « Âme rebelle » (2026) ont été produites avec des outils d’intelligence artificielle sur ses textes, mot pour mot, à partir de consignes de style écrites par lui : elles sont présentées comme telles. '
+            'Toutes sont réunies, avec leurs textes, sur la page <a href="musique.html">Musique</a>.</p>',
+            '<h2>Le livre</h2>',
+            f'<p>Le recueil existe en PDF (à lire, à imprimer) sur <a href="le-livre.html">la page du livre</a>, et en EPUB <a href="{AMAZON}" rel="noopener">sur Amazon</a>.</p>']
+    return page("credits.html", "Crédits — Delideal", "Crédits des textes, de la préface et des musiques de Delideal ; dates et sources de chaque texte.", "\n".join(body))
 
 def taille(path):
     f = ROOT / path
@@ -287,31 +288,101 @@ def chapeau_html(P):
 MAQUETTES = R.get("maquettes", [])
 TITRES = {e["slug"]: e["title"] for _, e in ALL}
 
-def maquettes_html():
-    out = ['<ul class="liens maquettes">']
-    for m in MAQUETTES:
-        srcs = " et ".join(f'<a href="poemes/{sl}.html">{esc(TITRES.get(sl, sl))}</a>' for sl in m["sources"]) if len(m["sources"]) == 2 else \
-               ", ".join(f'<a href="poemes/{sl}.html">{esc(TITRES.get(sl, sl))}</a>' for sl in m["sources"])
-        base = {1: "sur le texte intégral du poème ", 2: "composée à partir de deux textes : "}.get(len(m["sources"]), "composée à partir de trois textes : ")
-        if m.get("yt"):
-            li = [f'<li id="maquette-{m["slug"]}"><a href="{m["yt"]}" rel="noopener">{esc(m["title"])}</a> <span class="etiquette">musique IA</span> · {base}{srcs}']
-        else:
-            li = [f'<li id="maquette-{m["slug"]}"><strong>{esc(m["title"])}</strong> <span class="etiquette">musique IA</span> · {base}{srcs}'
-                  f'<br><audio controls preload="none" src="{m["mp3"]}" style="width:100%; margin-top:.5rem">Votre navigateur ne lit pas l’audio : <a href="{m["mp3"]}">télécharger le mp3</a>.</audio>'
-                  f'<br><span class="source"><a href="{m["mp3"]}" download>Télécharger le mp3</a> ({m.get("duree", "")}, {taille(m["mp3"])}) · {NOTE_IA}'
-                  + (f' Un cri, pas un programme : <a href="poemes/{m["sources"][0]}.html#note">la note de l’auteur</a>.' if m.get("note") else "") + '</span>']
-        if m.get("paroles"):
-            blocs = []
-            for sec in m["paroles"]:
-                lines = "<br>".join(esc(l) if l else "" for l in sec["lines"]).replace("<br><br>", "</p><p>")
-                suno = sec["label"].split()[0].lower() in ("strophe", "refrain", "pont", "couplet", "intro", "outro", "verse", "chorus", "bridge")
-                blocs.append((f'<p class="paroles-label">{esc(sec["label"])}</p>' if not suno else "") + f'<p>{lines}</p>')
-            li.append(f'<details class="paroles" id="paroles-{m["slug"]}"><summary>Paroles de la maquette</summary><div class="paroles-texte">{"".join(blocs)}</div>'
-                      f'<p class="note">Paroles de l’auteur, assemblées à partir de ses poèmes ; musique et voix générées par intelligence artificielle.</p></details>')
-        li.append('</li>')
-        out.append("".join(li))
-    out.append('</ul>')
+CHANSONS = R.get("chansons", [])
+
+def paroles_blocs(secs):
+    """Paroles en strophes ; les marqueurs Suno (Verse, Chorus…) ne sont pas affichés, les titres des méditations le sont."""
+    out = []
+    for sec in secs:
+        suno = sec["label"].split()[0].lower() in ("strophe", "refrain", "pont", "couplet", "intro", "outro", "verse", "chorus", "bridge")
+        if not suno and len(secs) > 1:
+            out.append(f'<p class="paroles-label">{esc(sec["label"])}</p>')
+        strophe = []
+        for ln in sec["lines"]:
+            if ln.strip() == "":
+                if strophe: out.append('<p class="strophe">' + "<br>".join(strophe) + '</p>'); strophe = []
+            else:
+                strophe.append(esc(ln))
+        if strophe: out.append('<p class="strophe">' + "<br>".join(strophe) + '</p>')
     return "".join(out)
+
+def chanson_bloc(slug, titre, etiquette, ecoute, origine, paroles_html=None, renvoi=None, note=None, audio=None):
+    """Un bloc par chanson : titre, nature, écoute, origine, puis le texte complet (ou le renvoi au poème)."""
+    h = [f'<article class="chanson" id="chanson-{slug}"><h3>{esc(titre)}</h3>',
+         f'<p class="chanson-meta">{etiquette} · {ecoute}' + (f' · {origine}' if origine else "") + '</p>']
+    if audio:
+        h.append(f'<audio controls preload="none" src="{audio}" style="width:100%; margin:.4rem 0 .6rem">Votre navigateur ne lit pas l’audio : <a href="{audio}">télécharger le mp3</a>.</audio>')
+    if note:
+        h.append(f'<p class="note-auteur">{esc(note)}</p>')
+    if paroles_html:
+        h.append(f'<details class="paroles" open><summary>Le texte</summary><div class="paroles-texte">{paroles_html}</div></details>')
+    elif renvoi:
+        h.append(f'<p class="chanson-texte-renvoi">Le texte : {renvoi}</p>')
+    h.append('</article>')
+    return "".join(h)
+
+def musique_blocs():
+    by = {e["slug"]: e for _, e in ALL}
+    def lien(sl):
+        e = by.get(sl); return f'<a href="poemes/{sl}.html">{esc(e["title"])}</a>' if e else esc(sl)
+    yt = lambda u, t="écouter sur YouTube": f'<a href="{u}" rel="noopener">{t}</a>'
+    out = []
+    # 1. chansons de l'auteur
+    out.append('<h2 id="chansons">Chansons</h2><p>Écrites, jouées et chantées par moi, en amateur, sur <a href="https://www.youtube.com/@delideal" rel="noopener">ma chaîne YouTube</a>. Les paroles sont les poèmes, mot pour mot.</p>')
+    for _, e in ALL:
+        m = e.get("music")
+        if m and m["kind"] == "auteur":
+            ecoute = yt(m["yt"]) + (f' · {yt(m["yt2"], esc(m["label2"]).lower())}' if m.get("yt2") else "")
+            out.append(chanson_bloc(e["slug"], e["title"], "Chanson de l’auteur", ecoute, "", paroles_html=render_blocks(e).replace('class="poeme', 'class="poeme paroles-poeme'), note=None))
+    for c in CHANSONS:
+        origine = "texte inédit" if c.get("inedit") else f'texte publié sur <a href="{PF_AUTEUR}texte-{c["pf"]}" rel="noopener">poème-france</a> le {date_longue(c["date"])}'
+        out.append(chanson_bloc(c["slug"], c["title"], "Chanson de l’auteur", yt(c["yt"]), origine,
+                                paroles_html=paroles_blocs(c["paroles"]) if c.get("paroles") else None, note=c.get("note")))
+    # 2. maquettes IA
+    out.append('<h2 id="maquettes">Maquettes <span class="etiquette">musique IA</span></h2>'
+               '<p>Ces chansons ont été produites avec des outils d’intelligence artificielle : les paroles sont les miennes, assemblées à partir de mes poèmes, '
+               'et les consignes de style aussi ; la musique et la voix sont générées. Ce sont des maquettes, une façon d’entendre ce que ces textes pourraient devenir en chanson. '
+               'Si vous êtes musicienne ou musicien et qu’un de ces textes vous parle, <a href="soutenir.html">écrivez-moi</a> : l’idée est qu’un jour elles soient jouées et chantées par des humains.</p>')
+    for mq in MAQUETTES:
+        n = len(mq["sources"])
+        origine = ("sur le texte intégral de " if n == 1 else "à partir de deux textes : " if n == 2 else "à partir de trois textes : ") + ", ".join(lien(sl) for sl in mq["sources"])
+        ecoute = yt(mq["yt"]) if mq.get("yt") else "à écouter ci-dessous"
+        src_e = by.get(mq["sources"][0]) if n == 1 else None
+        paroles = paroles_blocs(mq["paroles"]) if mq.get("paroles") else (render_blocks(src_e).replace('class="poeme', 'class="poeme paroles-poeme') if src_e else None)
+        note = None
+        if mq.get("note") and src_e and src_e.get("note"):
+            note = src_e["note"]
+        out.append(chanson_bloc(mq["slug"], mq["title"], 'Maquette <span class="etiquette">musique IA</span>', ecoute, origine, paroles_html=paroles, note=note,
+                                audio=mq.get("mp3")))
+        if mq.get("mp3"):
+            out[-1] = out[-1].replace('</article>', f'<p class="source"><a href="{mq["mp3"]}" download>Télécharger le mp3</a> ({mq.get("duree", "")}, {taille(mq["mp3"])}).</p></article>')
+    # 3. piano
+    out.append('<h2 id="piano">Au piano</h2>')
+    for _, e in ALL:
+        m = e.get("music")
+        if m and m["kind"] == "piano":
+            out.append(f'<article class="chanson" id="chanson-{e["slug"]}"><h3>{esc(e["title"])}</h3>'
+                       f'<p class="chanson-meta">Improvisation au piano, jouée et enregistrée par moi-même · {yt(m["yt"])} · <a href="{m["mp3"]}" download>télécharger le mp3</a> (5 min 34, {taille(m["mp3"])})</p>'
+                       f'<audio controls preload="none" src="{m["mp3"]}" style="width:100%; margin:.4rem 0 .6rem">Votre navigateur ne lit pas l’audio.</audio>'
+                       f'<p class="chanson-texte-renvoi">Le poème du même nom raconte ce moment : {lien(e["slug"])}.</p></article>')
+    out.append('<article class="chanson" id="chanson-rage-and-hopes"><h3>Rage and Hopes</h3>'
+               '<p class="chanson-meta">Improvisation au piano, brouillonne et sincère, douze minutes jouées d’une traite · <a href="https://www.youtube.com/watch?v=QFCULzpDsJk" rel="noopener">écouter sur YouTube</a></p></article>')
+    return "".join(out)
+
+def chansons_accueil():
+    """Liste courte des chansons pour l'accueil : titre, nature, écoute."""
+    by = {e["slug"]: e for _, e in ALL}
+    items = []
+    for _, e in ALL:
+        m = e.get("music")
+        if m and m["kind"] == "auteur":
+            items.append(f'<li><a href="musique.html#chanson-{e["slug"]}">{esc(e["title"])}</a> <span class="annee">chanson de l’auteur</span></li>')
+    for c in CHANSONS:
+        items.append(f'<li><a href="musique.html#chanson-{c["slug"]}">{esc(c["title"])}</a> <span class="annee">chanson de l’auteur</span></li>')
+    for mq in MAQUETTES:
+        items.append(f'<li><a href="musique.html#chanson-{mq["slug"]}">{esc(mq["title"])}</a> <span class="etiquette">musique IA</span></li>')
+    items.append('<li><a href="musique.html#piano">Concerto pour hall de gare</a> <span class="annee">improvisation au piano</span></li>')
+    return '<ul class="liste-poemes deux chansons-accueil">' + "".join(items) + '</ul>'
 
 def partage_html(url, texte, label="Partager", mot=""):
     """Liens de partage sans script tiers ni traceur : simples adresses de partage des réseaux."""
@@ -360,7 +431,7 @@ def livre_page():
             '<p>Des textes écrits depuis l’an 2000, publiés entre 2014 et 2023, rassemblés en six parties. Il cherche un éditeur ; en attendant, il se lit ici en entier, se télécharge en PDF, et existe en EPUB pour liseuses, <a href="' + AMAZON + '" rel="noopener">sur Amazon à 0,99 €</a> — le prix d’un café, pour des heures d’écriture.</p>', cartes_html(),
             '<section class="panel"><h2>Dédicace</h2>', f'<p class="dedicace">{esc(FRONT["dedicace"])}</p>', '</section>',
             '<section class="panel"><h2>Préface</h2>', f'<p class="preface">{pref}</p>', f'<p class="signature">{esc(FRONT["preface"]["sign"])}</p>', '</section>',
-            '<section class="panel"><h2>Ouverture</h2>']
+            '<section class="panel"><h2>Exergue</h2>']
     for l in FRONT["ouverture"]:
         body.append(f'<p class="citation">{esc(l)}</p>')
     body.append('</section>')
@@ -406,7 +477,11 @@ PAGES = {
 
 <h2>Les six parties</h2>
 {sommaire_livre_html()}
-<p class="entrees">Pour entrer par le début : <a href="poemes/{first["slug"]}.html">{esc(first["title"])}</a>. Par le cœur : <a href="poemes/marcher-sur-un-fil.html">Marcher sur un fil</a> ou <a href="poemes/dsm-story.html">DSM Story</a>. Par la musique : <a href="musique.html">Concerto pour hall de gare</a>, une improvisation au piano.</p>
+<p class="entrees">Pour entrer par le début : <a href="poemes/{first["slug"]}.html">{esc(first["title"])}</a>. Par le cœur : <a href="poemes/marcher-sur-un-fil.html">Marcher sur un fil</a> ou <a href="poemes/dsm-story.html">DSM Story</a>. Par la musique : <a href="musique.html">les chansons et leurs textes</a>.</p>
+
+<h2>Les chansons</h2>
+<p>Plusieurs de ces poèmes se chantent. Leurs textes et les liens pour les écouter sont sur la page <a href="musique.html">Musique</a>.</p>
+{chansons_accueil()}
 
 <h2>Emporter</h2>
 {cartes_html()}
@@ -418,34 +493,12 @@ PAGES = {
 """),
 "musique.html": dict(
   title="Musique — Delideal",
-  description="Les musiques de Delideal : improvisation au piano, chansons sur ses poèmes, et maquettes.",
+  description="Les chansons et musiques de Delideal, avec leurs textes : chansons écrites et chantées par l’auteur, maquettes, improvisations au piano.",
   body=f"""
 <h1 class="titre-fil">Musique</h1>
 <div class="fil" aria-hidden="true"></div>
-
-<section class="panel">
-<h2>Concerto pour hall de gare</h2>
-<p>Une improvisation au piano, jouée et enregistrée par moi-même : juste un piano et un moment. Le <a href="poemes/concerto-pour-hall-de-gare.html">poème du même nom</a> raconte ce moment.</p>
-<audio controls preload="none" src="audio/concerto-pour-hall-de-gare.mp3" style="width:100%">Votre navigateur ne lit pas l’audio : <a href="audio/concerto-pour-hall-de-gare.mp3">télécharger le mp3</a>.</audio>
-<p class="source"><a href="audio/concerto-pour-hall-de-gare.mp3" download>Télécharger le mp3</a> (5 min 34, 4,5 Mo) · <a href="https://www.youtube.com/watch?v=gunECfrHhX0" rel="noopener">Voir sur YouTube</a> · à partager librement en me citant.</p>
-</section>
-
-<h2>Chansons</h2>
-<p>Des poèmes que j’ai mis en musique et chantés moi-même, en amateur, sur <a href="https://www.youtube.com/@delideal" rel="noopener">ma chaîne YouTube</a>.</p>
-<ul class="liens">
-<li><a href="https://www.youtube.com/watch?v=0cXd1CGXFjQ" rel="noopener">Le cœur assoiffé</a> · <a href="poemes/le-coeur-assoiffe.html">le poème</a></li>
-<li><a href="https://www.youtube.com/watch?v=a-SMOUOUEdY" rel="noopener">Re-Pas-Sage</a> · <a href="https://www.youtube.com/watch?v=oufArkLT7kM" rel="noopener">version acoustique</a> · <a href="poemes/re-pas-sage.html">le poème</a></li>
-<li><a href="https://www.youtube.com/watch?v=ymVq2wLCgnw" rel="noopener">Chanson de mes démons</a> · <a href="https://www.poeme-france.com/auteur/delideal/texte-162480" rel="noopener">le texte sur poeme-france</a></li>
-<li><a href="https://www.youtube.com/watch?v=jWdzEa7Qd-0" rel="noopener">Si ton tableau est noir</a> <span class="annee">texte inédit</span></li>
-</ul>
-<h2>Autre improvisation</h2>
-<ul class="liens">
-<li><a href="https://www.youtube.com/watch?v=QFCULzpDsJk" rel="noopener">Rage and Hopes</a> — une improvisation au piano, brouillonne et sincère, douze minutes jouées d’une traite.</li>
-</ul>
-
-<h2>Maquettes</h2>
-<p>D’autres textes ont été mis en musique avec des outils d’intelligence artificielle : ce sont des <strong>maquettes</strong>, une façon d’entendre ce que ces poèmes pourraient devenir en chanson. Elles sont une porte ouverte : si vous êtes musicienne ou musicien et qu’un de ces textes vous parle, <a href="soutenir.html">écrivez-moi</a>. L’idée est qu’un jour ces chansons soient jouées et chantées par des humains.</p>
-{maquettes_html()}
+<p class="intro-site">Plusieurs textes de <em>Marcher sur un fil</em> sont devenus des chansons. Les voici toutes, avec leurs textes et les liens pour les écouter : <a href="#chansons">les chansons</a>, <a href="#maquettes">les maquettes</a>, <a href="#piano">le piano</a>.</p>
+{musique_blocs()}
 """),
 "soutenir.html": dict(
   title="Soutenir — Delideal",
