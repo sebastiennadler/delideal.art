@@ -16,7 +16,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261031a"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261031b"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir")]
@@ -412,7 +412,7 @@ PAGES = {
 {cartes_html()}
 
 <h2>Soutenir</h2>
-<p>Ce site est gratuit et le restera. Le recueil existe aussi en livre numérique, <a href="{AMAZON}" rel="noopener">sur Amazon à 0,99 €</a> : le prix d’un café, pour des heures d’écriture, afin que personne n’ait à choisir entre lire et payer. Si quelques textes vous touchent, vous pouvez aider à en faire un vrai livre, proposer de les mettre en musique ou en images, ou simplement m’écrire.</p>
+<p>Ce site est gratuit et le restera. Le recueil existe aussi en livre numérique, <a href="{AMAZON}" rel="noopener">sur Amazon à 0,99 €</a> : le prix d’un café, pour des heures d’écriture, afin que personne n’ait à choisir entre lire et payer. Le site, le matériel pour la musique, les heures : tout cela a un coût, et le premier but est de rentrer dans mes frais. Si quelques textes vous touchent, vous pouvez aider, proposer de les mettre en musique ou en images, ou simplement m’écrire.</p>
 <p class="soutien"><a class="bouton" href="{TIPEEE}" rel="noopener">Soutenir sur Tipeee</a> <a href="soutenir.html">Éditeurs, musiciens, illustrateurs, vidéastes, contact</a></p>
 {partage_html(SITE, "Marcher sur un fil, les poèmes de Delideal", "Partager", "Ce site n’a ni publicité ni algorithme : il va de main en main. Si ces poèmes vous ont touché, envoyez-les à une personne.")}
 """),
@@ -453,7 +453,7 @@ PAGES = {
   body=f"""
 <h1 class="titre-fil">Soutenir</h1>
 <div class="fil" aria-hidden="true"></div>
-<p>Écrire, publier, mettre en musique : tout cela prend du temps et un peu d’argent. Ce site est gratuit et sans publicité, et il le restera. Voici cinq façons d’aider.</p>
+<p>Écrire, publier, mettre en musique : tout cela prend du temps et un peu d’argent — le site et son nom de domaine, le matériel pour enregistrer, les heures. Ce site est gratuit et sans publicité, et il le restera. Le premier but est simple : rentrer dans mes frais. Voici cinq façons d’aider.</p>
 <h2>Contribuer</h2>
 <p>Un don, ponctuel ou mensuel, sur Tipeee, plateforme française dédiée aux créateurs. Il sert à faire vivre ce site, à continuer d’écrire, et à réunir les moyens de publier le recueil <em>Marcher sur un fil</em> en vrai livre.</p>
 <p><a class="bouton" href="{TIPEEE}" rel="noopener">Soutenir Delideal sur Tipeee</a></p>
