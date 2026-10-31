@@ -453,6 +453,20 @@ p.v{margin:0; padding-left:1.5em; text-indent:-1.5em; text-align:left}
 .sommaire li.p{margin-top:1em}
 .sommaire .num{color:#9a6f0a}
 .credits{font-size:.9em}
+.mus-item{margin:1em 0 .4em}
+.paroles{margin:0 0 1.4em 1.2em; font-size:.95em}
+.paroles-label{font-size:.85em; letter-spacing:.08em; text-transform:uppercase; margin:.8em 0 .3em}
+.quatrieme{text-align:center; margin-top:2em}
+.quatrieme .auteur{font-size:.85em; letter-spacing:.16em; text-transform:uppercase; margin:0 0 1.5em}
+.quatrieme h1{text-align:center; font-size:1.9em}
+.quatrieme hr.fil{margin:.8em auto; text-align:center}
+.quatrieme .st{font-style:italic; margin:0 0 1.6em}
+.quatrieme .ouv{text-align:left; margin:0 auto 1.4em; font-style:italic; display:inline-block}
+.quatrieme .ouv p.v{padding-left:0; text-indent:0}
+.quatrieme p{text-align:left}
+.quatrieme .seuil{margin:.25em 0; padding-left:2.2em; text-indent:-2.2em}
+.quatrieme .seuil .num{color:#9a6f0a; display:inline-block; width:2.2em; text-indent:0}
+.quatrieme .site{text-align:center; margin-top:2em; font-size:.9em}
 """
 
 def xhtml(title, body, cls=""):
@@ -497,24 +511,92 @@ def date_longue(d):
     return f'{int(j)}{"er" if int(j) == 1 else ""} {["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"][int(m) - 1]} {a}'
 
 def epub_sources():
+    """Version allégée (EPUB v2) : le détail (dates, numéros, copies d'archive) reste sur delideal.art/credits.html."""
     n_ined = sum(1 for P in PARTS for e in P["poems"] if not e.get("pf"))
-    mots = {1: "Un texte est inédit", 2: "Deux textes sont inédits", 3: "Trois textes sont inédits"}
-    out = ['<p>Tous les textes de ce livre sont de Delideal. Écrits à partir de l’an 2000, ils ont été publiés '
-           'entre octobre 2014 et décembre 2023 sur poeme-france.com, un site tiers qui fixe la date et l’heure de mise en ligne '
-           'de chaque texte et conserve les commentaires des lecteurs de l’époque.</p>',
-           f'<p>Pour chaque texte : la date de première publication, sa page sur poeme-france.com et la copie conservée par Internet Archive. '
-           f'{mots.get(n_ined, f"{n_ined} textes sont inédits")}. Les copies d’archive sont aussi réunies sur '
-           f'<a href="{SITE}/credits.html">delideal.art/credits.html</a>.</p>']
+    mots = {0: "", 1: " Un texte est inédit.", 2: " Deux textes sont inédits."}
+    return ('<p>Tous les textes de ce livre sont de Delideal. Écrits à partir de l’an 2000, ils ont été publiés '
+            'entre octobre 2014 et décembre 2023 sur poeme-france.com, un site tiers qui fixe la date de mise en ligne '
+            f'de chaque texte et conserve les commentaires des lecteurs de l’époque.{mots.get(n_ined, f" {n_ined} textes sont inédits.")}</p>'
+            '<p>La date de première publication de chaque texte, son adresse sur poeme-france.com et la copie conservée par '
+            f'Internet Archive sont réunies sur <a href="{SITE}/credits.html">delideal.art/credits.html</a>.</p>'
+            '<p>La préface du recueil, un acrostiche, est d’Isabelle Jespersen.</p>')
+
+def epub_musiques():
+    """Page « Les musiques » : toutes les chansons et musiques, avec les paroles complètes quand elles diffèrent du poème."""
+    by_slug = {e["slug"]: e for P in PARTS for e in P["poems"]}
+    def lien_poeme(slug):
+        e = by_slug.get(slug)
+        return f'<a href="{slug}.xhtml">{esc(e["title"])}</a>' if e else esc(slug)
+    def paroles_html(secs):
+        out = []
+        for sec in secs:
+            suno = sec["label"].split()[0].lower() in ("strophe", "refrain", "pont", "couplet", "intro", "outro", "verse", "chorus", "bridge")
+            if not suno:
+                out.append(f'<p class="paroles-label">{esc(sec["label"])}</p>')
+            strophe = []
+            for ln in sec["lines"]:
+                if ln.strip() == "":
+                    if strophe: out.append('<div class="strophe">' + "".join(strophe) + '</div>'); strophe = []
+                else:
+                    strophe.append(f'<p class="v">{esc(ln)}</p>')
+            if strophe: out.append('<div class="strophe">' + "".join(strophe) + '</div>')
+        return "".join(out)
+    h = ['<h1>Les musiques</h1><hr class="fil"/>',
+         '<p>Plusieurs textes de ce recueil existent en chanson. Les voici toutes, avec leurs paroles quand elles diffèrent du poème, '
+         f'et les liens pour les écouter. Elles sont aussi réunies sur <a href="{SITE}/musique.html">delideal.art/musique.html</a>.</p>']
+    # chansons de l'auteur
+    h.append('<h2>Chansons écrites et chantées par l’auteur</h2>')
     for P in PARTS:
-        out.append(f'<p class="src-partie">{P["num"]}. {esc(P["title"])}</p>')
         for e in P["poems"]:
-            if e.get("pf"):
-                out.append(f'<p class="src">{esc(e["title"])} — {date_longue(e["date"])} — <a href="{B.pf_url(e)}">poeme-france n° {e["pf"]}</a> · '
-                           f'<a href="https://web.archive.org/web/2026/{B.pf_url(e)}">copie d’archive</a></p>')
-            else:
-                out.append(f'<p class="src">{esc(e["title"])} — inédit</p>')
-    out.append(to_xhtml_fragment(SOURCES_FIN.replace("delideal.art/musique.html", f'<a href="{SITE}/musique.html">delideal.art/musique.html</a>')))
-    return "".join(out)
+            m = e.get("music")
+            if m and m["kind"] == "auteur":
+                liens = f'<a href="{m["yt"]}">écouter sur YouTube</a>' + (f' · <a href="{m["yt2"]}">{esc(m["label2"]).lower()}</a>' if m.get("yt2") else "")
+                h.append(f'<p class="mus-item"><b>{esc(e["title"])}</b> — {liens}. Paroles : le poème, mot pour mot — {lien_poeme(e["slug"])}.</p>')
+    for c in B.R.get("chansons", []):
+        liens = f'<a href="{c["yt"]}">écouter sur YouTube</a>'
+        origine = "texte inédit" if c.get("inedit") else f'texte publié sur poeme-france.com le {c.get("date", "")}'
+        h.append(f'<p class="mus-item"><b>{esc(c["title"])}</b> — {liens} · {origine}.</p>')
+        if c.get("paroles"):
+            h.append('<div class="paroles">' + paroles_html(c["paroles"]) + '</div>')
+    # maquettes IA
+    h.append('<h2>Maquettes</h2>'
+             '<p>Ces chansons ont été produites avec des outils d’intelligence artificielle : les paroles sont celles de l’auteur, '
+             'assemblées à partir de ses poèmes, et les consignes de style sont les siennes ; la musique et la voix sont générées. '
+             'Ce sont des maquettes : une façon d’entendre ce que ces textes pourraient devenir en chanson.</p>')
+    for mq in B.MAQUETTES:
+        srcs = ", ".join(lien_poeme(s) for s in mq["sources"])
+        if mq.get("yt"):
+            lien = f'<a href="{mq["yt"]}">écouter sur YouTube</a>'
+        else:
+            lien = f'<a href="{SITE}/musique.html#maquette-{mq["slug"]}">écouter sur delideal.art</a>'
+        base = "sur le texte intégral du poème" if len(mq["sources"]) == 1 else "à partir de " + ("deux textes" if len(mq["sources"]) == 2 else "trois textes")
+        h.append(f'<p class="mus-item"><b>{esc(mq["title"])}</b> — {lien} · {base} : {srcs}.</p>')
+        if mq.get("paroles"):
+            h.append('<div class="paroles">' + paroles_html(mq["paroles"]) + '</div>')
+        elif len(mq["sources"]) == 1:
+            h.append(f'<p class="note-auteur">Paroles : le poème, mot pour mot.</p>')
+    # piano
+    h.append('<h2>Au piano</h2>')
+    for P in PARTS:
+        for e in P["poems"]:
+            m = e.get("music")
+            if m and m["kind"] == "piano":
+                h.append(f'<p class="mus-item"><b>{esc(e["title"])}</b> — {esc(m["label"]).lower()} : <a href="{m["yt"]}">écouter sur YouTube</a> · '
+                         f'<a href="{SITE}/{m["mp3"]}">télécharger le mp3</a>. Le poème : {lien_poeme(e["slug"])}.</p>')
+    h.append('<p class="mus-item"><b>Rage and Hopes</b> — une improvisation au piano, brouillonne et sincère, douze minutes jouées d’une traite : '
+             '<a href="https://www.youtube.com/watch?v=QFCULzpDsJk">écouter sur YouTube</a>.</p>')
+    return "".join(h)
+
+def epub_quatrieme():
+    """Page de fin, façon quatrième de couverture : l'ouverture et les six seuils (textes de l'auteur)."""
+    ouv = "".join(f'<p class="v">{esc(l)}</p>' for l in B.TITRE["blocks"][0]) if B.TITRE else ""
+    seuils = "".join(f'<p class="seuil"><span class="num">{P["num"]}</span> {esc(B.premiere_phrase(P["chapeau"].split(chr(10))[0]))}</p>' for P in PARTS if P.get("chapeau"))
+    return (f'<section class="quatrieme"><p class="auteur">Delideal</p><h1>{esc(FRONT["title"])}</h1><hr class="fil"/>'
+            f'<p class="st">{esc(FRONT["subtitle"])}</p>'
+            f'<div class="strophe ouv">{ouv}</div>'
+            f'<p>Cinquante textes écrits à partir de l’an 2000, rassemblés en six parties.</p>{seuils}'
+            '<p>Des poèmes écrits au plus près de ce qui était vécu, et laissés tels quels, avec leurs excès. Préface d’Isabelle Jespersen, en acrostiche.</p>'
+            f'<p class="site">delideal.art</p></section>')
 
 def epub_credits():
     return (f'<h1>Crédits</h1><hr class="fil"/><p>{esc(FRONT["title"])} — {esc(FRONT["subtitle"])}</p>'
@@ -589,12 +671,16 @@ def make_epub(scratch, amazon=True, bordure=False):
             add(ph, xhtml(e["title"], f'<article class="poeme-page">{epub_poem(e)}</article>').encode())
             kids.append((ph, e["title"], []))
         nav_items.append((href, f'{P["num"]}. {P["title"]}', kids))
+    add("text/musiques.xhtml", xhtml("Les musiques", f'<section class="musiques">{epub_musiques()}</section>').encode())
+    nav_items.append(("text/musiques.xhtml", "Les musiques", []))
     add("text/sources.xhtml", xhtml("Sources", f'<section class="sources"><h1>Sources</h1><hr class="fil"/>{epub_sources()}</section>').encode())
     nav_items.append(("text/sources.xhtml", "Sources", []))
     add("text/fin.xhtml", xhtml("Pour continuer", f'<section class="fin"><h1>Pour continuer</h1><hr class="fil"/>{to_xhtml_fragment(fin_html())}</section>').encode())
     nav_items.append(("text/fin.xhtml", "Pour continuer", []))
     add("text/credits.xhtml", xhtml("Crédits", f'<section class="credits">{epub_credits()}</section>').encode())
     nav_items.append(("text/credits.xhtml", "Crédits", []))
+    add("text/quatrieme.xhtml", xhtml("Quatrième de couverture", epub_quatrieme()).encode())
+    nav_items.append(("text/quatrieme.xhtml", "Quatrième de couverture", []))
     # sommaire (nav EPUB 3, dans le flux) + NCX (anciens lecteurs et Kindle)
     def ol(items, top=False):
         li = []

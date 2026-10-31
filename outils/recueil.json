@@ -1542,9 +1542,6 @@
        "Peut-être à cause de publications délirantes sur Facebook - je ne sais même plus ce que j’ai pu écrire."
       ],
       [
-       "J’avais entendu qu’il voulait utiliser l’héritage de ma mère pour rembourser un crédit."
-      ],
-      [
        "Je l’ai insulté de toutes les manières."
       ],
       [
@@ -1974,7 +1971,15 @@
        "J’espère que je n’ai pas déjà, à quarante ans, perdu la partie."
       ]
      ],
-     "src": "prose-modif"
+     "src": "prose-modif",
+     "retires": [
+      {
+       "date": "2026-10-31",
+       "bloc": 29,
+       "texte": "J’avais entendu qu’il voulait utiliser l’héritage de ma mère pour rembourser un crédit.",
+       "motif": "retiré à la demande de l’auteur"
+      }
+     ]
     },
     {
      "title": "Pierrot le fou (écrit en HP)",
@@ -4722,6 +4727,23 @@
    ],
    "texte_integral": true,
    "note": true
+  }
+ ],
+ "chansons": [
+  {
+   "slug": "chanson-de-mes-demons",
+   "title": "Chanson de mes démons",
+   "yt": "https://www.youtube.com/watch?v=ymVq2wLCgnw",
+   "pf": "162480",
+   "date": "29/03/2015",
+   "paroles": null
+  },
+  {
+   "slug": "si-ton-tableau-est-noir",
+   "title": "Si ton tableau est noir",
+   "yt": "https://www.youtube.com/watch?v=jWdzEa7Qd-0",
+   "inedit": true,
+   "paroles": null
   }
  ]
 }
