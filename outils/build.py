@@ -16,14 +16,14 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "20261029r"          # à changer à chaque modification de css/ ou js/
+VERSION = "20261031a"          # à changer à chaque modification de css/ ou js/
 SITE = "https://delideal.art"
 NAV = [("index.html", "Accueil"), ("poemes.html", "Poèmes"), ("le-livre.html", "Le livre"),
        ("musique.html", "Musique"), ("soutenir.html", "Soutenir")]
 # ("a-propos.html", "À propos") : page retirée du menu le 29/10/2026 à la demande de l'auteur, à réécrire par lui.
 PF_AUTEUR = "https://www.poeme-france.com/auteur/delideal/"
 TIPEEE = "https://fr.tipeee.com/delidealart"
-AMAZON = ""   # lien de la page Amazon de l’EPUB (0,99 €), à renseigner dès parution
+AMAZON = "https://www.amazon.fr/dp/B0HPXCFGB5"   # fiche Amazon de l’EPUB (0,99 €), en ligne depuis le 31/10/2026 (ASIN B0HPXCFGB5)
 ARCHIVE = "https://web.archive.org/web/20250914075727/https://www.poeme-france.com/auteur/delideal/"
 
 HEAD = """<!DOCTYPE html>
@@ -45,19 +45,19 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:type" content="{ogtype}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:image" content="https://delideal.art/partage/carte.png">
+<meta property="og:image" content="https://delideal.art/partage/carte-2026-10-28.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Marcher sur un fil — Fragments de sensibilité bipolaire — Delideal, poèmes">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://delideal.art/partage/carte.png">
+<meta name="twitter:image" content="https://delideal.art/partage/carte-2026-10-28.png">
 <link rel="icon" href="{rel}favicon.svg" type="image/svg+xml">
 <link rel="icon" href="{rel}favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="{rel}apple-touch-icon.png">
 <link rel="preload" href="{rel}fonts/eb-garamond-latin-400-normal.woff" as="font" type="font/woff" crossorigin>
 {head_extra}<link rel="stylesheet" href="{rel}css/style.css?v={v}">
 <script defer src="{rel}js/site.js?v={v}"></script>
-<script data-goatcounter="https://delideal.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://delideal.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -97,7 +97,7 @@ def jsonld_livre():
     import json as _json
     d = {"@context": "https://schema.org", "@type": "Book", "name": FRONT["title"], "alternateName": f'{FRONT["title"]} — {FRONT["subtitle"]}',
          "author": {"@type": "Person", "name": "Delideal", "url": SITE + "/"}, "inLanguage": "fr", "genre": "Poésie",
-         "bookFormat": "https://schema.org/EBook", "url": SITE + "/le-livre.html", "image": SITE + "/partage/carte.png",
+         "bookFormat": "https://schema.org/EBook", "url": SITE + "/le-livre.html", "image": SITE + "/partage/carte-2026-10-28.png",
          "contributor": {"@type": "Person", "name": "Isabelle Jespersen", "jobTitle": "Préface"},
          "isAccessibleForFree": True, "numberOfPages": pages_pdf("livre/marcher-sur-un-fil.pdf")}
     if AMAZON:
@@ -345,7 +345,7 @@ def cartes_html(rel=""):
     pdf, imp = "livre/marcher-sur-un-fil.pdf", "livre/marcher-sur-un-fil-impression.pdf"
     n = pages_pdf(pdf)
     if AMAZON:
-        epub = f'<a class="carte" href="{AMAZON}" rel="noopener"><strong>EPUB · 0,99 €</strong><span>Pour Kindle, liseuses et téléphones, sur Amazon</span></a>'
+        epub = f'<a class="carte" href="{AMAZON}" rel="noopener"><strong>EPUB · 0,99 €</strong><span>Le prix d’un café, pour des heures d’écriture · Kindle, liseuses et téléphones, sur Amazon</span></a>'
     else:
         epub = '<span class="carte carte-attente"><strong>EPUB · 0,99 €</strong><span>Bientôt sur Amazon, pour Kindle, liseuses et téléphones</span></span>'
     return (f'<div class="cartes">'
@@ -357,7 +357,7 @@ def livre_page():
     pref = preface_html()
     body = [f'<h1 class="titre-fil">{esc(FRONT["title"])}</h1>', '<div class="fil" aria-hidden="true"></div>',
             f'<p class="sous-titre">{esc(FRONT["subtitle"])}</p>',
-            '<p>Des textes écrits depuis l’an 2000, publiés entre 2014 et 2023, rassemblés en six parties. Il cherche un éditeur ; en attendant, il se lit ici en entier, se télécharge en PDF, et existe en EPUB pour liseuses à 0,99 €.</p>', cartes_html(),
+            '<p>Des textes écrits depuis l’an 2000, publiés entre 2014 et 2023, rassemblés en six parties. Il cherche un éditeur ; en attendant, il se lit ici en entier, se télécharge en PDF, et existe en EPUB pour liseuses, <a href="' + AMAZON + '" rel="noopener">sur Amazon à 0,99 €</a> — le prix d’un café, pour des heures d’écriture.</p>', cartes_html(),
             '<section class="panel"><h2>Dédicace</h2>', f'<p class="dedicace">{esc(FRONT["dedicace"])}</p>', '</section>',
             '<section class="panel"><h2>Préface</h2>', f'<p class="preface">{pref}</p>', f'<p class="signature">{esc(FRONT["preface"]["sign"])}</p>', '</section>',
             '<section class="panel"><h2>Ouverture</h2>']
@@ -379,7 +379,7 @@ TITRE = [e for _, e in ALL if e["slug"] == "marcher-sur-un-fil"][0]
 PAGES = {
 "index.html": dict(
   title="Delideal — Marcher sur un fil, poèmes",
-  description="Marcher sur un fil, fragments de sensibilité bipolaire : les poèmes de Delideal, écrits depuis 2000, en lecture libre, à télécharger en PDF et EPUB.",
+  description="Marcher sur un fil, fragments de sensibilité bipolaire : les poèmes de Delideal, écrits depuis 2000, en lecture libre, à télécharger en PDF ; en EPUB sur Amazon.",
   body=f"""
 <header class="couv">
 <p class="marque">Delideal · poèmes</p>
@@ -412,7 +412,7 @@ PAGES = {
 {cartes_html()}
 
 <h2>Soutenir</h2>
-<p>Ce site est gratuit et le restera. Si quelques textes vous touchent, vous pouvez aider à en faire un livre, proposer de les mettre en musique ou en images, ou simplement m’écrire.</p>
+<p>Ce site est gratuit et le restera. Le recueil existe aussi en livre numérique, <a href="{AMAZON}" rel="noopener">sur Amazon à 0,99 €</a> : le prix d’un café, pour des heures d’écriture, afin que personne n’ait à choisir entre lire et payer. Si quelques textes vous touchent, vous pouvez aider à en faire un vrai livre, proposer de les mettre en musique ou en images, ou simplement m’écrire.</p>
 <p class="soutien"><a class="bouton" href="{TIPEEE}" rel="noopener">Soutenir sur Tipeee</a> <a href="soutenir.html">Éditeurs, musiciens, illustrateurs, vidéastes, contact</a></p>
 {partage_html(SITE, "Marcher sur un fil, les poèmes de Delideal", "Partager", "Ce site n’a ni publicité ni algorithme : il va de main en main. Si ces poèmes vous ont touché, envoyez-les à une personne.")}
 """),
@@ -425,7 +425,7 @@ PAGES = {
 
 <section class="panel">
 <h2>Concerto pour hall de gare</h2>
-<p>Une improvisation au piano, jouée et enregistrée par moi-même. Pas d’intelligence artificielle ici : juste un piano et un moment. Le <a href="poemes/concerto-pour-hall-de-gare.html">poème du même nom</a> raconte ce moment.</p>
+<p>Une improvisation au piano, jouée et enregistrée par moi-même : juste un piano et un moment. Le <a href="poemes/concerto-pour-hall-de-gare.html">poème du même nom</a> raconte ce moment.</p>
 <audio controls preload="none" src="audio/concerto-pour-hall-de-gare.mp3" style="width:100%">Votre navigateur ne lit pas l’audio : <a href="audio/concerto-pour-hall-de-gare.mp3">télécharger le mp3</a>.</audio>
 <p class="source"><a href="audio/concerto-pour-hall-de-gare.mp3" download>Télécharger le mp3</a> (5 min 34, 4,5 Mo) · <a href="https://www.youtube.com/watch?v=gunECfrHhX0" rel="noopener">Voir sur YouTube</a> · à partager librement en me citant.</p>
 </section>
@@ -440,7 +440,7 @@ PAGES = {
 </ul>
 <h2>Autre improvisation</h2>
 <ul class="liens">
-<li><a href="https://www.youtube.com/watch?v=QFCULzpDsJk" rel="noopener">Rage and Hopes</a> — une improvisation au piano, brouillonne et sincère, douze minutes sans intelligence artificielle.</li>
+<li><a href="https://www.youtube.com/watch?v=QFCULzpDsJk" rel="noopener">Rage and Hopes</a> — une improvisation au piano, brouillonne et sincère, douze minutes jouées d’une traite.</li>
 </ul>
 
 <h2>Maquettes</h2>
@@ -457,6 +457,7 @@ PAGES = {
 <h2>Contribuer</h2>
 <p>Un don, ponctuel ou mensuel, sur Tipeee, plateforme française dédiée aux créateurs. Il sert à faire vivre ce site, à continuer d’écrire, et à réunir les moyens de publier le recueil <em>Marcher sur un fil</em> en vrai livre.</p>
 <p><a class="bouton" href="{TIPEEE}" rel="noopener">Soutenir Delideal sur Tipeee</a></p>
+<p>Le recueil existe aussi en livre numérique, <a href="{AMAZON}" rel="noopener">sur Amazon à 0,99 €</a> : le prix d’un café, pour des heures d’écriture, afin que personne n’ait à choisir entre lire et payer. Si vous voulez aider davantage, ce n’est pas en l’achetant deux fois : sur Tipeee, votre don m’arrive presque entier, là où une librairie en ligne en garde les deux tiers.</p>
 <h2>Éditer</h2>
 <p>Je cherche une maison d’édition pour le recueil. Le manuscrit est prêt, préfacé, et se lit en entier sur ce site. Écrivez-moi : <a class="courriel" data-u="sebastien.nadler" data-d="gmail.com" href="#">sebastien.nadler [at] gmail.com</a>.</p>
 <h2>Mettre en musique</h2>
