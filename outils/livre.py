@@ -59,7 +59,7 @@ def sources_pdf_html():
 
 COLOPHON_MANUSCRIT = (f'<p>{esc(FRONT["title"])} — {esc(FRONT["subtitle"])}</p>'
             '<p>Textes de Delideal, écrits à partir de l’an 2000, publiés entre 2014 et 2023 sur poeme-france.com.</p>'
-            f'<p>Manuscrit de travail, {MOIS} {ANNEE} : la préface et les remerciements sont à venir.</p>'
+            f'<p>Manuscrit de travail, {MOIS} {ANNEE} : la préface est à venir.</p>'
             f'<p>© {ANNEE} Delideal. Tous droits réservés.</p>')
 A_VENIR = '<p class="a-venir">À venir.</p>'
 
@@ -277,6 +277,7 @@ body.liens .sommaire a,body.liens .titre a{color:inherit}
 .sources tr.partie-row td{padding-top:.9em; font-style:italic; color:#5b554b; border-bottom:none}
 .sources tr{break-inside:avoid}
 .sources p,.fin p{font-size:10.5pt}
+.remerciements p{font-size:11pt; line-height:1.6; margin-top:1.5em}
 .fin{padding-top:0}
 .source{font-size:8.5pt; color:#5b554b; margin-top:5mm}
 .musiques h2{font-size:14pt; margin:6mm 0 2mm; break-after:avoid}
@@ -329,7 +330,7 @@ def book_html(numbers, blanks):
         for e in P["poems"]:
             h.append(f'<article class="poeme-page" id="{e["slug"]}">{poem_html(e, "<br>")}</article>')
     if MODE["manuscrit"]:
-        h.append(f'<section class="page remerciements" id="remerciements"><h1>Remerciements</h1><div class="fil"></div>{A_VENIR}</section>')
+        h.append(f'<section class="page remerciements" id="remerciements"><h1>Remerciements</h1><div class="fil"></div>' + (f'<p>{esc(FRONT["remerciements"])}</p>' if FRONT.get("remerciements") else A_VENIR) + '</section>')
     h.append(f'<section class="page musiques" id="musiques"><h1>Les musiques</h1><div class="fil"></div>{musiques_html(pdf=True)}</section>')
     h.append(f'<section class="page sources" id="sources"><h1>Sources</h1><div class="fil"></div>{sources_pdf_html()}</section>')
     h.append(f'<section class="page fin" id="fin"><h1>Pour continuer</h1><div class="fil"></div>{fin_html()}</section>')
@@ -835,7 +836,7 @@ def main():
         MODE["manuscrit"] = True
         pdf, npages = make_pdf(scratch, liens=True)
         dest.write_bytes(pdf)
-        print(f"  {dest} : {npages} pages, {len(pdf) / 1e6:.2f} Mo (manuscrit, préface et remerciements à venir)")
+        print(f"  {dest} : {npages} pages, {len(pdf) / 1e6:.2f} Mo (manuscrit, préface à venir)")
         return
     print("PDF écran (liens actifs)…")
     pdf, npages = make_pdf(scratch, liens=True)
