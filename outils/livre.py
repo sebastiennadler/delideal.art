@@ -720,7 +720,9 @@ def make_epub(scratch, amazon=True, bordure=False):
            '<li><a epub:type="bodymatter" href="text/preface.xhtml">Début de la lecture</a></li>'
            '</ol></nav></body></html>')
     add("nav.xhtml", nav.encode(), props="nav", in_spine=False)
-    uid = "https://delideal.art/livre/marcher-sur-un-fil"
+    # Identifiant propre à chaque édition : Apple Books (et d'autres liseuses) considèrent deux EPUB
+    # de même identifiant comme le même livre et gardent l'ancien exemplaire au lieu d'ouvrir le nouveau.
+    uid = f"https://delideal.art/livre/marcher-sur-un-fil/{datetime.date.today().isoformat()}"
     counter = [0]
     def ncx_points(items):
         out = []
