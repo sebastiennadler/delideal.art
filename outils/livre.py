@@ -30,7 +30,7 @@ FONT_FILES = {("400", "normal"): "eb-garamond-latin-400-normal.woff",
 ANNEE = datetime.date.today().year
 SITE = "https://delideal.art"
 TIPEEE = "https://fr.tipeee.com/delidealart"
-MODE = {"liens": True, "amazon": False, "manuscrit": False}   # manuscrit : exemplaire à envoyer à un préfacier (préface et remerciements « à venir »)   # liens : actifs (écran, EPUB) ou non (imprimable) ; amazon : version vendue 0,99 €
+MODE = {"liens": True, "amazon": False, "manuscrit": False, "editeur": None}   # editeur : dossier pour une maison d’édition (HTML de présentation, pas de préface)   # manuscrit : exemplaire à envoyer à un préfacier (préface et remerciements « à venir »)   # liens : actifs (écran, EPUB) ou non (imprimable) ; amazon : version vendue 0,99 €
 PRIX_AMAZON = ('<p>Ce livre coûte 0,99 € : le prix d’un café, pour des heures d’écriture, afin que personne n’ait à choisir entre lire et payer. '
                'Il se lit aussi gratuitement sur delideal.art. Le site, le matériel pour la musique, les heures : tout cela a un coût, et le premier but est de rentrer dans mes frais. '
                'Si vous voulez aider davantage, ce n’est pas en l’achetant deux fois : sur Tipeee, votre don m’arrive presque entier, là où une librairie en ligne en garde les deux tiers. '
@@ -55,13 +55,17 @@ def sources_pdf_html():
             'sur poeme-france.com, un site tiers qui fixe la date de mise en ligne de chaque texte et conserve les commentaires des lecteurs de l’époque. '
             f'Sous chaque texte, une ligne donne sa date de première publication, sa page d’origine et sa copie conservée par Internet Archive.{mots}</p>'
             f'<p>Les mêmes dates et copies d’archive sont réunies sur {lien}.</p>'
-            + ('' if MODE["manuscrit"] else '<p>La préface du recueil, un acrostiche, est d’Isabelle Jespersen.</p>'))
+            + ('' if (MODE["manuscrit"] or MODE["editeur"]) else '<p>La préface du recueil, un acrostiche, est d’Isabelle Jespersen.</p>'))
 
 COLOPHON_MANUSCRIT = (f'<p>{esc(FRONT["title"])} — {esc(FRONT["subtitle"])}</p>'
             '<p>Textes de Delideal, écrits à partir de l’an 2000, publiés entre 2014 et 2023 sur poeme-france.com.</p>'
             f'<p>Manuscrit de travail, {MOIS} {ANNEE} : la préface est à venir.</p>'
             f'<p>© {ANNEE} Delideal. Tous droits réservés.</p>')
 A_VENIR = '<p class="a-venir">À venir.</p>'
+COLOPHON_EDITEUR = (f'<p>{esc(FRONT["title"])} — {esc(FRONT["subtitle"])}</p>'
+            '<p>Textes de Delideal, écrits à partir de l’an 2000, publiés entre 2014 et 2023 sur poeme-france.com.</p>'
+            f'<p>Dossier de présentation à l’intention d’une maison d’édition, {MOIS} {ANNEE}. Texte intégral du recueil, sans préface.</p>'
+            f'<p>© {ANNEE} Delideal. Tous droits réservés.</p>')
 
 def fin_html():
     if MODE.get("amazon"):
@@ -242,6 +246,11 @@ body.liens .sommaire a,body.liens .titre a{color:inherit}
 /* sommaire */
 .sommaire h1,.sources h1,.fin h1,.preface-page h1,.remerciements h1{font-size:20pt; margin-bottom:0}
 .a-venir{font-style:italic; color:#7a7268; margin-top:2em}
+.presentation h1{font-size:20pt; margin-bottom:0}
+.presentation p{font-size:10pt; line-height:1.42; margin:0 0 .55em; text-align:justify; hyphens:auto}
+.presentation p.dest{margin-top:1.1em; font-style:italic}
+.presentation p.sign{margin-top:.9em; text-align:right; font-style:italic}
+.presentation p.sign span{display:block; font-style:normal; font-size:9.5pt; color:#5b554b}
 .sommaire ol{list-style:none; padding:0; margin:0}
 .sommaire li{break-inside:avoid}
 .sommaire li a{display:flex; align-items:baseline; gap:.35em; color:inherit}
@@ -303,19 +312,22 @@ def book_html(numbers, blanks):
          ECRAN_CSS if MODE["liens"] else "", '</style></head>', '<body class="liens">' if MODE["liens"] else '<body>']
     h.append(f'<section class="titre"><p class="auteur">Delideal</p><h1>{esc(FRONT["title"])}</h1><div class="fil"></div>'
              f'<p class="st">{esc(FRONT["subtitle"])}</p><p class="site">' + (f'<a href="{SITE}">delideal.art</a>' if MODE["liens"] else 'delideal.art') + '</p></section>')
-    h.append(f'<section class="page colophon">{COLOPHON_MANUSCRIT if MODE["manuscrit"] else COLOPHON}</section>')
+    h.append(f'<section class="page colophon">{COLOPHON_EDITEUR if MODE["editeur"] else COLOPHON_MANUSCRIT if MODE["manuscrit"] else COLOPHON}</section>')
+    if MODE["editeur"]:
+        h.append(f'<section class="page presentation" id="presentation"><h1>Présentation</h1><div class="fil"></div>{MODE["editeur"]}</section>')
     h.append(blank("dedicace") + f'<section class="page dedicace"><p>{esc(FRONT["dedicace"])}</p></section>')
-    h.append(blank("preface") + f'<section class="page preface-page" id="preface"><h1>Préface</h1><div class="fil"></div>{A_VENIR if MODE["manuscrit"] else preface_html()}</section>')
+    if not MODE["editeur"]:
+        h.append(blank("preface") + f'<section class="page preface-page" id="preface"><h1>Préface</h1><div class="fil"></div>{A_VENIR if MODE["manuscrit"] else preface_html()}</section>')
     h.append(blank("ouverture") + '<section class="page ouverture">' + "".join(f'<p class="citation">{esc(l)}</p>' for l in FRONT["ouverture"]) + '</section>')
     # sommaire
-    s = ['<section class="page sommaire"><h1>Sommaire</h1><div class="fil"></div><ol>',
-         f'<li class="autre"><a href="#preface"><span class="t">Préface</span><span class="pts"></span><span class="n">{n("preface")}</span></a></li>']
+    s = ['<section class="page sommaire"><h1>Sommaire</h1><div class="fil"></div><ol>'] + ([] if MODE["editeur"] else
+         [f'<li class="autre"><a href="#preface"><span class="t">Préface</span><span class="pts"></span><span class="n">{n("preface")}</span></a></li>'])
     for P in PARTS:
         k = f'partie-{P["num"]}'
         s.append(f'<li class="part"><a href="#{k}"><span class="t">{P["num"]}. {esc(P["title"])}</span><span class="pts"></span><span class="n">{n(k)}</span></a></li>')
         for e in P["poems"]:
             s.append(f'<li class="poem"><a href="#{e["slug"]}"><span class="t">{esc(e["title"])}</span><span class="pts"></span><span class="n">{n(e["slug"])}</span></a></li>')
-    if MODE["manuscrit"]:
+    if MODE["manuscrit"] or MODE["editeur"]:
         s.append(f'<li class="autre"><a href="#remerciements"><span class="t">Remerciements</span><span class="pts"></span><span class="n">{n("remerciements")}</span></a></li>')
     s.append(f'<li class="autre"><a href="#musiques"><span class="t">Les musiques</span><span class="pts"></span><span class="n">{n("musiques")}</span></a></li>')
     s.append(f'<li class="autre"><a href="#sources"><span class="t">Sources</span><span class="pts"></span><span class="n">{n("sources")}</span></a></li>')
@@ -329,7 +341,7 @@ def book_html(numbers, blanks):
                  + (f'<p class="chapeau">' + "<br>".join(esc(x) for x in P["chapeau"].split("\n")) + '</p>' if P.get("chapeau") else "") + '</section>')
         for e in P["poems"]:
             h.append(f'<article class="poeme-page" id="{e["slug"]}">{poem_html(e, "<br>")}</article>')
-    if MODE["manuscrit"]:
+    if MODE["manuscrit"] or MODE["editeur"]:
         h.append(f'<section class="page remerciements" id="remerciements"><h1>Remerciements</h1><div class="fil"></div>' + (f'<p>{esc(FRONT["remerciements"])}</p>' if FRONT.get("remerciements") else A_VENIR) + '</section>')
     h.append(f'<section class="page musiques" id="musiques"><h1>Les musiques</h1><div class="fil"></div>{musiques_html(pdf=True)}</section>')
     h.append(f'<section class="page sources" id="sources"><h1>Sources</h1><div class="fil"></div>{sources_pdf_html()}</section>')
@@ -356,12 +368,12 @@ def measure(pdf_bytes):
     """Retourne clé -> numéro de page (1-based) : signets pour les titres, texte pour dédicace/ouverture."""
     from pypdf import PdfReader
     r = PdfReader(io.BytesIO(pdf_bytes))
-    expected = [("titre", FRONT["title"]), ("preface", "Préface"), ("sommaire", "Sommaire")]
+    expected = [("titre", FRONT["title"])] + ([("presentation", "Présentation")] if MODE["editeur"] else [("preface", "Préface")]) + [("sommaire", "Sommaire")]
     for P in PARTS:
         expected.append((f'partie-{P["num"]}', P["title"]))
         for e in P["poems"]:
             expected.append((e["slug"], e["title"]))
-    expected += ([("remerciements", "Remerciements")] if MODE["manuscrit"] else []) + [("musiques", "Les musiques"), ("sources", "Sources"), ("fin", "Pour continuer")]
+    expected += ([("remerciements", "Remerciements")] if (MODE["manuscrit"] or MODE["editeur"]) else []) + [("musiques", "Les musiques"), ("sources", "Sources"), ("fin", "Pour continuer")]
     flat = []
     def walk(o):
         for x in o:
@@ -390,10 +402,10 @@ def measure(pdf_bytes):
 def make_pdf(scratch, liens):
     MODE["liens"] = liens
     recto = [] if liens else RECTO          # écran : pas de pages blanches
-    order = ["titre", "dedicace", "preface", "ouverture", "sommaire"]
+    order = ["titre"] + (["presentation"] if MODE["editeur"] else []) + ["dedicace"] + ([] if MODE["editeur"] else ["preface"]) + ["ouverture", "sommaire"]
     for P in PARTS:
         order.append(f'partie-{P["num"]}'); order += [e["slug"] for e in P["poems"]]
-    order += (["remerciements"] if MODE["manuscrit"] else []) + ["musiques", "sources", "fin"]
+    order += (["remerciements"] if (MODE["manuscrit"] or MODE["editeur"]) else []) + ["musiques", "sources", "fin"]
     pos = {k: i for i, k in enumerate(order)}
     numbers, blanks = {}, set()
     for it in range(8):
@@ -830,6 +842,14 @@ def main():
         dest.write_bytes(epub)
         (dest.parent / "couverture-kindle.jpg").write_bytes(cover_jpg(scratch, "--bordure" in sys.argv))
         print(f"  {dest} : {nfiles} fichiers, {len(epub) / 1e6:.2f} Mo (version Amazon, hors dépôt) + couverture-kindle.jpg")
+        return
+    if "--editeur" in sys.argv:
+        i = sys.argv.index("--editeur")
+        dest, pres = Path(sys.argv[i + 1]), Path(sys.argv[i + 2])
+        MODE["editeur"] = pres.read_text(encoding="utf-8")
+        pdf, npages = make_pdf(scratch, liens=True)
+        dest.write_bytes(pdf)
+        print(f"  {dest} : {npages} pages, {len(pdf) / 1e6:.2f} Mo (dossier éditeur, sans préface)")
         return
     if "--manuscrit" in sys.argv:
         dest = Path(sys.argv[sys.argv.index("--manuscrit") + 1])
