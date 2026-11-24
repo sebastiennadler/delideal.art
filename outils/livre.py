@@ -246,10 +246,10 @@ body.liens .sommaire a,body.liens .titre a{color:inherit}
 /* sommaire */
 .sommaire h1,.sources h1,.fin h1,.preface-page h1,.remerciements h1{font-size:20pt; margin-bottom:0}
 .a-venir{font-style:italic; color:#7a7268; margin-top:2em}
-.presentation h1{font-size:20pt; margin-bottom:0}
-.presentation p{font-size:10pt; line-height:1.42; margin:0 0 .55em; text-align:justify; hyphens:auto}
-.presentation p.dest{margin-top:1.1em; font-style:italic}
-.presentation p.sign{margin-top:.9em; text-align:right; font-style:italic}
+.presentation h1{font-size:18pt; margin-bottom:0}
+.presentation p{font-size:9.8pt; line-height:1.38; margin:0 0 .5em; text-align:justify; hyphens:auto}
+.presentation p.dest{margin-top:.7em; font-style:italic}
+.presentation p.sign{margin-top:.5em; text-align:right; font-style:italic}
 .presentation p.sign span{display:block; font-style:normal; font-size:9.5pt; color:#5b554b}
 .sommaire ol{list-style:none; padding:0; margin:0}
 .sommaire li{break-inside:avoid}
